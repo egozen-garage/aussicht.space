@@ -1,0 +1,187 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$aussichtDOTspace-primary: mat-palette($mat-indigo);
+$aussichtDOTspace-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$aussichtDOTspace-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$aussichtDOTspace-theme: mat-light-theme((
+  color: (
+    primary: $aussichtDOTspace-primary,
+    accent: $aussichtDOTspace-accent,
+    warn: $aussichtDOTspace-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($aussichtDOTspace-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+//body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+            
+/* ---------------- MAIN CSS PROPERTY CONTROL CENTER FOR VARIABLES ---------------- */
+:root {
+  --text: white;
+  --color-white: white;
+  --color-black: black;
+  --color-rosa: #E59BA8;
+  --color-indigo: #1D2273;
+  --margin: 50px;
+  --padding-between-sections: 100px;
+
+  --font-family-primary: '2070';
+  --font-family-secondary: 'happy times';
+  --font-family-machine: '2070mono';
+
+  --font-size-primary: 40px;
+  --font-size-secondary: 60px;
+  --font-size-title: 120px;
+  --font-size-date: 20px;
+  }
+
+/* --------------------------------------------------------------------------- */
+
+  body {
+      overflow-x: hidden;
+      background-color: var(--color-black);
+      color: var(--color-white);
+      cursor: url('assets/logos/2070_cursor.png'), auto;
+      min-height: 100%;
+      width: 100%;
+   }
+
+   /* keeps website expanding, but also have height of <body> fit the window */
+   * { margin: 0; padding: 0; }
+   html { width: 100%; height: 100%; }
+
+  .cursor-follower {
+    position: fixed;
+    top: -150px;
+    left: 70px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background: linear-gradient(60deg, rgba(229,166,176,1) 0%, rgba(85,96,169,1) 55%, rgba(45,60,132,1) 90%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+/* ------------ FONT QUERY ------------ */
+// src/assets/fonts/2070-Black_176_web.woff
+
+@font-face {
+  font-family: '2070';
+  font-weight: 300;                                               
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    local('2070'),
+          url('/assets/fonts/2070-Light_72_web.woff2')  format('woff2'),        /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070-Light_72_web.woff')   format('woff'),         /* Pretty Modern Browsers */
+          url('/assets/fonts/2070-Light72.ttf')         format('truetype');     /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: '2070';
+  font-weight: 400;                                               /* 400 = normal */
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    local('2070'),
+          url('/assets/fonts/2070-Normal_92_web.woff2') format('woff2'),        /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070-Normal_92_web.woff')  format('woff'),         /* Pretty Modern Browsers */
+          url('/assets/fonts/2070-Normal92.ttf')        format('truetype');     /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: '2070';
+  font-weight: 500;                                               
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    local('2070'),
+          url('/assets/fonts/2070-Medium_116_web.woff2')  format('woff2'),      /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070-Medium_116_web.woff')   format('woff'),       /* Pretty Modern Browsers */
+          url('/assets/fonts/2070-Medium116.ttf')         format('truetype');   /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: '2070';
+  font-weight: 700;                                               /* 700 = bold */
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    local('2070'),
+          url('/assets/fonts/2070-Bold156.eot'),
+          url('/assets/fonts/2070-Bold_156_web.woff2')  format('woff2'),        /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070-Bold_156_web.woff')   format('woff'),         /* Pretty Modern Browsers */
+          url('/assets/fonts/2070-Bold156.svg')         format('svg'),          /* Legacy iOS */
+          url('/assets/fonts/2070-Bold156.ttf')         format('truetype');     /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: '2070';
+  font-weight: 900;                                               /* 900 = black */
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    local('2070'),
+          url('/assets/fonts/2070-Black_176_web.woff2') format('woff2'),        /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070-Black_176_web.woff')  format('woff'),         /* Pretty Modern Browsers */
+          url('/assets/fonts/2070-Black176.ttf')        format('truetype');     /* Safari, Android, iOS */
+}
+
+
+@font-face {
+  font-family: 'happy times';
+  font-weight: 500;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    local('happy times'),
+          url('/assets/fonts/happy-times-NG_regular_master_web.woff2')  format('woff2'),
+          url('/assets/fonts/happy-times-NG_regular_master.ttf')        format('truetype');
+}
+
+@font-face {
+  font-family: '2070mono';
+  font-weight: 300;                                                   /* 300 = light */
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    local('2070mono'),
+          url('/assets/fonts/2070mono-Light_web.woff2')    format('woff2'),        /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070mono-Light_72_web.woff')  format('woff'),         /* Pretty Modern Browsers */
+          url('/assets/fonts/2070mono-Light72.svg')        format('svg'),          /* Legacy iOS */
+          url('/assets/fonts/2070mono-Light72.ttf')        format('truetype');     /* Safari, Android, iOS */
+}
+
+/* ------------ BUTTON STYLING ------------ */
+button {
+background: none;
+color: inherit;
+border: none;
+padding: 0;
+font: inherit;
+cursor: pointer;
+outline: inherit;
+}
+
+/* ------------ TEXT STYLING ------------ */
+
+h1, h2, h3 {
+  font-family: var(--font-family-primary);
+}

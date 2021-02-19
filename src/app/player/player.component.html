@@ -1,0 +1,87 @@
+<div [ngClass]="{'height': resize_player_container}" (mouseenter)="changeText=true; ShowPlayerList()" (mouseleave)="changeText=false; HidePlayerList()" id="podcast_area_all" class="player-container">
+
+  <!-- *ngIf="changeText"  -->
+  <!-- podcast_list_collapsed -->
+  <ul *ngIf="changeText" [ngClass]="{'background-color': ListColor}" [ngClass]="{'animation': slideListInOut}"  class="podcast_track_list ">
+    <div *ngFor="let file of files; let i = index" (click)="openFile(file, i)" class='player-controls play'
+      id='podcast_list_object_{{file.episode}}'>
+      <span class='track_name podcast_play_pause_icon'>
+        <img src="/assets/logos/2070_button_play.png" class="play_pause_symbol">
+      </span>
+      <span class='track_name track_number' id='track_name_number_{{file.countingUP}}'>{{file.episode}}</span>
+      <span class='track_name'>{{ file.author }}</span>
+      <span class='track_name track_name_title' id='track_name_{{file.countingUP}}'>
+        <p> <span [innerHTML]> {{file.name}} </span></p>
+      </span>
+      <span class='track_name podcast_date'>{{file.date}}</span>
+    </div>
+  </ul>
+
+  <div class="player">
+    <div id="all_of_timeline">
+      <div *ngIf="state?.readableCurrentTime" class="timeline_time_left player_timeline_info">{{ state?.readableCurrentTime }}</div>
+      <div *ngIf="!state?.readableCurrentTime" class="timeline_time_left player_timeline_info">00:00</div>
+
+      <mat-slider class="audio-timeline" id="timeline" min="0" [max]="state?.duration" step="1"
+        [value]="state?.currentTime" (input)="onSliderChangeEnd($event)"
+        [disabled]="state?.error || currentFile.index === undefined">
+        <!-- <div class="info" id="playhead">
+          <span id="duration"></span>
+        </div> -->
+      </mat-slider>
+
+      <div class="player_timeline_info" id="timeleft">{{ state?.readableDuration }}</div>
+    </div>
+
+    <div (click)="playpause()" id="current_podcast">
+      <div id="current_podcast_click_area" class="player-controls play">
+        <span class="current_podcast_track_name" id="current_podcast_play_pause_icon">
+            <img *ngIf="!state?.playing" src="/assets/logos/2070_button_play.png" class="play_pause_symbol">
+            <img *ngIf="state?.playing" src="/assets/logos/2070_button_pause.png" class="play_pause_symbol">
+        </span>
+        <span innerHTML="{{pass_episode}}" class="current_podcast_track_name track_number"
+          id="current_podcast_track_name_number"></span>
+        <span innerHTML="{{pass_author}}" class="current_podcast_track_name">Off_line</span>
+        <span innerHTML="{{pass_name}}" class="current_podcast_track_name track_name_title"
+          id="current_podcast_track_name"></span>
+        <span class="current_podcast_track_name podcast_date"></span>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</div>
+
+
+  <!-- <mat-list-item *ngFor="let file of files; let i = index" (click)="openFile(file, i)">
+          <h4 mat-line>{{ file.name }}</h4>
+          <h5 mat-line>{{ file.author }}</h5>
+          <img *ngIf="currentFile.index === i && !state?.error" src="/assets/logos/2070_button_play.png" class="play_pause_symbol">
+          <h6 *ngIf="currentFile.index === i && state?.error">ERROR</h6>
+        </mat-list-item> -->
+
+
+  <!-- <div class="media-footer">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+          {{ state?.readableCurrentTime }}
+          <mat-slider class="time-slider" min="0" [max]="state?.duration" step="1" [value]="state?.currentTime" (input)="onSliderChangeEnd($event)" [disabled]="state?.error || currentFile.index === undefined"></mat-slider>
+          {{ state?.readableDuration }}
+      </mat-toolbar-row>
+      <mat-toolbar-row class="media-action-bar">
+
+        <button mat-button (click)="play()" [disabled]="state?.error" *ngIf="!state?.playing">
+          <mat-icon mat-list-icon>play_circle_filled</mat-icon>
+        </button>
+        <button mat-button (click)="pause()" *ngIf="state?.playing">
+          <mat-icon mat-list-icon>pause</mat-icon>
+        </button>
+
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div> -->
+

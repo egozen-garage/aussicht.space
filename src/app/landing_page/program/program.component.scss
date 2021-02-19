@@ -1,0 +1,336 @@
+
+    #programme {
+        background-color: var(--color-white);
+        position: static;
+        display: grid;
+        padding-top: var(--padding-between-sections);
+        padding-bottom: var(--padding-between-sections);
+        padding-right: var(--margin);
+        padding-left: var(--margin);
+        z-index: 1;
+        font-weight: 500;
+        font-size: var(--font-size-primary);
+        font-family: var(--font-family-primary);
+        line-height: 1.2;
+        min-height: 100vh;
+        max-height: auto;
+    }
+
+
+  /* The checkbox will be invisible and its label will be used instead to check or uncheck it. */
+  input[type='checkbox'] { 
+    display: none;
+  } 
+
+  .break {
+    display: none;
+  }
+
+  /* .event:hover { 
+    color: var(--color-rosa); 
+  } */
+
+  .event {
+    text-align: left; 
+    color: black; 
+    cursor: pointer; 
+    display: inline;
+  }
+
+  .date {
+    font-size: var(--font-size-date);
+    font-family: var(--font-family-primary);
+    font-weight: 300;
+  }
+
+  .collapsible-content { 
+    max-height: 0px;
+    max-width: 0px;
+    overflow: hidden; 
+    transition: color 1s ease-in; 
+    font-family: var(--font-family-secondary);
+    position: absolute;
+    /* display: block; */
+    /* color: var(--color-rosa); */
+    font-size: var(--font-size-primary); 
+    text-align: left;
+    color: white;
+  } 
+
+  /* when checked: set max-height value so that it can grow to display all its internal content*/
+  .toggle:checked + #collapsible-01 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  } 
+
+  .toggle:checked + #collapsible-01 + #animate-br-01{ 
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-02 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  } 
+
+  .toggle:checked + #collapsible-02 + #animate-br-02 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-03 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-03 + #animate-br-03 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-04 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-04 + #animate-br-04 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-05 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-05 + #animate-br-05 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-06 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-06 + #animate-br-06 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-07 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-07 + #animate-br-07 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-08 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-08 + #animate-br-08 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-09 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-09 + #animate-br-09 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-10 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-10 + #animate-br-10 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-11 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-11 + #animate-br-11 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-12 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-12 + #animate-br-12 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-13 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-13 + #animate-br-13 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-14 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-14 + #animate-br-14 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-15 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-15 + #animate-br-15 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-16 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-16 + #animate-br-16 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-17 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-17 + #animate-br-17 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-18 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-18 + #animate-br-18 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-19 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-19 + #animate-br-19 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-20 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-20 + #animate-br-20 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-21 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-21 + #animate-br-21 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-22 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-22 + #animate-br-22 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-23 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-23 + #animate-br-23 {
+    display: block;
+  }
+  

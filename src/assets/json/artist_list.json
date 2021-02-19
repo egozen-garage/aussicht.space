@@ -1,0 +1,467 @@
+[
+    {
+        "name": "Baumgartner",
+        "forename": "Kathrin",
+        "folder": "baumgartner_kathrin"
+    },
+    {
+        "name": "Bassen",
+        "forename": "Milena",
+        "folder": "bassen_milena"
+    },
+    {
+        "name": "Sukhova",
+        "forename": "Anna",
+        "folder": "sukhova_anna"
+    },
+    {
+        "name": "Tverdokhlebova",
+        "forename": "Tatiana",
+        "folder": "tverdokhlebova_tatiana"
+    },
+    {
+        "name": "Pechechian",
+        "forename": "Ella",
+        "folder": "pechechian_ella"
+    },
+    {
+        "name": "Bietz",
+        "forename": "Johannes",
+        "folder": "bietz_johannes"
+    },
+    {
+        "name": "Bouchet",
+        "forename": "Mike",
+        "folder": "bildhauerei"
+    },
+    {
+        "name": "Möller",
+        "forename": "Malte",
+        "folder": "moeller_malte"
+    },
+    {
+        "name": "Klemisch",
+        "forename": "Lea",
+        "folder": "klemisch_lea"
+    },
+    {
+        "name": "Pidoux",
+        "forename": "Joëlle",
+        "folder": "pidoux_joelle"
+    },
+    {
+        "name": "Ratzinger",
+        "forename": "Isabell",
+        "folder": "ratzinger_isabell"
+    },
+    {
+        "name": "Krämer",
+        "forename": "Tobias",
+        "folder": "kraemer_tobias"
+    },
+    {
+        "name": "Brenner",
+        "forename": "Rosa",
+        "folder": "brenner_rosa"
+    },
+    {
+        "name": "Kostel",
+        "forename": "Marina",
+        "folder": "kostel_marina"
+    },
+    {
+        "name": "Bleckman",
+        "forename": "Jana",
+        "folder": "bleckman_jana"
+    },
+    {
+        "name": "Bröcker",
+        "forename": "Felix",
+        "folder": "broecker_felix"
+    },
+    {
+        "name": "EgoZen",
+        "forename": null,
+        "folder": "egozen"
+    },
+    {
+        "name": "Arndt",
+        "forename": "Armin",
+        "folder": "arndt_armin"
+    },
+    {
+        "name": "Rodenwaldt",
+        "forename": "Ken",
+        "folder": "rodenwaldt_ken"
+    },
+    {
+        "name": "Bianchini",
+        "forename": "Beatrice",
+        "folder": "bianchini_beatrice"
+    },
+    {
+        "name": "Sacco",
+        "forename": "Erika G",
+        "folder": "sacco_erika"
+    },
+    {
+        "name": "Lorenzon",
+        "forename": "Roberto",
+        "folder": "lorenzon_roberto"
+    },
+    {
+        "name": "Felske",
+        "forename": "Tania",
+        "folder": "felske_tania"
+    },
+    {
+        "name": "Graf",
+        "forename": "Pia",
+        "folder": "graf_pia"
+    },
+    {
+        "name": "Gutberlet",
+        "forename": "Marie-Hélène",
+        "folder": "gutberlet_marie_helene"
+    },
+    {
+        "name": "Häfner",
+        "forename": "Diane",
+        "folder": "haefner_diane"
+    },
+    {
+        "name": "Heuser",
+        "forename": "Julian",
+        "folder": "heuser_julian"
+    },
+    {
+        "name": "Huber",
+        "forename": "Kristina",
+        "folder": "huber_kristina"
+    },
+    {
+        "name": "Kämmer",
+        "forename": "Bastian",
+        "folder": "kraemer_bastian"
+    },
+    {
+        "name": "Klemp",
+        "forename": "Klaus",
+        "folder": "klemp_klaus"
+    },
+    {
+        "name": "Kreiter",
+        "forename": "Natalja",
+        "folder": "kreiter_natalja"
+    },
+    {
+        "name": "Leicher",
+        "forename": "Christian",
+        "folder": "leicher_christian"
+    },
+    {
+        "name": "Mack",
+        "forename": "Verena",
+        "folder": "mack_verena"
+    },
+    {
+        "name": "Mijic",
+        "forename": "Svetlana",
+        "folder": "mijic_svetlana"
+    },
+    {
+        "name": "Oschatz",
+        "forename": "Sebastian",
+        "folder": "oschatz_sebastian"
+    },
+    {
+        "name": "Bedersdorfer",
+        "forename": "Jasmin",
+        "folder": "bedersdorfer_jasmin"
+    },
+    {
+        "name": "Coors",
+        "forename": "Malú",
+        "folder": "coors_malu"
+    },
+    {
+        "name": "Coors",
+        "forename": "Nele",
+        "folder": "coors_nele"
+    },
+    {
+        "name": "Strecker",
+        "forename": "Edith",
+        "folder": "strecker_edith"
+    },
+    {
+        "name": "Nguyen",
+        "forename": "Huy",
+        "folder": "nguyen_huy"
+    },
+    {
+        "name": "Özbayram",
+        "forename": "Burhan",
+        "folder": "oezbayram_burhan"
+    },
+    {
+        "name": "Wu",
+        "forename": "Yuqin",
+        "folder": "wu_yuqin"
+    },
+    {
+        "name": "Han Ho",
+        "forename": "Si",
+        "folder": "han_ho_si"
+    },
+    {
+        "name": "Hohenstein",
+        "forename": "Morgana",
+        "folder": "hohenstein_morgana"
+    },
+    {
+        "name": "Xiao",
+        "forename": "Jie",
+        "folder": "xiao_jie"
+    },
+    {
+        "name": "Jazenko",
+        "forename": "Stella",
+        "folder": "jazenko_stella"
+    },
+    {
+        "name": "Zha",
+        "forename": "Jiaojiao",
+        "folder": "zha_jiaojiao"
+    },
+    {
+        "name": "Cmelka",
+        "forename": "Kerstin",
+        "folder": "performance_cmelka"
+    },
+    {
+        "name": "Oppermann",
+        "forename": "Alexander",
+        "folder": "performance_oppermann"
+    },
+    {
+        "name": "Poppersoni",
+        "forename": "Alla",
+        "folder": "poppersoni_alla"
+    },
+    {
+        "name": "Pape",
+        "forename": "Paul",
+        "folder": "pape_paul"
+    },
+    {
+        "name": "Reski",
+        "forename": "Gunter",
+        "folder": "reski_gunter"
+    },
+    {
+        "name": "Fischer",
+        "forename": "Nola",
+        "folder": "fischer_nola"
+    },
+    {
+        "name": "Stephan",
+        "forename": "Leonard",
+        "folder": "stephan_leonard"
+    },
+    {
+        "name": "Berg",
+        "forename": "Charlotte",
+        "folder": "berg_charlotte"
+    },
+    {
+        "name": "Sipf",
+        "forename": "Clara",
+        "folder": "sipf_clara"
+    },
+    {
+        "name": "Thürck",
+        "forename": "Stefan",
+        "folder": "thuerck_stefan"
+    },
+    {
+        "name": "Sioulvegas",
+        "forename": "Timon",
+        "folder": "sioulvegas_timon"
+    },
+    {
+        "name": "Kim",
+        "forename": "Eunyoung",
+        "folder": "kim_eunyoung"
+    },
+    {
+        "name": "Grewenig",
+        "forename": "Lena",
+        "folder": "grewenig_lena"
+    },
+    {
+        "name": "Kilicarslan",
+        "forename": "Deniz",
+        "folder": "kilicarslan_deniz"
+    },
+    {
+        "name": "Sahm",
+        "forename": "Alexander",
+        "folder": "sahm_alexander"
+    },
+    {
+        "name": "Schuppelius",
+        "forename": "Heike",
+        "folder": "schuppelius_heike"
+    },
+    {
+        "name": "Brenner",
+        "forename": "Helene",
+        "folder": "brenner_helene"
+    },
+    {
+        "name": "Falkenberg",
+        "forename": "Jones",
+        "folder": "falkenberg_jonas"
+    },
+    {
+        "name": "Olt",
+        "forename": "Katharina",
+        "folder": "olt_katharina"
+    },
+    {
+        "name": "Harder",
+        "forename": "Michelle",
+        "folder": "harder_michelle"
+    },
+    {
+        "name": "Storch",
+        "forename": "Annika",
+        "folder": "storch_annika"
+    },
+    {
+        "name": "Vöckler",
+        "forename": "Kai",
+        "folder": "voeckler_kai"
+    },
+    {
+        "name": "Ries",
+        "forename": "Marc",
+        "folder": "ries_marc"
+    },
+    {
+        "name": "Völzke",
+        "forename": "Knut",
+        "folder": "voelzke_knut"
+    },
+    {
+        "name": "Gehrisch",
+        "forename": "Luzi",
+        "folder": "gehrisch_luzi"
+    },
+    {
+        "name": "Gries",
+        "forename": "Christoph",
+        "folder": "gries_christoph"
+    },
+    {
+        "name": "Handon",
+        "forename": "Luke",
+        "folder": "handon_luke"
+    },
+    {
+        "name": "Rivera",
+        "forename": "Tobias",
+        "folder": "rivera_tobias"
+    },
+    {
+        "name": "Morbach",
+        "forename": "Leonie",
+        "folder": "morbach_leonie"
+    },
+    {
+        "name": "Castaño Moreno",
+        "forename": "Valeria",
+        "folder": "castano_moreno_valeria"
+    },
+    {
+        "name": "Bastian",
+        "forename": "Suska",
+        "folder": "bastian_suska"
+    },
+    {
+        "name": "Tasch",
+        "forename": "Franca",
+        "folder": "tasch_franca"
+    },
+    {
+        "name": "Wood",
+        "forename": "Nina",
+        "folder": "wood_nina"
+    },
+    {
+        "name": "Weirich",
+        "forename": "Hannah",
+        "folder": "weirich_hannah"
+    },
+    {
+        "name": "Zebner",
+        "forename": "Frank",
+        "folder": "zebner_frank"
+    },
+    {
+        "name": "Armbruster",
+        "forename": "Jan",
+        "folder": "armbruster_jan"
+    },
+    {
+        "name": "Becker",
+        "forename": "Daniel",
+        "folder": "becker_daniel"
+    },
+    {
+        "name": "Chen",
+        "forename": "Yudan",
+        "folder": "chen_yudan"
+    },
+    {
+        "name": "Czegeny",
+        "forename": "Patrizia",
+        "folder": "czegeny_patrizia"
+    },
+    {
+        "name": "Herzog",
+        "forename": "Teresa",
+        "folder": "herzog_teresa"
+    },
+    {
+        "name": "Jia",
+        "forename": "Yeqi",
+        "folder": "jia_yeqi"
+    },
+    {
+        "name": "Jin",
+        "forename": "Jun",
+        "folder": "jin_jun"
+    },
+    {
+        "name": "Kirwald",
+        "forename": "Sophia",
+        "folder": "kirwald_sophia"
+    },
+    {
+        "name": "Modler",
+        "forename": "Lorenz",
+        "folder": "modler_lorenz"
+    },
+    {
+        "name": "Struwe",
+        "forename": "Christian",
+        "folder": "struwe_christian"
+    },
+    {
+        "name": "Timmann",
+        "forename": "Christina",
+        "folder": "timmann_christina"
+    }
+]

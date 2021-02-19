@@ -1,0 +1,17 @@
+#about {
+    padding-top: var(--padding-between-sections);
+    padding-bottom: var(--padding-between-sections);
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+
+    position: static;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    z-index: 1;
+    color: white;
+    font-family: var(--font-family-secondary);
+    font-weight: 400;
+    font-size: var(--font-size-primary);
+    line-height: 1.2;
+}

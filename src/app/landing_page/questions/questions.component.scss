@@ -1,0 +1,42 @@
+.lp-title {
+    color: white;
+    position: static;
+    display: grid;
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    line-height: 1;
+    height: 140vh;
+}
+
+.typewriter {
+    background-color: white;
+    color: black;
+    padding-right: 20px;
+    /* border-style: solid;
+    border-color: white; */
+    font-family: var(--font-family-machine);
+    hyphens: auto;
+}
+
+.lp-title p {
+    font-family: var(--font-family-primary);
+    font-weight: 300;
+    font-size: var(--font-size-title);
+}
+
+/* @media only screen and (max-width: 800px) {
+    .lp-title {
+        color: white;
+        position: static;
+        display: grid;
+        margin: 5px;
+        margin-left: var(--margin);
+        margin-right: var(--margin);
+        grid-template-columns: auto;
+        grid-template-rows: 1;
+        line-height: 1;
+        padding-bottom: 300px;
+    }
+} */

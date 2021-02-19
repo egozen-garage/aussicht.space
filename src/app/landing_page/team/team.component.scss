@@ -1,0 +1,40 @@
+#lp-team {
+    background-color: white;
+    position: static;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-bottom: 50px;
+    z-index: 1;    }
+
+#lp-team div {
+    text-align: center;
+    /* display: grid; */
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+    /* grid-template-columns: auto; */
+    /* grid-template-rows: auto; */
+    color: black;
+    font-family: var(--font-family-secondary);
+    font-weight: 400;
+    font-size: var(--font-size-primary);
+    line-height: 1.3;
+}
+
+
+#lp-team > div > span {
+}
+#lp-team > div > span:hover {
+background-color: aqua; 
+width: auto;
+}
+
+.team_list_details{
+display: none;
+color: black;
+}
+
+.team_list_details:hover {
+}
+
+#team_list img{
+}
