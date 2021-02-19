@@ -1,8 +1,24 @@
 <div id="artists">
     
+    <div *ngFor="let artist of artists; let i = index" class='list_object'>
 
+        <div id='parent_artist_names_{{ artist.folder }}' class='parent_artist_names' >
+            <span id='child_artist_list_images_spans_{{ artist.folder }}' class='child_artist_list_images_spans'>
+                
+                <span style='width:0px; height: 0px; display: none'></span>
+                <span style='width:0px; height: 0px; display: none'></span>
+                {{ artist.forename }} {{ artist.name }}
+            </span>
 
-    <div class='list_object'>
+            <span id='child_artist_list_name_{{ artist.folder }}' class='child_artist_list_names'>{{ artist.forename }} {{ artist.name }}</span>
+            <span id='child_artist_list_hovers_{{ artist.folder }}' class='child_artist_list_hovers'></span>
+
+        </div>
+        <div class='artist_list_komma'>, </div>
+    </div>
+    
+
+    <!-- <div class='list_object'>
 
         <div id='parent_artist_names_armbruster_jan' class='parent_artist_names'
             onmouseenter="hover_arist_name('#parent_artist_names_armbruster_jan', '#child_artist_list_images_spans_armbruster_jan')"
@@ -27,12 +43,12 @@
 
         </div>
         <div class='artist_list_komma'>,</div>
-    </div>
+    </div> -->
 
 
 
 
-
+<!-- 
     <div class='list_object'>
 
         <div id='parent_artist_names_arndt_armin' class='parent_artist_names'
@@ -64,7 +80,7 @@
         </div>
         <div class='artist_list_komma'>,</div>
     </div>
-
+ -->
 
 
 

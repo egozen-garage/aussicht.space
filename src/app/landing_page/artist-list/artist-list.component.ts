@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artist-list.component.scss']
 })
 export class ArtistListComponent implements OnInit {
+  artists = require("../../../assets/json/artist_list.json");
 
-  constructor() { }
+  constructor() { 
+    console.log(this.artists);
+  }
+
 
   ngOnInit(): void {
 

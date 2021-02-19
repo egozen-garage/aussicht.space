@@ -12,33 +12,80 @@ import { Component, OnInit, AfterContentChecked } from '@angular/core';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
+  questionsDatabase = require("../../../assets/json/question_german.json");
+  length_of_database = this.questionsDatabase.length;
+  pass_typewriter_content:any;
+
   timeToReloadNewText = 10000; // 10 seconds
-  dataText = [
-      // <?php echo $one_item["question"]; ?>
-      "Aber was wäre, wenn wir die Uhr zurückdrehen könnten?",
-      "Wie sollten Sie ein Produkt und eine darauf basierende Dienstleistung entwerfen?",
-      "Wie können wir uns von den Glaubenssystemen der herrschenden Klassen zu denen der Mittelschichten bewegen?",
-      "Welcher Zweck und welche Funktion hat ein Farbstoff?",
-      "Wie können wir diesen Abgrund an Verschwendung vermeiden?",
-      "Wie sollten Sie es schreiben?",
-      "Warum schaffen wir ein neues Ideal?",
-      "Sollten wir alle so töricht sein?",
-      "Warum sollen wir glauben, dass die Bedingungen, die große Pandemie von 1918 verursachten?"
-  ];
+  // questionsDatabase = [
+  //   // <?php echo $one_item["question"]; ?>
+  //   "Aber was wäre, wenn wir die Uhr zurückdrehen könnten?",
+  //   "Wie sollten Sie ein Produkt und eine darauf basierende Dienstleistung entwerfen?",
+  //   "Wie können wir uns von den Glaubenssystemen der herrschenden Klassen zu denen der Mittelschichten bewegen?",
+  //   "Welcher Zweck und welche Funktion hat ein Farbstoff?",
+  //   "Wie können wir diesen Abgrund an Verschwendung vermeiden?",
+  //   "Wie sollten Sie es schreiben?",
+  //   "Warum schaffen wir ein neues Ideal?",
+  //   "Sollten wir alle so töricht sein?",
+  //   "Warum sollen wir glauben, dass die Bedingungen, die große Pandemie von 1918 verursachten?"
+  // ];
 
-  constructor() { 
-    console.log('Reading local json files');
-    // console.log(QuestionGerman);
-    // System.import('/assets/js/question_typewriter.js').then((loadQuestionsTypewriter:any) => {
-    //   loadQuestionsTypewriter.typewriterSript();
+  constructor() {
   }
 
-  ngOnInit(): void {
-    // console.log("page loaded");
-    // typewriterSript();
+  ngOnInit() {
+    let i = Math.floor(Math.random() * this.length_of_database);
+    this.StartTextAnimation(i);
+    console.log("questions database" + this.questionsDatabase);
   }
+  
+    // types one text in the typewriter
+    // keeps calling itself until the text is finished
+    typeWriter(text:any, i:any, fnCallback:any) {
+      // checks if the text isn't finished yet, and add next character
+      if (i < (text.length)) {
+        this.pass_typewriter_content = text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
+        //document.getElementById("type-questions").innerHTML = text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
+        // wait for a while and call this function again for the next character
+        setTimeout( (typeWriter) => {
+          this.typeWriter(text, i + 1, fnCallback);
+        }, 100);
+      }
+      // when text is finished, call the callback function again
+      else if (typeof fnCallback == 'function') {
+        setTimeout( (deleteText) => {
+          this.deleteText(text, i);
+        }, this.timeToReloadNewText);
+        // call callback after timeout
+        setTimeout(fnCallback, 100 * (text.length) + this.timeToReloadNewText + 600);
+      }
+    }
 
+    deleteText(text:any, i:any) {
+      if (i <= (text.length) && i > 0) {
+        this.pass_typewriter_content = text.substring(0, i - 1) + '<span aria-hidden="true"></span>';
+        //document.getElementById("type-questions").innerHTML = text.substring(0, i - 1) + '<span aria-hidden="true"></span>';
+        // wait for a while and call this function again for the next character
+        setTimeout( (deleteText) => {
+          this.deleteText(text, i - 1)
+        }, 100);
+      }
+    }
 
-
+    // start animation for the text in the questionsDatabase array
+    StartTextAnimation(i:any) {      
+      if (typeof this.questionsDatabase[i].question == 'undefined') {
+        setTimeout( (StartTextAnimation) => {
+          this.StartTextAnimation(0);
+        }, 2000);
+      }
+      // if questionsDatabase[i] exists, start animation
+      if (i < this.questionsDatabase[i].question.length) {
+        this.typeWriter(this.questionsDatabase[i].question, 0, () =>{
+          let i = Math.floor(Math.random() * this.length_of_database);
+          this.StartTextAnimation(i+1);
+        });
+      }
+    }
 
 }
