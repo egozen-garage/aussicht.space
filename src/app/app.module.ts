@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
-import { CategoryComponent } from './category/category.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { PlayerComponent } from './player/player.component';
@@ -24,7 +23,6 @@ import { QuestionsComponent } from './landing_page/questions/questions.component
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    CategoryComponent,
     PlayerComponent,
     AboutComponent,
     TeamComponent,

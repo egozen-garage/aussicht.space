@@ -13,7 +13,7 @@ import { Component, OnInit, AfterContentChecked } from '@angular/core';
 })
 export class QuestionsComponent implements OnInit {
   questionsDatabase = require("../../../assets/json/question_german.json");
-  length_of_database = this.questionsDatabase.length;
+  length_of_database = this.questionsDatabase.length - 1;
   pass_typewriter_content:any;
 
   timeToReloadNewText = 10000; // 10 seconds
@@ -36,7 +36,8 @@ export class QuestionsComponent implements OnInit {
   ngOnInit() {
     let i = Math.floor(Math.random() * this.length_of_database);
     this.StartTextAnimation(i);
-    console.log("questions database" + this.questionsDatabase);
+    console.log("starting with number: " + i);
+    
   }
   
     // types one text in the typewriter
@@ -73,17 +74,26 @@ export class QuestionsComponent implements OnInit {
     }
 
     // start animation for the text in the questionsDatabase array
-    StartTextAnimation(i:any) {      
+    StartTextAnimation(i:any) {  
+      console.log("start the questioning");
+          
       if (typeof this.questionsDatabase[i].question == 'undefined') {
         setTimeout( (StartTextAnimation) => {
-          this.StartTextAnimation(0);
+          console.log("is it undefined?");
+          
+          let c = Math.floor(Math.random() * this.length_of_database);
+          this.StartTextAnimation(c);
         }, 2000);
       }
       // if questionsDatabase[i] exists, start animation
-      if (i < this.questionsDatabase[i].question.length) {
+      if (this.questionsDatabase[i].question.length) {
         this.typeWriter(this.questionsDatabase[i].question, 0, () =>{
-          let i = Math.floor(Math.random() * this.length_of_database);
-          this.StartTextAnimation(i+1);
+          let b = Math.floor(Math.random() * this.length_of_database);
+          console.log("question number: " + b);
+          console.log(this.questionsDatabase[b].question);
+          
+          
+          this.StartTextAnimation(b);
         });
       }
     }

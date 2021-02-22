@@ -1,93 +1,45 @@
-<div id="artists">
-    
-    <div *ngFor="let artist of artists; let i = index" class='list_object'>
+<!-- Mobile version -->
 
+
+<ng-container *ngIf="isMobileResolution" >
+    <div  id="artists-mobile">
+            <ng-container *ngFor="let artist of artists; let i = index">
+                {{ artist.forename }} {{ artist.name }},&nbsp;
+            </ng-container>
+    </div>
+</ng-container>
+
+
+<!-- <ng-container *ngIf="isWideScreen$ | async">
+    Hello world
+</ng-container> -->
+<!-- <div [ngSwitch]="true">
+    <div *ngSwitchCase="platform.BLINK">Chrome</div>
+    <div *ngSwitchCase="platform.SAFARI">Safari</div>
+</div> -->
+
+<!-- *ngIf="isMobileResolution == true"  -->
+
+<!-- Desktop version -->
+
+<div id="artists" >
+    <div *ngFor="let artist of artists; let i = index; let last = last" class='list_object'>
         <div id='parent_artist_names_{{ artist.folder }}' class='parent_artist_names' >
             <span id='child_artist_list_images_spans_{{ artist.folder }}' class='child_artist_list_images_spans'>
-                
+                <!-- add images here -->
+                <!-- <div id="armbruster_jan_thumbnail0" class="artist_list_colored_div" style="display: none;"></div> -->
+                <!-- <img id="arndt_armin_thumbnail0" class="artist_list_images_imgs" src="imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_7.png" style="display: none"> -->
                 <span style='width:0px; height: 0px; display: none'></span>
                 <span style='width:0px; height: 0px; display: none'></span>
                 {{ artist.forename }} {{ artist.name }}
             </span>
-
-            <span id='child_artist_list_name_{{ artist.folder }}' class='child_artist_list_names'>{{ artist.forename }} {{ artist.name }}</span>
+            <span id='child_artist_list_name_{{ artist.folder }}' class='child_artist_list_names'>
+                {{ artist.forename }} {{ artist.name }}
+            </span>
             <span id='child_artist_list_hovers_{{ artist.folder }}' class='child_artist_list_hovers'></span>
-
         </div>
-        <div class='artist_list_komma'>, </div>
+        <div *ngIf="!last" class='artist_list_komma'>,&nbsp;</div>
+        <div *ngIf="last" class='artist_list_komma'>.</div>
+
     </div>
-    
-
-    <!-- <div class='list_object'>
-
-        <div id='parent_artist_names_armbruster_jan' class='parent_artist_names'
-            onmouseenter="hover_arist_name('#parent_artist_names_armbruster_jan', '#child_artist_list_images_spans_armbruster_jan')"
-            onmouseleave="hover_arist_name('#parent_artist_names_armbruster_jan', '#child_artist_list_images_spans_armbruster_jan')">
-
-            <span id='child_artist_list_images_spans_armbruster_jan' class='child_artist_list_images_spans'>
-                <div id="armbruster_jan_thumbnail0" class="artist_list_colored_div" style="display: none;"></div>
-                <div id="armbruster_jan_thumbnail1" class="artist_list_colored_div" style="display: none;"></div>
-                <div id="armbruster_jan_thumbnail2" class="artist_list_colored_div" style="display: none;"></div>
-                <div id="armbruster_jan_thumbnail3" class="artist_list_colored_div" style="display: none;"></div>
-                <div id="armbruster_jan_thumbnail4" class="artist_list_colored_div" style="display: none;"></div>
-                <div id="armbruster_jan_thumbnail5" class="artist_list_colored_div" style="display: none;"></div>
-                <div id="armbruster_jan_thumbnail6" class="artist_list_colored_div" style="display: none;"></div>
-
-                <span style='width:0px; height: 0px; display: none'></span>
-                <span style='width:0px; height: 0px; display: none'></span>
-                Jan Armbruster
-            </span>
-
-            <span id='child_artist_list_name_armbruster_jan' class='child_artist_list_names'>Jan Armbruster</span>
-            <span id='child_artist_list_hovers_armbruster_jan' class='child_artist_list_hovers'></span>
-
-        </div>
-        <div class='artist_list_komma'>,</div>
-    </div> -->
-
-
-
-
-<!-- 
-    <div class='list_object'>
-
-        <div id='parent_artist_names_arndt_armin' class='parent_artist_names'
-            onmouseenter="hover_arist_name('#parent_artist_names_arndt_armin', '#child_artist_list_images_spans_arndt_armin')"
-            onmouseleave="hover_arist_name('#parent_artist_names_arndt_armin', '#child_artist_list_images_spans_arndt_armin')">
-
-            <span id='child_artist_list_images_spans_arndt_armin' class='child_artist_list_images_spans'>
-                <img id="arndt_armin_thumbnail0" class="artist_list_images_imgs"
-                    src="imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_7.png" style="display: none">
-                <img id="arndt_armin_thumbnail1" class="artist_list_images_imgs"
-                    src="imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_22.png" style="display: none">
-                <img id="arndt_armin_thumbnail2" class="artist_list_images_imgs"
-                    src="imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_36.png" style="display: none">
-                <img id="arndt_armin_thumbnail3" class="artist_list_images_imgs"
-                    src="imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_8.png" style="display: none">
-                <img id="arndt_armin_thumbnail4" class="artist_list_images_imgs"
-                    src="imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_27.png" style="display: none">
-                <img id="arndt_armin_thumbnail5" class="artist_list_images_imgs"
-                    src="imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_32.png" style="display: none">
-
-                <div style='margin: 0; padding: 0; width:0px; height: 0px; display: none'></div>
-                <div style='margin: 0; padding: 0; width:0px; height: 0px; display: none'></div>
-                Armin Arndt
-            </span>
-
-            <span id='child_artist_list_name_arndt_armin' class='child_artist_list_names'>Armin Arndt</span>
-            <span id='child_artist_list_hovers_arndt_armin' class='child_artist_list_hovers'></span>
-
-        </div>
-        <div class='artist_list_komma'>,</div>
-    </div>
- -->
-
-
-
-
-
-
-
-
-   
 </div>

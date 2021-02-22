@@ -99,18 +99,16 @@ export class CloudService implements OnInit {
         this.parseXML(data)
           .then((data) => {
             this.files = data;
-
-            console.log("array: " + this.files);
-            for (let i = 0; i < 13; i++) {
-              // console.log("object: " + this.files[i]);
-              // console.log("array counter: " + this.files[i].countingUP);
-              // console.log("array URL: " + this.files[i].url);
-              // console.log("array NAME: " + this.files[i].name);
-              // console.log("array author: " + this.files[i].author);
-              // console.log("array episode: " + this.files[i].episode);
-              // console.log("array date: " + this.files[i].date);
-              // console.log("array length: " + this.files[i].length);
-            }
+            // for (let i = 0; i < 13; i++) {
+            //   console.log("object: " + this.files[i]);
+            //   console.log("array counter: " + this.files[i].countingUP);
+            //   console.log("array URL: " + this.files[i].url);
+            //   console.log("array NAME: " + this.files[i].name);
+            //   console.log("array author: " + this.files[i].author);
+            //   console.log("array episode: " + this.files[i].episode);
+            //   console.log("array date: " + this.files[i].date);
+            //   console.log("array length: " + this.files[i].length);
+            // }
           });
       });
   }

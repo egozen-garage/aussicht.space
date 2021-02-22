@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+//import { DevicesService } from '../../services/devices.service';
+// import { Platform } from '@angular/cdk/platform';
+// import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
+// import { Observable } from 'rxjs';
+// import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-artist-list',
@@ -6,14 +11,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artist-list.component.scss']
 })
 export class ArtistListComponent implements OnInit {
-  artists = require("../../../assets/json/artist_list.json");
+  artists = require("../../../assets/json/artist_list.json").sort();
+  key = "name";
 
-  constructor() { 
-    console.log(this.artists);
+  public isMobileResolution: boolean;
+
+  constructor(
+    //public devicesService: DevicesService,
+  ) { 
+    if (window.innerWidth < 768) {
+      this.isMobileResolution = true;
+    } else {
+      this.isMobileResolution = false;
+    }
+    this.sortByKey(this.artists, this.key);    
   }
 
+  public getIsMobileResolution(): boolean {
+    return this.isMobileResolution;
+  }
+
+  sortByKey(artists:any, key:any) {
+    return artists.sort(function(a: { [x: string]: any; }, b: { [x: string]: any; }) {
+        var x = a[key]; var y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+  }
 
   ngOnInit(): void {
+    
 
   //   if (window.screen.width > 479) {
   //     function hover_arist_name(id_parent, id_child){

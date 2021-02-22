@@ -23,8 +23,6 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     cloudService.getFiles().subscribe(files => {
       this.files = files;
     });
-    console.log("preset test array : " + this.files);
-
     // listen to stream state
     this.audioService.getState().subscribe(state => {
       this.state = state;
@@ -36,7 +34,6 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   pass_author:any;
   pass_date:any;
   ngOnInit(): void {
-    console.log("starting: "+ this.files);
     this.pass_episode = this.files[0].episode;
     this.pass_author = this.files[0].author;
     this.pass_name = this.files[0].name;

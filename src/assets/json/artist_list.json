@@ -60,11 +60,6 @@
         "folder": "kraemer_tobias"
     },
     {
-        "name": "Brenner",
-        "forename": "Rosa",
-        "folder": "brenner_rosa"
-    },
-    {
         "name": "Kostel",
         "forename": "Marina",
         "folder": "kostel_marina"
@@ -200,7 +195,7 @@
         "folder": "nguyen_huy"
     },
     {
-        "name": "Özbayram",
+        "name": "Oezbayram",
         "forename": "Burhan",
         "folder": "oezbayram_burhan"
     },
@@ -318,6 +313,11 @@
         "name": "Brenner",
         "forename": "Helene",
         "folder": "brenner_helene"
+    },
+    {
+        "name": "Brenner",
+        "forename": "Rosa",
+        "folder": "brenner_rosa"
     },
     {
         "name": "Falkenberg",
