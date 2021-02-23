@@ -3,8 +3,9 @@
 
 <ng-container *ngIf="isMobileResolution" >
     <div  id="artists-mobile">
-            <ng-container *ngFor="let artist of artists; let i = index">
-                {{ artist.forename }} {{ artist.name }},&nbsp;
+            <ng-container *ngFor="let artist of artists; let i = index; let last = last">
+                {{ artist.forename }} {{ artist.name }}<ng-container *ngIf="!last" class='artist_list_komma'>,&nbsp;</ng-container>
+                <ng-container *ngIf="last" class='artist_list_komma'>.</ng-container>
             </ng-container>
     </div>
 </ng-container>
@@ -21,14 +22,32 @@
 <!-- *ngIf="isMobileResolution == true"  -->
 
 <!-- Desktop version -->
-
-<div id="artists" >
+<div id="artists" *ngIf="!isMobileResolution" >
     <div *ngFor="let artist of artists; let i = index; let last = last" class='list_object'>
-        <div id='parent_artist_names_{{ artist.folder }}' class='parent_artist_names' >
+        <div (mouseenter)="artist_list_enter(artist.folder)" (mouseleave)="artist_list_leave(artist.folder)" id='parent_artist_names_{{ artist.folder }}' class='parent_artist_names' >
             <span id='child_artist_list_images_spans_{{ artist.folder }}' class='child_artist_list_images_spans'>
-                <!-- add images here -->
+                <!-- <div *ngFor="let thumbnail of artist.thumbnails; let i = index;" id="{{ artist.folder }}_thumbnail{{ i }}" class="artist_list_images_imgs">
+                    {{ thumbnail }}
+                </div> -->
+                <!-- <ng-container appAddimages *ngIf="artist.folder === 'arndt_armin" (loadImages)="addImagesToArtist(artist.folder)">  
+                true
+                </ng-container> -->
+
+                <!-- <div *ngIf="{{ currentArtistHover | checkArtistHover }} === artist.folder?addimages(artist.folder):false" innerHTML="pass_image_files" >  
+                    true
+                </div> -->
+                <div *ngIf="tempHoverArtist[0] === artist.folder?addimages(artist.folder):false" >  
+                </div>
+                <!-- <div [innerHTML]="pass_image_files" ></div> -->
+
+                <!-- <div id="{{ artist.folder }}" [innerHTML]="pass_image_files" >
+                </div> -->
+                    <!-- add images here -->
+
                 <!-- <div id="armbruster_jan_thumbnail0" class="artist_list_colored_div" style="display: none;"></div> -->
                 <!-- <img id="arndt_armin_thumbnail0" class="artist_list_images_imgs" src="imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_7.png" style="display: none"> -->
+                
+                
                 <span style='width:0px; height: 0px; display: none'></span>
                 <span style='width:0px; height: 0px; display: none'></span>
                 {{ artist.forename }} {{ artist.name }}

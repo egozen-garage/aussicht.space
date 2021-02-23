@@ -16,6 +16,9 @@ import { ArtistListComponent } from './landing_page/artist-list/artist-list.comp
 import { ProgramComponent } from './landing_page/program/program.component';
 import { QuestionsComponent } from './landing_page/questions/questions.component';
 
+import { AddimagesDirective } from './directives/addimages.directive';
+import { CheckArtistHoverPipe } from './pipes/check-artist-hover.pipe';
+import { ArtistListOldComponent } from './landing_page/artist-list-old/artist-list-old.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { QuestionsComponent } from './landing_page/questions/questions.component
     TeamComponent,
     ArtistListComponent,
     ProgramComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    AddimagesDirective,
+    CheckArtistHoverPipe,
+    ArtistListOldComponent,
   ],
   imports: [
     BrowserModule,

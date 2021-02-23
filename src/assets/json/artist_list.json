@@ -1,5 +1,52 @@
 [
     {
+        "name": "Arndt",
+        "forename": "Armin",
+        "folder": "arndt_armin",
+        "thumbnails" : {
+            "0" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_0.png",
+            "1" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_1.png",
+            "2" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_2.png",
+            "3" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_3.png",
+            "4" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_4.png",
+            "5" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_5.png",
+            "6" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_6.png",
+            "7" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_7.png",
+            "8" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_8.png",
+            "9" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_9.png",
+            "10" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_10.png",
+            "11" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_11.png",
+            "12" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_12.png",
+            "13" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_13.png",
+            "14" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_14.png",
+            "15" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_15.png",
+            "16" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_16.png",
+            "17" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_17.png",
+            "18" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_18.png",
+            "19" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_19.png",
+            "20" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_20.png",
+            "21" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_21.png",
+            "22" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_22.png",
+            "23" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_23.png",
+            "24" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_24.png",
+            "25" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_25.png",
+            "26" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_26.png",
+            "27" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_27.png",
+            "28" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_28.png",
+            "29" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_29.png",
+            "30" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_30.png",
+            "31" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_31.png",
+            "32" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_32.png",
+            "33" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_33.png",
+            "34" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_34.png",
+            "35" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_35.png",
+            "36" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_36.png",
+            "37" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_37.png",
+            "38" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_38.png",
+            "39" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_39.png"
+        }
+    },
+    {
         "name": "Baumgartner",
         "forename": "Kathrin",
         "folder": "baumgartner_kathrin"
@@ -78,11 +125,6 @@
         "name": "EgoZen",
         "forename": null,
         "folder": "egozen"
-    },
-    {
-        "name": "Arndt",
-        "forename": "Armin",
-        "folder": "arndt_armin"
     },
     {
         "name": "Rodenwaldt",
