@@ -3,7 +3,7 @@
         "name": "Bianchini",
         "forename": "Beatrice",
         "profession": "Grafik Design",
-        "image" : "test.jpg"
+        "image" : "team_bianchini-beatrice.png"
     },
     {
         "name": "Denkmann",
@@ -15,7 +15,7 @@
         "name": "Deuter",
         "forename": "Jonas",
         "profession": "Grafik Design",
-        "image" : "test.jpg"
+        "image" : "team_deuter-jonas.png"
     },
     {
         "name": "Grünewald",
@@ -49,7 +49,7 @@
     },
     {
         "name": "Sukhova",
-        "forename": "Maria",
+        "forename": "Anja",
         "profession": "Curator",
         "image" : "test.jpg"
     },
