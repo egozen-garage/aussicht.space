@@ -89,8 +89,8 @@
     visibility: hidden;
 }
 #artist_list_images_imgs{
-    width: 64px;
-    height: 64px;
+    width: 32px;
+    height: 32px;
     /* vertical-align: text-top; */
 }
 
@@ -101,6 +101,71 @@
 
 .artist_list_colored_div {
     background:  var(--color-rosa); 
-    width: 64px; 
-    height: 64px;
+    width: 32px; 
+    height: 32px;
 }
+
+
+
+
+ /* ---------- RESPONSIVE PROPERTIES --------- */
+
+ @media (min-width: 1024px) {
+    .artist_list_images_imgs{
+        height: 64px;
+        width: 64px;
+    }
+    .artist_list_colored_div{
+        height: 64px;
+        width: 64px;
+    }
+    #artists-mobile{
+        display: none;
+    }
+    
+  }
+  
+  @media (max-width: 1024px) {
+    // .artist_list_images_imgs{
+    //     height: 32px;
+    //     width: 32px;
+    // }
+    // .artist_list_colored_div{
+    //     height: 32px;
+    //     width: 32px;
+    // }
+
+  }
+  
+  /* 48em = 768px */
+  
+  @media (min-width: 48em) {
+    // .artist_list_images_imgs{
+    //     height: 32px;
+    //     width: 32px;
+    // }
+    // .artist_list_colored_div{
+    //     height: 32px;
+    //     width: 32px;
+    // }
+    #artists-mobile{
+        display: none;
+    }
+  }
+  
+  /* 48em = 768px */
+  
+  @media (max-width: 48em) {
+
+  }
+  
+  /* 36em = 576px */
+  
+  @media (max-width: 36em) {
+
+  }
+  
+  @media (max-width: 320px) {
+
+  }
+  

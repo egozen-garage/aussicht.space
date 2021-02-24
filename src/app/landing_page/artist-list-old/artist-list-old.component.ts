@@ -9,8 +9,30 @@ import { DynamicScriptLoaderService } from '../../services/dynamic-script-loader
   styleUrls: ['./artist-list-old.component.scss']
 })
 export class ArtistListOldComponent implements OnInit {
+  artists = require("../../../assets/json/artist_list.json").sort();
+  key = "name";
 
-  constructor(private dynamicScriptLoader: DynamicScriptLoaderService) { }
+  public isMobileResolution: boolean;
+
+  constructor(private dynamicScriptLoader: DynamicScriptLoaderService) {
+    if (window.innerWidth < 1024) {
+      this.isMobileResolution = true;
+    } else {
+      this.isMobileResolution = false;
+    }
+    this.sortByKey(this.artists, this.key);
+  }
+
+  public getIsMobileResolution(): boolean {
+    return this.isMobileResolution;
+  }
+
+  sortByKey(artists:any, key:any) {
+    return artists.sort(function(a: { [x: string]: any; }, b: { [x: string]: any; }) {
+        var x = a[key]; var y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+  }
 
   ngOnInit() {
     // Just call your load scripts function with scripts you want to load

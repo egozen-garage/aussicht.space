@@ -1,6 +1,19 @@
+<!-- Mobile version -->
+<!-- *ngIf="isMobileResolution" -->
+
+<ng-container >
+    <div  id="artists-mobile">
+            <ng-container *ngFor="let artist of artists; let i = index; let last = last">
+                {{ artist.forename }} {{ artist.name }}<ng-container *ngIf="!last" class='artist_list_komma'>,&nbsp;</ng-container>
+                <ng-container *ngIf="last" class='artist_list_komma'>.</ng-container>
+            </ng-container>
+    </div>
+</ng-container>
+
+
+<!-- old Desktop version -->
+
 <div id="artists">
-    
-   
 
         <div class='list_object'>
 
