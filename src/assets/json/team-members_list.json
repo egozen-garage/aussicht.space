@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Bianchini",
+        "forename": "Beatrice",
+        "profession": "Grafik Design",
+        "image" : "test.jpg"
+    },
+    {
+        "name": "Denkmann",
+        "forename": "Irina",
+        "profession": "Curator",
+        "image" : "test.jpg"
+    },
+    {
+        "name": "Deuter",
+        "forename": "Jonas",
+        "profession": "Grafik Design",
+        "image" : "test.jpg"
+    },
+    {
+        "name": "Grünewald",
+        "forename": "Ulrike",
+        "profession": "Wissenstransfer",
+        "image" : "test.jpg"
+    },
+    {
+        "name": "Hahn",
+        "forename": "Sebastian",
+        "profession": "Assistent",
+        "image" : "test.jpg"
+    },
+    {
+        "name": "Kosok",
+        "forename": "Felix",
+        "profession": "Grafik Design",
+        "image" : "test.jpg"
+    },
+    {
+        "name": "Sacco",
+        "forename": "Erika",
+        "profession": "Grafik Design",
+        "image" : "test.jpg"
+    },
+    {
+        "name": "Sitte",
+        "forename": "Maria",
+        "profession": "Curator",
+        "image" : "test.jpg"
+    },
+    {
+        "name": "Sukhova",
+        "forename": "Maria",
+        "profession": "Curator",
+        "image" : "test.jpg"
+    },
+    {
+        "name": "Wagner",
+        "forename": "Ellen",
+        "profession": "Curator",
+        "image" : "test.jpg"
+    }
+]

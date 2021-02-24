@@ -1,40 +1,142 @@
 #lp-team {
-    background-color: white;
-    position: static;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    margin-bottom: 50px;
-    z-index: 1;    }
-
-#lp-team div {
-    text-align: center;
-    /* display: grid; */
-    margin-left: var(--margin);
-    margin-right: var(--margin);
-    /* grid-template-columns: auto; */
-    /* grid-template-rows: auto; */
+    background-color: var(--color-white);
     color: black;
+    position: static;
+    padding-top: var(--padding-between-sections);
+    padding-bottom: var(--padding-between-sections);
+    padding-right: var(--margin);
+    padding-left: var(--margin);
+    z-index: 1;    
     font-family: var(--font-family-secondary);
     font-weight: 400;
     font-size: var(--font-size-primary);
     line-height: 1.3;
+    text-align: center;
 }
 
 
-#lp-team > div > span {
-}
-#lp-team > div > span:hover {
-background-color: aqua; 
-width: auto;
-}
+/* ----------- PROPERTIES FOR COLLAPSIBLE ANIMATION --------- */
+    input[type='checkbox'] { 
+        display: none;
+    } 
 
-.team_list_details{
-display: none;
-color: black;
-}
+    .team_list {
+        display: inline;
+    }
 
-.team_list_details:hover {
-}
+    .team-member {
+        text-align: left; 
+        color: black; 
+        cursor: pointer; 
+        display: inline;
+    }
 
-#team_list img{
-}
+    .collapsible-content-tmember { 
+        max-height: 0px;
+        max-width: 0px;
+        overflow: hidden; 
+        transition: color 1s ease-in; 
+        font-family: var(--font-family-secondary);
+        position: absolute;
+        font-size: var(--font-size-primary-s); 
+        text-align: left;
+        color: white;
+      } 
+
+    .tmember-comma {
+        margin-left: -8px;
+        display: inline-block;
+    }
+
+
+    /* when checked: set max-height value so that it can grow to display all its internal content*/
+    .toggle:checked + #collapsible-Bianchini { 
+        position: static;
+        /* display: inline; */
+        max-height: 100vh;
+        max-width: 100vh;
+        color: black;
+    } 
+
+
+    /* when checked: set max-height value so that it can grow to display all its internal content*/
+    .toggle:checked + #collapsible-Denkmann { 
+        position: static;
+        /* display: inline; */
+        max-height: 100vh;
+        max-width: 100vh;
+        color: black;
+    } 
+
+    /* when checked: set max-height value so that it can grow to display all its internal content*/
+    .toggle:checked + #collapsible-Deuter { 
+        position: static;
+        /* display: inline; */
+        max-height: 100vh;
+        max-width: 100vh;
+        color: black;
+    } 
+
+    /* when checked: set max-height value so that it can grow to display all its internal content*/
+    .toggle:checked + #collapsible-Grünewald { 
+        position: static;
+        /* display: inline; */
+        max-height: 100vh;
+        max-width: 100vh;
+        color: black;
+    } 
+
+    /* when checked: set max-height value so that it can grow to display all its internal content*/
+    .toggle:checked + #collapsible-Hahn { 
+        position: static;
+        /* display: inline; */
+        max-height: 100vh;
+        max-width: 100vh;
+        color: black;
+    } 
+
+    /* when checked: set max-height value so that it can grow to display all its internal content*/
+    .toggle:checked + #collapsible-Kosok { 
+        position: static;
+        /* display: inline; */
+        max-height: 100vh;
+        max-width: 100vh;
+        color: black;
+    } 
+
+    /* when checked: set max-height value so that it can grow to display all its internal content*/
+    .toggle:checked + #collapsible-Sacco { 
+        position: static;
+        /* display: inline; */
+        max-height: 100vh;
+        max-width: 100vh;
+        color: black;
+    } 
+
+    /* when checked: set max-height value so that it can grow to display all its internal content*/
+    .toggle:checked + #collapsible-Sitte { 
+        position: static;
+        /* display: inline; */
+        max-height: 100vh;
+        max-width: 100vh;
+        color: black;
+    } 
+
+    /* when checked: set max-height value so that it can grow to display all its internal content*/
+    .toggle:checked + #collapsible-Sukhova { 
+        position: static;
+        /* display: inline; */
+        max-height: 100vh;
+        max-width: 100vh;
+        color: black;
+    } 
+    
+    /* when checked: set max-height value so that it can grow to display all its internal content*/
+    .toggle:checked + #collapsible-Wagner { 
+        position: static;
+        /* display: inline; */
+        max-height: 100vh;
+        max-width: 100vh;
+        color: black;
+    } 
+    

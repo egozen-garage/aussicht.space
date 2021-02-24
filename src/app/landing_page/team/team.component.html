@@ -1,19 +1,22 @@
 
 <div id="lp-team">
 
-    <div id="team_list">
-        Kuratiert wird die Gruppenaus­stellung unter der Leitung von Matthias Wagner K, dem Direktor des Museum Angewandte Kunst, von einem neunköpfigen Projektteam mit 
-        <span>Beatrice Bianchini<span class="team_list_details"><img src="/imgs/team_list/test.jpg"><span class="profession">cool person number one</span></span></span>, 
-        <span>Irina Denkmann<span class="team_list_details"><img src="/imgs/team_list/test.jpg"><span class="profession">cool person number one</span></span></span>, 
-        <span>Jonas Deuter<span class="team_list_details"><img src="/imgs/team_list/test.jpg"><span class="profession">cool person number one</span></span></span>, 
-        <span>Ulrike Grünewald<span class="team_list_details"><img src="/imgs/team_list/test.jpg"><span class="profession">cool person number one</span></span></span>, 
-        <span>Sebastian Hahn<span class="team_list_details"><img src="/imgs/team_list/test.jpg"><span class="profession">cool person number one</span></span></span>, 
-        <span>Felix Kosok<span class="team_list_details"><img src="/imgs/team_list/test.jpg"><span class="profession">cool person number one</span></span></span>, 
-        <span>Erika Sacco<span class="team_list_details"><img src="/imgs/team_list/test.jpg"><span class="profession">cool person number one</span></span></span>, 
-        <span>Maria Sitte<span class="team_list_details"><img src="/imgs/team_list/test.jpg"><span class="profession">cool person number one</span></span></span>, 
-        <span>Anna Sukhova<span class="team_list_details"><img src="/imgs/team_list/test.jpg"><span class="profession">cool person number one</span></span></span> und 
-        <span>Ellen Wagner<span class="team_list_details"><img src="/imgs/team_list/test.jpg"><span class="profession">cool person number one</span></span></span> 
-        (Studierende und Mitarbeiter*innen der HfG Offenbach).
+    Kuratiert wird die Gruppenaus­stellung unter der Leitung von Matthias Wagner K, dem Direktor des Museum Angewandte Kunst, von einem neunköpfigen Projektteam mit 
+
+    <div *ngFor="let tmember of tmembers; let i = index; let last = last" class="team_list">
+        
+        <label for="trigger-{{ tmember.name }}" class="team-member" id="{{ tmember.name }}" >
+            {{ tmember.forename }} {{ tmember.name }}
+        </label>
+        <input id="trigger-{{ tmember.name }}" class="toggle" type="checkbox">
+        <span class="collapsible-content-tmember" id="collapsible-{{ tmember.name }}" >
+            <img src="/assets/imgs/team_list/{{ tmember.image }}">
+            {{ tmember.profession }}
+        </span>
+
+        <div *ngIf="!last" class='tmember-comma'>,</div>
+        <div *ngIf="last" class='tmember-comma'>.</div>
+
     </div>
 
 </div>

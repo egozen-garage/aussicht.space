@@ -9,7 +9,7 @@ import { StreamState } from "../interfaces/stream-state";
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit, AfterViewInit{
-  changeText: boolean | undefined;
+  ShowPodcastList: boolean | undefined;
   files: Array<any> = [];
   state : StreamState | undefined;
   currentFile: any = {};
@@ -18,7 +18,7 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     public cloudService: CloudService,
     public audioService: AudioService,
   ) {
-    this.changeText = false;
+    this.ShowPodcastList = false;
     // get media files
     cloudService.getFiles().subscribe(files => {
       this.files = files;

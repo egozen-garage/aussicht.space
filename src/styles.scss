@@ -54,29 +54,47 @@ $aussichtDOTspace-theme: mat-light-theme((
   --font-family-machine: '2070mono';
 
   --font-size-primary: 40px;
+  --font-size-primary-s: 37px;
   --font-size-secondary: 60px;
   --font-size-title: 90px;
   --font-size-date: 20px;
   }
 
-
-  /* ---------- RESPONSIVE PROPERTIES --------- */
-
-@media (min-width: 1024px) {
-  img.logos {
-      width: 220px;
-      margin: 20px 45px 10px 45px;
-    }
-
-  #artists {
-    font-size: var(--font-size-secondary);
+  html {
+    scroll-behavior: smooth;
   }
+
+/* ---------- RESPONSIVE PROPERTIES --------- */
+
+/* Macbook Retina 15inch */
+@media (max-width: 1680px) {
+  img.logos {
+    width: 170px;
+    margin: 20px 100px 10px 100px;
+  }
+}
+
+/* Macbook 15inch */
+@media (max-width: 1440px) {
+  img.logos {
+    width: 170px;
+    margin: 20px 70px 10px 70px;
+  }
+}
+
+/* Macbook 13inch */
+@media (max-width: 1280px) {
+  img.logos {
+      width: 170px;
+      margin: 20px 50px 10px 50px;
+    }
 }
 
 @media (max-width: 1024px) {
   :root {
       --margin: 25px;
       --font-size-primary: 35px;
+      --font-size-primary-s: 30px;
       --font-size-secondary: 35px;
       --font-size-title: 80px;
       --font-size-date: 17px;
@@ -90,13 +108,13 @@ $aussichtDOTspace-theme: mat-light-theme((
       top: 28px;
   }
 
-  img.logos {
-    width: 150px;
-    margin: 20px 45px 10px 45px;
-  }
-
   #artists {
     font-size: var(--font-size-secondary);
+  }
+
+  img.logos {
+    width: 140px;
+    margin: 20px 50px 10px 50px;
   }
 }
 
@@ -150,6 +168,7 @@ $aussichtDOTspace-theme: mat-light-theme((
   :root {
       --margin: 25px;
       --font-size-primary: 35px;
+      --font-size-primary-s: 30px;
       --font-size-secondary: 35px;
       --font-size-title: 70px;
       --font-size-date: 17px;
@@ -179,6 +198,7 @@ $aussichtDOTspace-theme: mat-light-theme((
   :root {
       --margin: 15px;
       --font-size-primary: 20px;
+      --font-size-primary-s: 15px;
       --font-size-secondary: 20px;
       --font-size-title: 40px;
       --font-size-date: 13px;

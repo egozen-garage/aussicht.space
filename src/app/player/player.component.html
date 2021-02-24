@@ -1,21 +1,28 @@
-<div [ngClass]="{'height': resize_player_container}" (mouseenter)="changeText=true; ShowPlayerList()" (mouseleave)="changeText=false; HidePlayerList()" id="podcast_area_all" class="player-container">
+<div [ngClass]="{'height': resize_player_container}" (mouseenter)="ShowPodcastList=true; ShowPlayerList()" (mouseleave)="ShowPodcastList=false; HidePlayerList()" id="podcast_area_all" class="player-container">
 
-  <!-- *ngIf="changeText"  -->
+  <!-- *ngIf="ShowPodcastList"  -->
   <!-- podcast_list_collapsed -->
-  <ul *ngIf="changeText" [ngClass]="{'background-color': ListColor}" [ngClass]="{'animation': slideListInOut}"  class="podcast_track_list ">
+  <ul *ngIf="ShowPodcastList" [ngClass]="{'background-color': ListColor}" [ngClass]="{'animation': slideListInOut}"  class="podcast_track_list ">
     <div *ngFor="let file of files; let i = index" (click)="openFile(file, i)" class='player-controls play'
       id='podcast_list_object_{{file.episode}}'>
       <span class='track_name podcast_play_pause_icon'>
         <img src="/assets/logos/2070_button_play.png" class="play_pause_symbol">
       </span>
       <span class='track_name track_number' id='track_name_number_{{file.countingUP}}'>{{file.episode}}</span>
-      <span class='track_name'>{{ file.author }}</span>
+      <span class='track_name track_name_author'>{{ file.author }}</span>
       <span class='track_name track_name_title' id='track_name_{{file.countingUP}}'>
         <p> <span [innerHTML]> {{file.name}} </span></p>
       </span>
       <span class='track_name podcast_date'>{{file.date}}</span>
     </div>
   </ul>
+
+
+
+
+
+
+
 
   <div class="player">
     <div id="all_of_timeline">
@@ -41,7 +48,7 @@
         </span>
         <span innerHTML="{{pass_episode}}" class="current_podcast_track_name track_number"
           id="current_podcast_track_name_number"></span>
-        <span innerHTML="{{pass_author}}" class="current_podcast_track_name">Off_line</span>
+        <span innerHTML="{{pass_author}}" class="current_podcast_track_name track_name_author">Off_line</span>
         <span innerHTML="{{pass_name}}" class="current_podcast_track_name track_name_title"
           id="current_podcast_track_name"></span>
         <span class="current_podcast_track_name podcast_date"></span>

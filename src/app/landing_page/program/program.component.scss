@@ -2,7 +2,6 @@
     #programme {
         background-color: var(--color-white);
         position: static;
-        display: grid;
         padding-top: var(--padding-between-sections);
         padding-bottom: var(--padding-between-sections);
         padding-right: var(--margin);
@@ -26,10 +25,6 @@
     display: none;
   }
 
-  /* .event:hover { 
-    color: var(--color-rosa); 
-  } */
-
   .event {
     text-align: left; 
     color: black; 
@@ -37,10 +32,15 @@
     display: inline;
   }
 
+  .name {
+    padding-right: 10px;
+  }
+
   .date {
     font-size: var(--font-size-date);
     font-family: var(--font-family-primary);
     font-weight: 300;
+    padding-right: 10px;
   }
 
   .collapsible-content { 
@@ -50,9 +50,7 @@
     transition: color 1s ease-in; 
     font-family: var(--font-family-secondary);
     position: absolute;
-    /* display: block; */
-    /* color: var(--color-rosa); */
-    font-size: var(--font-size-primary); 
+    font-size: var(--font-size-primary-s); 
     text-align: left;
     color: white;
   } 

@@ -35,17 +35,9 @@
 }
 
 
-
-.showPlayerList{
-
-}
-
-
-
 // custom style 
 
 .player-container {
-  font-size: 22px;
   position: fixed;
   bottom: 0px;
   width: 100%;
@@ -55,9 +47,9 @@
   color: black;
   font-family: var(--font-family-primary);
 }
-.player-container>* {
+.player-container > * {
   position: relative;
-  height: auto;
+//   height: auto;
   width: 100%;
   background: white;
 }
@@ -68,8 +60,6 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
     display: grid;
-
-    max-height: 150px;
     border-top: black 1px solid;
     // visibility: collapse;
     //transition: all 0.5s ease-in-out;
@@ -100,20 +90,11 @@
     /* color: gray; */
     opacity: 0.5;
 }
-#podcast_play_pause_icon{
-}
+
 #podcast_play_pause_icon>img{
   position: absolute;
   left:0;
 }
-
-
-
-
-
-
-
-
 
 .podcast_date {
     float: right;
@@ -142,17 +123,6 @@
     margin-bottom: 5px;
 }
 
-#timeleft {
-    // text-align: right;
-    // right: 5px;
-    // position: absolute;
-}
-
-
-#current_podcast {
-    height: 40px;
-}
-
 .current_podcast_click_area {
     display: grid;
     grid-template-columns: 50px 50px 70px 100px auto 200px;
@@ -163,11 +133,6 @@
     padding-right: 30px;
     padding-left: 20px;
     /* height: 0; */
-}
-
-.current_podcast_player_controls:hover {
-    /* color: gray; */
-    /* opacity: 0.1; */
 }
 
 .current_podcast_date {
@@ -223,7 +188,6 @@ audio {
 }
 
 
-
 /* ---------------- audio volume control ---------------- */
 
 #volume {
@@ -252,6 +216,86 @@ audio {
 
 
 
+/* mobile version edit */
+.track_name_author {
+    display: none;
+}
+
+.podcast_date {
+    display: none;
+}
+
+@media (min-width: 375px) {
+    /* mobile version edit */
+    .track_name_author {
+        display: inherit;
+    }
+
+    .podcast_date {
+        display: inherit;
+    }
+
+    .track_number {
+        display: inherit;
+    }
+
+    .podcast_track_list {
+        height: 150px;
+        font-size: 22px;
+    }
+
+    #current_podcast {
+        height: 40px;
+    }
+}
+
+@media (max-width: 375px) {
+    .player-controls {
+        border-top: black 1px solid;
+        display: grid;
+        grid-template-columns: 50px 300px;
+        grid-template-rows: 50px;
+        line-height: 50px;
+    }
+
+    .podcast_track_list {
+        height: 57vh;
+    }
+
+    .track_name_title span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+    }
+    
+    /* mobile version edit */
+    .track_name_author {
+        display: none;
+    }
+
+    .podcast_date {
+        display: none;
+    }
+
+    .track_number {
+        display: none;
+    }
+
+    #current_podcast {
+        height: 60px;
+    }
+    
+    .player-container {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 320px) {
+    .player-controls {
+        grid-template-rows: 50px;
+        line-height: 30px;
+    }
+}
 
 
 // @media (max-width: 1024px) {
