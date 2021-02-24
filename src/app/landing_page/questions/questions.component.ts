@@ -16,7 +16,7 @@ export class QuestionsComponent implements OnInit {
   length_of_database = this.questionsDatabase.length - 1;
   pass_typewriter_content:any;
 
-  timeToReloadNewText = 10000; // 10 seconds
+  timeToReloadNewText = 3000; // 3 seconds
   // questionsDatabase = [
   //   // <?php echo $one_item["question"]; ?>
   //   "Aber was wäre, wenn wir die Uhr zurückdrehen könnten?",
