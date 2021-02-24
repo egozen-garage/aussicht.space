@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  public ngOnInit()
+  {
+    jQuery(function(){
+      $( '.menu-icon' ).click(function(){
+        $('.overlay').toggleClass('open');            
+      });  
+      $('.overlay').click(function(){
+        $('.menu-icon').trigger('click');
+      });
+    });
+  }
 
 
 

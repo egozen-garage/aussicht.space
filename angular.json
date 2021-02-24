@@ -102,7 +102,9 @@
             ],
             "scripts": [
               "node_modules/systemjs/dist/system.min.js",
-              "src/assets/js/question_typewriter.js"
+              "src/assets/js/question_typewriter.js",
+              "../node_modules/jquery/dist/jquery.min.js",
+              "../node_modules/bootstrap/dist/js/bootstrap.js"
             ]
           }
         },

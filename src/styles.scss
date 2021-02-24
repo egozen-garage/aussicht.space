@@ -88,6 +88,16 @@ $aussichtDOTspace-theme: mat-light-theme((
       width: 170px;
       margin: 20px 50px 10px 50px;
     }
+
+  #impressum {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1280px) {
+  #impressum {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -150,6 +160,10 @@ $aussichtDOTspace-theme: mat-light-theme((
   .lp-title {
       padding-top: 90px;
   }
+  
+  #impressum {
+    padding: 80px 50px 30px 50px;
+  }
 }
 
 /* 48em = 768px */
@@ -188,7 +202,12 @@ $aussichtDOTspace-theme: mat-light-theme((
   }
 
   footer {
-    height: 100vh;
+    height: 700px;
+  }
+
+  #impressum {
+    font-size: 12px;
+    padding: 80px 50px 30px 50px;
   }
 }
 
@@ -224,7 +243,15 @@ $aussichtDOTspace-theme: mat-light-theme((
   #artists {
     display: none;
   }
+  
+  #impressum {
+    padding: 50px 50px 00px 0px;
+    position: absolute;
+    bottom: 100px;
+  }
+
 }
+
 
 @media (max-width: 320px) {
   img.logos {
@@ -241,7 +268,7 @@ $aussichtDOTspace-theme: mat-light-theme((
       overflow-x: hidden;
       background-color: var(--color-black);
       color: var(--color-white);
-      //cursor: url('assets/logos/2070_cursor.png'), auto;
+      cursor: url('/assets/logos/2070_cursor.png'), auto;
       min-height: 100%;
       width: 100%;
    }

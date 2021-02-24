@@ -2,61 +2,61 @@
     {
         "name": "Bianchini",
         "forename": "Beatrice",
-        "profession": "Grafik Design",
-        "image" : "team_bianchini-beatrice.png"
+        "profession": "Digitaler Raum",
+        "image" : "BB.png"
     },
     {
         "name": "Denkmann",
         "forename": "Irina",
-        "profession": "Curator",
+        "profession": "Kuration",
         "image" : "test.jpg"
     },
     {
         "name": "Deuter",
         "forename": "Jonas",
-        "profession": "Grafik Design",
-        "image" : "team_deuter-jonas.png"
+        "profession": "Grafik",
+        "image" : "JD.png"
     },
     {
         "name": "Grünewald",
         "forename": "Ulrike",
-        "profession": "Wissenstransfer",
-        "image" : "test.jpg"
+        "profession": "Organisation",
+        "image" : "UG.png"
     },
     {
         "name": "Hahn",
         "forename": "Sebastian",
-        "profession": "Assistent",
-        "image" : "test.jpg"
+        "profession": "Organisation",
+        "image" : "SH.png"
     },
     {
         "name": "Kosok",
         "forename": "Felix",
-        "profession": "Grafik Design",
-        "image" : "test.jpg"
+        "profession": "Podcast & Programm",
+        "image" : "FK.png"
     },
     {
         "name": "Sacco",
         "forename": "Erika",
-        "profession": "Grafik Design",
-        "image" : "test.jpg"
+        "profession": "Digitaler Raum",
+        "image" : "EL.png"
     },
     {
         "name": "Sitte",
         "forename": "Maria",
-        "profession": "Curator",
-        "image" : "test.jpg"
+        "profession": "Kuration",
+        "image" : "MS.png"
     },
     {
         "name": "Sukhova",
-        "forename": "Anja",
-        "profession": "Curator",
+        "forename": "Anya",
+        "profession": "Grafik",
         "image" : "test.jpg"
     },
     {
         "name": "Wagner",
         "forename": "Ellen",
-        "profession": "Curator",
-        "image" : "test.jpg"
+        "profession": "Kuration",
+        "image" : "EMW.png"
     }
 ]

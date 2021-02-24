@@ -1,5 +1,6 @@
 footer {
     padding: 80px var(--margin) 50px var(--margin);
+    position: relative;
 }
 
 img.logos {
@@ -10,16 +11,15 @@ img.logos {
 #impressum {
     font-family: var(--font-family-primary);
     font-weight: 500;
-    font-size: 20px;
     line-height: 1;
     color: white;
     display: flex;
     justify-content: space-between;
     flex-flow: row wrap;
-    padding: 80px 50px 30px 50px;
 }
 
 #impressum a {
     text-decoration: none;
     color: white;
+    padding: 0px 10px 0px 10px;
 }
