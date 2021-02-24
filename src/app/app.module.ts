@@ -19,6 +19,7 @@ import { QuestionsComponent } from './landing_page/questions/questions.component
 import { AddimagesDirective } from './directives/addimages.directive';
 import { CheckArtistHoverPipe } from './pipes/check-artist-hover.pipe';
 import { ArtistListOldComponent } from './landing_page/artist-list-old/artist-list-old.component';
+import { MouseCursorTrailComponent } from './mouse-cursor-trail/mouse-cursor-trail.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ArtistListOldComponent } from './landing_page/artist-list-old/artist-li
     AddimagesDirective,
     CheckArtistHoverPipe,
     ArtistListOldComponent,
+    MouseCursorTrailComponent,
   ],
   imports: [
     BrowserModule,

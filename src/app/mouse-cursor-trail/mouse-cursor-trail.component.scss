@@ -1,0 +1,11 @@
+.cursor-follower {
+    position: fixed;
+    top: -150px;
+    left: 70px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background: linear-gradient(60deg, rgba(229,166,176,1) 0%, rgba(85,96,169,1) 55%, rgba(45,60,132,1) 90%);
+    pointer-events: none;
+    z-index: 0;
+  }
