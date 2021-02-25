@@ -257,6 +257,17 @@ audio {
     }
 }
 
+@media (min-width: 414px) {
+    .podcast_track_list {
+        height: 320px;
+        padding-top: 0px;
+    }
+
+    .podcast-header {
+        display: none;
+    }
+}
+
 @media (max-width: 414px) {
     .player-controls {
         border-top: black 1px solid;
@@ -265,9 +276,17 @@ audio {
         // line-height: 50px;
     }
 
+    .podcast-header {
+        display: inherit;
+        position: -webkit-sticky;
+        position: sticky;
+        height: 130px;
+        top: 0px;
+        background-color: black;
+    }
+
     .podcast_track_list {
         height: 100vh;
-        padding-top: 130px;
     }
     
     /* mobile version edit */

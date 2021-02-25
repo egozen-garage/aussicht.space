@@ -2,61 +2,61 @@
     {
         "name": "Bianchini",
         "forename": "Beatrice",
-        "profession": "Digitaler Raum",
+        "profession": "Kuration, Digitaler Raum",
         "image" : "BB.png"
     },
     {
         "name": "Denkmann",
         "forename": "Irina",
-        "profession": "Kuration",
-        "image" : "test.jpg"
+        "profession": "Kuration, Text",
+        "image" : "ID.png"
     },
     {
         "name": "Deuter",
         "forename": "Jonas",
-        "profession": "Grafik",
+        "profession": "Kuration, Grafik",
         "image" : "JD.png"
     },
     {
         "name": "Grünewald",
         "forename": "Ulrike",
-        "profession": "Organisation",
+        "profession": "Kuration, Organisation",
         "image" : "UG.png"
     },
     {
         "name": "Hahn",
         "forename": "Sebastian",
-        "profession": "Organisation",
+        "profession": "Kuration, Organisation",
         "image" : "SH.png"
     },
     {
         "name": "Kosok",
         "forename": "Felix",
-        "profession": "Podcast & Programm",
+        "profession": "Kuration, Podcast, Programm",
         "image" : "FK.png"
     },
     {
         "name": "Sacco",
         "forename": "Erika",
-        "profession": "Digitaler Raum",
+        "profession": "Kuration, Digitaler Raum",
         "image" : "EL.png"
     },
     {
         "name": "Sitte",
         "forename": "Maria",
-        "profession": "Kuration",
+        "profession": "Kuration, Text",
         "image" : "MS.png"
     },
     {
         "name": "Sukhova",
-        "forename": "Anya",
-        "profession": "Grafik",
+        "forename": "Anna",
+        "profession": "Kuration, Grafik",
         "image" : "test.jpg"
     },
     {
         "name": "Wagner",
         "forename": "Ellen",
-        "profession": "Kuration",
+        "profession": "Kuration, Text",
         "image" : "EMW.png"
     }
 ]

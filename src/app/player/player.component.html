@@ -3,6 +3,7 @@
   <!-- *ngIf="ShowPodcastList"  -->
   <!-- podcast_list_collapsed -->
   <ul *ngIf="ShowPodcastList" [ngClass]="{'background-color': ListColor}" [ngClass]="{'animation': slideListInOut}"  class="podcast_track_list ">
+    <div class="podcast-header">this is the header</div>
     <div *ngFor="let file of files[0]; let i = index" (click)="openFile(file, i)" class='player-controls play'
       id='podcast_list_object_{{file.episode}}'>
       <span class='track_name podcast_play_pause_icon'>

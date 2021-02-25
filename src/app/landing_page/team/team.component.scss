@@ -2,7 +2,7 @@
     background-color: var(--color-white);
     color: black;
     position: static;
-    padding-top: var(--padding-between-sections);
+    padding-top: 0px;
     padding-bottom: var(--padding-between-sections);
     padding-right: var(--margin);
     padding-left: var(--margin);
@@ -47,11 +47,6 @@
         text-align: left;
         color: white;
       } 
-
-    .tmember-comma {
-        margin-left: -8px;
-        display: inline-block;
-    }
 
     .toggle:checked + #collapsible-wagner { 
         position: static;

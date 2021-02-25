@@ -67,26 +67,93 @@ $aussichtDOTspace-theme: mat-light-theme((
 /* ---------- RESPONSIVE PROPERTIES --------- */
 
 /* Macbook Retina 15inch */
+@media (min-width: 1670px) {
+  img.logos {
+    width: 300px;
+  }
+
+  img.logos {
+    width: 300px;
+  }
+
+  span#gefoerdert {
+    left: 50px;
+  }
+
+  span#unterstuetzt {
+      left: 75px;
+  }
+
+  span#zusammenarbeit {
+      left: 0px;
+  }
+
+  span#medienpartner {
+      left: 50px;
+  }
+
+  span#hotelpartner {
+      left: 83px;
+  }
+}
+
 @media (max-width: 1680px) {
   img.logos {
-    width: 170px;
-    margin: 20px 100px 10px 100px;
+    width: 300px;
+  }
+
+  span#gefoerdert {
+    left: 50px;
+  }
+
+  span#unterstuetzt {
+      left: 75px;
+  }
+
+  span#zusammenarbeit {
+      left: 0px;
+  }
+
+  span#medienpartner {
+      left: 50px;
+  }
+
+  span#hotelpartner {
+      left: 83px;
   }
 }
 
 /* Macbook 15inch */
 @media (max-width: 1440px) {
   img.logos {
-    width: 170px;
-    margin: 20px 70px 10px 70px;
+    width: 200px;
+  }
+
+  span#gefoerdert {
+    left: 35px;
+  }
+
+  span#unterstuetzt {
+      left: 50px;
+  }
+
+  span#zusammenarbeit {
+      left: 0px;
+  }
+
+  span#medienpartner {
+      left: 35px;
+  }
+
+  span#hotelpartner {
+      left: 50px;
   }
 }
 
 /* Macbook 13inch */
 @media (max-width: 1280px) {
   img.logos {
-      width: 170px;
-      margin: 20px 50px 10px 50px;
+      // width: 170px;
     }
 
   #impressum {
@@ -121,10 +188,42 @@ $aussichtDOTspace-theme: mat-light-theme((
   #artists {
     font-size: var(--font-size-secondary);
   }
+}
 
+@media (min-width: 885px) {    
+  #impressum {
+  padding: 80px 50px 30px 50px;
+  }
+}
+
+@media (max-width: 885px) {
   img.logos {
-    width: 140px;
-    margin: 20px 50px 10px 50px;
+    width: 150px;
+  }
+  
+  #impressum {
+    font-size: 12px;
+    padding: 80px 50px 30px 50px;
+  }
+
+  span#gefoerdert {
+    left: 0px;
+  }
+
+  span#unterstuetzt {
+      left: 0px;
+  }
+
+  span#zusammenarbeit {
+      left: 0px;
+  }
+
+  span#medienpartner {
+      left: 0px;
+  }
+
+  span#hotelpartner {
+      left: 0px;
   }
 }
 
@@ -160,10 +259,7 @@ $aussichtDOTspace-theme: mat-light-theme((
   .lp-title {
       padding-top: 90px;
   }
-  
-  #impressum {
-    padding: 80px 50px 30px 50px;
-  }
+
 }
 
 /* 48em = 768px */
@@ -195,24 +291,17 @@ $aussichtDOTspace-theme: mat-light-theme((
   header.logo {
       top: 25px;
   }
+}
 
-  img.logos {
-    width: 200px;
-    margin: 20px 75px 10px 75px;
-  }
-
-  footer {
-    height: 700px;
-  }
-
-  #impressum {
-    font-size: 12px;
-    padding: 80px 50px 30px 50px;
+/* 36em = 576px */
+@media (min-width: 36em) {
+  .tmember-comma {
+    margin-left: -8px;
+    display: inline-block;
   }
 }
 
 /* 36em = 576px */
-
 @media (max-width: 36em) {
   :root {
       --margin: 15px;
@@ -231,11 +320,6 @@ $aussichtDOTspace-theme: mat-light-theme((
       top: 15px;
   }
 
-  img.logos {
-    width: 150px;
-    margin: 10px;
-  }
-
   footer {
     height: 100vh;
   }
@@ -243,7 +327,12 @@ $aussichtDOTspace-theme: mat-light-theme((
   #artists {
     display: none;
   }
-  
+
+  .tmember-comma {
+    margin-left: -5px;
+    display: inline-block;
+  }
+
   #impressum {
     padding: 50px 50px 00px 0px;
     position: absolute;
@@ -253,11 +342,30 @@ $aussichtDOTspace-theme: mat-light-theme((
 }
 
 
-@media (max-width: 320px) {
+@media (max-width: 414px) {
+  .logos-container span{
+    font-size: 12px;
+  }
+    
   img.logos {
-      width: 120px;
-      margin: 10px;
-    }
+    width: 160px;
+  }
+
+  .logos-container {
+    position: relative;
+    padding: 15px 0px 0px 0px;
+  }
+
+}
+
+@media (max-width: 320px) {
+  .logos-container span{
+    font-size: 12px;
+  }
+    
+  img.logos {
+    width: 130px;
+  }
 }
 
 
@@ -370,6 +478,17 @@ $aussichtDOTspace-theme: mat-light-theme((
           url('/assets/fonts/2070mono-Light_72_web.woff')  format('woff'),         /* Pretty Modern Browsers */
           url('/assets/fonts/2070mono-Light72.svg')        format('svg'),          /* Legacy iOS */
           url('/assets/fonts/2070mono-Light72.ttf')        format('truetype');     /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: '2070CircledNumbers';
+  font-weight: 400;                           /* 400 = normal */
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    local('2070CircledNumbers'),
+          url('/assets/fonts/2070-Normal92_CircledNumbers_web.woff2')     format('woff2'),        /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070-Normal92_CircledNumbers_web.woff')      format('woff'),         /* Pretty Modern Browsers */
+          url('/assets/fonts/2070-Normal92_CircledNumbers.ttf')           format('truetype');     /* Safari, Android, iOS */
 }
 
 /* ------------ BUTTON STYLING ------------ */
