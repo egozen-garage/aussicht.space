@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+// import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+
 // import { Platform } from '@angular/cdk/platform';
 // import { BreakpointObserver } from '@angular/cdk/layout'
 // import { Observable } from 'rxjs';
@@ -10,6 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
+  // providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
@@ -17,13 +20,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AppComponent implements OnInit  {
   title = 'aussicht.space';
   posts : any[] = [];
+  
+  // location: Location;
 
   constructor(
     private http: HttpClient,
+    // location: Location
     // public platform: Platform,
     // private breakpointObserver: BreakpointObserver
-
-    ){ }
+    ){
+      // this.location = location;
+     }
 
 
   // isWideScreen$: Observable<boolean> | undefined;
