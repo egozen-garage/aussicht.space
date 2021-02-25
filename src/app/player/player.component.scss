@@ -234,8 +234,8 @@ audio {
     }
 
     .podcast_track_list {
-        height: 150px;
-        font-size: 22px;
+        // height: 150px;
+        // font-size: 22px;
     }
 
     #current_podcast {
@@ -287,6 +287,7 @@ audio {
     .podcast_track_list {
         height: 100vh;
         min-height: -webkit-fill-available;
+        font-size: 22px;
     }
 
     html {
