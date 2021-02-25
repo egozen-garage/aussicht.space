@@ -91,6 +91,7 @@ header {
     background:red;
     opacity: 0;
     display: none;
+    z-index: 1000;
   }
   
   .overlay.open {
