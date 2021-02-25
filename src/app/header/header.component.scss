@@ -1,4 +1,20 @@
-header {
+#header_black_background{
+  width: 100%;
+  height: 0px;
+  position: fixed;
+  top: -1px;
+  background-color: black;
+  border-bottom: white 1px solid;
+  z-index: 9990;
+  transition: height 0.1s ease-out;
+  display: none;
+}
+header:hover~#header_black_background{
+  height: 80px;
+  transition: height 0.1s ease-in;
+}
+
+  header {
     position: fixed;
     z-index: 9999;
     mix-blend-mode: difference;
@@ -9,6 +25,7 @@ header {
   header a {
       color: var(--text);
       text-decoration: none;
+
   }
   
   header a:hover {
@@ -17,15 +34,20 @@ header {
       cursor: inherit;
   }
   
-  header.logo {
+  header.logo{
     font-size: 20px;
     line-height: 0.8;
     left: var(--margin);
-    top: 35px;
+    top: 30px;
     float: left;
     display: flex;
     z-index: 9999;
+
+    //mix-blend-mode: difference;
   }
+  // header.logo:hover {
+  //   mix-blend-mode: normal;
+  // }
   
   header.menu {
     top: 70px;
@@ -82,20 +104,6 @@ header {
     position: relative;
     transition: background .2s ease-out;
     width: 20px;
-  }
-
-  .overlay {
-    position: fixed;
-    width: 100%;
-    height:100%;
-    background:red;
-    opacity: 0;
-    display: none;
-    z-index: 1000;
-  }
-  
-  .overlay.open {
-    display:block;
   }
   
   /* MENU ICON > copy and paste attributes */
@@ -217,7 +225,7 @@ header {
   }
 
   header.logo {
-      top: 35px;
+      top: 28px;
   }
 
   img.logos {
@@ -233,6 +241,9 @@ header {
 /* 48em = 768px */
 
 @media (min-width: 48em) {
+  #header_black_background{
+    display: block;
+  }
       
   header.menu {
       max-height: none;
@@ -290,7 +301,7 @@ header {
   }
 
   header.logo {
-      top: 35px;
+      top: 25px;
   }
 
   img.logos {
@@ -319,7 +330,7 @@ header {
   }
 
   header.logo {
-      top: 22px;
+      top: 15px;
   }
 
   img.logos {
