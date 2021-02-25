@@ -33,16 +33,25 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   pass_name:any;
   pass_author:any;
   pass_date:any;
-  ngOnInit(): void {
+  public ngOnInit() {
     console.log("what the name of the first object: " + this.files[0] );
     this.pass_episode = this.files[0].episode;
     this.pass_author = this.files[0].author;
     this.pass_name = this.files[0].name;
     this.pass_date = this.files[0].date;
+
+    // const appHeight = () => {
+    //   const doc = document.documentElement
+    //   doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+    // }
+    
+    // window.addEventListener('resize', appHeight)
+    // appHeight()
   }
 
   ngAfterViewInit(): void {
   }
+
 
   playStream(url:any) {
     this.audioService.playStream(url).subscribe(events => {

@@ -58,6 +58,8 @@ $aussichtDOTspace-theme: mat-light-theme((
   --font-size-secondary: 60px;
   --font-size-title: 90px;
   --font-size-date: 20px;
+
+  --padding-footer-logos: 20px 0px 50px 0px;
   }
 
   html {
@@ -358,6 +360,16 @@ $aussichtDOTspace-theme: mat-light-theme((
 
 }
 
+@media (max-width: 375px) {
+  footer {
+    height: 750px;
+  }
+
+  :root {
+    --padding-footer-logos: 5px 0px 50px 0px;
+  }
+}
+
 @media (max-width: 320px) {
   .logos-container span{
     font-size: 12px;
@@ -365,6 +377,10 @@ $aussichtDOTspace-theme: mat-light-theme((
     
   img.logos {
     width: 130px;
+  }
+
+  footer {
+    height: 700px;
   }
 }
 

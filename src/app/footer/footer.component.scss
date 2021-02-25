@@ -27,7 +27,7 @@ footer {
 img.logos {
     filter: invert(1);
     display: absolute;
-    padding: 20px 0px 30px 0px;
+    padding: var(--padding-footer-logos);
 }
 
 /* ----------------------- */
