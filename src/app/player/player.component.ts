@@ -142,6 +142,8 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   ListColor = '#0a4ace';
   slideListInOut = '';
   ShowPlayerList(){
+    console.log("swipe it");
+    
     // console.log("hello World");
     //chang podcastplayer height to 150px;
     // this.resize_player_container = '150px';

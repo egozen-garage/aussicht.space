@@ -1,4 +1,4 @@
-<div [ngClass]="{'height': resize_player_container}" (mouseenter)="ShowPodcastList=true; ShowPlayerList()" (mouseleave)="ShowPodcastList=false; HidePlayerList()" id="podcast_area_all" class="player-container">
+<div [ngClass]="{'height': resize_player_container}" (swipeup)="ShowPodcastList=true; ShowPlayerList()" (mouseenter)="ShowPodcastList=true; ShowPlayerList()" (mouseleave)="ShowPodcastList=false; HidePlayerList()" id="podcast_area_all" class="player-container">
 
   <!-- *ngIf="ShowPodcastList"  -->
   <!-- podcast_list_collapsed -->
@@ -25,7 +25,7 @@
 
 
 
-  <div class="player" (swipeup)="ShowPodcastList=true; ShowPlayerList()">
+  <div class="player">
     <div id="all_of_timeline">
       <div *ngIf="state?.readableCurrentTime" class="timeline_time_left player_timeline_info">{{ state?.readableCurrentTime }}</div>
       <div *ngIf="!state?.readableCurrentTime" class="timeline_time_left player_timeline_info">00:00</div>
