@@ -183,10 +183,6 @@ $aussichtDOTspace-theme: mat-light-theme((
       padding-top: 90px;
   }
 
-  header.logo {
-      top: 28px;
-  }
-
   #artists {
     font-size: var(--font-size-secondary);
   }
@@ -231,48 +227,7 @@ $aussichtDOTspace-theme: mat-light-theme((
 
 /* 48em = 768px */
 
-@media (min-width: 48em) {
-      
-  header.menu {
-      max-height: none;
-      display: flex;
-      top: 0px;
-      right: 0px;
-  }
-
-  li.items {
-      width: auto;
-      border: none;
-      font-size: 20px;
-  }
-
-  header.menu li {
-      margin: 20px;
-  }
-  
-  .menu-icon {
-      display: none;
-  }
-  
-  h2.title {
-      color: white;
-  }
-
-  .lp-title {
-      padding-top: 90px;
-  }
-
-}
-
-/* 48em = 768px */
-
 @media (max-width: 48em) {
-  header h2 {
-      color: var(--text);
-      font-weight: 600;
-      font-size: 18px;
-  }
-
   .lp-title p {
       font-weight: 300;
   }
@@ -290,9 +245,6 @@ $aussichtDOTspace-theme: mat-light-theme((
       padding-top: 90px;
   }
 
-  header.logo {
-      top: 25px;
-  }
 }
 
 /* 36em = 576px */
@@ -316,10 +268,6 @@ $aussichtDOTspace-theme: mat-light-theme((
 
   .lp-title {
       padding-top: 70px;
-  }
-
-  header.logo {
-      top: 15px;
   }
 
   footer {
