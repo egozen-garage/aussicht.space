@@ -21,6 +21,17 @@ import { CheckArtistHoverPipe } from './pipes/check-artist-hover.pipe';
 import { ArtistListOldComponent } from './landing_page/artist-list-old/artist-list-old.component';
 import { MouseCursorTrailComponent } from './mouse-cursor-trail/mouse-cursor-trail.component';
 
+import * as Hammer from 'hammerjs';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { LandingPageComponent } from './landing_page/landing-page.component';
+import { UnitHubComponent } from './pages/unit-hub/unit-hub.component'
+
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any>{ 
+    // override hammerjs defautl configuration
+    'swipe': { direction: Hammer.DIRECTION_ALL}
+  }
+}
 
 @NgModule({
   declarations: [
@@ -37,6 +48,8 @@ import { MouseCursorTrailComponent } from './mouse-cursor-trail/mouse-cursor-tra
     CheckArtistHoverPipe,
     ArtistListOldComponent,
     MouseCursorTrailComponent,
+    LandingPageComponent,
+    UnitHubComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +58,10 @@ import { MouseCursorTrailComponent } from './mouse-cursor-trail/mouse-cursor-tra
     BrowserAnimationsModule,
     MaterialModule
     ],
+    providers: [ {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

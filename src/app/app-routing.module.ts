@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PlayerComponent } from './player/player.component';
+
+import { LandingPageComponent } from './landing_page/landing-page.component'
+import { UnitHubComponent } from './pages/unit-hub/unit-hub.component'
+
 
 const routes: Routes = [
-  { path: "", component: PlayerComponent },
+  { path: "", component: LandingPageComponent },
+  { path: "unit-hub", component: UnitHubComponent },
+
   { path: "**", redirectTo: "" }
 ];
 
