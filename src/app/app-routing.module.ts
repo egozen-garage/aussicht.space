@@ -8,7 +8,6 @@ import { UnitHubComponent } from './pages/unit-hub/unit-hub.component'
 const routes: Routes = [
   { path: "", component: LandingPageComponent },
   { path: "unit-hub", component: UnitHubComponent },
-
   { path: "**", redirectTo: "" }
 ];
 

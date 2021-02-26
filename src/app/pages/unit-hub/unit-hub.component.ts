@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-unit-hub',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UnitHubComponent implements OnInit {
 
-  constructor() { }
+  posts : any[] = [];
+
+  constructor(
+    private http: HttpClient,
+  ) {}
 
   ngOnInit(): void {
+    // communication with WordPress --> --> --> -->
+    this.http.get('http://localhost:8000/wp-json/wp/v2/posts').subscribe((data: any) =>{
+      for(let key in data){
+        if(data.hasOwnProperty(key)){
+          this.posts.push(data[key]);
+        }
+      }
+      //console.log(this.posts);
+    })
   }
 
 }
