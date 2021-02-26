@@ -3,6 +3,8 @@ import { AudioService } from "../services/audio.service";
 import { CloudService } from "../services/cloud.service";
 import { StreamState } from "../interfaces/stream-state";
 
+declare var setDocHeight: () => void;
+
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
@@ -156,6 +158,10 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     //this.slideListInOut = 'all 0.5s ease-in-out';
     // this.slideListInOut = '0.5s ease-out 0s 1 slideUp';
     // console.log("hide the list");
+  }
+
+  CallSetDocHeight() {
+    setDocHeight();
   }
 
 }
