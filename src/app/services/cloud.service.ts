@@ -90,8 +90,8 @@ export class CloudService implements OnInit {
   }
 
   loadXML() {
-    //return this.http.get('/assets/xml/podcast.xml',
-    return this.http.get('/s/3b4cd0ac/podcast/rss',
+    return this.http.get('/assets/xml/podcast.xml',
+    //return this.http.get('/s/3b4cd0ac/podcast/rss',
       {
         headers: new HttpHeaders()
           .set('Content-Type', 'text/xml')
