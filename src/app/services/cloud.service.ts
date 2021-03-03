@@ -79,7 +79,6 @@ export class CloudService implements OnInit {
     // }
   ];
 
-
   constructor(private http: HttpClient) {
     this.loadXML();
     // console.log("arr dataset 1: " + this.arr.length);
