@@ -212,11 +212,6 @@
         "folder": "oschatz_sebastian"
     },
     {
-        "name": "Bedersdorfer",
-        "forename": "Jasmin",
-        "folder": "bedersdorfer_jasmin"
-    },
-    {
         "name": "Coors",
         "forename": "Malú",
         "folder": "coors_malu"
@@ -272,8 +267,8 @@
         "folder": "zha_jiaojiao"
     },
     {
-        "name": "Cmelka",
-        "forename": "Kerstin",
+        "name": "Hu",
+        "forename": "Ksti",
         "folder": "performance_cmelka"
     },
     {
@@ -350,11 +345,6 @@
         "name": "Schuppelius",
         "forename": "Heike",
         "folder": "schuppelius_heike"
-    },
-    {
-        "name": "Brenner",
-        "forename": "Helene",
-        "folder": "brenner_helene"
     },
     {
         "name": "Brenner",
@@ -455,11 +445,6 @@
         "name": "Armbruster",
         "forename": "Jan",
         "folder": "armbruster_jan"
-    },
-    {
-        "name": "Becker",
-        "forename": "Daniel",
-        "folder": "becker_daniel"
     },
     {
         "name": "Chen",

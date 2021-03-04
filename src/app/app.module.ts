@@ -24,7 +24,8 @@ import { MouseCursorTrailComponent } from './mouse-cursor-trail/mouse-cursor-tra
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { LandingPageComponent } from './landing_page/landing-page.component';
-import { UnitHubComponent } from './pages/unit-hub/unit-hub.component'
+import { UnitHubComponent } from './pages/unit-hub/unit-hub.component';
+import { ImpressumComponent } from './impressum/impressum.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{ 
@@ -50,6 +51,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     MouseCursorTrailComponent,
     LandingPageComponent,
     UnitHubComponent,
+    ImpressumComponent
   ],
   imports: [
     BrowserModule,

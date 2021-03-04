@@ -41,11 +41,12 @@
         max-width: 0px;
         overflow: hidden; 
         transition: color 1s ease-in; 
-        font-family: var(--font-family-secondary);
+        font-family: var(--font-family-primary);
         position: absolute;
-        font-size: var(--font-size-primary); 
+        font-size: var(--font-size-primary-s); 
         text-align: left;
         color: white;
+        font-weight: 300;
       } 
 
     .toggle:checked + #collapsible-wagner { 

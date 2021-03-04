@@ -1,0 +1,21 @@
+.page-impressum {
+    height: 60vh;
+    background-color: white;
+    color: black;
+    padding: 100px var(--margin) 0px var(--margin);
+}
+
+.page-impressum p {
+    font-family: var(--font-family-secondary);
+    font-size: var(--font-size-primary-s);
+    font-weight: 300;
+}
+
+.page-impressum a {
+    text-decoration: none;
+    color: black;
+}
+
+.page-impressum a:hover {
+    color: var(--color-rosa);
+}
