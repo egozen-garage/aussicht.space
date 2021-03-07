@@ -13,7 +13,10 @@ import { PlayerComponent } from './player/player.component';
 import { AboutComponent } from './landing_page/about/about.component';
 import { TeamComponent } from './landing_page/team/team.component';
 import { ArtistListComponent } from './landing_page/artist-list/artist-list.component';
+
 import { ProgramComponent } from './landing_page/program/program.component';
+import { GoogleSheetsDbService } from 'ng-google-sheets-db';
+
 import { QuestionsComponent } from './landing_page/questions/questions.component';
 
 import { AddimagesDirective } from './directives/addimages.directive';
@@ -58,10 +61,11 @@ export class MyHammerConfig extends HammerGestureConfig {
     BrowserAnimationsModule,
     MaterialModule
     ],
-    providers: [ {
-      provide: HAMMER_GESTURE_CONFIG,
-      useClass: MyHammerConfig
-    }],
+    providers: [ GoogleSheetsDbService ],
+    // [ {
+    //   provide: HAMMER_GESTURE_CONFIG,
+    //   useClass: MyHammerConfig
+    // }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
