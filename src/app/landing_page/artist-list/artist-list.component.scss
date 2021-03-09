@@ -1,3 +1,13 @@
+.image_gpt_container{
+    text-align: left;
+    width: 0;
+    background-color: blue;
+}
+.image_gpt_container > * {
+    padding-right: 10px;
+    
+}
+
 #artists-mobile {
     background-color: var(--color-white);
     // background-color: blue;
@@ -45,6 +55,7 @@
     /* height: auto; */
     display:inline-block;
     /* background-color: burlywood; */
+    text-align: left;
 }
 
 .parent_artist_names {
@@ -101,3 +112,79 @@
     width: 64px; 
     height: 64px;
 }
+
+
+
+ /* ---------- RESPONSIVE PROPERTIES --------- */
+
+ @media (min-width: 1024px) {
+    // .artist_list_images_imgs{
+    //     height: 64px;
+    //     width: 64px;
+    // }
+    // .artist_list_colored_div{
+    //     height: 64px;
+    //     width: 64px;
+    // }
+    
+    // #artists-mobile{
+    //     display: none;
+    // }
+    .child_artist_list_images_spans > img{
+        height: 32px;
+        width: 32px;
+    }
+    
+  }
+  
+  @media (max-width: 1024px) {
+    // .artist_list_images_imgs{
+    //     height: 32px;
+    //     width: 32px;
+    // }
+    // .artist_list_colored_div{
+    //     height: 32px;
+    //     width: 32px;
+    // }
+    .child_artist_list_images_spans > img{
+        height: 32px;
+        width: 32px;
+    }
+  }
+  
+  /* 48em = 768px */
+  
+  @media (min-width: 48em) {
+    // .artist_list_images_imgs{
+    //     height: 32px;
+    //     width: 32px;
+    // }
+    // .artist_list_colored_div{
+    //     height: 32px;
+    //     width: 32px;
+    // }
+    // #artists-mobile{
+    //     display: none;
+    // }
+    .child_artist_list_images_spans > img{
+        height: 32px;
+        width: 32px;
+    }
+  }
+  
+  /* 48em = 768px */
+  
+  @media (max-width: 48em) {
+
+  }
+  
+  /* 36em = 576px */
+  
+  @media (max-width: 36em) {
+
+  }
+  
+  @media (max-width: 320px) {
+
+  }
+  

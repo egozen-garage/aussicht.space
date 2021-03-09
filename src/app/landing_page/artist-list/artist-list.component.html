@@ -1,14 +1,14 @@
 <!-- Mobile version -->
-<div id="all_of_artist_list">
+<div id="all_of_artist_list" (window:resize)="resize_window($event)">
 
-<ng-container *ngIf="isMobileResolution" >
-    <div  id="artists-mobile">
-            <ng-container *ngFor="let artist of artists; let i = index; let last = last">
-                {{ artist.forename }} {{ artist.name }}<ng-container *ngIf="!last" class='artist_list_komma'>,&nbsp;</ng-container>
-                <ng-container *ngIf="last" class='artist_list_komma'>.</ng-container>
-            </ng-container>
-    </div>
-</ng-container>
+    <!-- <ng-container *ngIf="isMobileResolution" >
+        <div  id="artists-mobile">
+                <ng-container *ngFor="let artist of artists; let i = index; let last = last">
+                    {{ artist.forename }} {{ artist.name }}<ng-container *ngIf="!last" class='artist_list_komma'>,&nbsp;</ng-container>
+                    <ng-container *ngIf="last" class='artist_list_komma'>.</ng-container>
+                </ng-container>
+        </div>
+    </ng-container> -->
 
 
 <!-- <ng-container *ngIf="isWideScreen$ | async">
@@ -22,45 +22,28 @@
 <!-- *ngIf="isMobileResolution == true"  -->
 
 <!-- Desktop version -->
-<div id="artists" *ngIf="!isMobileResolution" >
-    <div *ngFor="let artist of artists; let i = index; let last = last" class='list_object'>
-        <div (mouseenter)="artist_list_enter(artist.folder)" (mouseleave)="artist_list_leave(artist.folder)" id='parent_artist_names_{{ artist.folder }}' class='parent_artist_names' >
-            <span id='child_artist_list_images_spans_{{ artist.folder }}' class='child_artist_list_images_spans'>
-                <!-- <div *ngFor="let thumbnail of artist.thumbnails; let i = index;" id="{{ artist.folder }}_thumbnail{{ i }}" class="artist_list_images_imgs">
-                    {{ thumbnail }}
-                </div> -->
-                <!-- <ng-container appAddimages *ngIf="artist.folder === 'arndt_armin" (loadImages)="addImagesToArtist(artist.folder)">  
-                true
-                </ng-container> -->
+    <!-- <div id="artists" *ngIf="!isMobileResolution" > -->
+    <div id="artists">
+        <div *ngFor="let artist of artists; let i = index; let last = last" class='list_object'>
+            <div (mouseenter)="artist_list_enter(artist.name, artist.forename, artist.folder, i)" (mouseleave)="artist_list_leave(artist.name, artist.forename, artist.folder, i)" id='parent_artist_names_{{ artist.folder }}' class='parent_artist_names' >
+                <span id='{{ artist.folder }}{{i}}' class='child_artist_list_images_spans'>
+                    <!-- <div id='child_artist_list_images_spans_{{ artist.folder }}'class="image_gpt_container">
+                        <ng-container (onload)="test_load_gpt_images(artist.name, artist.forename, artist.folder, i)"></ng-container>
+                    </div> -->
+                    
+                    <span style='width:0px; height: 0px; display: none'></span>
+                    <span style='width:0px; height: 0px; display: none'></span>
+                    {{ artist.forename }} {{ artist.name }}
+                </span>
+                <span id='child_artist_list_name_{{ artist.folder }}' class='child_artist_list_names'>
+                    {{ artist.forename }} {{ artist.name }}
+                </span>
+                <span id='child_artist_list_hovers_{{ artist.folder }}' class='child_artist_list_hovers'></span>
+            </div>
+            <div *ngIf="!last" class='artist_list_komma'>,&nbsp;</div>
+            <div *ngIf="last" class='artist_list_komma'>.</div>
 
-                <!-- <div *ngIf="{{ currentArtistHover | checkArtistHover }} === artist.folder?addimages(artist.folder):false" innerHTML="pass_image_files" >  
-                    true
-                </div> -->
-                <div *ngIf="tempHoverArtist[0] === artist.folder?addimages(artist.folder):false" >  
-                </div>
-                <!-- <div [innerHTML]="pass_image_files" ></div> -->
-
-                <!-- <div id="{{ artist.folder }}" [innerHTML]="pass_image_files" >
-                </div> -->
-                    <!-- add images here -->
-
-                <!-- <div id="armbruster_jan_thumbnail0" class="artist_list_colored_div" style="display: none;"></div> -->
-                <!-- <img id="arndt_armin_thumbnail0" class="artist_list_images_imgs" src="imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_7.png" style="display: none"> -->
-                
-                
-                <span style='width:0px; height: 0px; display: none'></span>
-                <span style='width:0px; height: 0px; display: none'></span>
-                {{ artist.forename }} {{ artist.name }}
-            </span>
-            <span id='child_artist_list_name_{{ artist.folder }}' class='child_artist_list_names'>
-                {{ artist.forename }} {{ artist.name }}
-            </span>
-            <span id='child_artist_list_hovers_{{ artist.folder }}' class='child_artist_list_hovers'></span>
         </div>
-        <div *ngIf="!last" class='artist_list_komma'>,&nbsp;</div>
-        <div *ngIf="last" class='artist_list_komma'>.</div>
-
     </div>
-</div>
 
 </div>
