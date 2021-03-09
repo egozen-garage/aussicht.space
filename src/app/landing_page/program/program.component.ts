@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GoogleSheetsDbService } from 'ng-google-sheets-db';
+// import { GoogleSheetsDbService } from 'ng-google-sheets-db';
 import { environment } from '../../../environments/environment';
 import { Character, characterAttributesMapping } from './character.model';
 
@@ -21,16 +21,16 @@ export class ProgramComponent implements OnInit {
   // characters$: Observable<any[]> | undefined ;
 
   constructor(
-    private googleSheetsDbService: GoogleSheetsDbService,
+    // private googleSheetsDbService: GoogleSheetsDbService,
     ) { 
   }
 
   ngOnInit(): void {
-    this.characters$ = this.googleSheetsDbService.getActive<Character>(
-      environment.characters.spreadsheetId, environment.characters.worksheetId, characterAttributesMapping, 'Active');
+    // this.characters$ = this.googleSheetsDbService.getActive<Character>(
+    //   environment.characters.spreadsheetId, environment.characters.worksheetId, characterAttributesMapping, 'Active');
   
   
-    console.log("google output: " + this.characters$);  
+    // console.log("google output: " + this.characters$);  
   }
 
 
