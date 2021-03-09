@@ -12,33 +12,40 @@ import { Pipe, PipeTransform } from '@angular/core';
   templateUrl: './artist-list.component.html',
   styleUrls: ['./artist-list.component.scss']
 })
-export class ArtistListComponent implements OnInit, OnChanges, PipeTransform {
+export class ArtistListComponent implements OnInit {
+  // load json file with the artist list
   artists = require("../../../assets/json/artist_list.json").sort();
+  // key of object within the json file
   key = "name";
+  image_size:number | undefined;
+  image_size_STYLE:number | undefined;
 
-  tempHoverArtist: Array<any>  = [];
-
-  public isMobileResolution: boolean;
+  //public isMobileResolution: boolean;
 
   constructor(
     //public devicesService: DevicesService,
   ) { 
-    if (window.innerWidth < 1024) {
-      this.isMobileResolution = true;
-    } else {
-      this.isMobileResolution = false;
+    if (window.innerWidth >= 1024) {
+      //this.isMobileResolution = true;
+      this.image_size = 64;
+      this.image_size_STYLE = 64;
+    } else if(window.innerWidth > 576 && window.innerWidth < 1024) {
+      //this.isMobileResolution = false;
+      this.image_size = 32;
+      this.image_size_STYLE = 32;
+    }else if(window.innerWidth <= 576){
+      this.image_size = 32;
+      this.image_size_STYLE = 16;
     }
     this.sortByKey(this.artists, this.key);
-    //this.addImagesToArtist()
   }
  
-  transform(value: any, ...args: any[]) {
+  // transform(value: any, ...args: any[]) {
+  // }
 
-  }
-
-  public getIsMobileResolution(): boolean {
-    return this.isMobileResolution;
-  }
+  // public getIsMobileResolution(): boolean {
+  //   return this.isMobileResolution;
+  // }
 
   sortByKey(artists:any, key:any) {
     return artists.sort(function(a: { [x: string]: any; }, b: { [x: string]: any; }) {
@@ -47,61 +54,110 @@ export class ArtistListComponent implements OnInit, OnChanges, PipeTransform {
     });
   }
 
-  parent_id = "#parent_artist_names_";
-  child_id = "#child_artist_list_images_spans_";
+  resize_window(event:any){
+    let window_size = event.target.innerWidth;
+    // console.log("window resize: " + window_size);
+    if (window_size >= 1024){
+      this.image_size = 64;
+      this.image_size_STYLE = 64;
+    } else if(window_size > 576 && window_size < 1024) {
+      this.image_size = 32;
+      this.image_size_STYLE = 32;
+    } else if(window_size <= 576){
+      this.image_size = 32;
+      this.image_size_STYLE = 16;
+    }
+  }
+
   
-  loading_speed = 100;
-  deloading_speed = 90;
+  //loading_speed = 100;
+  //deloading_speed = 90;
   randomNumber:number = 0;
+  maximum = 39;
+  minimum = 0;
+  load_gpt_images(artist_name:string, artist_forename:string, folder_name:string, i_counter:number){
+    //let cancelled = false;
+    // calculate the amount of images needed to cover the whole name
+    const amount_of_images = Math.round( (artist_name.length + artist_forename.length) / 2);
+    // build the directory folder path
+    const ImageDirectory = ("/assets/imgs/image_gpt/" + folder_name + "/generated/" + this.image_size + "/" + this.image_size + "_" + folder_name + "_");
 
-  pass_image_files:string | undefined;
-  currentArtistHover:string | undefined;
-
-  fullName:any = "";
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.currentArtistHover) {
-      this.fullName = this.calculateFullName();
+    //create array of image paths
+    let ImagePath_array = [];
+    for (let i = 0; i < amount_of_images; i++){
+      let randomnumber = Math.floor(Math.random() * (this.maximum - this.minimum + 1)) + this.minimum;
+      let ImagePath = ImageDirectory + randomnumber + ".png";
+      ImagePath_array.push(ImagePath);
     }
-  }
-  calculateFullName(){
-    console.log("the name has changed");
-    
-  }
-  artist_list_enter(folder_name:string){
-    this.currentArtistHover = folder_name;
-    this.tempHoverArtist.push(folder_name);
-    console.log("mouse enter");
-    
-    
-    //this.randomNumber = Math.floor(Math.random() * 40);
-    //this.pass_image_files = '<img class="artist_list_images_imgs" src="../../assets/imgs/image_gpt/' + folder_name + '/generated/64x64/64_' + folder_name + '_' + this.randomNumber + '.png" style="display: none">'
+
+    // call array of image paths and add an image for each object
+    ImagePath_array.forEach(function (file) {
+      // 1. Select the div element using the id property
+      const image_gpt_container = document.getElementById(folder_name + i_counter);
+      // 2. Create a new <img> element programmatically
+      const img_tag = document.createElement("img");
+      // 3. Add the path to src 
+      img_tag.src = file;
+      img_tag.setAttribute("style", "display:none;");
+      img_tag.setAttribute("onerror", "this.onerror=null; this.src='/assets/imgs/image_gpt/image_processing.gif'");
+      // 4. Append the img element to the div element
+      image_gpt_container?.insertBefore(img_tag, image_gpt_container.childNodes[0]);
+      //image_gpt_container?.appendChild(img_tag);
+    });
+
+    // set visibitity to visibile with delay
+    var counter = 1;
+    const loading_speed = 100;
+    const time_until_start = 400;
+    const image_gpt_container = Array.from(document.getElementById(folder_name + i_counter)!.getElementsByTagName('img'));
+    const hover_image_gpt_container = document.getElementById(folder_name + i_counter);
+    let hover:boolean = false;
+    image_gpt_container.reverse().forEach( (file) => {
+      setTimeout( () => {
+        // add: check if mouse hover container --> if yes: add image --> if no: abort
+        file.setAttribute('style', 'display:inline-block; padding-right: 10px; height:' + this.image_size_STYLE + 'px; width: auto;')
+        //hover_image_gpt_container?.onmouseover = function(event){ let hover = true};
+        // hover_image_gpt_container?.addEventListener('mouseover', () =>{ 
+        //   if (hover == false){
+        //     hover = true;
+        //   } else {
+        //     hover = false;
+        //   }
+        // });
+        // if (hover) { 
+        //   file.setAttribute('style', 'display:inline-block; padding-right: 10px') 
+        // } else { return; }
+
+      }, time_until_start + (counter * loading_speed)); 
+
+      counter = counter +1;
+    });
   }
 
-  artist_list_leave(folder_name:string){
-    this.tempHoverArtist = [];    
-    this.currentArtistHover = "";
-    console.log("mouse leave");
-    this.pass_image_files = "";
-    
-  }
-  addimages(folder_name:string){
-    //this.randomNumber = Math.floor(Math.random() * 40);
-    //this.pass_image_files = '<img class="artist_list_images_imgs" src="/assets/imgs/image_gpt/' + folder_name + '/generated/64x64/64_' + folder_name + '_' + this.randomNumber + '.png" style="display: none">';
-    
-    //this.pass_image_files = "<div>" + folder_name + "</div>";
-    if (this.tempHoverArtist[0] == folder_name){
-      console.log("equal");
-      // console.log("if hover artist than show: "+ folder_name);
-      // console.log("show me your temp: " + this.tempHoverArtist[0]);
-    }
+
+
+
+  artist_list_enter(artist_name:string, artist_forename:string, folder_name:string, i_counter:number){
+    //console.log("mouse enter");
+
+    this.load_gpt_images(artist_name, artist_forename, folder_name, i_counter);
   }
 
-  addImagesToArtist(folder_name:string){
-    // (<HTMLInputElement>document.getElementById(folder_name)).innerHTML = folder_name;
-    // console.log(folder_name);
-    // console.log("is it running?");
+
+
+
+  artist_list_leave(artist_name:string, artist_forename:string, folder_name:string, i_counter:number){
+    //console.log("mouse leave");    
+    const image_gpt_container = Array.from(document.getElementById(folder_name + i_counter)!.getElementsByTagName('img'));
+    var counter = 1;
+    const deloading_speed = 90;
+    image_gpt_container.forEach(function (file:any) {
+      setTimeout(function () {
+        file.remove();
+      }, counter * deloading_speed);
+      counter = counter +1;
+    });
   }
-  // <img id="arndt_armin_thumbnail0" class="artist_list_images_imgs" src="../../assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_7.png" style="display: none">
 
 
   ngOnInit(): void {

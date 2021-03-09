@@ -123,7 +123,7 @@
     },
     {
         "name": "EgoZen",
-        "forename": null,
+        "forename": "",
         "folder": "egozen"
     },
     {
@@ -279,7 +279,7 @@
     {
         "name": "Poppersoni",
         "forename": "Alla",
-        "folder": "poppersoni_alla"
+        "folder": "bbb"
     },
     {
         "name": "Pape",
@@ -339,7 +339,7 @@
     {
         "name": "Sahm",
         "forename": "Alexander",
-        "folder": "sahm_alexander"
+        "folder": "bbb"
     },
     {
         "name": "Schuppelius",
@@ -414,12 +414,12 @@
     {
         "name": "Castaño Moreno",
         "forename": "Valeria",
-        "folder": "castano_moreno_valeria"
+        "folder": "bastian_castano_moreno"
     },
     {
         "name": "Bastian",
         "forename": "Suska",
-        "folder": "bastian_suska"
+        "folder": "bastian_castano_moreno"
     },
     {
         "name": "Tasch",
