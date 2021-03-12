@@ -7,17 +7,17 @@
     {
         "name": "Baumgartner",
         "forename": "Kathrin",
-        "folder": "hys-logo"
+        "folder": "hys_logo"
     },
     {
         "name": "Bassen",
         "forename": "Milena",
-        "folder": "hys-carton"
+        "folder": "hys_carton"
     },
     {
         "name": "Sukhova",
         "forename": "Anna",
-        "folder": "hys-logo"
+        "folder": "hys_logo"
     },
     {
         "name": "Tverdokhlebova",
@@ -27,7 +27,7 @@
     {
         "name": "Pechechian",
         "forename": "Ella",
-        "folder": "hys-carton"
+        "folder": "hys_carton"
     },
     {
         "name": "Bietz",
@@ -152,7 +152,7 @@
     {
         "name": "Hu",
         "forename": "Ksti",
-        "folder": "hu_ksti"
+        "folder": "huber_kristina"
     },
     {
         "name": "Oppermann",
@@ -202,7 +202,7 @@
     {
         "name": "Sahm",
         "forename": "Alexander",
-        "folder": "monster"
+        "folder": "new_earth"
     },
     {
         "name": "Schuppelius",
@@ -257,7 +257,7 @@
     {
         "name": "Rivera",
         "forename": "Tobias",
-        "folder": "rivera_tobias"
+        "folder": "handon_luke"
     },
     {
         "name": "Morbach",
@@ -292,37 +292,37 @@
     {
         "name": "Zebner",
         "forename": "Frank",
-        "folder": "zebner"
+        "folder": "timmann_christina"
     },
     {
         "name": "Armbruster",
         "forename": "Jan",
-        "folder": "zebner"
+        "folder": "timmann_christina"
     },
     {
         "name": "Chen",
         "forename": "Yudan",
-        "folder": "zebner"
+        "folder": "timmann_christina"
     },
     {
         "name": "Herzog",
         "forename": "Teresa",
-        "folder": "zebner"
+        "folder": "timmann_christina"
     },
     {
         "name": "Jia",
         "forename": "Yeqi",
-        "folder": "zebner"
+        "folder": "timmann_christina"
     },
     {
         "name": "Jin",
         "forename": "Jun",
-        "folder": "zebner"
+        "folder": "timmann_christina"
     },
     {
         "name": "Timmann",
         "forename": "Christina",
-        "folder": "zebner"
+        "folder": "timmann_christina"
     },
     {
         "name": "Beil",
@@ -370,7 +370,7 @@
         "folder": "rr"
     },
     {
-        "name": "DER BAND IN DER HECKE",
+        "name": "Der Band in der Hecke",
         "forename": "",
         "folder": "rr"
     },
@@ -382,7 +382,7 @@
     {
         "name": "Heimercore",
         "forename": "",
-        "folder": "hu_ksti"
+        "folder": "huber_kristina"
     },
     {
         "name": "Ganz",
@@ -426,7 +426,7 @@
     },
     {
         "name": "Kockel",
-        "forename": "Nikulaus",
+        "forename": "Nikolaus",
         "folder": "rr"
     },
     {
@@ -442,7 +442,7 @@
     {
         "name": "Lee",
         "forename": "Un-Zu Ha-Nu",
-        "folder": "monster"
+        "folder": "new_earth"
     },
     {
         "name": "Ly",
@@ -465,7 +465,7 @@
         "folder": "rr"
     },
     {
-        "name": "Negoucé & Ozelot",
+        "name": "Negoucé & Ozelot",
         "forename": "",
         "folder": "rr"
     },

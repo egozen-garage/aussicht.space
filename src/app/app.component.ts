@@ -24,7 +24,7 @@ export class AppComponent implements OnInit  {
     // private breakpointObserver: BreakpointObserver
     ){ }
 
-
+    
   // isWideScreen$: Observable<boolean> | undefined;
   ngOnInit(): void{
   // defining breakpoint for responsive desgin -->
