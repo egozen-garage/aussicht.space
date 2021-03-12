@@ -7,6 +7,3 @@ RewriteRule ^ - [L]
 
 # If the requested resource doesn't exist, use index.html
 RewriteRule ^ /index.html
-
-
-Header set Access-Control-Allow-Origin '*'

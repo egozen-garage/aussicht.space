@@ -31,6 +31,10 @@
         display: inline;
     }
 
+    .team-member:hover {
+        color: var(--color-rosa);
+    }
+
     .tmember-img {
         padding-bottom: 10px;
         height: 55px;

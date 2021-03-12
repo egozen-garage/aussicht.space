@@ -39,14 +39,9 @@
       "collection": "project",
       "dominant": true
     },
-    "unit_type": {
-      "type": "enumeration",
-      "enum": [
-        "perspective"
-      ],
-      "required": true,
-      "unique": false,
-      "default": "perspective"
+    "themes": {
+      "collection": "theme",
+      "via": "perspective"
     }
   }
 }

@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "impressums",
+  "info": {
+    "name": "Impressum und Datenschutz",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Text": {
+      "type": "richtext"
+    }
+  }
+}

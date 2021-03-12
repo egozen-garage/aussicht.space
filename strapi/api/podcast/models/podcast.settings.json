@@ -28,19 +28,9 @@
     "JSON": {
       "type": "json"
     },
-    "unique_ID": {
-      "type": "uid"
-    },
-    "test_text": {
-      "type": "richtext"
-    },
-    "unit_type": {
-      "type": "enumeration",
-      "enum": [
-        "podcast"
-      ],
-      "default": "podcast",
-      "required": true
+    "themes": {
+      "collection": "theme",
+      "via": "podcast"
     }
   }
 }

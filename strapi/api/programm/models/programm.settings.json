@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "programms",
+  "info": {
+    "name": "Programm"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "programm_index": {
+      "type": "json"
+    }
+  }
+}
