@@ -32,13 +32,9 @@
       "collection": "perspective",
       "via": "projects"
     },
-    "unit_type": {
-      "type": "enumeration",
-      "enum": [
-        "project"
-      ],
-      "default": "project",
-      "required": true
+    "themes": {
+      "collection": "theme",
+      "via": "project"
     }
   }
 }

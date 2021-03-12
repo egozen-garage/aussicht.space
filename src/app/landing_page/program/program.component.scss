@@ -35,6 +35,10 @@
     padding-right: 10px;
   }
 
+  .event:hover {
+    color: var(--color-rosa);
+  }
+
   .date {
     font-size: var(--font-size-date);
     font-family: var(--font-family-primary);

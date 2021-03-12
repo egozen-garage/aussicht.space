@@ -5,6 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:1337',
+  
+  // google spreadsheet
   // characters: {
   //   spreadsheetId: '11Ai9cZgPjasCPZuarlnam7dLCPvY45LOZ29L29ELmmbU',
   //   worksheetId: 1,

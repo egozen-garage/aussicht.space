@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "uebers",
+  "info": {
+    "name": "Über"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "About": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "themes",
+  "info": {
+    "name": "theme",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "theme_name": {
+      "type": "string"
+    },
+    "perspective": {
+      "via": "themes",
+      "model": "perspective"
+    },
+    "podcast": {
+      "via": "themes",
+      "model": "podcast"
+    },
+    "project": {
+      "via": "themes",
+      "model": "project"
+    }
+  }
+}

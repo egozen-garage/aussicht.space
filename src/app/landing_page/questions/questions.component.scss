@@ -2,13 +2,13 @@
     color: white;
     position: static;
     display: grid;
-    margin-left: var(--margin);
-    margin-right: var(--margin);
+    padding: 90px var(--margin) 0px var(--margin);
     grid-template-columns: auto;
     grid-template-rows: auto;
     line-height: 1;
     height: 140vh;
-    padding-top: 90px;
+    background-image: linear-gradient(rgba(0,0,0,1), rgba(40,48,133,1));
+    margin: 0px;
 }
 
 .typewriter {
