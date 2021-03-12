@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "name": "project",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "project_description": {
+      "type": "richtext"
+    },
+    "cover": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "perspectives": {
+      "collection": "perspective",
+      "via": "projects"
+    },
+    "unit_type": {
+      "type": "enumeration",
+      "enum": [
+        "project"
+      ],
+      "default": "project",
+      "required": true
+    }
+  }
+}

@@ -1,21 +1,22 @@
+<div *ngIf="route.children.length === 0" id="unit-hub">
 
+    <br><br><br>
+    <p>unit-hub: work in progress</p>
 
-<br><br><br>
-<p>unit-hub: work in progress</p>
+    <div *ngIf="units" class="">
+        hello
+        <div *ngFor="let unit of units" class="unit">
+            <div class="unit-item">
+                <!-- <div class="unit-title"></div> -->
+                <a [routerLink]="['/units/' + unit.unit_type, unit.id]">{{unit.title}}: let me to the single page (id: {{unit.unit_type}})</a>
+                <!-- <a (click)="getPerspective(unit.id)">let me to the single page (id: {{unit.id}})</a> -->
+                <!-- <div class="unit-project_description">{{unit.project_description}}</div> -->
+            </div>
+        </div>
+        <br>
+    </div>
 
+</div>
 
-<!-- We need this part for Wordpress API -->
-<!-- We need this part for Wordpress API -->
-<!-- We need this part for Wordpress API -->
-<!-- We need this part for Wordpress API -->
+<router-outlet></router-outlet>
 
-<!-- <span>{{ title }} is running!</span> -->
-<br>
-<br>
-
-<ul>
-    <li *ngFor='let post of posts'>
-        post
-        {{ post.content.rendered }}
-    </li>
-</ul>

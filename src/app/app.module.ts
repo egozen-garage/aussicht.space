@@ -29,6 +29,8 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
 import { LandingPageComponent } from './landing_page/landing-page.component';
 import { UnitHubComponent } from './pages/unit-hub/unit-hub.component';
 import { ImpressumComponent } from './impressum/impressum.component';
+import { ProjectComponent } from './pages/project/project.component';
+import { PerspectiveComponent } from './pages/perspective/perspective.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{ 
@@ -54,7 +56,9 @@ export class MyHammerConfig extends HammerGestureConfig {
     MouseCursorTrailComponent,
     LandingPageComponent,
     UnitHubComponent,
-    ImpressumComponent
+    ImpressumComponent,
+    ProjectComponent,
+    PerspectiveComponent
   ],
   imports: [
     BrowserModule,

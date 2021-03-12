@@ -1,0 +1,18 @@
+<p>perspective: work in progress</p>
+
+<br><br><br>
+
+<div class="project-title">project id is: {{perspective.id}}</div>
+<div class="project-title">unit_type is: {{perspective.unit_type}}</div>
+<div class="project-title">title is: {{perspective.title}}</div>
+<div class="project-title">author is: {{perspective.author}}</div>
+<div class="project-title">article text: {{perspective.article}}</div>
+
+<br><br>
+<div class="project-title">related project no. 1 (of an array): {{perspective.projects[0].title}}</div>
+<a [routerLink]="['/units/' + perspective.projects[0].unit_type, perspective.projects[0].id]">lead me to {{perspective.projects[0].title}}</a>
+
+
+
+
+<router-outlet></router-outlet>

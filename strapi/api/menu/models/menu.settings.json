@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus",
+  "info": {
+    "name": "menu",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "menu_page": {
+      "type": "string"
+    },
+    "is_published": {
+      "type": "boolean"
+    }
+  }
+}

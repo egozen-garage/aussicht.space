@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "podcasts",
+  "info": {
+    "name": "podcast",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "media": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "JSON": {
+      "type": "json"
+    },
+    "unique_ID": {
+      "type": "uid"
+    },
+    "test_text": {
+      "type": "richtext"
+    },
+    "unit_type": {
+      "type": "enumeration",
+      "enum": [
+        "podcast"
+      ],
+      "default": "podcast",
+      "required": true
+    }
+  }
+}

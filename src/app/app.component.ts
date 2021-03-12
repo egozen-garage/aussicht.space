@@ -22,7 +22,6 @@ export class AppComponent implements OnInit  {
     private http: HttpClient,
     // public platform: Platform,
     // private breakpointObserver: BreakpointObserver
-
     ){ }
 
 
@@ -36,18 +35,5 @@ export class AppComponent implements OnInit  {
     //   console.log("width is less than 600px");
     // }
     // this.isWideScreen$ = this.breakpointObserver.observe(['(min-width: 600px)']).pipe(map( ({matches}) => matches));
-
-  // communication with WordPress -->
-  // communication with WordPress --> -->
-  // communication with WordPress --> --> -->
-  // communication with WordPress --> --> --> -->
-    this.http.get('http://localhost:8000/wp-json/wp/v2/posts').subscribe((data: any) =>{
-      for(let key in data){
-        if(data.hasOwnProperty(key)){
-          this.posts.push(data[key]);
-        }
-      }
-      //console.log(this.posts);
-    })
   }
 }

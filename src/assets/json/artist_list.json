@@ -2,64 +2,22 @@
     {
         "name": "Arndt",
         "forename": "Armin",
-        "folder": "arndt_armin",
-        "thumbnails" : {
-            "0" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_0.png",
-            "1" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_1.png",
-            "2" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_2.png",
-            "3" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_3.png",
-            "4" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_4.png",
-            "5" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_5.png",
-            "6" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_6.png",
-            "7" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_7.png",
-            "8" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_8.png",
-            "9" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_9.png",
-            "10" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_10.png",
-            "11" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_11.png",
-            "12" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_12.png",
-            "13" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_13.png",
-            "14" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_14.png",
-            "15" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_15.png",
-            "16" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_16.png",
-            "17" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_17.png",
-            "18" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_18.png",
-            "19" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_19.png",
-            "20" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_20.png",
-            "21" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_21.png",
-            "22" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_22.png",
-            "23" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_23.png",
-            "24" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_24.png",
-            "25" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_25.png",
-            "26" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_26.png",
-            "27" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_27.png",
-            "28" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_28.png",
-            "29" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_29.png",
-            "30" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_30.png",
-            "31" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_31.png",
-            "32" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_32.png",
-            "33" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_33.png",
-            "34" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_34.png",
-            "35" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_35.png",
-            "36" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_36.png",
-            "37" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_37.png",
-            "38" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_38.png",
-            "39" : "/assets/imgs/image_gpt/arndt_armin/generated/64x64/64_arndt_armin_39.png"
-        }
+        "folder": "arndt_armin"
     },
     {
         "name": "Baumgartner",
         "forename": "Kathrin",
-        "folder": "baumgartner_kathrin"
+        "folder": "hys-logo"
     },
     {
         "name": "Bassen",
         "forename": "Milena",
-        "folder": "bassen_milena"
+        "folder": "hys-carton"
     },
     {
         "name": "Sukhova",
         "forename": "Anna",
-        "folder": "sukhova_anna"
+        "folder": "hys-logo"
     },
     {
         "name": "Tverdokhlebova",
@@ -69,12 +27,12 @@
     {
         "name": "Pechechian",
         "forename": "Ella",
-        "folder": "pechechian_ella"
+        "folder": "hys-carton"
     },
     {
         "name": "Bietz",
         "forename": "Johannes",
-        "folder": "bietz_johannes"
+        "folder": "visor"
     },
     {
         "name": "Bouchet",
@@ -84,42 +42,42 @@
     {
         "name": "Möller",
         "forename": "Malte",
-        "folder": "moeller_malte"
+        "folder": "bildhauerei"
     },
     {
         "name": "Klemisch",
         "forename": "Lea",
-        "folder": "klemisch_lea"
+        "folder": "bildhauerei"
     },
     {
         "name": "Pidoux",
         "forename": "Joëlle",
-        "folder": "pidoux_joelle"
+        "folder": "bildhauerei"
     },
     {
         "name": "Ratzinger",
         "forename": "Isabell",
-        "folder": "ratzinger_isabell"
+        "folder": "schuppelius"
     },
     {
         "name": "Krämer",
         "forename": "Tobias",
-        "folder": "kraemer_tobias"
+        "folder": "bildhauerei"
     },
     {
         "name": "Kostel",
         "forename": "Marina",
-        "folder": "kostel_marina"
+        "folder": "bildhauerei"
     },
     {
-        "name": "Bleckman",
+        "name": "Bleckmann",
         "forename": "Jana",
-        "folder": "bleckman_jana"
+        "folder": "bleckmann_jana"
     },
     {
         "name": "Bröcker",
         "forename": "Felix",
-        "folder": "broecker_felix"
+        "folder": "mensa"
     },
     {
         "name": "EgoZen",
@@ -137,14 +95,9 @@
         "folder": "bianchini_beatrice"
     },
     {
-        "name": "Sacco",
-        "forename": "Erika G",
-        "folder": "sacco_erika"
-    },
-    {
-        "name": "Lorenzon",
-        "forename": "Roberto",
-        "folder": "lorenzon_roberto"
+        "name": "Lowin",
+        "forename": "Erika",
+        "folder": "bianchini_beatrice"
     },
     {
         "name": "Felske",
@@ -172,24 +125,14 @@
         "folder": "heuser_julian"
     },
     {
-        "name": "Huber",
-        "forename": "Kristina",
-        "folder": "huber_kristina"
-    },
-    {
         "name": "Kämmer",
         "forename": "Bastian",
-        "folder": "kraemer_bastian"
-    },
-    {
-        "name": "Klemp",
-        "forename": "Klaus",
-        "folder": "klemp_klaus"
+        "folder": "kaemmer_bastian"
     },
     {
         "name": "Kreiter",
         "forename": "Natalja",
-        "folder": "kreiter_natalja"
+        "folder": "mensa"
     },
     {
         "name": "Leicher",
@@ -207,78 +150,18 @@
         "folder": "mijic_svetlana"
     },
     {
-        "name": "Oschatz",
-        "forename": "Sebastian",
-        "folder": "oschatz_sebastian"
-    },
-    {
-        "name": "Coors",
-        "forename": "Malú",
-        "folder": "coors_malu"
-    },
-    {
-        "name": "Coors",
-        "forename": "Nele",
-        "folder": "coors_nele"
-    },
-    {
-        "name": "Strecker",
-        "forename": "Edith",
-        "folder": "strecker_edith"
-    },
-    {
-        "name": "Nguyen",
-        "forename": "Huy",
-        "folder": "nguyen_huy"
-    },
-    {
-        "name": "Oezbayram",
-        "forename": "Burhan",
-        "folder": "oezbayram_burhan"
-    },
-    {
-        "name": "Wu",
-        "forename": "Yuqin",
-        "folder": "wu_yuqin"
-    },
-    {
-        "name": "Han Ho",
-        "forename": "Si",
-        "folder": "han_ho_si"
-    },
-    {
-        "name": "Hohenstein",
-        "forename": "Morgana",
-        "folder": "hohenstein_morgana"
-    },
-    {
-        "name": "Xiao",
-        "forename": "Jie",
-        "folder": "xiao_jie"
-    },
-    {
-        "name": "Jazenko",
-        "forename": "Stella",
-        "folder": "jazenko_stella"
-    },
-    {
-        "name": "Zha",
-        "forename": "Jiaojiao",
-        "folder": "zha_jiaojiao"
-    },
-    {
         "name": "Hu",
         "forename": "Ksti",
-        "folder": "performance_cmelka"
+        "folder": "hu_ksti"
     },
     {
         "name": "Oppermann",
         "forename": "Alexander",
-        "folder": "performance_oppermann"
+        "folder": "rr"
     },
     {
-        "name": "Poppersoni",
-        "forename": "Alla",
+        "name": "BBB",
+        "forename": "",
         "folder": "bbb"
     },
     {
@@ -289,82 +172,52 @@
     {
         "name": "Reski",
         "forename": "Gunter",
-        "folder": "reski_gunter"
+        "folder": "reski"
     },
     {
         "name": "Fischer",
         "forename": "Nola",
-        "folder": "fischer_nola"
-    },
-    {
-        "name": "Stephan",
-        "forename": "Leonard",
-        "folder": "stephan_leonard"
+        "folder": "rr"
     },
     {
         "name": "Berg",
         "forename": "Charlotte",
-        "folder": "berg_charlotte"
-    },
-    {
-        "name": "Sipf",
-        "forename": "Clara",
-        "folder": "sipf_clara"
+        "folder": "rr"
     },
     {
         "name": "Thürck",
         "forename": "Stefan",
-        "folder": "thuerck_stefan"
+        "folder": "rr"
     },
     {
         "name": "Sioulvegas",
         "forename": "Timon",
-        "folder": "sioulvegas_timon"
-    },
-    {
-        "name": "Kim",
-        "forename": "Eunyoung",
-        "folder": "kim_eunyoung"
-    },
-    {
-        "name": "Grewenig",
-        "forename": "Lena",
-        "folder": "grewenig_lena"
+        "folder": "rr"
     },
     {
         "name": "Kilicarslan",
         "forename": "Deniz",
-        "folder": "kilicarslan_deniz"
+        "folder": "rr"
     },
     {
         "name": "Sahm",
         "forename": "Alexander",
-        "folder": "bbb"
+        "folder": "monster"
     },
     {
         "name": "Schuppelius",
         "forename": "Heike",
-        "folder": "schuppelius_heike"
+        "folder": "schuppelius"
     },
     {
         "name": "Brenner",
         "forename": "Rosa",
-        "folder": "brenner_rosa"
-    },
-    {
-        "name": "Falkenberg",
-        "forename": "Jones",
-        "folder": "falkenberg_jonas"
-    },
-    {
-        "name": "Olt",
-        "forename": "Katharina",
-        "folder": "olt_katharina"
+        "folder": "bildhauerei"
     },
     {
         "name": "Harder",
         "forename": "Michelle",
-        "folder": "harder_michelle"
+        "folder": "schuppelius"
     },
     {
         "name": "Storch",
@@ -374,12 +227,12 @@
     {
         "name": "Vöckler",
         "forename": "Kai",
-        "folder": "voeckler_kai"
+        "folder": "1970"
     },
     {
         "name": "Ries",
         "forename": "Marc",
-        "folder": "ries_marc"
+        "folder": "1970"
     },
     {
         "name": "Völzke",
@@ -439,56 +292,246 @@
     {
         "name": "Zebner",
         "forename": "Frank",
-        "folder": "zebner_frank"
+        "folder": "zebner"
     },
     {
         "name": "Armbruster",
         "forename": "Jan",
-        "folder": "armbruster_jan"
+        "folder": "zebner"
     },
     {
         "name": "Chen",
         "forename": "Yudan",
-        "folder": "chen_yudan"
-    },
-    {
-        "name": "Czegeny",
-        "forename": "Patrizia",
-        "folder": "czegeny_patrizia"
+        "folder": "zebner"
     },
     {
         "name": "Herzog",
         "forename": "Teresa",
-        "folder": "herzog_teresa"
+        "folder": "zebner"
     },
     {
         "name": "Jia",
         "forename": "Yeqi",
-        "folder": "jia_yeqi"
+        "folder": "zebner"
     },
     {
         "name": "Jin",
         "forename": "Jun",
-        "folder": "jin_jun"
-    },
-    {
-        "name": "Kirwald",
-        "forename": "Sophia",
-        "folder": "kirwald_sophia"
-    },
-    {
-        "name": "Modler",
-        "forename": "Lorenz",
-        "folder": "modler_lorenz"
-    },
-    {
-        "name": "Struwe",
-        "forename": "Christian",
-        "folder": "struwe_christian"
+        "folder": "zebner"
     },
     {
         "name": "Timmann",
         "forename": "Christina",
-        "folder": "timmann_christina"
+        "folder": "zebner"
+    },
+    {
+        "name": "Beil",
+        "forename": "Anna",
+        "folder": "hys_carton"
+    },
+    {
+        "name": "Barthel",
+        "forename": "Max",
+        "folder": "rr"
+    },
+    {
+        "name": "Bepler",
+        "forename": "Joanthan",
+        "folder": "schuppelius"
+    },
+    {
+        "name": "Bock",
+        "forename": "Sabrina",
+        "folder": "schuppelius"
+    },
+    {
+        "name": "Bode",
+        "forename": "Tessa",
+        "folder": "schuppelius"
+    },
+    {
+        "name": "Bohnacker",
+        "forename": "Sophia",
+        "folder": "reski"
+    },
+    {
+        "name": "Calderan",
+        "forename": "Ardesia",
+        "folder": "rr"
+    },
+    {
+        "name": "Cambeis",
+        "forename": "Fenja",
+        "folder": "reski"
+    },
+    {
+        "name": "Cicek",
+        "forename": "Sarah Fatma",
+        "folder": "rr"
+    },
+    {
+        "name": "DER BAND IN DER HECKE",
+        "forename": "",
+        "folder": "rr"
+    },
+    {
+        "name": "Fink",
+        "forename": "Martin",
+        "folder": "schuppelius"
+    },
+    {
+        "name": "Heimercore",
+        "forename": "",
+        "folder": "hu_ksti"
+    },
+    {
+        "name": "Ganz",
+        "forename": "Luca",
+        "folder": "rr"
+    },
+    {
+        "name": "Giegerich",
+        "forename": "Astrid",
+        "folder": "schuppelius"
+    },
+    {
+        "name": "Grassl",
+        "forename": "Franziska",
+        "folder": "hys_carton"
+    },
+    {
+        "name": "Hainz",
+        "forename": "Julia",
+        "folder": "rr"
+    },
+    {
+        "name": "Haller",
+        "forename": "Veronika",
+        "folder": "rr"
+    },
+    {
+        "name": "Hantke",
+        "forename": "Katharina",
+        "folder": "rr"
+    },
+    {
+        "name": "Hanf",
+        "forename": "Ines",
+        "folder": "hys_carton"
+    },
+    {
+        "name": "Hofmann",
+        "forename": "Anna",
+        "folder": "hys_carton"
+    },
+    {
+        "name": "Kockel",
+        "forename": "Nikulaus",
+        "folder": "rr"
+    },
+    {
+        "name": "Korshunova",
+        "forename": "Katya",
+        "folder": "reski"
+    },
+    {
+        "name": "Lee",
+        "forename": "Hyeonyoung",
+        "folder": "reski"
+    },
+    {
+        "name": "Lee",
+        "forename": "Un-Zu Ha-Nu",
+        "folder": "monster"
+    },
+    {
+        "name": "Ly",
+        "forename": "Tieu Anh",
+        "folder": "rr"
+    },
+    {
+        "name": "Meier",
+        "forename": "Severine",
+        "folder": "reski"
+    },
+    {
+        "name": "Motto",
+        "forename": "Mamiko",
+        "folder": "graf_pia"
+    },
+    {
+        "name": "Mudok",
+        "forename": "Maral",
+        "folder": "rr"
+    },
+    {
+        "name": "Negoucé & Ozelot",
+        "forename": "",
+        "folder": "rr"
+    },
+    {
+        "name": "Nürnberger",
+        "forename": "Lisa",
+        "folder": "rr"
+    },
+    {
+        "name": "Pu",
+        "forename": "Fan-Yu",
+        "folder": "rr"
+    },
+    {
+        "name": "Reh",
+        "forename": "Eric",
+        "folder": "hys_carton"
+    },
+    {
+        "name": "Roh",
+        "forename": "Evelyn",
+        "folder": "rr"
+    },
+    {
+        "name": "Sacharova",
+        "forename": "Ekaterina",
+        "folder": "rr"
+    },
+    {
+        "name": "Scheiblich",
+        "forename": "Leon",
+        "folder": "rr"
+    },
+    {
+        "name": "Schweigert",
+        "forename": "Lennart",
+        "folder": "reski"
+    },
+    {
+        "name": "Stevens",
+        "forename": "Nicholas",
+        "folder": "reski"
+    },
+    {
+        "name": "Theisinger",
+        "forename": "Jonas",
+        "folder": "visor"
+    },
+    {
+        "name": "NAINN",
+        "forename": "",
+        "folder": "rr"
+    },
+    {
+        "name": "Vollmar",
+        "forename": "Barnabas",
+        "folder": "rr"
+    },
+    {
+        "name": "Vollmers",
+        "forename": "Carla",
+        "folder": "schuppelius"
+    },
+    {
+        "name": "Yankovska",
+        "forename": "Marta",
+        "folder": "rr"
     }
 ]

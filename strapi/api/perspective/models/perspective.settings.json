@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "perspectives",
+  "info": {
+    "name": "perspective",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "cover_picture": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "article": {
+      "type": "richtext"
+    },
+    "counter": {
+      "type": "integer"
+    },
+    "projects": {
+      "via": "perspectives",
+      "collection": "project",
+      "dominant": true
+    },
+    "unit_type": {
+      "type": "enumeration",
+      "enum": [
+        "perspective"
+      ],
+      "required": true,
+      "unique": false,
+      "default": "perspective"
+    }
+  }
+}
