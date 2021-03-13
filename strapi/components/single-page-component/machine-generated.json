@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_single_page_component_machine_generateds",
+  "info": {
+    "name": "machine-generated",
+    "icon": "grip-horizontal"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "text_json": {
+      "type": "json"
+    }
+  }
+}

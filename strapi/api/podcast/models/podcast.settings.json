@@ -11,26 +11,34 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "media": {
-      "collection": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false
-    },
     "JSON": {
       "type": "json"
     },
     "themes": {
       "collection": "theme",
       "via": "podcast"
+    },
+    "unit_type": {
+      "type": "enumeration",
+      "enum": [
+        "perspective",
+        "podcast",
+        "project"
+      ]
+    },
+    "body": {
+      "type": "dynamiczone",
+      "components": [
+        "single-page-component.cover-media",
+        "single-page-component.content",
+        "single-page-component.project-title"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "guest": {
+      "type": "string"
     }
   }
 }

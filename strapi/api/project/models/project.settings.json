@@ -11,14 +11,51 @@
     "draftAndPublish": true
   },
   "attributes": {
+    "perspectives": {
+      "collection": "perspective",
+      "via": "projects"
+    },
+    "themes": {
+      "collection": "theme",
+      "via": "project"
+    },
+    "unit_type": {
+      "type": "enumeration",
+      "enum": [
+        "perspective",
+        "project",
+        "podcast"
+      ]
+    },
+    "filter_panel": {
+      "type": "dynamiczone",
+      "components": [
+        "element-component.filter-panel",
+        "element-component.tag"
+      ]
+    },
+    "body": {
+      "type": "dynamiczone",
+      "components": [
+        "single-page-component.cover-media",
+        "single-page-component.remark",
+        "single-page-component.content",
+        "single-page-component.project-gallery",
+        "single-page-component.textblock",
+        "single-page-component.media",
+        "single-page-component.project-title",
+        "single-page-component.machine-generated",
+        "single-page-component.relation"
+      ]
+    },
     "title": {
       "type": "string"
     },
-    "project_description": {
-      "type": "richtext"
+    "artist": {
+      "type": "string"
     },
-    "cover": {
-      "collection": "file",
+    "cover_media": {
+      "model": "file",
       "via": "related",
       "allowedTypes": [
         "images",
@@ -27,14 +64,6 @@
       ],
       "plugin": "upload",
       "required": false
-    },
-    "perspectives": {
-      "collection": "perspective",
-      "via": "projects"
-    },
-    "themes": {
-      "collection": "theme",
-      "via": "project"
     }
   }
 }

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_single_page_component_media",
+  "info": {
+    "name": "media",
+    "icon": "image"
+  },
+  "options": {},
+  "attributes": {
+    "media": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

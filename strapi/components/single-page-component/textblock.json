@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_single_page_component_textblocks",
+  "info": {
+    "name": "textblock",
+    "icon": "file-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "subhead": {
+      "type": "string"
+    },
+    "textblock": {
+      "type": "richtext"
+    }
+  }
+}

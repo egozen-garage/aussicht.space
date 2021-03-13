@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_single_page_component_project_titles",
+  "info": {
+    "name": "title",
+    "icon": "font",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

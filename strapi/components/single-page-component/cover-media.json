@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_single_page_component_cover_medias",
+  "info": {
+    "name": "cover",
+    "icon": "file-image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "media": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "source": {
+      "type": "string"
+    }
+  }
+}

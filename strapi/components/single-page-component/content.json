@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_single_page_component_contents",
+  "info": {
+    "name": "content",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "intro": {
+      "type": "richtext"
+    },
+    "textblock": {
+      "type": "component",
+      "repeatable": true,
+      "component": "single-page-component.textblock"
+    }
+  }
+}
