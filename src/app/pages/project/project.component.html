@@ -1,18 +1,34 @@
-<p>project: work in progress</p>
+<div class="project-page">
+    
+    <header class="project-header">
+        <p class="project-title">{{project.title}}</p>
+        <p class="project-artist">{{project.artist}}</p>
+    
+        <div class="project-cover-media">
+            <img src="http://localhost:1337{{project.cover_media.url}}">
+            <p class="caption">{{project.cover_media.caption}} </p>
+        </div>
+    </header>
 
-<br><br><br>
+    <div class="project-body-container">
 
-<div class="project-title">project id is: {{project.id}}</div>
-<div class="project-title">unit_type is: {{project.unit_type}}</div>
-<div class="project-title">title is: {{project.title}}</div>
-<div class="project-title">artist is: {{project.artist}}</div>
-<div class="project-title">project_description is: {{project.body.id}}</div>
-<div class="project-title">image: {{project.cover_media.formats.thumbnail.url}}</div>
-<div class="project-title">article text: {{project.article}}</div>
-<br><br>
-<div class="project-title">related perspectives no. 1 (of an array): {{project.perspectives[0].title}}</div>
+        <p class="project-intro">{{project.body[0].intro}}</p>
+        <p class="project-subhead">{{project.body[0].textblock.subhead}}</p>
+        <p class="project-description">{{project.body[0].textblock.textblock}}</p>
+        <br><br>
+        <div class="project-related">
+            <div class="related-label">Related perspective ></div>
+            <a [routerLink]="['/units/' + project.perspectives[0].unit_type, project.perspectives[0].id]">
+                <div class="related-title">{{project.perspectives[0].title}}</div>
+                <div class="related-author">{{project.perspectives[0].author}}</div>
+            </a>
+        </div>
 
-<a [routerLink]="['/units/' + project.perspectives[0].unit_type, project.perspectives[0].id]">lead me to {{project.perspectives[0].title}}</a>
+    </div>
+
+    
+    
+</div>
 
 
 <router-outlet></router-outlet>

@@ -1,0 +1,66 @@
+.project-page {
+    padding: 90px var(--margin) 100px var(--margin);
+    margin: 0px;
+    background-color: white;
+    color: var(--color-black);
+}
+
+// ------ HEADER ------- //
+.project-title, .related-title {
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-size: var(--font-size-primary-s);
+    margin: 0px;
+}
+
+.project-artist, .related-author {
+    font-family: var(--font-family-secondary);
+    font-size: 20px;
+}
+
+.project-cover-media {
+    padding: 30px 0px 0px 0px;
+}
+
+.caption {
+    font-family: var(--font-family-secondary);
+    font-size: 12px;
+}
+
+// ------ BODY ------- //
+
+.project-body-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "intro intro intro ."
+        "subhead subhead . ."
+        "main main . sidebar"
+    
+}
+
+.project-intro {
+    font-family: var(--font-family-primary);
+    font-weight: 300;
+    font-size: var(--font-size-primary-s);
+    line-height: 1;
+    padding: 20px 0px 20px 0px;
+    grid-area: intro;
+}
+
+.project-subhead {
+    font-family: var(--font-family-primary);
+    font-size: 20px;
+    grid-area: subhead;
+}
+
+.project-description {
+    grid-area: main;
+    font-family: var(--font-family-secondary);
+    font-size: 20px;
+}
+
+.project-related {
+    grid-area: sidebar;
+}

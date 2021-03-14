@@ -1,16 +1,39 @@
-<p>perspective: work in progress</p>
+<div class="project-page">
 
-<br><br><br>
+   
+    <header class="project-header">
+        <p class="project-title">{{perspective.title}}</p>
+        <p class="project-artist">{{perspective.author}}</p>
+    </header>
 
-<div class="project-title">project id is: {{perspective.id}}</div>
-<div class="project-title">unit_type is: {{perspective.unit_type}}</div>
-<div class="project-title">title is: {{perspective.title}}</div>
-<div class="project-title">author is: {{perspective.author}}</div>
-<div class="project-title">article text: {{perspective.article}}</div>
+    <div class="project-body-container">
 
-<br><br>
-<div class="project-title">related project no. 1 (of an array): {{perspective.projects[0].title}}</div>
-<a [routerLink]="['/units/' + perspective.projects[0].unit_type, perspective.projects[0].id]">lead me to {{perspective.projects[0].title}}</a>
+        <p class="project-intro">{{perspective.body[0].intro}}</p>
+        <p class="project-subhead">{{perspective.body[0].textblock.subhead}}</p>
+        <p class="project-description">{{perspective.body[0].textblock.textblock}}</p>
+
+        <p class="machine-generated">
+            {{perspective.body[1].title}}
+            {{perspective.body[1].text}}
+        </p>
+
+        <p class="project-description">
+            {{perspective.body[2].subhead}}
+            {{perspective.body[2].textblock}}
+        </p>
+
+        <br><br>
+        <div class="project-related">
+            <div class="related-label">Related projects ></div>
+            <a [routerLink]="['/units/' + perspective.projects[0].unit_type, perspective.projects[0].id]">
+                <div class="related-title">{{perspective.projects[0].title}}</div>
+                <div class="related-author">{{perspective.projects[0].artist}}</div>
+            </a>
+        </div>
+
+    </div>
+
+</div>
 
 
 

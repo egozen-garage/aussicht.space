@@ -2,11 +2,12 @@
   "collectionName": "components_single_page_component_media",
   "info": {
     "name": "media",
-    "icon": "image"
+    "icon": "image",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "media": {
+    "project_media": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [

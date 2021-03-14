@@ -1,0 +1,13 @@
+.unit {
+    display: inline-block;
+    border: 1px solid white;
+    width: 200px;
+    height: 400px;
+    padding: 20px;
+    margin: 20px;
+}
+
+#unit-hub {
+    padding: 90px var(--margin) 0px var(--margin);
+    height: 100vh;
+}

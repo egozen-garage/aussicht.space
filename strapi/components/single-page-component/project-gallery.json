@@ -2,11 +2,12 @@
   "collectionName": "components_single_page_component_project_galleries",
   "info": {
     "name": "project-gallery",
-    "icon": "chess-board"
+    "icon": "chess-board",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "media": {
+    "media_component": {
       "type": "component",
       "repeatable": true,
       "component": "single-page-component.media"

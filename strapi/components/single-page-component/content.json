@@ -12,7 +12,7 @@
     },
     "textblock": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "single-page-component.textblock"
     }
   }
