@@ -21,10 +21,10 @@
     "unit_type": {
       "type": "enumeration",
       "enum": [
-        "perspective",
-        "podcast",
-        "project"
-      ]
+        "podcast"
+      ],
+      "default": "podcast",
+      "required": true
     },
     "body": {
       "type": "dynamiczone",
