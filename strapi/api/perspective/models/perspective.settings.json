@@ -26,10 +26,9 @@
     "unit_type": {
       "type": "enumeration",
       "enum": [
-        "perspective",
-        "project",
-        "podcast"
-      ]
+        "perspective"
+      ],
+      "default": "perspective"
     },
     "filter_panel": {
       "type": "dynamiczone",

@@ -38,6 +38,106 @@ $aussichtDOTspace-theme: mat-light-theme((
 //html, body { height: 100%; }
 //body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+/* ------------ FONT QUERY ------------ */
+// src/assets/fonts/2070-Black_176_web.woff
+
+@font-face {
+  font-family: '2070';
+  font-weight: 300;                                               
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    
+  // local('2070'),
+          url('/assets/fonts/2070-Light_72_web.woff2')  format('woff2'),        /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070-Light_72_web.woff')   format('woff'),         /* Pretty Modern Browsers */
+          url('/assets/fonts/2070-Light72.ttf')         format('truetype');     /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: '2070';
+  font-weight: 400;                           /* 400 = normal */
+  font-style: normal;
+  src:    
+  // local('2070'),
+          url('/assets/fonts/2070-Normal_92_web.woff2') format('woff2'),        /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070-Normal_92_web.woff')  format('woff'),         /* Pretty Modern Browsers */
+          url('/assets/fonts/2070-Normal92.ttf')        format('truetype');     /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: '2070';
+  font-weight: 500;                                               
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    
+  // local('2070'),
+          url('/assets/fonts/2070-Medium_116_web.woff2')  format('woff2'),      /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070-Medium_116_web.woff')   format('woff'),       /* Pretty Modern Browsers */
+          url('/assets/fonts/2070-Medium116.ttf')         format('truetype');   /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: '2070';
+  font-weight: 700;                           /* 700 = bold */
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    
+  // local('2070'),
+          url('/assets/fonts/2070-Bold156.eot'),
+          url('/assets/fonts/2070-Bold_156_web.woff2')  format('woff2'),        /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070-Bold_156_web.woff')   format('woff'),         /* Pretty Modern Browsers */
+          //url('/assets/fonts/2070-Bold156.svg')         format('svg'),          /* Legacy iOS */
+          url('/assets/fonts/2070-Bold156.ttf')         format('truetype');     /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: '2070';
+  font-weight: 900;                           /* 900 = black */
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    
+  // local('2070'),
+          url('/assets/fonts/2070-Black_176_web.woff2') format('woff2'),        /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070-Black_176_web.woff')  format('woff'),         /* Pretty Modern Browsers */
+          url('/assets/fonts/2070-Black176.ttf')        format('truetype');     /* Safari, Android, iOS */
+}
+
+
+@font-face {
+  font-family: 'happy times';
+  font-weight: 500;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    
+  // local('happy times'),
+          url('/assets/fonts/happy-times-NG_regular_master_web.woff2')  format('woff2'),
+          url('/assets/fonts/happy-times-NG_regular_master.ttf')        format('truetype');
+}
+
+@font-face {
+  font-family: '2070mono';
+  font-weight: 300;                           /* 300 = light */
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    
+  // local('2070mono'),
+          url('/assets/fonts/2070mono-Light_web.woff2')    format('woff2'),        /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070mono-Light_72_web.woff')  format('woff'),         /* Pretty Modern Browsers */
+          //url('/assets/fonts/2070mono-Light72.svg')        format('svg'),          /* Legacy iOS */
+          url('/assets/fonts/2070mono-Light72.ttf')        format('truetype');     /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: '2070CircledNumbers';
+  font-weight: 400;                           /* 400 = normal */
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    
+  // local('2070CircledNumbers'),
+          url('/assets/fonts/2070-Normal92_CircledNumbers_web.woff2')     format('woff2'),        /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070-Normal92_CircledNumbers_web.woff')      format('woff'),         /* Pretty Modern Browsers */
+          url('/assets/fonts/2070-Normal92_CircledNumbers.ttf')           format('truetype');     /* Safari, Android, iOS */
+}
             
 /* ---------------- MAIN CSS PROPERTY CONTROL CENTER FOR VARIABLES ---------------- */
 :root {
@@ -361,99 +461,7 @@ $aussichtDOTspace-theme: mat-light-theme((
     z-index: 0;
   }
 
-/* ------------ FONT QUERY ------------ */
-// src/assets/fonts/2070-Black_176_web.woff
 
-@font-face {
-  font-family: '2070';
-  font-weight: 300;                                               
-  font-style: normal;
-  unicode-range: U+000-5FF;
-  src:    local('2070'),
-          url('/assets/fonts/2070-Light_72_web.woff2')  format('woff2'),        /* Super Modern Browsers iOS */
-          url('/assets/fonts/2070-Light_72_web.woff')   format('woff'),         /* Pretty Modern Browsers */
-          url('/assets/fonts/2070-Light72.ttf')         format('truetype');     /* Safari, Android, iOS */
-}
-
-@font-face {
-  font-family: '2070';
-  font-weight: 400;                           /* 400 = normal */
-  font-style: normal;
-  unicode-range: U+000-5FF;
-  src:    local('2070'),
-          url('/assets/fonts/2070-Normal_92_web.woff2') format('woff2'),        /* Super Modern Browsers iOS */
-          url('/assets/fonts/2070-Normal_92_web.woff')  format('woff'),         /* Pretty Modern Browsers */
-          url('/assets/fonts/2070-Normal92.ttf')        format('truetype');     /* Safari, Android, iOS */
-}
-
-@font-face {
-  font-family: '2070';
-  font-weight: 500;                                               
-  font-style: normal;
-  unicode-range: U+000-5FF;
-  src:    local('2070'),
-          url('/assets/fonts/2070-Medium_116_web.woff2')  format('woff2'),      /* Super Modern Browsers iOS */
-          url('/assets/fonts/2070-Medium_116_web.woff')   format('woff'),       /* Pretty Modern Browsers */
-          url('/assets/fonts/2070-Medium116.ttf')         format('truetype');   /* Safari, Android, iOS */
-}
-
-@font-face {
-  font-family: '2070';
-  font-weight: 700;                           /* 700 = bold */
-  font-style: normal;
-  unicode-range: U+000-5FF;
-  src:    local('2070'),
-          url('/assets/fonts/2070-Bold156.eot'),
-          url('/assets/fonts/2070-Bold_156_web.woff2')  format('woff2'),        /* Super Modern Browsers iOS */
-          url('/assets/fonts/2070-Bold_156_web.woff')   format('woff'),         /* Pretty Modern Browsers */
-          url('/assets/fonts/2070-Bold156.svg')         format('svg'),          /* Legacy iOS */
-          url('/assets/fonts/2070-Bold156.ttf')         format('truetype');     /* Safari, Android, iOS */
-}
-
-@font-face {
-  font-family: '2070';
-  font-weight: 900;                           /* 900 = black */
-  font-style: normal;
-  unicode-range: U+000-5FF;
-  src:    local('2070'),
-          url('/assets/fonts/2070-Black_176_web.woff2') format('woff2'),        /* Super Modern Browsers iOS */
-          url('/assets/fonts/2070-Black_176_web.woff')  format('woff'),         /* Pretty Modern Browsers */
-          url('/assets/fonts/2070-Black176.ttf')        format('truetype');     /* Safari, Android, iOS */
-}
-
-
-@font-face {
-  font-family: 'happy times';
-  font-weight: 500;
-  font-style: normal;
-  unicode-range: U+000-5FF;
-  src:    local('happy times'),
-          url('/assets/fonts/happy-times-NG_regular_master_web.woff2')  format('woff2'),
-          url('/assets/fonts/happy-times-NG_regular_master.ttf')        format('truetype');
-}
-
-@font-face {
-  font-family: '2070mono';
-  font-weight: 300;                           /* 300 = light */
-  font-style: normal;
-  unicode-range: U+000-5FF;
-  src:    local('2070mono'),
-          url('/assets/fonts/2070mono-Light_web.woff2')    format('woff2'),        /* Super Modern Browsers iOS */
-          url('/assets/fonts/2070mono-Light_72_web.woff')  format('woff'),         /* Pretty Modern Browsers */
-          url('/assets/fonts/2070mono-Light72.svg')        format('svg'),          /* Legacy iOS */
-          url('/assets/fonts/2070mono-Light72.ttf')        format('truetype');     /* Safari, Android, iOS */
-}
-
-@font-face {
-  font-family: '2070CircledNumbers';
-  font-weight: 400;                           /* 400 = normal */
-  font-style: normal;
-  unicode-range: U+000-5FF;
-  src:    local('2070CircledNumbers'),
-          url('/assets/fonts/2070-Normal92_CircledNumbers_web.woff2')     format('woff2'),        /* Super Modern Browsers iOS */
-          url('/assets/fonts/2070-Normal92_CircledNumbers_web.woff')      format('woff'),         /* Pretty Modern Browsers */
-          url('/assets/fonts/2070-Normal92_CircledNumbers.ttf')           format('truetype');     /* Safari, Android, iOS */
-}
 
 /* ------------ BUTTON STYLING ------------ */
 button {
