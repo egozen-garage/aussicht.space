@@ -31,6 +31,8 @@ export class PlayerComponent implements OnInit, AfterViewInit{
       this.pass_author = this.files[0].author;
       this.pass_name = this.files[0].name;
       this.pass_date = this.files[0].date;
+      this.pass_guests = this.files[0].guests;
+      this.pass_raw_name = this.files[0].raw_name;
     });
     // listen to stream state
     this.audioService.getState().subscribe(state => {
@@ -60,7 +62,10 @@ export class PlayerComponent implements OnInit, AfterViewInit{
           //editing the TITLE
           var rawtitle = singleItem.title;
           var titleWithNumber = rawtitle.toString().replace(/#/, '');
-          var title = titleWithNumber.substr(titleWithNumber.indexOf(" ") + 1);
+          var raw_title = titleWithNumber.substr(titleWithNumber.indexOf(" ") + 1);
+          var title = raw_title.split('–')[0];
+          var guests = raw_title.split('–').pop();
+          var title = raw_title;
 
           //editing the DATE
           var rawDate = singleItem.pubDate;
@@ -70,7 +75,9 @@ export class PlayerComponent implements OnInit, AfterViewInit{
           arr.push({
             countingUP: countingUP,
             url: singleItem.enclosure[0].$.url,
+            raw_name: raw_title,
             name: title,
+            guests: guests,
             author: "Off_line",
             episode: "#" + podcastCounter,
             date: date,
@@ -90,6 +97,8 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   pass_name:any;
   pass_author:any;
   pass_date:any;
+  pass_guests:any;
+  pass_raw_name:any;
   public ngOnInit() {
     console.log("what the name of the first object: " + this.files[0] );
 
@@ -121,6 +130,8 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     this.pass_author = file.author;
     this.pass_name = file.name;
     this.pass_date = file.date;
+    this.pass_guests = file.guests;
+    this.pass_raw_name = file.raw_name;
   }
 
 
