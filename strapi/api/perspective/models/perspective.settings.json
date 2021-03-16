@@ -11,12 +11,9 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "counter": {
-      "type": "integer"
-    },
     "projects": {
-      "via": "perspectives",
       "collection": "project",
+      "via": "perspectives",
       "dominant": true
     },
     "themes": {
@@ -29,13 +26,6 @@
         "perspective"
       ],
       "default": "perspective"
-    },
-    "filter_panel": {
-      "type": "dynamiczone",
-      "components": [
-        "element-component.filter-panel",
-        "element-component.tag"
-      ]
     },
     "body": {
       "type": "dynamiczone",

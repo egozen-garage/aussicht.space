@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../services_strapi/project.service';
 import { PerspectiveService } from '../../services_strapi/perspective.service';
+import { ThemeService } from '../../services_strapi/theme.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,10 +14,12 @@ export class UnitHubComponent implements OnInit {
 
   projects: any = [];
   perspectives: any = [];
-  units:any;
+  units: any;
+  themes: any = [];
   constructor(
     private projectSvc: ProjectService,
     private perspectiveSvc: PerspectiveService,
+    private themeSvc: ThemeService,
     public route: ActivatedRoute,
     ) { }
 
@@ -29,8 +32,11 @@ export class UnitHubComponent implements OnInit {
       this.perspectives = res;
       this.units = [ ...this.projects, ...res];
       this.units = this.shuffle(this.units);
-      console.log("units are: " + this.units);
-      
+      console.log("units are: " + this.units);      
+    });
+    this.themeSvc.getAllThemes().subscribe((res:any) => {
+      this.themes = res;
+      console.log("this.themes: ", this.themes);
     });
   }
 

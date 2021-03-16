@@ -1,6 +1,14 @@
 <div *ngIf="route.children.length === 0" id="unit-hub">
 
     <div *ngIf="units" class="">
+
+        <div *ngFor="let theme of themes" class="themes">
+            <!-- || = "or" operation  -->
+            <div *ngIf="theme.perspective || theme.podcast || theme.project">
+                {{theme.theme_name}}
+            </div>
+        </div>
+
         <div *ngFor="let unit of units" class="unit">
             <div class="unit-item">
                 <!-- <div class="unit-title"></div> -->

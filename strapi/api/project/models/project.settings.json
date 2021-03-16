@@ -12,8 +12,8 @@
   },
   "attributes": {
     "perspectives": {
-      "collection": "perspective",
-      "via": "projects"
+      "via": "projects",
+      "collection": "perspective"
     },
     "themes": {
       "collection": "theme",
@@ -26,13 +26,6 @@
       ],
       "default": "project",
       "required": true
-    },
-    "filter_panel": {
-      "type": "dynamiczone",
-      "components": [
-        "element-component.filter-panel",
-        "element-component.tag"
-      ]
     },
     "body": {
       "type": "dynamiczone",
