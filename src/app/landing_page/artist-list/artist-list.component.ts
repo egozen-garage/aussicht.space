@@ -14,7 +14,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ArtistListComponent implements OnInit {
   // load json file with the artist list
-  artists = require("../../../assets/json/artist_list.json").sort();
+  artists = require("../../../assets/json/artist_list.json");
+  //artists = this.artists_unsort.sort(new Intl.Collator('de').compare(a.name, b.name));
+  // artists = this.artists_unsort.sort(function (a:any, b:any){
+  //   return a.localeCompare(b);
+  // });
+  
   // key of object within the json file
   key = "name";
   image_size:number | undefined;
@@ -49,8 +54,10 @@ export class ArtistListComponent implements OnInit {
 
   sortByKey(artists:any, key:any) {
     return artists.sort(function(a: { [x: string]: any; }, b: { [x: string]: any; }) {
-        var x = a[key]; var y = b[key];
-        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        var x = a[key]; 
+        var y = b[key];
+        return x.localeCompare(y);
+        //return ((x < y) ? -1 : ((x > y) ? 1 : 0));
     });
   }
 
