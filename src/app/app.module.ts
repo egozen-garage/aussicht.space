@@ -31,6 +31,7 @@ import { UnitHubComponent } from './pages/unit-hub/unit-hub.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { ProjectComponent } from './pages/project/project.component';
 import { PerspectiveComponent } from './pages/perspective/perspective.component';
+import { FilterPipe } from './filter.pipe';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{ 
@@ -58,7 +59,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     UnitHubComponent,
     ImpressumComponent,
     ProjectComponent,
-    PerspectiveComponent
+    PerspectiveComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,12 @@
 .unit {
     display: inline-block;
     border: 1px solid white;
-    width: 200px;
+    width: 400px;
     height: 400px;
     padding: 20px;
     margin: 20px;
+    font-family: var(--font-family-primary);
+    font-weight: 500;
 }
 
 #unit-hub {
@@ -12,6 +14,35 @@
     height: 100vh;
 }
 
+.filter-container {
+    padding: 100px var(--margin) 50px var(--margin);
+}
+
+.allthemes {
+    display: inline-block;
+}
+
 .themes {
     color: white;
+    border: 1px solid white;
+    margin: 0px 10px 10px 0px;
+    padding: 5px 15px 5px 15px;
+    font-family: var(--font-family-secondary);
+    font-size: 15px;
+    width: auto;
+}
+
+.unit-item .themes {
+    color: black;
+    background-color: white;
+}
+
+.unit-title {
+    // text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+
+.unit-type {
+    margin: 10px 0px 50px 0px;
 }

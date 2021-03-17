@@ -1,18 +1,27 @@
+<div class="filter-container">
+
+    <div *ngFor="let theme of themes" class="allthemes">
+        <!-- || = "or" operation  -->
+        <div *ngIf="theme.perspective || theme.podcast || theme.project">
+            <div class="themes">{{theme.theme_name}}</div>
+        </div>
+    </div>
+    
+</div>
+    
+
 <div *ngIf="route.children.length === 0" id="unit-hub">
 
     <div *ngIf="units" class="">
 
-        <div *ngFor="let theme of themes" class="themes">
-            <!-- || = "or" operation  -->
-            <div *ngIf="theme.perspective || theme.podcast || theme.project">
-                {{theme.theme_name}}
-            </div>
-        </div>
+
 
         <div *ngFor="let unit of units" class="unit">
             <div class="unit-item">
                 <!-- <div class="unit-title"></div> -->
-                <a [routerLink]="['/units/' + unit.unit_type, unit.id]">{{unit.title}}: let me to the single page (id: {{unit.unit_type}})</a>
+                <a [routerLink]="['/units/' + unit.unit_type, unit.id]" class="unit-title">{{unit.title}}</a>
+                <div class="unit-type">{{unit.unit_type}}</div>
+                <div *ngFor="let unittheme of unit.themes" class="themes">{{unittheme.theme_name}}</div>
                 <!-- <a (click)="getPerspective(unit.id)">let me to the single page (id: {{unit.id}})</a> -->
                 <!-- <div class="unit-project_description">{{unit.project_description}}</div> -->
             </div>
