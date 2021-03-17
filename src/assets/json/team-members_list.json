@@ -2,61 +2,61 @@
     {
         "name": "Bianchini",
         "forename": "Beatrice",
-        "profession": "Kuration, Digitaler Raum",
+        "profession": "Gestaltung Ausstellungswebsite",
         "image" : "BB.png"
     },
     {
         "name": "Denkmann",
         "forename": "Irina",
-        "profession": "Kuration, Text",
+        "profession": "Kuration und Ausstellungsorganisation",
         "image" : "ID.png"
     },
     {
         "name": "Deuter",
         "forename": "Jonas",
-        "profession": "Kuration, Grafik",
+        "profession": "Ausstellungsgrafik",
         "image" : "JD.png"
     },
     {
         "name": "Grünewald",
         "forename": "Ulrike",
-        "profession": "Kuration, Organisation",
+        "profession": "Projektleitung",
         "image" : "UG.png"
     },
     {
         "name": "Hahn",
         "forename": "Sebastian",
-        "profession": "Kuration, Organisation",
+        "profession": "Technisch-organisatorische Koordination",
         "image" : "SH.png"
     },
     {
         "name": "Kosok",
         "forename": "Felix",
-        "profession": "Kuration, Podcast, Programm",
+        "profession": "Programmdirektion",
         "image" : "FK.png"
     },
     {
-        "name": "Sacco",
+        "name": "Lowin",
         "forename": "Erika",
-        "profession": "Kuration, Digitaler Raum",
+        "profession": "Gestaltung Ausstellungswebsite",
         "image" : "EL.png"
     },
     {
         "name": "Sitte",
         "forename": "Maria",
-        "profession": "Kuration, Text",
+        "profession": "Kuration und Ausstellungsorganisation",
         "image" : "MS.png"
     },
     {
         "name": "Sukhova",
         "forename": "Anna",
-        "profession": "Kuration, Grafik",
+        "profession": "Ausstellungsgrafik",
         "image" : "AS.png"
     },
     {
         "name": "Wagner",
         "forename": "Ellen",
-        "profession": "Kuration, Text",
+        "profession": "Kuration und Ausstellungsorganisation",
         "image" : "EMW.png"
     }
 ]

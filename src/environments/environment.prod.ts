@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://aussicht.space/strapi',
+  apiUrl: 'https://aussichtdotspace.herokuapp.com',
 };
