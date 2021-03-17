@@ -1,35 +1,42 @@
-<div class="filter-container">
 
-    <div *ngFor="let theme of themes" class="allthemes">
-        <!-- || = "or" operation  -->
-        <div *ngIf="theme.perspective || theme.podcast || theme.project">
-            <div class="themes">{{theme.theme_name}}</div>
+<body *ngIf="route.children.length === 0" id="unit-hub">
+
+    <div class="filter-container">
+        
+        <!-- SKETCH -->
+        <!-- <div *ngFor="let theme of themes" (click)="themefunction(theme.theme_nam)" class="allthemes"></div> -->
+        
+        <div *ngFor="let theme of themes" class="allthemes">
+            <!-- || = "or" operation  -->
+            <div *ngIf="theme.perspective || theme.podcast || theme.project">
+                <div class="themes">{{theme.theme_name}}</div>
+            </div>
         </div>
+        
     </div>
-    
-</div>
-    
-
-<div *ngIf="route.children.length === 0" id="unit-hub">
 
     <div *ngIf="units" class="">
 
 
 
-        <div *ngFor="let unit of units" class="unit">
+        <div *ngFor="let unit of units | filter" class="unit">
             <div class="unit-item">
                 <!-- <div class="unit-title"></div> -->
+                <div class="unit-name">{{unit.artist}} {{unit.author}}</div>
                 <a [routerLink]="['/units/' + unit.unit_type, unit.id]" class="unit-title">{{unit.title}}</a>
-                <div class="unit-type">{{unit.unit_type}}</div>
-                <div *ngFor="let unittheme of unit.themes" class="themes">{{unittheme.theme_name}}</div>
-                <!-- <a (click)="getPerspective(unit.id)">let me to the single page (id: {{unit.id}})</a> -->
-                <!-- <div class="unit-project_description">{{unit.project_description}}</div> -->
+                <div class="unit-type">[ {{unit.unit_type}} ]</div>
+                
+                <!-- themes inside Unit container -->
+                <div class="unit-theme-container">
+                    <div *ngFor="let unittheme of unit.themes" class="themes">{{unittheme.theme_name}}</div>
+                </div>
+
             </div>
         </div>
         <br>
     </div>
 
-</div>
+</body>
 
 <router-outlet></router-outlet>
 

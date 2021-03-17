@@ -11,6 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UnitHubComponent implements OnInit {
 
+  // 1st setup function that defines and recognises an click event
+  // 2nd 
+  themefunction(theme_name:any){
+
+  }
+
 
   projects: any = [];
   perspectives: any = [];
