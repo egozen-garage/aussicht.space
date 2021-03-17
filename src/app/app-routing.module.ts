@@ -14,6 +14,7 @@ const routes: Routes = [
     component: UnitHubComponent, 
     children: [
       { path: 'project/:id', component: ProjectComponent},
+      { path: 'podcast/:id', component: ProjectComponent},
       { path: 'perspective/:id', component: PerspectiveComponent},
     ]
   },
