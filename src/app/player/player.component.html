@@ -1,5 +1,6 @@
-<div [ngClass]="{'height': resize_player_container}" (swipeup)="ShowPodcastList=true; ShowPlayerList()" (mouseenter)="ShowPodcastList=true" (mouseleave)="ShowPodcastList=false; HidePlayerList()" id="podcast_area_all" class="player-container">
+<!-- <div id="show_hide_button" (click)="ShowPodcastList=true">+</div> -->
 
+<div [ngClass]="{'height': resize_player_container}" (swiperight)="ShowPodcastList=true; ShowPlayerList()" (mouseenter)="ShowPodcastList=true" (mouseleave)="ShowPodcastList=false; HidePlayerList()" id="podcast_area_all" class="player-container">
   <!-- *ngIf="ShowPodcastList"  -->
   <!-- podcast_list_collapsed -->
   <ul *ngIf="ShowPodcastList" [ngClass]="{'background-color': ListColor}" [ngClass]="{'animation': slideListInOut}"  class="podcast_track_list ">
@@ -22,6 +23,7 @@
 
 
 
+  <!-- <div id="show_hide_button2" (click)="ShowPodcastList=true">more</div> -->
 
 
 

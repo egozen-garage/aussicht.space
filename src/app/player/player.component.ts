@@ -4,6 +4,8 @@ import { CloudService } from "../services/cloud.service";
 import { StreamState } from "../interfaces/stream-state";
 import * as xml2js from 'xml2js';
 
+
+
 declare var setDocHeight: () => void;
 
 @Component({

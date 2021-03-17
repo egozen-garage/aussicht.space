@@ -67,12 +67,13 @@ export class MyHammerConfig extends HammerGestureConfig {
     BrowserAnimationsModule,
     MaterialModule
     ],
-    providers: [],
+    providers: 
+    // [],
     // [ GoogleSheetsDbService ],
-    // [ {
-    //   provide: HAMMER_GESTURE_CONFIG,
-    //   useClass: MyHammerConfig
-    // }],
+    [ {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
