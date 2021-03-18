@@ -1,34 +1,35 @@
-
 <body *ngIf="route.children.length === 0" id="unit-hub">
 
     <div class="filter-container">
-        
-        <!-- SKETCH -->
-        <!-- <div *ngFor="let theme of themes" (click)="themefunction(theme.theme_nam)" class="allthemes"></div> -->
-        
-        <div *ngFor="let theme of themes" class="allthemes">
+        <!-- first associate DISCRETE VALUES with EACH CHECKBOX to TOGGLE ON/OFF STATE  -->
+        <div *ngFor="let t of themesFromCms, let i = index" class="allthemes">
+
             <!-- || = "or" operation  -->
-            <div *ngIf="theme.perspective || theme.podcast || theme.project">
-                <div class="themes">{{theme.theme_name}}</div>
+            <div *ngIf="t.perspective || t.podcast || t.project">
+
+                <!-- when CHECKED, compare CHECKED VALUES against the PROPERTIES found within the ARRAY OF OBJECTS -->
+                <input type="checkbox" name="toggle-themes" [id]="t.id" [(ngModel)]="t.selected" [value]="t.theme_name" (change)="getSelected()">
+                <label [for]="t.id" class="themes">{{t.theme_name}}</label>
             </div>
         </div>
+    
+    <!-- using ngFor to call a checked method that returns the checked filtered items -->
+    <pre>Selected themes: <span *ngFor="let t of themesSelected" style="padding-right:10px;">{{ t.theme_name }}</span></pre>
         
     </div>
 
     <div *ngIf="units" class="">
 
-
-
-        <div *ngFor="let unit of units | filter" class="unit">
+        <!-- FILTER UNITS ACCORDING TO SELECTED THEMES -->
+        <div *ngFor="let u of units" class="unit">
             <div class="unit-item">
                 <!-- <div class="unit-title"></div> -->
-                <div class="unit-name">{{unit.artist}} {{unit.author}}</div>
-                <a [routerLink]="['/units/' + unit.unit_type, unit.id]" class="unit-title">{{unit.title}}</a>
-                <div class="unit-type">[ {{unit.unit_type}} ]</div>
+                <div class="unit-name">{{u.artist}} {{u.author}}</div>
+                <a [routerLink]="['/units/' + u.unit_type, u.id]" class="unit-title">{{u.title}}</a>
+                <div class="unit-type">[ {{u.unit_type}} ]</div>
                 
-                <!-- themes inside Unit container -->
                 <div class="unit-theme-container">
-                    <div *ngFor="let unittheme of unit.themes" class="themes">{{unittheme.theme_name}}</div>
+                    <div *ngFor="let ut of u.themes" class="themes">{{ut.theme_name}}</div>
                 </div>
 
             </div>

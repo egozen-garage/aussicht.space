@@ -12,13 +12,13 @@
   },
   "attributes": {
     "projects": {
-      "collection": "project",
       "via": "perspectives",
+      "collection": "project",
       "dominant": true
     },
     "themes": {
-      "collection": "theme",
-      "via": "perspective"
+      "via": "perspective",
+      "collection": "theme"
     },
     "unit_type": {
       "type": "enumeration",
