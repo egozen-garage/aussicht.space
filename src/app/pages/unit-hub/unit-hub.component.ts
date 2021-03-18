@@ -21,6 +21,9 @@ export class UnitHubComponent implements OnInit {
   projectsFromCms: any;
   perspectivesFromCms: any;
   themesFromCms: any;
+  header: any;
+  btns: any;
+  public isVisited = false;
 
   constructor(
     private projectSvc: ProjectService,
@@ -28,11 +31,6 @@ export class UnitHubComponent implements OnInit {
     private themeSvc: ThemeService,
     public route: ActivatedRoute,
     ) { }
-
-
-  checked() {
-    
-  }
 
   ngOnInit(): void {
     this.projectSvc.getAllProjects().subscribe((res:any) => {
@@ -108,6 +106,11 @@ export class UnitHubComponent implements OnInit {
     });
     console.log("this.units = ", this.units);
   }
+
+  public checkVisited() {
+    // reverse the value of property
+    this.isVisited = !this.isVisited;
+ }
 
 
   // shuffle(array:any) {

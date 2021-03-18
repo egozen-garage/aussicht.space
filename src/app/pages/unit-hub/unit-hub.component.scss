@@ -159,13 +159,36 @@ body#unit-hub {
     padding: 30px 0px 50px 0px;
 }
 
-.filter-container .themes {
+label.themes {
     color: black;
-    border: 3px solid black;
+    border: 2px solid black;
+
+}
+
+label.themes:hover {
+    color: var(--color-rosa);
+    border: 2px solid var(--color-rosa);
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+label.themes:active {
+    background-color: black;
+    border: 2px solid black;
+    color: white;
+}
+
+.checkbox input[type="checkbox"]{
+    visibility: hidden;
+    padding: 50px;
 }
 
 .allthemes {
     display: inline-block;
+}
+
+.visited {
+    color: yellow;
 }
 
 .themes {

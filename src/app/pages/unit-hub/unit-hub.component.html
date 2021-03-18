@@ -8,7 +8,15 @@
             <div *ngIf="t.perspective || t.podcast || t.project">
 
                 <!-- when CHECKED, compare CHECKED VALUES against the PROPERTIES found within the ARRAY OF OBJECTS -->
-                <input type="checkbox" name="toggle-themes" [id]="t.id" [(ngModel)]="t.selected" [value]="t.theme_name" (change)="getSelected()">
+                <div class="checkbox" > 
+                    <input type="checkbox" 
+                        name="toggle-themes" 
+                        [id]="t.id" 
+                        [(ngModel)]="t.selected" 
+                        [value]="t.theme_name" 
+                        (change)="getSelected()">
+                </div>
+                
                 <label [for]="t.id" class="themes">{{t.theme_name}}</label>
             </div>
         </div>
