@@ -1,35 +1,52 @@
-<div class="filter-container">
+<body *ngIf="route.children.length === 0" id="unit-hub">
 
-    <div *ngFor="let theme of themes" class="allthemes">
-        <!-- || = "or" operation  -->
-        <div *ngIf="theme.perspective || theme.podcast || theme.project">
-            <div class="themes">{{theme.theme_name}}</div>
+    <div class="filter-container">
+        <!-- first associate DISCRETE VALUES with EACH CHECKBOX to TOGGLE ON/OFF STATE  -->
+        <div *ngFor="let t of themesFromCms, let i = index" class="allthemes">
+
+            <!-- || = "or" operation  -->
+            <div *ngIf="t.perspective || t.podcast || t.project">
+
+                <!-- when CHECKED, compare CHECKED VALUES against the PROPERTIES found within the ARRAY OF OBJECTS -->
+                <div class="checkbox" > 
+                    <input type="checkbox" 
+                        name="toggle-themes" 
+                        [id]="t.id" 
+                        [(ngModel)]="t.selected" 
+                        [value]="t.theme_name" 
+                        (change)="getSelected(); checkVisited(t.id)">
+                </div>
+                
+                <label [for]="t.id" id="unit-theme-selected-{{t.id}}" class="themes">{{t.theme_name}}</label>
+            </div>
         </div>
+    
+    <!-- [class.visited]="isVisited == true" (click) = "checkVisited()" -->
+    <!-- using ngFor to call a checked method that returns the checked filtered items -->
+    <pre>Selected themes: <span *ngFor="let t of themesSelected" style="padding-right:10px;">{{ t.theme_name }}</span></pre>
+        
     </div>
-    
-</div>
-    
-
-<div *ngIf="route.children.length === 0" id="unit-hub">
 
     <div *ngIf="units" class="">
 
-
-
-        <div *ngFor="let unit of units" class="unit">
+        <!-- FILTER UNITS ACCORDING TO SELECTED THEMES -->
+        <div *ngFor="let u of units" class="unit">
             <div class="unit-item">
                 <!-- <div class="unit-title"></div> -->
-                <a [routerLink]="['/units/' + unit.unit_type, unit.id]" class="unit-title">{{unit.title}}</a>
-                <div class="unit-type">{{unit.unit_type}}</div>
-                <div *ngFor="let unittheme of unit.themes" class="themes">{{unittheme.theme_name}}</div>
-                <!-- <a (click)="getPerspective(unit.id)">let me to the single page (id: {{unit.id}})</a> -->
-                <!-- <div class="unit-project_description">{{unit.project_description}}</div> -->
+                <div class="unit-name">{{u.artist}} {{u.author}}</div>
+                <a [routerLink]="['/units/' + u.unit_type, u.id]" class="unit-title">{{u.title}}</a>
+                <div class="unit-type">[ {{u.unit_type}} ]</div>
+                
+                <div class="unit-theme-container">
+                    <div *ngFor="let ut of u.themes" class="themes">{{ut.theme_name}}</div>
+                </div>
+
             </div>
         </div>
         <br>
     </div>
 
-</div>
+</body>
 
 <router-outlet></router-outlet>
 

@@ -15,8 +15,8 @@
       "type": "json"
     },
     "themes": {
-      "collection": "theme",
-      "via": "podcast"
+      "via": "podcast",
+      "collection": "theme"
     },
     "unit_type": {
       "type": "enumeration",

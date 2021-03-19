@@ -12,8 +12,8 @@
   },
   "attributes": {
     "perspectives": {
-      "via": "projects",
-      "collection": "perspective"
+      "collection": "perspective",
+      "via": "projects"
     },
     "themes": {
       "collection": "theme",
@@ -57,6 +57,9 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "js": {
+      "type": "string"
     }
   }
 }

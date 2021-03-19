@@ -8,8 +8,9 @@ import { ThemeService } from '../services_strapi/theme.service';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(activetheme: any[], args?: any): any {
-    return activetheme;
+  transform(values: any[], args?: any): any {
+    return values;
+    console.log("test");
   }
 
 }

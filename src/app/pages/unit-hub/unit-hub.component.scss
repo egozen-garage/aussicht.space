@@ -1,6 +1,151 @@
+// ------------- STYLE VERSION 1 - XRAY -------------
+
+// body#unit-hub {
+//     padding: 90px var(--margin) 200px var(--margin);
+//     height: auto;
+//     background-color: white;
+//     // color: black;
+//     // mix-blend-mode: difference;
+// }
+
+
+// .unit {
+//     display: inline-flex;
+//     position: relative;
+//     border: 3px solid white;
+//     width: 400px;
+//     height: 400px;
+//     padding: 20px;
+//     margin: 20px;
+//     font-family: var(--font-family-primary);
+//     font-weight: 500;
+//     mix-blend-mode: difference;
+// }
+
+
+// .filter-container {
+//     padding: 30px 0px 50px 0px;
+// }
+
+// .filter-container .themes {
+//     color: black;
+//     border: 3px solid black;
+// }
+
+// .allthemes {
+//     display: inline-block;
+// }
+
+// .themes {
+//     color: white;
+//     border: 3px solid white;
+//     margin: 0px 10px 10px 0px;
+//     padding: 5px 15px 5px 15px;
+//     font-family: var(--font-family-secondary);
+//     font-size: 15px;
+//     width: auto;
+// }
+
+// .unit-theme-container {
+//     position: absolute;
+//     bottom: 10px;
+// }
+
+// .unit-title {
+//     // text-decoration: none;
+//     color: white;
+//     font-size: 30px;
+//     line-height: 1;
+// }
+
+// .unit-type {
+//     margin: 10px 0px 50px 0px;
+// }
+
+
+
+
+
+
+// ------------- STYLE VERSION 2 - CURSOR COLOR CHANGE -------------
+
+// body#unit-hub {
+//     padding: 90px var(--margin) 200px var(--margin);
+//     height: auto;
+//     background-color: white;
+//     color: black;
+//     mix-blend-mode: difference;
+// }
+
+
+// .unit {
+//     display: inline-flex;
+//     position: relative;
+//     border: 3px solid black;
+//     width: 400px;
+//     height: 400px;
+//     padding: 20px;
+//     margin: 20px;
+//     font-family: var(--font-family-primary);
+//     font-weight: 500;
+// }
+
+
+// .filter-container {
+//     padding: 30px 0px 50px 0px;
+// }
+
+// .filter-container .themes {
+//     color: black;
+//     border: 3px solid black;
+// }
+
+// .allthemes {
+//     display: inline-block;
+// }
+
+// .themes {
+//     color: black;
+//     border: 3px solid black;
+//     margin: 0px 10px 10px 0px;
+//     padding: 5px 15px 5px 15px;
+//     font-family: var(--font-family-secondary);
+//     font-size: 15px;
+//     width: auto;
+// }
+
+// .unit-theme-container {
+//     position: absolute;
+//     bottom: 10px;
+// }
+
+// .unit-title {
+//     // text-decoration: none;
+//     color: black;
+//     font-size: 30px;
+//     line-height: 1;
+// }
+
+// .unit-type {
+//     margin: 10px 0px 50px 0px;
+// }
+
+
+
+// ------------- STYLE VERSION 3 / SPACIAL DEPTH -------------
+
+body#unit-hub {
+    padding: 90px var(--margin) 200px var(--margin);
+    height: auto;
+    background-color: white;
+    color: black;
+}
+
+
 .unit {
-    display: inline-block;
-    border: 1px solid white;
+    display: inline-flex;
+    position: relative;
+    border: 2px solid black;
     width: 400px;
     height: 400px;
     padding: 20px;
@@ -9,22 +154,46 @@
     font-weight: 500;
 }
 
-#unit-hub {
-    padding: 90px var(--margin) 0px var(--margin);
-    height: 100vh;
-}
 
 .filter-container {
-    padding: 100px var(--margin) 50px var(--margin);
+    padding: 30px 0px 50px 0px;
+}
+
+label.themes {
+    color: black;
+    border: 2px solid black;
+
+}
+
+label.themes:hover {
+    color: var(--color-rosa);
+    border: 2px solid var(--color-rosa);
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+label.themes:active {
+    background-color: black;
+    border: 2px solid black;
+    color: white;
+}
+
+.checkbox input[type="checkbox"]{
+    visibility: hidden;
+    padding: 50px;
 }
 
 .allthemes {
     display: inline-block;
 }
 
+.visited {
+    color: yellow;
+}
+
 .themes {
-    color: white;
-    border: 1px solid white;
+    color: black;
+    border: 2px solid black;
     margin: 0px 10px 10px 0px;
     padding: 5px 15px 5px 15px;
     font-family: var(--font-family-secondary);
@@ -32,15 +201,16 @@
     width: auto;
 }
 
-.unit-item .themes {
-    color: black;
-    background-color: white;
+.unit-theme-container {
+    position: absolute;
+    bottom: 10px;
 }
 
 .unit-title {
     // text-decoration: none;
-    color: white;
+    color: black;
     font-size: 30px;
+    line-height: 1;
 }
 
 .unit-type {

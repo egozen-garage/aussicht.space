@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:1337',
-  //apiUrl: 'https://aussichtdotspace.herokuapp.com',
+  // apiUrl: 'https://aussichtdotspace.herokuapp.com',
   
   // google spreadsheet
   // characters: {
