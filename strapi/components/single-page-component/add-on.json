@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_single_page_component_add_ons",
+  "info": {
+    "name": "add-on",
+    "icon": "anchor"
+  },
+  "options": {},
+  "attributes": {
+    "javascript": {
+      "type": "string"
+    },
+    "iframe": {
+      "type": "string"
+    }
+  }
+}

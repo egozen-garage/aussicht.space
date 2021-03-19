@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../services_strapi/project.service';
 import { ActivatedRoute } from '@angular/router';
+
+//import { CustomDesignIframeComponent } from '../custom_designs/custom-design-iframe/custom-design-iframe.component';
+//import { CustomDesignJavascriptComponent } from '../custom_designs/custom-design-javascript/custom-design-javascript.component';
+
 // import { switchMap } from 'rxjs/operators';
 // import { Observable } from 'rxjs';
 

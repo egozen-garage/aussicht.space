@@ -17,8 +17,8 @@
       "dominant": true
     },
     "themes": {
-      "via": "perspective",
-      "collection": "theme"
+      "collection": "theme",
+      "via": "perspective"
     },
     "unit_type": {
       "type": "enumeration",
