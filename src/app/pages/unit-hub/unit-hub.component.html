@@ -14,13 +14,14 @@
                         [id]="t.id" 
                         [(ngModel)]="t.selected" 
                         [value]="t.theme_name" 
-                        (change)="getSelected()">
+                        (change)="getSelected(); checkVisited(t.id)">
                 </div>
                 
-                <label [for]="t.id" class="themes">{{t.theme_name}}</label>
+                <label [for]="t.id" id="unit-theme-selected-{{t.id}}" class="themes">{{t.theme_name}}</label>
             </div>
         </div>
     
+    <!-- [class.visited]="isVisited == true" (click) = "checkVisited()" -->
     <!-- using ngFor to call a checked method that returns the checked filtered items -->
     <pre>Selected themes: <span *ngFor="let t of themesSelected" style="padding-right:10px;">{{ t.theme_name }}</span></pre>
         
