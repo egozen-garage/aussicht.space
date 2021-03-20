@@ -25,6 +25,8 @@ export class ProjectComponent implements OnInit {
     // this.projectSvc.getAllProjects().subscribe((res:any) => {
     //   this.projects = res;
     // });
+    console.log("project parent componant");
+    
 
     this.route.params.subscribe( p => this.projectID = p['id'] );
 

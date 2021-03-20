@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProjectService } from '../../../services_strapi/project.service';
-import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-custom-design-iframe',
@@ -8,35 +7,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./custom-design-iframe.component.scss']
 })
 export class CustomDesignIframeComponent implements OnInit {
-  // projectID : string = "";
-  // project:any;
+
   @Input() project:any;
 
-  constructor(
-    // private projectSvc: ProjectService,
-    // private route: ActivatedRoute,
-    ) { }
+
+
+  
+  safeSrc: SafeResourceUrl | undefined;
+
+  constructor(private sanitizer: DomSanitizer) { 
+
+  }
 
   ngOnInit() {
-    // this.projectSvc.getAllProjects().subscribe((res:any) => {
-    //   this.projects = res;
-    // });
-
-    // this.route.params.subscribe( p => this.projectID = p['id'] );
-
-    // this.project$ = this.route.paramMap.pipe(
-    //   switchMap(params => {
-    //     const name = params.get('id');
-    //     console.log("id name is:" + name);
-    //     return this.projectSvc.getProject(name);
-    //   })
-    // );
-
-    // this.projectSvc.getProject(this.projectID).subscribe((res:any) => {
-    //   this.project = res;
-    //   return console.log("project data array: " + this.project );
-    // });
-
+    const unsafeSrc = this.project.addon.website_link
+    this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(unsafeSrc);    
   }
 
 }

@@ -2,14 +2,18 @@
   "collectionName": "components_single_page_component_add_ons",
   "info": {
     "name": "add-on",
-    "icon": "anchor"
+    "icon": "anchor",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "javascript": {
+    "javascript_file_name": {
       "type": "string"
     },
-    "iframe": {
+    "website_link": {
+      "type": "string"
+    },
+    "HTML_file_name": {
       "type": "string"
     }
   }
