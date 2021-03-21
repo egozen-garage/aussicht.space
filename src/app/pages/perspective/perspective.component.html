@@ -1,11 +1,11 @@
 <div class="project-page">
 
-   
+    
     <header class="project-header">
         <p class="project-title">{{perspective.title}}</p>
         <p class="project-artist">{{perspective.author}}</p>
     </header>
-
+<!--
     <div class="project-body-container">
 
         <p class="project-intro">{{perspective.body[0].intro}}</p>
@@ -31,11 +31,54 @@
             </a>
         </div>
 
+    </div> -->
+
+
+
+    <br> --------------------- armin's test --------------------- <br>
+
+    <div *ngFor="let body of perspective.body, let i = index"> 
+<!-- __component: project-title ---------------------------------------------- -->
+        <div *ngIf=" perspective.body[i].__component === 'single-page-component.project-title'">
+            {{ perspective.body[i].title }}
+            {{ perspective.body[i].author }}
+        </div>
+<!-- __component: content ---------------------------------------------------- -->
+        <div *ngIf=" perspective.body[i].__component === 'single-page-component.content' ">
+            body > content:
+        </div>
+<!-- __component: machine-generated ------------------------------------------ -->
+        <div *ngIf=" perspective.body[i].__component === 'single-page-component.machine-generated' ">
+            body > machine-generated:
+        </div>
+<!-- __component: media ------------------------------------------------------ -->
+        <div *ngIf=" perspective.body[i].__component === 'single-page-component.media' ">
+            body > media:
+            <div *ngFor="let image of perspective.body[i].project_media, let b = index"> 
+                
+                <img src="{{ apiUrl }}{{ perspective.body[i].project_media[b].formats.medium.url }}" alt="">
+                <!-- formats.medium.url -->
+            </div>
+        </div>
+<!-- __component: remark ------------------------------------------------------ -->
+        <div *ngIf=" perspective.body[i].__component === 'single-page-component.remark' ">
+            body > remark:
+        </div>
+<!-- __component: title ------------------------------------------------------- -->
+        <div *ngIf=" perspective.body[i].__component === 'single-page-component.title' ">
+            body > title:
+        </div>
+<!-- __component: textblock --------------------------------------------------- -->
+        <div *ngIf=" perspective.body[i].__component === 'single-page-component.textblock' ">
+            body > textblock:
+        </div>
+<!-- __component: relation ---------------------------------------------------- -->
+        <div *ngIf=" perspective.body[i].__component === 'single-page-component.relation' ">
+            body > relation:
+        </div>
     </div>
 
+
+
 </div>
-
-
-
-
 <router-outlet></router-outlet>
