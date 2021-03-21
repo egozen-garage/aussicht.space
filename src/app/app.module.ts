@@ -36,7 +36,7 @@ import { FormsModule } from '@angular/forms';
 import { JsDemoComponent } from './js_scripts/js-demo/js-demo.component';
 import { CustomDesignIframeComponent } from './pages/custom_designs/custom-design-iframe/custom-design-iframe.component';
 import { CustomDesignJavascriptComponent } from './pages/custom_designs/custom-design-javascript/custom-design-javascript.component';
-import { CustomDesignBlankHTMLComponent } from './pages/custom_designs/custom-design-blank-html/custom-design-blank-html.component';
+import { CustomDesignHtmlCssComponent } from './pages/custom_designs/custom-design-html-css/custom-design-html-css.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{ 
@@ -69,7 +69,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     JsDemoComponent,
     CustomDesignIframeComponent,
     CustomDesignJavascriptComponent,
-    CustomDesignBlankHTMLComponent,
+    CustomDesignHtmlCssComponent,
   ],
   imports: [
     BrowserModule,

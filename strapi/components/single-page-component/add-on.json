@@ -13,8 +13,9 @@
     "website_link": {
       "type": "string"
     },
-    "HTML_file_name": {
-      "type": "string"
+    "add_html_css": {
+      "type": "richtext",
+      "default": "<style></style>"
     }
   }
 }

@@ -10,16 +10,16 @@
             <p class="caption">{{project.cover_media.caption}} </p>
         </div>
         <!-- ------------- custom-design-iframe ------------- -->
-        <div *ngIf="project.addon !== null && project.addon.website_link !== null" class="project-cover-media">
+        <div *ngIf="project.addon !== null && project.addon.website_link?.length > 0 " class="project-cover-media">
             <app-custom-design-iframe [project]="project"></app-custom-design-iframe>
         </div>
         <!-- ------------- custom-design-javascript ------------- -->
-        <div *ngIf="project.addon !== null && project.addon.javascript_file_name !== null" class="project-cover-media">
+        <div *ngIf="project.addon !== null && project.addon.javascript_file_name?.length > 0" class="project-cover-media">
             <app-custom-design-javascript [project]="project"></app-custom-design-javascript>
         </div>
         <!-- ------------- custom-design-blankHTML ------------- -->
-        <div *ngIf="project.addon !== null && project.addon.HTML_file_name !== null" class="project-cover-media">
-            <app-custom-design-blank-html [project]="project"></app-custom-design-blank-html>
+        <div *ngIf="project.addon !== null && project.addon.add_html_css?.length > 0" class="project-cover-media">
+            <app-custom-design-html-css [project]="project"></app-custom-design-html-css>
         </div>
     </header>
 
