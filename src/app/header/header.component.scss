@@ -31,7 +31,7 @@ header:hover~#header_black_background{
   header {
     z-index: 9999;
     font-family: '2070';
-    font-weight: 500;
+    font-weight: var(--font-weight-primary);
     position: fixed;
     mix-blend-mode: difference;
   }

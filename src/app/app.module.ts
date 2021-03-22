@@ -33,7 +33,6 @@ import { ProjectComponent } from './pages/project/project.component';
 import { PerspectiveComponent } from './pages/perspective/perspective.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
-import { JsDemoComponent } from './js_scripts/js-demo/js-demo.component';
 import { CustomDesignIframeComponent } from './pages/custom_designs/custom-design-iframe/custom-design-iframe.component';
 import { CustomDesignJavascriptComponent } from './pages/custom_designs/custom-design-javascript/custom-design-javascript.component';
 
@@ -65,7 +64,6 @@ export class MyHammerConfig extends HammerGestureConfig {
     ProjectComponent,
     PerspectiveComponent,
     FilterPipe,
-    JsDemoComponent,
     CustomDesignIframeComponent,
     CustomDesignJavascriptComponent,
   ],
