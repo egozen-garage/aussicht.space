@@ -23,7 +23,6 @@
       <ng-container *ngFor="let event of events; let i = index">
 
         
-        
         <label 
           [for]="event.id" 
           class="event"
@@ -33,18 +32,18 @@
         </label>
 
         <input  
-        class="toggle"
-        type="checkbox" 
-        name="toggle-themes" 
-        [id]="event.id" 
-        [(ngModel)]="event.selected" 
-        [value]="event.title" 
-        (change)="getSelected()"> 
+          class="toggle"
+          type="checkbox" 
+          name="toggle-themes" 
+          [id]="event.id" 
+          [(ngModel)]="event.selected" 
+          [value]="event.title" 
+          (change)="getSelected()"> 
 
         <span 
           [class.event_selected]="event.selected"
-          class="event_content" 
-          id="collapsible-{{i}}">
+          class="event_content">
+          <!-- id="collapsible-{{i}}" -->
           {{event.info}}  
         </span>
         

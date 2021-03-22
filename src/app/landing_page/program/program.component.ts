@@ -49,10 +49,9 @@ export class ProgramComponent implements OnInit {
     console.log("eventsSelected" + this.eventsSelected);
     
     if (!this.eventsSelected.length) {
-      console.log("eventsSelected: " + this.eventsSelected);
-      console.log("eventsFromCms: " + this.eventsFromCms);
-      
+      console.log("before eventsSelected: " + this.eventsSelected);      
       this.eventsSelected = this.eventsFromCms;
+      console.log("after eventsSelected: " + this.eventsSelected);
     }
 
     // calls out the selected state of current events
