@@ -61,10 +61,6 @@
     "js": {
       "type": "string"
     },
-    "default_design": {
-      "type": "boolean",
-      "default": true
-    },
     "addon": {
       "type": "component",
       "repeatable": false,
