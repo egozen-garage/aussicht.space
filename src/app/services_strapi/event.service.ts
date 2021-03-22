@@ -6,15 +6,14 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class PerspectiveService {
-
+export class EventService {
   constructor(private http: HttpClient) { }
 
-  getAllPerspectives() {
-    return this.http.get(`${environment.apiUrl}/perspectives`).pipe(map(res => res));
+  getAllEvents() {
+    return this.http.get(`${environment.apiUrl}/events`).pipe(map(res => res));
   }
 
-  getPerspective(perspectiveId : any) {
-    return this.http.get(`${environment.apiUrl}/perspectives/${perspectiveId}`).pipe(map(res => res));
+  getEvent(eventId : any) {
+    return this.http.get(`${environment.apiUrl}/events/${eventId}`).pipe(map(res => res));
   }
 }

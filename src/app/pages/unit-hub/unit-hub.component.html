@@ -14,7 +14,7 @@
                         [id]="t.id" 
                         [(ngModel)]="t.selected" 
                         [value]="t.theme_name" 
-                        (change)="getSelected(); checkVisited(t.id)">
+                        (change)="getSelected()">
                 </div>
                 
                 <label [for]="t.id" id="unit-theme-selected-{{t.id}}" class="themes">{{t.theme_name}}</label>

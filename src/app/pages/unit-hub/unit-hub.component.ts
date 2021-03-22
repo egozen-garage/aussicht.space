@@ -107,18 +107,18 @@ export class UnitHubComponent implements OnInit {
     console.log("this.units = ", this.units);
   }
 
-  public checkVisited(theme_id:any) {
-    // reverse the value of property
-    this.isVisited = !this.isVisited;
-    if(this.isVisited){
-      const selected_theme = document.getElementById("unit-theme-selected-" + theme_id);
-      selected_theme?.setAttribute("style", "background-color: white; color: black;")
-    }
-    else {
-      const selected_theme = document.getElementById("unit-theme-selected-" + theme_id);
-      selected_theme?.setAttribute("style", "background-color: black; color: white;")
-    }
-  }
+  // public checkVisited(theme_id:any) {
+  //   // reverse the value of property
+  //   this.isVisited = !this.isVisited;
+  //   if(this.isVisited){
+  //     const selected_theme = document.getElementById("unit-theme-selected-" + theme_id);
+  //     selected_theme?.setAttribute("style", "background-color: white; color: black;")
+  //   }
+  //   else {
+  //     const selected_theme = document.getElementById("unit-theme-selected-" + theme_id);
+  //     selected_theme?.setAttribute("style", "background-color: black; color: white;")
+  //   }
+  // }
 
 
   // shuffle(array:any) {
