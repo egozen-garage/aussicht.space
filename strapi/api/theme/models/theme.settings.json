@@ -15,8 +15,8 @@
       "type": "string"
     },
     "perspective": {
-      "model": "perspective",
-      "via": "themes"
+      "via": "themes",
+      "model": "perspective"
     },
     "podcast": {
       "model": "podcast",

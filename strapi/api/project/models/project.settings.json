@@ -58,8 +58,10 @@
       "plugin": "upload",
       "required": false
     },
-    "js": {
-      "type": "string"
+    "addon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "single-page-component.add-on"
     }
   }
 }

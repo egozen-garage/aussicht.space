@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_single_page_component_add_ons",
+  "info": {
+    "name": "add-on",
+    "icon": "anchor",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "javascript_file_name": {
+      "type": "string"
+    },
+    "website_link": {
+      "type": "string"
+    },
+    "add_html_css": {
+      "type": "richtext",
+      "default": "<style></style>"
+    }
+  }
+}
