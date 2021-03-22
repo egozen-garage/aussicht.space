@@ -58,9 +58,6 @@
       "plugin": "upload",
       "required": false
     },
-    "js": {
-      "type": "string"
-    },
     "addon": {
       "type": "component",
       "repeatable": false,
