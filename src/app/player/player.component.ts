@@ -30,7 +30,6 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     // get media files
     cloudService.loadXML().subscribe((data: any) => {
       this.files = this.parseXML(data);
-      console.log("tempPodcastArray123: " + this.files);
       
       this.pass_episode = this.files[0].episode;
       this.pass_author = this.files[0].author;
@@ -49,9 +48,7 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     const podcastButton = document.getElementById('toggle-btn');
     const podcastButtonLogo = document.getElementById('btn-logo');
 
-    console.log("call out function...");
     this.ShowPodcastList = !this.ShowPodcastList;
-    console.log("show podcast list:", this.ShowPodcastList);
     if (this.ShowPodcastList){
       this.toggleOpen = true;
       this.renderer.setStyle(podcastButton, 'height', '117px');
@@ -110,11 +107,9 @@ export class PlayerComponent implements OnInit, AfterViewInit{
           });
           countingUP = countingUP + 1;
         }
-        console.log("arr dataset 2: " + arr.length);
 
 
       });
-      console.log("arr dataset 3: " + arr.length);
       return arr;
     }
 
@@ -125,7 +120,6 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   pass_guests:any;
   pass_raw_name:any;
   public ngOnInit() {
-    console.log("what the name of the first object: " + this.files[0] );
 
     // const appHeight = () => {
     //   const doc = document.documentElement
@@ -183,7 +177,6 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   }
 
   play() {
-    console.log("get state: " + this.state?.playing);
     
     //this.audioService.play();
     if ( this.audioService.audioObj.src == ""){
