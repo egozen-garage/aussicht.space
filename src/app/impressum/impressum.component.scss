@@ -23,5 +23,28 @@
 
 
 .impressum_institution, .impressum_team, .impressum_copyright_ownership_declaration{
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+}
+
+.impressum_light{
+    font-family: var(--font-family-primary);
+    font-size: 1.75rem;
+    font-weight: 300;  
+}
+.impressum_small{
+    font-family: var(--font-family-primary);
+    font-size: 16pt;
+    font-weight: 300;    
+}
+.impressum_link{
+    margin: 10px 0px 10px 0px;
+}
+.impressum_promoted_by{
+    margin: 40px 0px 40px 0px;
+}
+.impressum_subtitle{
+    padding-top: 15px;
+}
+#impressum_datenschutz{
+    text-decoration: underline;
 }

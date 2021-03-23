@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { MarkdownModule, MarkedOptions } from "ngx-markdown";
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { PlayerComponent } from './player/player.component';
@@ -72,6 +74,19 @@ export class MyHammerConfig extends HammerGestureConfig {
     SafePipe,
   ],
   imports: [
+    MarkdownModule.forRoot({
+      //loader: HttpClient, // optional, only if you use [src] attribute
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          gfm: true,
+          breaks: true,
+          pedantic: false,
+          smartLists: true,
+          smartypants: false,
+        },
+      },
+    }),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

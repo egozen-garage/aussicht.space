@@ -15,15 +15,14 @@
                 <h3 *ngIf="impressum.involved_party[i].name?.length">
                     {{ impressum.involved_party[i].name }}
                 </h3>
-                
-                <div class="impressum_address">
+                <div class="impressum_address impressum_small">
                     <div *ngIf="impressum.involved_party[i].address?.length">
                         {{ impressum.involved_party[i].address }}
                     </div>
                     <div *ngIf="impressum.involved_party[i].phone?.length">
                         {{ impressum.involved_party[i].phone }}
                     </div>
-                    <div >
+                    <div class="impressum_link">
                         <a *ngIf="impressum.involved_party[i].website_link?.length"
                         href="https://{{impressum.involved_party[i].website_link}}"
                         target="_blank">
@@ -32,65 +31,83 @@
                     </div>
                 </div>
                 
-                    <h4 *ngIf="impressum.involved_party[i].responsible_person_title?.length">
-                        {{ impressum.involved_party[i].responsible_person_title }}
-                    </h4>
-                    <h4 *ngIf="impressum.involved_party[i].responsible_person_name?.length">
-                        {{ impressum.involved_party[i].responsible_person_name }}
-                    </h4>
+                <h3 *ngIf="impressum.involved_party[i].responsible_person_title?.length">
+                    {{ impressum.involved_party[i].responsible_person_title }}
+                </h3>
+                <div *ngIf="impressum.involved_party[i].responsible_person_name?.length"
+                class="impressum_light" >
+                    {{ impressum.involved_party[i].responsible_person_name }}
+                </div>
                 
         </div>
 <!-- __component: add-team ---------------------------------------------- -->
         <div *ngIf=" impressum.involved_party[i].__component === 'impressum-involved-party.add-team'"
         class="involved_party impressum_team">
-        <p *ngIf="impressum.involved_party[i].team_members?.length">
-            {{ impressum.involved_party[i].team_members }}
-        </p>
+            <h3 *ngIf="impressum.involved_party[i].title?.length">
+                {{ impressum.involved_party[i].title }}
+            </h3>
+            <div *ngIf="impressum.involved_party[i].team_members?.length"
+            class="impressum_light">
+                <markdown>
+                    {{ impressum.involved_party[i].team_members }}
+                </markdown>
+            </div>
         
         </div>
 <!-- __component: add-single-party ---------------------------------------------- -->
         <div *ngIf=" impressum.involved_party[i].__component === 'impressum-involved-party.add-single-party'"
         class="involved_party impressum_single_party">
 
-            <p *ngIf="impressum.involved_party[i].profession?.length">
+            <h3 *ngIf="impressum.involved_party[i].profession?.length"
+            class="impressum_subtitle">
                 {{ impressum.involved_party[i].profession }}
-            </p>
-            <p *ngIf="impressum.involved_party[i].name?.length">
+            </h3>
+            <div *ngIf="impressum.involved_party[i].name?.length"
+            class="impressum_light">
                 {{ impressum.involved_party[i].name }}
-            </p>
-            <p >
+            </div>
+            <div class="impressum_light" >
                 <a *ngIf="impressum.involved_party[i].website_link?.length"
                 href="https://{{ impressum.involved_party[i].website_link }}" 
                 target="_blank">
                     {{ impressum.involved_party[i].website_link }}
                 </a>
-            </p>
+            </div>
         </div>
     </div>
 
 <!-- promoted_by ------------------------------------------------------------ -->
 <!-- promoted_by ------------------------------------------------------------ -->
 <!-- promoted_by ------------------------------------------------------------ -->
-<p *ngIf="impressum.promoted_by?.length"
+<h3 *ngIf="impressum.promoted_by?.length"
 class="impressum_promoted_by">
-    {{ impressum.promoted_by }}
-</p>
+    <markdown>
+        {{ impressum.promoted_by }}
+    </markdown>
+</h3>
 
 <!-- copyright_ownership_declaration ------------------------------------------------------------ -->
 <!-- copyright_ownership_declaration ------------------------------------------------------------ -->
 <!-- copyright_ownership_declaration ------------------------------------------------------------ -->
 <div *ngIf="impressum.copyright_ownership_declaration?.length" 
 class="impressum_copyright_ownership_declaration">
-    {{ impressum.copyright_ownership_declaration }}
+    <markdown>
+        {{ impressum.copyright_ownership_declaration }}
+    </markdown>
 </div>
 
 <!-- privacy_policy ------------------------------------------------------------ -->
 <!-- privacy_policy ------------------------------------------------------------ -->
 <!-- privacy_policy ------------------------------------------------------------ -->
-<span *ngIf="impressum.privacy_policy_title?.length">
-    {{ impressum.privacy_policy_title }}
-</span>
-<a *ngIf="impressum.privacy_policy_link?.length" href="https://{{ impressum.privacy_policy_link }}" target="_blank">{{ impressum.privacy_policy_link }}</a>
+
+<a *ngIf="impressum.privacy_policy_link?.length" 
+href="https://{{ impressum.privacy_policy_link }}" 
+target="_blank"
+id="impressum_datenschutz">
+    <ng-container *ngIf="impressum.privacy_policy_title?.length">
+        {{ impressum.privacy_policy_title }}
+    </ng-container>
+</a>
 
 
 </div>
