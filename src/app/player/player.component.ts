@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Renderer2 } from '@angular/core';
 import { AudioService } from "../services/audio.service";
 import { CloudService } from "../services/cloud.service";
 import { StreamState } from "../interfaces/stream-state";
@@ -24,6 +24,7 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   constructor(
     public cloudService: CloudService,
     public audioService: AudioService,
+    private renderer: Renderer2
   ) {
     this.ShowPodcastList = false;
     // get media files
@@ -45,15 +46,22 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   }
 
   tooglebtn() {
+    const podcastButton = document.getElementById('toggle-btn');
+    const podcastButtonLogo = document.getElementById('btn-logo');
+
     console.log("call out function...");
     this.ShowPodcastList = !this.ShowPodcastList;
     console.log("show podcast list:", this.ShowPodcastList);
     if (this.ShowPodcastList){
       this.toggleOpen = true;
-      // document.getElementById("podcast-header")
+      this.renderer.setStyle(podcastButton, 'height', '117px');
+      this.renderer.setStyle(podcastButtonLogo, 'display', 'block');
+      // document.getElementById("podcast-header").class.toggle-btn-expand
     } 
     if (!this.ShowPodcastList){
       this.toggleOpen = false;
+      this.renderer.setStyle(podcastButton, 'height', '20px');
+      this.renderer.setStyle(podcastButtonLogo, 'display', 'none');
     }
   }
 

@@ -9,12 +9,13 @@
         (click)="tooglebtn()">
   </div>  
   
-  <input type="checkbox" name="podlist-checkbox" id="idchekbox">
+  <input type="checkbox" name="podlist-checkbox" id="idcheckbox">
   <label  class="toggle_list" 
-        for="idchekbox"
+        for="idcheckbox"
         id="toggle-btn" 
         (click)="tooglebtn()">
-          {{toggleOpen ? 'zu &#8595;' : 'auf &#8593;'}}
+          <span id="btn-logo">aussicht.space</span>
+          <span id="btn-txt" >{{toggleOpen ? 'zu &#8595;' : 'auf &#8593;'}}</span>
   </label>
   
   <!-- PODCAST LIST COLLAPSIBLE -->

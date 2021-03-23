@@ -39,17 +39,33 @@
 
 label#toggle-btn {
     background-color: black;
-    z-index: 9999;
-    color: white;
-    text-align: right;
+    z-index: 9997;
     display: block;
-    font-size: 15px;
-    padding: 0px 15px 0px 15px;
     margin: 0px;
-    height: auto;
+    height: 20px;
+    position: relative;
+    padding: 0px 15px 0px 15px;
 }
 
-#idchekbox {
+#btn-txt {
+    color: white;
+    right: 15px;
+    bottom: 0px;
+    font-size: 15px;
+    position: absolute;
+}
+
+span#btn-logo {
+    font-weight: var(--font-weight-primary);
+    font-size: 20px;
+    left: var(--margin);
+    color: white;
+    top: 30px;
+    position: absolute;
+    display: none;
+}
+
+#idcheckbox {
     display: none;
     margin: 0px;
 }
@@ -63,7 +79,7 @@ label#toggle-btn {
 // }
 
 #podcast-header {
-    z-index: 9999;
+    z-index: 9998;
     position: -webkit-sticky;
     position: sticky;
     height: 70px;
@@ -84,7 +100,7 @@ label#toggle-btn {
     width: 100%;
     height: auto;
     /* padding: 0; */
-    z-index: 9999;
+    z-index: 9998;
     color: black;
     font-family: var(--font-family-primary);
 }
@@ -303,7 +319,7 @@ audio {
     }
 
     .podcast_track_list {
-        height: calc(100vh - 150px);
+        height: calc(100vh - 170px);
         // height: calc(var(--vh, 1vh) * 100);
         // min-height: -webkit-fill-available;
     }

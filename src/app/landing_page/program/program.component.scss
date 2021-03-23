@@ -334,4 +334,51 @@
   .toggle:checked + #collapsible-23 + #animate-br-23 {
     display: block;
   }
+
+  .toggle:checked + #collapsible-24 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-24 + #animate-br-24 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-25 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-25 + #animate-br-25 {
+    display: block;
+  }
+
+  .toggle:checked + #collapsible-26 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-26 + #animate-br-26 {
+    display: block;
+  }
   
+  .toggle:checked + #collapsible-27 { 
+    position: static;
+    /* display: inline; */
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
+  .toggle:checked + #collapsible-27 + #animate-br-27 {
+    display: block;
+  }
