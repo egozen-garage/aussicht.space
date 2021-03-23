@@ -36,6 +36,7 @@ import { FormsModule } from '@angular/forms';
 import { CustomDesignIframeComponent } from './pages/custom_designs/custom-design-iframe/custom-design-iframe.component';
 import { CustomDesignJavascriptComponent } from './pages/custom_designs/custom-design-javascript/custom-design-javascript.component';
 import { CustomDesignHtmlCssComponent } from './pages/custom_designs/custom-design-html-css/custom-design-html-css.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{ 
@@ -68,6 +69,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     CustomDesignIframeComponent,
     CustomDesignJavascriptComponent,
     CustomDesignHtmlCssComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,

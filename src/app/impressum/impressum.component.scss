@@ -1,8 +1,9 @@
 .page-impressum {
-    height: 60vh;
+    // height: 60vh;
     background-color: white;
     color: black;
     padding: 100px var(--margin) 0px var(--margin);
+    padding-bottom: 30px;
 }
 
 .page-impressum p {
@@ -18,4 +19,9 @@
 
 .page-impressum a:hover {
     color: var(--color-rosa);
+}
+
+
+.impressum_institution, .impressum_team, .impressum_copyright_ownership_declaration{
+    margin-bottom: 30px;
 }

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_impressum_involved_party_add_institutions",
+  "info": {
+    "name": "add_institution",
+    "icon": "flag-checkered"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "website_link": {
+      "type": "string"
+    },
+    "responsible_person_title": {
+      "type": "string"
+    },
+    "responsible_person_name": {
+      "type": "string"
+    }
+  }
+}

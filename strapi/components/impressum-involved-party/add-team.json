@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_impressum_involved_party_add_teams",
+  "info": {
+    "name": "add_team",
+    "icon": "user-friends"
+  },
+  "options": {},
+  "attributes": {
+    "team_members": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ImpressumService } from '../services_strapi/impressum.service';
 
 @Component({
   selector: 'app-impressum',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./impressum.component.scss']
 })
 export class ImpressumComponent implements OnInit {
+  impressum: any = [];
 
-  constructor() { }
+
+  constructor(
+    private impressumSvc: ImpressumService,
+  ) { }
 
   ngOnInit(): void {
+    this.impressumSvc.getAllOfImpressum().subscribe((res:any) => {
+      this.impressum = res;
+    });
   }
 
 }

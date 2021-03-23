@@ -11,11 +11,29 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "Title": {
+    "title": {
+      "type": "string",
+      "default": "Impressum"
+    },
+    "copyright_ownership_declaration": {
+      "type": "richtext"
+    },
+    "promoted_by": {
+      "type": "richtext"
+    },
+    "privacy_policy_title": {
       "type": "string"
     },
-    "Text": {
-      "type": "richtext"
+    "privacy_policy_link": {
+      "type": "string"
+    },
+    "involved_party": {
+      "type": "dynamiczone",
+      "components": [
+        "impressum-involved-party.add-team",
+        "impressum-involved-party.add-single-party",
+        "impressum-involved-party.add-institution"
+      ]
     }
   }
 }
