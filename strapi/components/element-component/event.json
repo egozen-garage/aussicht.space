@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_element_component_events",
+  "info": {
+    "name": "event",
+    "icon": "bullhorn",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "eventType-location-artist"
+    },
+    "date_from": {
+      "type": "date",
+      "required": true
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "date_to": {
+      "type": "datetime"
+    }
+  }
+}

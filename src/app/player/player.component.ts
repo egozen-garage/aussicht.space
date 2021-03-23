@@ -3,6 +3,7 @@ import { AudioService } from "../services/audio.service";
 import { CloudService } from "../services/cloud.service";
 import { StreamState } from "../interfaces/stream-state";
 import * as xml2js from 'xml2js';
+import { map } from 'jquery';
 
 
 
@@ -18,6 +19,7 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   files: Array<any> = [];
   state : StreamState | undefined;
   currentFile: any = {};
+  toggleOpen = false;
 
   constructor(
     public cloudService: CloudService,
@@ -40,6 +42,19 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     this.audioService.getState().subscribe(state => {
       this.state = state;
     });
+  }
+
+  tooglebtn() {
+    console.log("call out function...");
+    this.ShowPodcastList = !this.ShowPodcastList;
+    console.log("show podcast list:", this.ShowPodcastList);
+    if (this.ShowPodcastList){
+      this.toggleOpen = true;
+      // document.getElementById("podcast-header")
+    } 
+    if (!this.ShowPodcastList){
+      this.toggleOpen = false;
+    }
   }
 
   parseXML(data: any) {

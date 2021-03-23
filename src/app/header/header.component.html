@@ -1,5 +1,4 @@
-
-<header class="logo">
+<header class="logo" id="logo" onmouseover="show_logo(this)" onmouseout="hide_logo(this)">
     <a id="itemlogo" href="#main">aussicht.space</a>
 </header>
 
@@ -8,14 +7,17 @@
 <div class="menu-dropdown-bg"></div>
 
 
-<header class="menu">
+<header class="menu" id="menu" onmouseover="show_logo(this)" onmouseout="hide_logo(this)">
   <a id="itemunits" routerLink="/units"><li class="items">Unit Hub</li></a>
-  <a id="itemprogramme" href="#programme"><li class="items">Programm</li></a>
-  <a id="itemabout" href="#about"><li class="items">Über</li></a>
-  <a id="itemartists" href="#all_of_artist_list"><li class="items">Künstler:innen</li></a>
+  <a id="itemprogramme" routerLink="" fragment="programme"><li class="items">Programm</li></a>
+  <a id="itemabout" routerLink="" fragment="about" ><li class="items">Über</li></a>
+  <a id="itemartists" routerLink="" fragment="artists" ><li class="items">Künstler:innen</li></a>
 </header>
 
+<!-- ../#programme -->
+
 <div id="header_black_background"></div>
+<div id="header_black_background_mobile"></div>
 
 <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
 <label class="overlay"></label>

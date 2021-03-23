@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "programms",
   "info": {
-    "name": "Programm"
+    "name": "Programm",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -10,8 +11,10 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "programm_index": {
-      "type": "json"
+    "event": {
+      "type": "component",
+      "repeatable": false,
+      "component": "element-component.event"
     }
   }
 }

@@ -1,12 +1,25 @@
 <!-- <div id="show_hide_button" (click)="ShowPodcastList=true">+</div> -->
 
-<div [ngClass]="{'height': resize_player_container}" (swiperight)="ShowPodcastList=true; ShowPlayerList()" (mouseenter)="ShowPodcastList=true" (mouseleave)="ShowPodcastList=false; HidePlayerList()" id="podcast_area_all" class="player-container">
+<div [ngClass]="{'height': resize_player_container}" (mouseenter)="ShowPodcastList=true" (mouseleave)="ShowPodcastList=false" id="podcast_area_all" class="player-container">
   <!-- *ngIf="ShowPodcastList"  -->
-  <!-- podcast_list_collapsed -->
-  <div class="toggle_list" id="open_list" (click)="ShowPodcastList=true">open</div>
-  <ul *ngIf="ShowPodcastList" [ngClass]="{'background-color': ListColor}" [ngClass]="{'animation': slideListInOut}"  class="podcast_track_list ">
-    <div class="podcast-header"></div>    
-    <div class="toggle_list" id="close_list" (click)="ShowPodcastList=true">close</div>
+
+  <!-- TOGGLE LIST BUTTON -->
+  <div  id="podcast-header" 
+        [style.display]="toggleOpen ? 'block' : 'none'" 
+        (click)="tooglebtn()">
+  </div>  
+  
+  <input type="checkbox" name="podlist-checkbox" id="idchekbox">
+  <label  class="toggle_list" 
+        for="idchekbox"
+        id="toggle-btn" 
+        (click)="tooglebtn()">
+          <span>{{toggleOpen ? 'Schließen' : 'Öffnen'}}</span>
+</label>
+  
+  <!-- PODCAST LIST COLLAPSIBLE -->
+  <ul *ngIf="ShowPodcastList" [ngClass]="{'background-color': ListColor}" [ngClass]="{'animation': slideListInOut}"  class="podcast_track_list">
+    <!-- <div class="toggle_list" id="close_list" (click)="ShowPodcastList=true">close</div> -->
     <div *ngFor="let file of files; let i = index" (click)="openFile(file, i)" class='player-controls play'
       id='podcast_list_object_{{file.episode}}'>
       <span class='track_name podcast_play_pause_icon'>
