@@ -31,6 +31,9 @@ function hasScrolled() {
         // Scroll Down
         document.getElementById("logo").style.opacity = "0";
         document.getElementById("menu").style.opacity = "0";
+        document.getElementById("btn").style.opacity = "0";
+        document.getElementById("menu-dropdown-bg").style.opacity = "0";
+        document.getElementById("header_black_background").style.opacity = "0";
     } else {
         console.log("scrolling up");
         // Scroll Up
@@ -38,6 +41,9 @@ function hasScrolled() {
         if(st + $(window).height() < $(document).height()) { 
             document.getElementById("logo").style.opacity = "100";
             document.getElementById("menu").style.opacity = "100";
+            document.getElementById("btn").style.opacity = "100";
+            document.getElementById("menu-dropdown-bg").style.opacity = "100";
+            document.getElementById("header_black_background").style.opacity = "100";
         }
     }
 

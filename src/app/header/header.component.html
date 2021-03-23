@@ -1,14 +1,14 @@
 
-<header class="logo" id="logo" onmouseover="show_logo(this)" onmouseout="hide_logo(this)">
+<header class="logo" id="logo">
     <a id="itemlogo" href="#main">aussicht.space</a>
 </header>
 
 <input class="menu-btn" type="checkbox" id="menu-btn" />
 
-<div class="menu-dropdown-bg"></div>
+<div class="menu-dropdown-bg" id="menu-dropdown-bg" ></div>
 
 
-<header class="menu" id="menu" onmouseover="show_logo(this)" onmouseout="hide_logo(this)">
+<header class="menu" id="menu">
   <a id="itemunits" routerLink="/units"><li class="items">Unit Hub</li></a>
   <a id="itemprogramme" routerLink="" fragment="programme"><li class="items">Programm</li></a>
   <a id="itemabout" routerLink="" fragment="about" ><li class="items">Über</li></a>
@@ -19,6 +19,6 @@
 
 <div id="header_black_background"></div>
 
-<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+<label class="menu-icon" id="btn" for="menu-btn"><span class="navicon"></span></label>
 <label class="overlay"></label>
 

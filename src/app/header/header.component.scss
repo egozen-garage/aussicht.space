@@ -1,19 +1,10 @@
 #header_black_background{
   width: 100%;
-  height: 0px;
   position: fixed;
   top: -1px;
   background-color: black;
   z-index: 9990;
-  transition: height 0.1s ease-out;
-  display: none;
 }
-
-header:hover~#header_black_background{
-  height: 80px;
-  transition: height 0.1s ease-in;
-}
-
 
 .overlay {
   width: 100%;
@@ -60,14 +51,16 @@ header:hover~#header_black_background{
     //mix-blend-mode: difference;
   }
 
-  
   header.menu {
-    top: 70px;
+    top: 60px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height .1s ease-out;
+  }
+
+  header#menu {
     transition: 0.4s;
   }
+
   
   header.menu li {
     text-align: left;
@@ -84,13 +77,14 @@ header:hover~#header_black_background{
     font-weight: 500;
   }
   
-  div.menu-dropdown-bg {
+  .menu-dropdown-bg {
     top: 0px;
     background: black;
     border-bottom: 1px solid;
     border-color: rgba(255,255,255, 0);
     height: 0;
-    transition: height .1s ease-out, border-color .2s ease-in;
+    transition: height .2s ease-out, border-color .2s ease-in;
+    // transition: 0.4s;
     width: 100vw;
     position: fixed;
     z-index: 9980;
@@ -108,6 +102,7 @@ header:hover~#header_black_background{
     user-select: none;
     padding: 10px 5px;
     z-index: 9999;
+    transition: 0.4s;
     // mix-blend-mode: difference;
   }
   
@@ -148,8 +143,8 @@ header:hover~#header_black_background{
   }
   
   .menu-btn:checked ~ .menu-dropdown-bg {
-    height: 220px;
-    // height: 270px;                            /*------defined height for unit-hub component--------*/
+    height: 260px;
+    // height: 220px;                            /*------defined height for unit-hub component--------*/
     border-color: rgba(255,255,255, 1)
   }
   
@@ -257,14 +252,22 @@ header:hover~#header_black_background{
 
 @media (min-width: 48em) {
   #header_black_background{
-    display: block;
+    height: 0px;
+    transition: height 0.1s ease-out;
   }
-      
+
+  header:hover~#header_black_background{
+    height: 80px;
+    transition: height 0.1s ease-in;
+  }
+  
   header.menu {
       max-height: none;
       display: flex;
       top: 0px;
       right: 0px;
+      transition: max-height .1s ease-out;
+
   }
 
   li.items {
@@ -293,6 +296,12 @@ header:hover~#header_black_background{
 /* 48em = 768px */
 
 @media (max-width: 48em) {
+  #header_black_background{
+    display: block;
+    height: 60px;
+    transition: 0.4s;
+  }
+  
   header h2 {
       color: var(--text);
       font-weight: 600;
