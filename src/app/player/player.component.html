@@ -1,9 +1,25 @@
-<div [ngClass]="{'height': resize_player_container}" (swipeup)="ShowPodcastList=true; ShowPlayerList()" (mouseenter)="ShowPodcastList=true" (mouseleave)="ShowPodcastList=false; HidePlayerList()" id="podcast_area_all" class="player-container">
+<!-- <div id="show_hide_button" (click)="ShowPodcastList=true">+</div> -->
 
+<div [ngClass]="{'height': resize_player_container}" (mouseenter)="ShowPodcastList=true" (mouseleave)="ShowPodcastList=false" id="podcast_area_all" class="player-container">
   <!-- *ngIf="ShowPodcastList"  -->
-  <!-- podcast_list_collapsed -->
-  <ul *ngIf="ShowPodcastList" [ngClass]="{'background-color': ListColor}" [ngClass]="{'animation': slideListInOut}"  class="podcast_track_list ">
-    <div class="podcast-header"></div>
+
+  <!-- TOGGLE LIST BUTTON -->
+  <div  id="podcast-header" 
+        [style.display]="toggleOpen ? 'block' : 'none'" 
+        (click)="tooglebtn()">
+  </div>  
+  
+  <input type="checkbox" name="podlist-checkbox" id="idchekbox">
+  <label  class="toggle_list" 
+        for="idchekbox"
+        id="toggle-btn" 
+        (click)="tooglebtn()">
+          {{toggleOpen ? 'zu &#8595;' : 'auf &#8593;'}}
+  </label>
+  
+  <!-- PODCAST LIST COLLAPSIBLE -->
+  <ul *ngIf="ShowPodcastList" [ngClass]="{'background-color': ListColor}" [ngClass]="{'animation': slideListInOut}"  class="podcast_track_list">
+    <!-- <div class="toggle_list" id="close_list" (click)="ShowPodcastList=true">close</div> -->
     <div *ngFor="let file of files; let i = index" (click)="openFile(file, i)" class='player-controls play'
       id='podcast_list_object_{{file.episode}}'>
       <span class='track_name podcast_play_pause_icon'>
@@ -14,6 +30,7 @@
       <span class='track_name track_name_title' id='track_name_{{file.countingUP}}'>
         <p> <span [innerHTML]> {{file.name}} </span></p>
       </span>
+      <!-- <span class='track_name podcast_guests'>{{file.guests}}</span> -->
       <span class='track_name podcast_date'>{{file.date}}</span>
     </div>
   </ul>
@@ -21,6 +38,7 @@
 
 
 
+  <!-- <div id="show_hide_button2" (click)="ShowPodcastList=true">more</div> -->
 
 
 
@@ -52,6 +70,7 @@
         <span innerHTML="{{pass_author}}" class="current_podcast_track_name track_name_author">Off_line</span>
         <span innerHTML="{{pass_name}}" class="current_podcast_track_name track_name_title"
           id="current_podcast_track_name"></span>
+        <!-- <span innerHTML="{{pass_guests}}" class="current_podcast_track_name track_name_guests"></span> -->
         <span class="current_podcast_track_name podcast_date"></span>
       </div>
     </div>

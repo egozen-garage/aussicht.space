@@ -19,7 +19,6 @@
 }
 
   header {
-    z-index: 9999;
     font-family: '2070';
     font-weight: var(--font-weight-primary);
     position: fixed;
@@ -46,7 +45,7 @@
     top: 30px;
     float: left;
     display: flex;
-    z-index: 9999;
+    z-index: 9992;
     transition: 0.4s;
     //mix-blend-mode: difference;
   }
@@ -55,6 +54,7 @@
     top: 60px;
     max-height: 0;
     overflow: hidden;
+    z-index: 9992;
   }
 
   header#menu {
@@ -101,7 +101,7 @@
     position: fixed;
     user-select: none;
     padding: 10px 5px;
-    z-index: 9999;
+    z-index: 9990;
     transition: 0.4s;
     // mix-blend-mode: difference;
   }
