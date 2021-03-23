@@ -82,7 +82,6 @@ export class CloudService implements OnInit {
   constructor(private http: HttpClient) {
     this.loadXML();
     // console.log("arr dataset 1: " + this.arr.length);
-    console.log("files dataset 1: " + this.files.length);
   }
 
   ngOnInit(): void {
@@ -107,8 +106,6 @@ export class CloudService implements OnInit {
 
   getFiles() {
     // return of(this.files);
-    console.log("is somting happening?");
-    console.log("array: "+ this.tempPodcastArray[0]);
     return of(this.tempPodcastArray);
   }
 

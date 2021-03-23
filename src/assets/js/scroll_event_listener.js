@@ -27,7 +27,6 @@ function hasScrolled() {
     // check if they scrolled past the header and if they scrolled up or down
     // If current position > last position AND scrolled past navbar...
     if (st > lastScrollTop && st > navbarHeight){
-        console.log("scrolling down");
         // Scroll Down
         document.getElementById("logo").style.opacity = "0";
         document.getElementById("menu").style.opacity = "0";
@@ -35,7 +34,6 @@ function hasScrolled() {
         document.getElementById("menu-dropdown-bg").style.opacity = "0";
         document.getElementById("header_black_background").style.opacity = "0";
     } else {
-        console.log("scrolling up");
         // Scroll Up
         // If did not scroll past the document (possible on mac)...
         if(st + $(window).height() < $(document).height()) { 
