@@ -143,8 +143,8 @@
   }
   
   .menu-btn:checked ~ .menu-dropdown-bg {
-    height: 260px;
-    // height: 220px;                            /*------defined height for unit-hub component--------*/
+    // height: 260px;
+    height: 210px;                            /*------defined height for unit-hub component--------*/
     border-color: rgba(255,255,255, 1)
   }
   
