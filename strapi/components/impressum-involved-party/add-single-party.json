@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_impressum_involved_party_add_single_parties",
+  "info": {
+    "name": "add_single_party",
+    "icon": "user-tie"
+  },
+  "options": {},
+  "attributes": {
+    "profession": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "website_link": {
+      "type": "string"
+    }
+  }
+}

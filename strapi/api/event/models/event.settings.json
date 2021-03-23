@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "name": "event",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "period": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "ends_on": {
+      "type": "string",
+      "required": true
+    },
+    "info": {
+      "type": "richtext",
+      "default": "More info to come soon.",
+      "required": true
+    },
+    "is_happening": {
+      "type": "boolean",
+      "default": true
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "DE",
+        "EN"
+      ],
+      "required": true,
+      "default": "DE"
+    },
+    "selected": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

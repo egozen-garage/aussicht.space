@@ -39,6 +39,13 @@
     color: var(--color-rosa);
   }
 
+  .event_selected {
+    position: static;
+    max-height: 100vh;
+    max-width: 100vh;
+    color: black;
+  }
+
   .date {
     font-size: var(--font-size-date);
     font-family: var(--font-family-primary);
@@ -46,7 +53,19 @@
     padding-right: 10px;
   }
 
-  .collapsible-content { 
+  // .collapsible-content { 
+  //   max-height: 0px;
+  //   max-width: 0px;
+  //   overflow: hidden; 
+  //   transition: color 1s ease-in; 
+  //   font-family: var(--font-family-secondary);
+  //   position: absolute;
+  //   font-size: var(--font-size-primary-s); 
+  //   text-align: left;
+  //   color: white;
+  // } 
+
+  .event_content {
     max-height: 0px;
     max-width: 0px;
     overflow: hidden; 
@@ -56,7 +75,8 @@
     font-size: var(--font-size-primary-s); 
     text-align: left;
     color: white;
-  } 
+  }
+
 
   /* when checked: set max-height value so that it can grow to display all its internal content*/
   .toggle:checked + #collapsible-01 { 

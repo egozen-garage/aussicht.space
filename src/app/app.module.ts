@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { MarkdownModule, MarkedOptions } from "ngx-markdown";
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { PlayerComponent } from './player/player.component';
@@ -36,6 +38,7 @@ import { FormsModule } from '@angular/forms';
 import { CustomDesignIframeComponent } from './pages/custom_designs/custom-design-iframe/custom-design-iframe.component';
 import { CustomDesignJavascriptComponent } from './pages/custom_designs/custom-design-javascript/custom-design-javascript.component';
 import { CustomDesignHtmlCssComponent } from './pages/custom_designs/custom-design-html-css/custom-design-html-css.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{ 
@@ -68,8 +71,22 @@ export class MyHammerConfig extends HammerGestureConfig {
     CustomDesignIframeComponent,
     CustomDesignJavascriptComponent,
     CustomDesignHtmlCssComponent,
+    SafePipe,
   ],
   imports: [
+    MarkdownModule.forRoot({
+      //loader: HttpClient, // optional, only if you use [src] attribute
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          gfm: true,
+          breaks: true,
+          pedantic: false,
+          smartLists: true,
+          smartypants: false,
+        },
+      },
+    }),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
