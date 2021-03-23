@@ -89,55 +89,89 @@ export class UnitHubComponent implements OnInit {
     // 2. Read cms-units, then filter cms-units (related to checked checkboxes), then assign to units-variable
     // 3. angular repaints automatically
     this.themesSelected = this.themesFromCms.filter((theme: any) => theme.selected);
-    if (!this.themesSelected.length) {
+    let noThemeSelected = !this.themesSelected.length;
+    if (noThemeSelected) {
       this.themesSelected = this.themesFromCms;
     }
 
     // calls out the selected state of current units
     // seems to only call out values from the parent array perspectives...maybe not correct
     this.updateUnits();
-    console.log("this.units:", this.units);
-    console.log("this.themesSelected:", this.themesSelected);
-    this.units = this.units.filter((unit:any) => {
-      // this looks for the boolean value inside the API array [unit [ {themes.selected}, {...} ] ]
-      return unit.themes.some((themeOfUnit: any) => {
+    // this.units = this.units.filter((unit:any) => {
+    //   // this looks for the boolean value inside the API array [unit [ {themes.selected}, {...} ] ]
+    //   return unit.themes.some((themeOfUnit: any) => {
+    //     return this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === themeOfUnit.theme_name);
+    //   });
+    // });
+    this.units = this.units.sort((unit1: any, unit2: any) => {
+      let x = unit1.themes.some((themeOfUnit: any) => {
         return this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === themeOfUnit.theme_name);
       });
-    });
-    console.log("this.units = ", this.units);
+      let y = unit2.themes.some((themeOfUnit: any) => {
+        return this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === themeOfUnit.theme_name);
+      });
+      return (x === y)? 0 : x? -1 : 1;
+      });
+    
+    for (let unit of this.units) {
+      for (let theme of unit.themes) {
+        theme.selected = 
+          this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === theme.theme_name) && !noThemeSelected;
+      }
+    }
   }
 
-  // public checkVisited(theme_id:any) {
+//   foo(unit1: any, unit2: any) {
+//     console.log("this: ", this);
+//     let x = unit1.themes.some((themeOfUnit: any) => {
+//       return this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === themeOfUnit.theme_name);
+//     });
+//     let y = unit2.themes.some((themeOfUnit: any) => {
+//       return this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === themeOfUnit.theme_name);
+//     });
+//     return (x === y)? 0 : x? -1 : 1;
+// }
+
+  // isThemeOfUnitSelected(unit: any) {
+  //   return unit.themes.some((themeOfUnit: any) => {
+  //     return this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === themeOfUnit.theme_name);
+  //   });
+  // }
+
+  // public checkVisited(theme_id: any) {
   //   // reverse the value of property
-  //   this.isVisited = !this.isVisited;
-  //   if(this.isVisited){
-  //     const selected_theme = document.getElementById("unit-theme-selected-" + theme_id);
-  //     selected_theme?.setAttribute("style", "background-color: white; color: black;")
-  //   }
-  //   else {
-  //     const selected_theme = document.getElementById("unit-theme-selected-" + theme_id);
-  //     selected_theme?.setAttribute("style", "background-color: black; color: white;")
-  //   }
+  //   // this.isVisited = !this.isVisited;
+
+  //   if ( theme_id == true ) {
+  //     console.log("active checkbox is:", theme_id);
+  //   } 
+  //   // else if (this.isVisited == false) {      
+  //   //   console.log('false');
+  //   // }
   // }
 
 
-  // shuffle(array:any) {
-  //   var currentIndex = array.length, temporaryValue, randomIndex;
-  //   var date = new Date();
-  //   // While there remain elements to shuffle...
-  //   while (0 !== currentIndex) {
-  
-  //     // Pick a remaining element...
-  //     randomIndex = Math.floor(Math.random() * currentIndex);
-  //     currentIndex -= 1;
-  
-  //     // And swap it with the current element.
-  //     temporaryValue = array[currentIndex];
-  //     array[currentIndex] = array[randomIndex];
-  //     array[randomIndex] = temporaryValue;
-  //   }
 
-  //   return array;
-    
-  // }
+
+
+    // if(this.isVisited){
+    //   console.log("selected:", this.themesSelected);
+    //   const selected_theme = document.getElementById("unit-theme-selected-" + theme_id);
+    //   selected_theme?.setAttribute("style", "background-color: black; color: white;")
+    // }
+    // if(!this.isVisited){
+    //   console.log("deselected");
+    //   const selected_theme = document.getElementById("unit-theme-selected-" + theme_id);
+    //   selected_theme?.setAttribute("style", "background-color: white; color: black;")   
+    // }
+
+    // if(this.isVisited){
+    //   const selected_theme = document.getElementById("unit-theme-selected-" + theme_id);
+    //   selected_theme?.setAttribute("style", "background-color: white; color: black;")
+    // }
+    // else {
+    //   const selected_theme = document.getElementById("unit-theme-selected-" + theme_id);
+    //   selected_theme?.setAttribute("style", "background-color: black; color: white;")
+    // }
+
 }

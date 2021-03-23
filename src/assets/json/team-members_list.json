@@ -2,19 +2,19 @@
     {
         "name": "Bianchini",
         "forename": "Beatrice",
-        "profession": "Gestaltung Ausstellungswebsite",
+        "profession": "Konzeption digitaler Ausstellungsraum",
         "image" : "BB.png"
     },
     {
         "name": "Denkmann",
         "forename": "Irina",
-        "profession": "Kuration und Ausstellungsorganisation",
+        "profession": "Kuration, Ausstellungsorganisation",
         "image" : "ID.png"
     },
     {
         "name": "Deuter",
         "forename": "Jonas",
-        "profession": "Ausstellungsgrafik",
+        "profession": "Kuration, Ausstellungsgrafik",
         "image" : "JD.png"
     },
     {
@@ -38,13 +38,13 @@
     {
         "name": "Lowin",
         "forename": "Erika",
-        "profession": "Gestaltung Ausstellungswebsite",
+        "profession": "Konzeption digitaler Ausstellungsraum",
         "image" : "EL.png"
     },
     {
         "name": "Sitte",
         "forename": "Maria",
-        "profession": "Kuration und Ausstellungsorganisation",
+        "profession": "Kuration, Ausstellungsorganisation",
         "image" : "MS.png"
     },
     {

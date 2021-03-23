@@ -1,22 +1,31 @@
 <div class="project-page">
-    
+
     <header class="project-header">
         <p class="project-title">{{project.title}}</p>
         <p class="project-artist">{{project.artist}}</p>
-    
-        <div class="project-cover-media">
+
+        <!-- ------------- Default Design ------------- -->
+        <div *ngIf="project.addon === null" class="project-cover-media">
             <img src="http://localhost:1337{{project.cover_media.url}}">
             <p class="caption">{{project.cover_media.caption}} </p>
-            <!-- <div *ngFor="let s of scripts">
-
-            </div> -->
+        </div>
+        <!-- ------------- custom-design-iframe ------------- -->
+        <div *ngIf="project.addon !== null && project.addon.website_link?.length > 0 " class="project-cover-media">
+            <app-custom-design-iframe [project]="project"></app-custom-design-iframe>
+        </div>
+        <!-- ------------- custom-design-javascript ------------- -->
+        <div *ngIf="project.addon !== null && project.addon.javascript_file_name?.length > 0" class="project-cover-media">
+            <app-custom-design-javascript [project]="project"></app-custom-design-javascript>
+        </div>
+        <!-- ------------- custom-design-blankHTML ------------- -->
+        <div *ngIf="project.addon !== null && project.addon.add_html_css?.length > 0" class="project-cover-media">
+            <app-custom-design-html-css [project]="project"></app-custom-design-html-css>
         </div>
     </header>
 
     <div class="project-body-container">
-
-        <p class="project-intro">{{project.body[0].intro}}</p>
-        <p class="project-subhead">{{project.body[0].textblock.subhead}}</p>
+        <!-- <p *ngIf="project.body[0].intro" class="project-intro">{{project.body[0].intro}}</p>
+        <p *ngIf="project.body[0].textblock.subhead" class="project-subhead">{{project.body[0].textblock.subhead}}</p>
         <p class="project-description">{{project.body[0].textblock.textblock}}</p>
         <br><br>
         <div class="project-related">
@@ -25,13 +34,16 @@
                 <div class="related-title">{{project.perspectives[0].title}}</div>
                 <div class="related-author">{{project.perspectives[0].author}}</div>
             </a>
-        </div>
-
+        </div> -->
     </div>
 
-    
-    
 </div>
+
+
+
+
+
+
 
 
 <router-outlet></router-outlet>

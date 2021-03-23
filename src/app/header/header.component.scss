@@ -4,7 +4,6 @@
   position: fixed;
   top: -1px;
   background-color: black;
-  border-bottom: white 1px solid;
   z-index: 9990;
   transition: height 0.1s ease-out;
   display: none;
@@ -31,9 +30,9 @@ header:hover~#header_black_background{
   header {
     z-index: 9999;
     font-family: '2070';
-    font-weight: 500;
+    font-weight: var(--font-weight-primary);
     position: fixed;
-    mix-blend-mode: difference;
+    // mix-blend-mode: difference;
   }
   
   header a {
@@ -57,18 +56,17 @@ header:hover~#header_black_background{
     float: left;
     display: flex;
     z-index: 9999;
-
+    transition: 0.4s;
     //mix-blend-mode: difference;
   }
-  // header.logo:hover {
-  //   mix-blend-mode: normal;
-  // }
+
   
   header.menu {
     top: 70px;
     max-height: 0;
     overflow: hidden;
     transition: max-height .1s ease-out;
+    transition: 0.4s;
   }
   
   header.menu li {
@@ -98,6 +96,7 @@ header:hover~#header_black_background{
     z-index: 9980;
   }
   
+
   
   /*------------MENU ICON------------*/
   
@@ -109,7 +108,7 @@ header:hover~#header_black_background{
     user-select: none;
     padding: 10px 5px;
     z-index: 9999;
-    mix-blend-mode: difference;
+    // mix-blend-mode: difference;
   }
   
   .menu-icon .navicon {

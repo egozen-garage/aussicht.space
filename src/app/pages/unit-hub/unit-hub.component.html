@@ -5,7 +5,7 @@
         <div *ngFor="let t of themesFromCms, let i = index" class="allthemes">
 
             <!-- || = "or" operation  -->
-            <div *ngIf="t.perspective || t.podcast || t.project">
+            <div *ngIf="t.perspective || t.podcast || t.project" id="themes_collection">
 
                 <!-- when CHECKED, compare CHECKED VALUES against the PROPERTIES found within the ARRAY OF OBJECTS -->
                 <div class="checkbox" > 
@@ -17,7 +17,13 @@
                         (change)="getSelected()">
                 </div>
                 
-                <label [for]="t.id" id="unit-theme-selected-{{t.id}}" class="themes">{{t.theme_name}}</label>
+                <label
+                    [for]="t.id"
+                    id="unit-theme-selected-{{t.id}}"
+                    [class.visited]="t.selected"
+                    class="themes">
+                    {{t.theme_name}}
+                </label>
             </div>
         </div>
     
@@ -38,7 +44,13 @@
                 <div class="unit-type">[ {{u.unit_type}} ]</div>
                 
                 <div class="unit-theme-container">
-                    <div *ngFor="let ut of u.themes" class="themes">{{ut.theme_name}}</div>
+                    <div *ngFor="let ut of u.themes">
+                        <div 
+                            [class.visited]="ut.selected"
+                            class="themes">
+                            {{ut.theme_name}}
+                        </div>
+                    </div>
                 </div>
 
             </div>

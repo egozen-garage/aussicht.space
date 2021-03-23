@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JsDemoComponent } from './js-demo.component';
+import { CustomDesignIframeComponent } from './custom-design-iframe.component';
 
-describe('JsDemoComponent', () => {
-  let component: JsDemoComponent;
-  let fixture: ComponentFixture<JsDemoComponent>;
+describe('CustomDesignIframeComponent', () => {
+  let component: CustomDesignIframeComponent;
+  let fixture: ComponentFixture<CustomDesignIframeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ JsDemoComponent ]
+      declarations: [ CustomDesignIframeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(JsDemoComponent);
+    fixture = TestBed.createComponent(CustomDesignIframeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
