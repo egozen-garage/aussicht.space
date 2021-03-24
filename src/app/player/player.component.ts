@@ -44,6 +44,9 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     });
   }
 
+  
+
+
   tooglebtn() {
     const podcastButton = document.getElementById('toggle-btn');
     const podcastButtonLogo = document.getElementById('btn-logo');
