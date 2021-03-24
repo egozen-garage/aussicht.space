@@ -40,6 +40,7 @@
             <div class="unit-item">
                 <!-- <div class="unit-title"></div> -->
                 <div class="unit-name">{{u.artist}} {{u.author}}</div>
+                <!-- routerLinkActive="active"  -->
                 <a [routerLink]="['/units/' + u.unit_type, u.id]" class="unit-title">{{u.title}}</a>
                 <div class="unit-type">[ {{u.unit_type}} ]</div>
                 

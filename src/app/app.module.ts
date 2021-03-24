@@ -41,6 +41,8 @@ import { CustomDesignHtmlCssComponent } from './pages/custom_designs/custom-desi
 import { SafePipe } from './pipes/safe.pipe';
 
 import {Location, LocationStrategy, PathLocationStrategy, HashLocationStrategy} from '@angular/common';
+import {APP_BASE_HREF} from '@angular/common';
+import { AnchorTimingDirective } from './directives/anchor-timing.directive';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{ 
@@ -74,6 +76,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     CustomDesignJavascriptComponent,
     CustomDesignHtmlCssComponent,
     SafePipe,
+    AnchorTimingDirective,
   ],
   imports: [
     MarkdownModule.forRoot({
@@ -96,16 +99,11 @@ export class MyHammerConfig extends HammerGestureConfig {
     MaterialModule,
     FormsModule,
     ],
-    providers: 
-    // [],
-    // [ GoogleSheetsDbService ],
-    [{
-      provide: LocationStrategy,
-      useClass: PathLocationStrategy,
-    },{
-      provide: HAMMER_GESTURE_CONFIG,
-      useClass: MyHammerConfig
-    }],
+    providers: [
+      // { provide: LocationStrategy, useClass: HashLocationStrategy },
+      { provide: APP_BASE_HREF, useValue: '/' },
+      { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
