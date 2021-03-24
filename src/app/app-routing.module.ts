@@ -26,11 +26,11 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {
     // initialNavigation: 'enabled',
     anchorScrolling: 'enabled',
-
     scrollPositionRestoration: 'enabled',
     onSameUrlNavigation: 'reload',
+    // enableTracing: false, 
     // scrollOffset: [0, 0],
   })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

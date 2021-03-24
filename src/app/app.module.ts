@@ -40,6 +40,8 @@ import { CustomDesignJavascriptComponent } from './pages/custom_designs/custom-d
 import { CustomDesignHtmlCssComponent } from './pages/custom_designs/custom-design-html-css/custom-design-html-css.component';
 import { SafePipe } from './pipes/safe.pipe';
 
+import {Location, LocationStrategy, PathLocationStrategy, HashLocationStrategy} from '@angular/common';
+
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{ 
     // override hammerjs defautl configuration
@@ -97,7 +99,10 @@ export class MyHammerConfig extends HammerGestureConfig {
     providers: 
     // [],
     // [ GoogleSheetsDbService ],
-    [ {
+    [{
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy,
+    },{
       provide: HAMMER_GESTURE_CONFIG,
       useClass: MyHammerConfig
     }],
