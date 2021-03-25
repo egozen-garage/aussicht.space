@@ -12,13 +12,13 @@
   },
   "attributes": {
     "projects": {
-      "via": "perspectives",
       "collection": "project",
+      "via": "perspectives",
       "dominant": true
     },
     "themes": {
-      "via": "perspective",
-      "collection": "theme"
+      "collection": "theme",
+      "via": "perspective"
     },
     "unit_type": {
       "type": "enumeration",
@@ -30,19 +30,20 @@
     "body": {
       "type": "dynamiczone",
       "components": [
-        "single-page-component.remark",
         "single-page-component.content",
+        "single-page-component.relation",
+        "single-page-component.remark",
+        "single-page-component.project-gallery",
+        "single-page-component.textblock",
         "single-page-component.media",
         "single-page-component.project-title",
-        "single-page-component.machine-generated",
-        "single-page-component.relation",
-        "single-page-component.textblock"
+        "single-page-component.machine-text"
       ]
     },
-    "title": {
+    "author": {
       "type": "string"
     },
-    "author": {
+    "title": {
       "type": "string"
     }
   }

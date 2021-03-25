@@ -1,27 +1,27 @@
 .perspective_component{
  border: 1px solid black;
 }
-.perspective_API_project_title {
+// .perspective_API_project_title {
 
-}
-.perspective_API_content{
+// }
+// .perspective_API_content{
 
-}
-.perspective_API_machine_generated{
+// }
+// .perspective_API_machine_generated{
 
-}
-.perspective_API_media{
+// }
+// .perspective_API_media{
 
-}
-.perspective_API_remark{
+// }
+// .perspective_API_remark{
 
-}
-.perspective_API_textblock{
+// }
+// .perspective_API_textblock{
 
-}
-.perspective_API_relation{
+// }
+// .perspective_API_relation{
 
-}
+// }
 
 
 
@@ -30,24 +30,58 @@
 
 // ----------- Do we have to adapte the names to perspective? ------------------------
 
-.project-page {
+.project-page, body {
     padding: 90px var(--margin) 100px var(--margin);
     margin: 0px;
-    background-color: white;
+    background-color: var(--color-page-background-secondary);
     color: var(--color-black);
 }
 
-// ------ HEADER ------- //
-.project-title, .related-title {
-    font-family: var(--font-family-primary);
-    font-weight: 500;
-    font-size: var(--font-size-primary-s);
-    margin: 0px;
+// ------ PERSPECTIVE PAGE HEADER ------- //
+
+.btn-back2hub {
+    z-index: 9999;
+    font-family: '2070';
+    font-weight: 400;
+    font-size: 20px;
+    position: fixed;
+    display: flex;
+    left: var(--margin);
+    float: left;
+    top: 30px;
+    color: black;
 }
 
-.project-artist, .related-author {
+.btn-back2hub a {
+    color: black;
+    text-decoration: none;
+    padding: 0px 0px 0px 15px;
+}
+
+.p_title {
     font-family: var(--font-family-secondary);
-    font-size: 20px;
+    font-weight: 500;
+    font-size: var(--font-size-title);
+    margin: 0px;
+    line-height: 0.9;
+    padding: 0px 0px 15px 0px;
+    width: 60%;
+}
+
+.p_author {
+    font-family: var(--font-family-secondary);
+    font-size: var(--font-size-primary);
+}
+
+.themes {
+    display: inline-block;
+    color: black;
+    border: 2px solid black;
+    margin: 0px 10px 10px 0px;
+    padding: 5px 15px 5px 15px;
+    font-family: var(--font-family-secondary);
+    font-size: 15px;
+    width: auto;
 }
 
 .project-cover-media {
@@ -59,38 +93,69 @@
     font-size: 12px;
 }
 
+
 // ------ BODY ------- //
 
-.project-body-container {
+.section-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 20% 40% 20% 20%;
     grid-template-rows: auto;
     grid-template-areas: 
-        "intro intro intro ."
-        "subhead subhead . ."
-        "main main . sidebar"
-    
+        ". intro intro intro"
+        ". subhead subhead ."
+        ". text text ."
+        ". . machine machine";
 }
 
-.project-intro {
+.comp_intro {
     font-family: var(--font-family-primary);
     font-weight: 300;
     font-size: var(--font-size-primary-s);
     line-height: 1;
     padding: 20px 0px 20px 0px;
     grid-area: intro;
+    display: block;
 }
 
-.project-subhead {
+.comp_subhead {
     font-family: var(--font-family-primary);
     font-size: 20px;
     grid-area: subhead;
+    display: block;
 }
 
-.project-description {
+.comp_textblock {
     grid-area: main;
     font-family: var(--font-family-secondary);
     font-size: 20px;
+    grid-area: text;
+}
+
+.comp_m_title, .comp_m_output{
+    grid-area: machine;
+}
+
+.comp_m_title {
+    padding: 0px 20px 0px 0px;
+    z-index: 100;
+}
+
+.comp_m_output {
+    text-indent: -50px;
+}
+
+.machine-background {
+    position: relative;
+}
+
+#circle1 {
+    height: 500px;
+    width: 600px;
+    background: linear-gradient(156deg, rgba(255,255,255,1) 0%, rgba(240,182,192,1) 40%, rgba(0,18,255,1) 100%);
+    border-radius: 40%;
+    position: absolute;
+    filter: blur(1.5rem);
+    z-index: 0;
 }
 
 .project-related {

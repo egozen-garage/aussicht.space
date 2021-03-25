@@ -1,23 +1,28 @@
 {
   "collectionName": "components_single_page_component_relations",
   "info": {
-    "name": "relation",
+    "name": "Relation To Artwork",
     "icon": "network-wired",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "icon_label": {
-      "type": "string",
-      "required": false
-    },
-    "icon": {
+    "project_name": {
       "type": "string"
     },
-    "related_unit": {
-      "type": "component",
-      "repeatable": true,
-      "component": "single-page-component.project-title"
+    "artist_name": {
+      "type": "richtext"
+    },
+    "project_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }

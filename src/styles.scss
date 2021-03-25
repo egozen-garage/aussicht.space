@@ -142,10 +142,14 @@ $aussichtDOTspace-theme: mat-light-theme((
 /* ---------------- MAIN CSS PROPERTY CONTROL CENTER FOR VARIABLES ---------------- */
 :root {
   --text: white;
+  
   --color-white: white;
   --color-black: black;
   --color-rosa: #E59BA8;
   --color-indigo: #1D2273;
+
+  --color-page-background-secondary: #F2F2EC;
+
   --margin: 50px;
   --padding-between-sections: 100px;
 

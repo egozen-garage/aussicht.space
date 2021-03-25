@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LandingPageComponent } from './landing_page/landing-page.component'
-import { UnitHubComponent } from './pages/unit-hub/unit-hub.component'
+import { LandingPageComponent } from './landing_page/landing-page.component';
+import { UnitHubComponent } from './pages/unit-hub/unit-hub.component';
 
 import { ImpressumComponent} from './impressum/impressum.component';
 import { ProjectComponent} from './pages/project/project.component';

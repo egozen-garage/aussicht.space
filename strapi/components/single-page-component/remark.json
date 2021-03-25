@@ -1,15 +1,17 @@
 {
   "collectionName": "components_single_page_component_remarks",
   "info": {
-    "name": "remark",
-    "icon": "align-right"
+    "name": "Article Remark",
+    "icon": "align-right",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "remark": {
-      "type": "component",
-      "repeatable": true,
-      "component": "single-page-component.textblock"
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
     }
   }
 }

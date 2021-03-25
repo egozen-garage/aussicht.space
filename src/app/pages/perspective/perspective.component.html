@@ -1,88 +1,94 @@
 <div class="project-page">
 
-    
-    <header class="project-header">
-        <p class="project-title">{{perspective.title}}</p>
-        <p class="project-artist">{{perspective.author}}</p>
-    </header>
-<!--
-    <div class="project-body-container">
+    <button class="btn-back2hub">
+        <span class="btn-icon">&#10229;</span>
+        <a [routerLink]="['/units/']" class="btn-txt">Hub</a>
+    </button>
 
-        <p class="project-intro">{{perspective.body[0].intro}}</p>
-        <p class="project-subhead">{{perspective.body[0].textblock.subhead}}</p>
-        <p class="project-description">{{perspective.body[0].textblock.textblock}}</p>
-
-        <p class="machine-generated">
-            {{perspective.body[1].title}}
-            {{perspective.body[1].text}}
-        </p>
-
-        <p class="project-description">
-            {{perspective.body[2].subhead}}
-            {{perspective.body[2].textblock}}
-        </p>
-
-        <br><br>
-        <div class="project-related">
-            <div class="related-label">Related projects ></div>
-            <a [routerLink]="['/units/' + perspective.projects[0].unit_type, perspective.projects[0].id]">
-                <div class="related-title">{{perspective.projects[0].title}}</div>
-                <div class="related-author">{{perspective.projects[0].artist}}</div>
-            </a>
-        </div>
-
-    </div> -->
-
-
-
-
-    <div *ngFor="let body of perspective.body, let i = index" 
-    class="perspective_body"> 
-<!-- __component: project-title ---------------------------------------------- -->
-        <div *ngIf=" perspective.body[i].__component === 'single-page-component.project-title'"
-        class="perspective_component perspective_API_project_title">
-                <h3 *ngIf="perspective.body[i].title?.length">{{ perspective.body[i].title }}</h3>
-                <h3 *ngIf="perspective.body[i].author?.length">{{ perspective.body[i].author }}</h3>
-        </div>
-<!-- __component: content ---------------------------------------------------- -->
-        <div *ngIf=" perspective.body[i].__component === 'single-page-component.content'" 
-        class="perspective_component perspective_API_content">
-            <p *ngIf="perspective.body[i].intro?.length">{{ perspective.body[i].intro }}</p>
-            <h3 *ngIf="perspective.body[i].textblock.subhead?.length">{{ perspective.body[i].textblock.subhead }}</h3>
-            <p *ngIf="perspective.body[i].textblock.textblock?.length">{{ perspective.body[i].textblock.textblock }}</p>
-        </div>
-<!-- __component: machine-generated ------------------------------------------ -->
-        <div *ngIf=" perspective.body[i].__component === 'single-page-component.machine-generated'" 
-        class="perspective_component perspective_API_machine_generated">
-            <h3 *ngIf="perspective.body[i].title?.length">{{ perspective.body[i].title }}</h3>
-            <p *ngIf="perspective.body[i].text?.length">{{ perspective.body[i].text }}</p>
-            <p *ngIf="perspective.body[i].text_json?.length">{{ perspective.body[i].text_json }}</p>
-        </div>
-<!-- __component: media ------------------------------------------------------ -->
-        <div *ngIf=" perspective.body[i].__component === 'single-page-component.media'" 
-        class="perspective_component perspective_API_media">
-            <div *ngFor="let image of perspective.body[i].project_media, let b = index">                 
-                <img src="{{ apiUrl }}{{ perspective.body[i].project_media[b].formats.medium.url }}" alt="">
-            </div>
-        </div>
-<!-- __component: remark ------------------------------------------------------ -->
-        <div *ngIf=" perspective.body[i].__component === 'single-page-component.remark'" 
-        class="perspective_component perspective_API_remark">
-            body > remark: not yet added
-        </div>
-<!-- __component: textblock --------------------------------------------------- -->
-        <div *ngIf=" perspective.body[i].__component === 'single-page-component.textblock'" 
-        class="perspective_component perspective_API_textblock">
-            body > textblock: not yet added
-        </div>
-<!-- __component: relation ---------------------------------------------------- -->
-        <div *ngIf=" perspective.body[i].__component === 'single-page-component.relation'" 
-        class="perspective_component perspective_API_relation">
-            body > relation: not yet added
-        </div>
+    <!-- PERSPECTIVE HEADER ---------------------------------------------- -->
+    <div *ngIf="perspective" class="perspective_header">
+                <h3 class="p_title" *ngIf="perspective.title?.length">{{ perspective.title }}</h3>
+                <h3 class="p_author" *ngIf="perspective.author?.length">{{ perspective.author }}</h3>
+                <div class="perspective-theme-container">
+                    <div *ngFor="let t of perspective.themes" class="themes">{{t.theme_name}}</div>
+                </div>
     </div>
 
+    <body class="main">
+        <ng-container *ngFor="let body of perspective.body, let i = index" 
+        class=""> 
 
+        <!-- COMPONENT > "CONTENT" ---------------------------------------------------- -->
+            <div *ngIf=" perspective.body[i].__component === 'single-page-component.content'" 
+            class="perspective_component perspective_API_content section-grid">
+                <p class="comp_intro" *ngIf="perspective.body[i].intro !== null">
+                    <ng-container *ngIf="perspective.body[i].intro.text?.length">{{ perspective.body[i].intro.text }}</ng-container> 
+                </p>
+
+                <h3 class="comp_subhead" *ngIf="perspective.body[i].textblock.subhead?.length">{{ perspective.body[i].textblock.subhead }}</h3>
+                
+                <p class="comp_textblock" *ngIf="perspective.body[i].textblock.paragraph?.length">
+                    {{ perspective.body[i].textblock.paragraph }}
+                </p>
+                
+                <ng-container *ngIf="perspective.body[i].machine_text.output?.length"> 
+                    <div class="machine-background"><span id="circle1"></span><span id="circle2"></span></div>
+                </ng-container>
+                
+                <div class="comp_m_output" *ngIf="perspective.body[i].machine_text !== null">
+                    <span class="comp_m_title" *ngIf="perspective.body[i].machine_text.seed?.length">
+                        {{ perspective.body[i].machine_text.seed}}
+                    </span>
+                    {{ perspective.body[i].machine_text.output }}
+                </div>
+
+                <p class="comp_relation_project" *ngIf="perspective.body[i].relation_to_project?.length">
+                    {{ perspective.body[i].relation_to_project.project_name }}
+                </p>
+
+                <p class="comp_remark" *ngIf="perspective.body[i].relation_to_project?.length">
+                    {{ perspective.body[i].article_remark.title }}
+                </p>
+
+            </div>
+
+        <!-- COMPONENT > "TEXTBLOCK" --------------------------------------------------- -->
+            <!-- <div *ngIf=" perspective.body[i].__component === 'single-page-component.textblock'" 
+            class="perspective_component perspective_API_textblock section-grid">
+                <h3 class="comp_subhead" *ngIf="perspective.body[i].subhead?.length">{{ perspective.body[i].subhead }}</h3>
+                <p class="comp_textblock" *ngIf="perspective.body[i].textblock?.length">{{ perspective.body[i].textblock }}</p>
+            </div> -->
+
+    <!-- __component: machine-generated ------------------------------------------ -->
+            <!-- <div *ngIf=" perspective.body[i].__component === 'single-page-component.machine-generated'" 
+            class="perspective_component perspective_API_machine_generated section-grid"> -->
+                <!-- <span class="p_m_title" *ngIf="perspective.body[i].title?.length">{{ perspective.body[i].title}}</span> -->
+                <!-- <p class="p_m_text" *ngIf="perspective.body[i].text?.length"><span class="p_m_title" *ngIf="perspective.body[i].title?.length">{{ perspective.body[i].title}}</span>{{ perspective.body[i].text }}</p>
+                <p class="p_m_json" *ngIf="perspective.body[i].text_json?.length">{{ perspective.body[i].text_json }}</p>
+            </div> -->
+
+    <!-- __component: media ------------------------------------------------------ -->
+            <div *ngIf=" perspective.body[i].__component === 'single-page-component.media'" 
+            class="perspective_component perspective_API_media">
+                <div *ngFor="let image of perspective.body[i].project_media, let b = index"> 
+                    <img src="{{ apiUrl }}{{ perspective.body[i].project_media[b].formats.medium.url }}" alt="">
+                </div>
+            </div>
+
+    <!-- __component: remark ------------------------------------------------------ -->
+            <div *ngIf=" perspective.body[i].__component === 'single-page-component.remark'" 
+            class="perspective_component perspective_API_remark">
+                body > remark: not yet added
+            </div>
+
+    <!-- __component: relation ---------------------------------------------------- -->
+            <div *ngIf=" perspective.body[i].__component === 'single-page-component.relation'" 
+            class="perspective_component perspective_API_relation">
+                body > relation: not yet added
+            </div>
+        </ng-container>
+            
+    </body>
 
 </div>
 <router-outlet></router-outlet>
