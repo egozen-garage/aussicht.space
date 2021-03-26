@@ -49,21 +49,6 @@ header{
     
 }
 
-.super_rich_text {
-    // grid-column: 1 / span 3;
-    background-color: blue;
-    grid-area: all;
-    // padding: 90px var(--margin) 100px var(--margin);
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: 
-        "intro intro intro ."
-        "subhead subhead . ."
-        "main main . sidebar"
-}
-
 .project-intro {
     font-family: var(--font-family-primary);
     font-weight: 300;
@@ -71,6 +56,8 @@ header{
     line-height: 1;
     padding: 20px 0px 20px 0px;
     grid-area: intro;
+    position: relative;
+
 }
 
 
@@ -146,21 +133,27 @@ header{
 
 
 // ---------- side comments ------------
-.markdown_container{
-    position: relative;
-}
-.side_comments{
-    grid-area: sidebar;
-    grid-row: 1;
-    background-color: chartreuse;
-    width: 30vw;
-    height: auto;
-}
+// .markdown_container{
+//     grid-area: intro;
+
+// }
+// .side_comments{
+//     grid-area: sidebar;
+//     grid-row: 1;
+//     background-color: chartreuse;
+//     width: 30vw;
+//     height: auto;
+// }
 .side_comments div{
     background-color: chocolate;
     width: 30vw;
 }
 .side_comment{
+    grid-area: sidebar;
+    grid-row: 1;
+    width: 30vw;
+    height: auto;
+
     opacity: 0;
     align-self: start;
     position: relative;

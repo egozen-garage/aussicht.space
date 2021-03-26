@@ -26,10 +26,10 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {
     // initialNavigation: 'enabled',
     anchorScrolling: 'enabled',
-    // scrollPositionRestoration: 'enabled',
+    //scrollPositionRestoration: 'enabled',
     onSameUrlNavigation: 'reload',
     // enableTracing: true, 
-    scrollOffset: [0, 0],
+    //scrollOffset: [0, 0],
   })],
   exports: [RouterModule],
 })

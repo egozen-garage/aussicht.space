@@ -41,25 +41,31 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
     
     for (var i = 0; i < super_rich_text.length; i++) {
       let markdown_tag = super_rich_text[i].getElementsByTagName("markdown")[0];
-      let side_comments = this.collect_side_comments(super_rich_text[i]);
+      // let side_comments = this.collect_side_comments(super_rich_text[i]);
       
 
       console.log("super_rich_text length: " + i);
       const markdown_counter = "markdown_nr_" + i;
       markdown_tag.setAttribute("id", markdown_counter);
-      this.collect_code_tags(markdown_tag, side_comments);
+      // this.collect_code_tags(markdown_tag, side_comments);
+      this.collect_code_tags(markdown_tag);
       
     }
   }
 
   // collect all code tags within specific markdown 
   // calculate height position and transfer it to a side comment
-  collect_code_tags(markdown_ID:any, side_comments:any){
+  collect_code_tags(markdown_ID:any){
+  // collect_code_tags(markdown_ID:any, side_comments:any){
     let code_tag_position, side_comment_height, difference;
     var minus = 0;
     var blocked_space = 0;
     const code_tags = markdown_ID.getElementsByTagName("code");
-    console.log("markdown_ID---> " + code_tags.length );
+    const side_comments = this.collect_side_comments(markdown_ID);
+    console.log("===== side_comments = " + side_comments[0].innerHTML);
+    
+    console.log("side_comments---> " + side_comments.length );
+    console.log("code_tags---> " + code_tags.length );
     for (var i = 0; i < code_tags.length; i++) {
       // console.log("####### nr: " + i);
       code_tag_position = this.calculate_position_of_code_tags(code_tags[i]);
@@ -100,8 +106,10 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
   }
 
 
-  collect_side_comments(super_rich_text_ID:any){
-    const side_comments = super_rich_text_ID.getElementsByClassName("side_comment");
+  // collect_side_comments(super_rich_text_ID:any){
+  collect_side_comments(markdown_ID:any){
+    const side_comments = markdown_ID.getElementsByClassName("side_comment");
+    // const side_comments = super_rich_text_ID.getElementsByClassName("side_comment");
     console.log("side_comments-------<" +  side_comments.length);
     return side_comments;
 

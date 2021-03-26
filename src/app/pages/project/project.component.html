@@ -26,15 +26,34 @@
     
     
     <div class="project-body-container">
-    
-        <div class="super_rich_text" >
-            <p *ngIf="project.body[0].intro" class="project-intro markdown_container">
-                <markdown>
+
+
+
+
+        <!-- <div class="super_rich_text" > -->
+            <!-- <p > -->
+                <markdown *ngIf="project.body[0].intro" class="project-intro markdown_container">
+                    <!-- div side comment -->
                     {{project.body[0].intro}}
+
+                    <!-- <div class="side_comments" id=""> -->
+                        <div class="side_comment">
+                            0. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
+                        </div>
+                        <div class="side_comment">
+                            1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
+                            1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
+                        </div>
+                        <div class="side_comment" >
+                            2. Lorem ipsum dolor sit amet.
+                        </div>
+                        <div class="side_comment" >
+                            3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
+                        </div>
+                    <!-- </div> -->
                 </markdown>
-            </p>
-            <!-- *ngIf="project.body[0].side_comment" -->
-            <div class="side_comments" id="">
+            <!-- </p> -->
+            <!-- <div class="side_comments" id="">
                 <div class="side_comment">
                     0. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
                 </div>
@@ -48,8 +67,8 @@
                 <div class="side_comment" >
                     3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
                 </div>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
 
 
         
