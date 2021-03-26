@@ -35,6 +35,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { JsDemoComponent } from './js_scripts/js-demo/js-demo.component';
 import { MarkdownModule, MarkedOptions } from "ngx-markdown";
+import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episodes.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{ 
@@ -65,6 +66,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     PerspectiveComponent,
     FilterPipe,
     JsDemoComponent,
+    PodcastEpisodesComponent,
   ],
   imports: [
     MarkdownModule.forRoot({

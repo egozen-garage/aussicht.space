@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../services_strapi/project.service';
 import { PerspectiveService } from '../../services_strapi/perspective.service';
 import { ThemeService } from '../../services_strapi/theme.service';
+import { PodcastepisodesService } from '../../services_strapi/podcastepisodes.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,15 +13,24 @@ import { ActivatedRoute } from '@angular/router';
 export class UnitHubComponent implements OnInit {
 
 
-  projects: any = [];
-  perspectives: any = [];
   units: any;
-  themesSelected: any = [];
+
+  projects: any = [];
   projectId: any = [];
-  perspectiveId: any = [];
   projectsFromCms: any;
+
+  perspectives: any = [];
+  perspectiveId: any = [];
   perspectivesFromCms: any;
+
+  podcasts: any = [];
+  podcastId: any = [];
+  podcastsFromCms: any;
+
   themesFromCms: any;
+  themesSelected: any = [];
+
+
   header: any;
   btns: any;
   public isVisited = false;
@@ -28,6 +38,8 @@ export class UnitHubComponent implements OnInit {
   constructor(
     private projectSvc: ProjectService,
     private perspectiveSvc: PerspectiveService,
+    private podcastSvc: PodcastepisodesService,
+
     private themeSvc: ThemeService,
     public route: ActivatedRoute,
     ) { }
@@ -44,6 +56,13 @@ export class UnitHubComponent implements OnInit {
       this.perspectivesFromCms = this.perspectives;
       this.updateUnits();
     });
+    
+    this.podcastSvc.getAllPodcastEpisodes().subscribe((res:any) => {
+      this.podcasts = res;
+      this.podcastsFromCms = this.podcasts;
+      this.updateUnits();
+    });
+
 
     this.themeSvc.getAllThemes().subscribe((res:any) => {
       this.themesFromCms = res;
@@ -53,7 +72,7 @@ export class UnitHubComponent implements OnInit {
   }
 
   updateUnits(): void {
-    this.units = [ ...this.projectsFromCms, ...this.perspectivesFromCms ];
+    this.units = [ ...this.projectsFromCms, ...this.perspectivesFromCms, ...this.podcastsFromCms ];
     let today = new Date();
     let seed = today.getDate() + today.getMonth()*31 + today.getFullYear() * 366;
     this.units = this.shuffle(this.units, seed);

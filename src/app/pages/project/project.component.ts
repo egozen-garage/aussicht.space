@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../services_strapi/project.service';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../../environments/environment';
 // import { switchMap } from 'rxjs/operators';
 // import { Observable } from 'rxjs';
 
@@ -10,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements OnInit {
+  apiUrl = environment.apiUrl;
   projectID : string = "";
   project:any;
   constructor(
