@@ -45,7 +45,23 @@ header{
         "intro intro intro ."
         "subhead subhead . ."
         "main main . sidebar"
+        "all all all all"
     
+}
+
+.super_rich_text {
+    // grid-column: 1 / span 3;
+    background-color: blue;
+    grid-area: all;
+    // padding: 90px var(--margin) 100px var(--margin);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "intro intro intro ."
+        "subhead subhead . ."
+        "main main . sidebar"
 }
 
 .project-intro {
@@ -56,6 +72,7 @@ header{
     padding: 20px 0px 20px 0px;
     grid-area: intro;
 }
+
 
 .project-subhead {
     font-family: var(--font-family-primary);
@@ -126,3 +143,80 @@ header{
 .previous_button{
     float: left;
 }
+
+
+// ---------- side comments ------------
+.markdown_container{
+    position: relative;
+}
+.side_comments{
+    grid-area: sidebar;
+    grid-row: 1;
+    background-color: chartreuse;
+    width: 30vw;
+    height: auto;
+}
+.side_comments div{
+    background-color: chocolate;
+    width: 30vw;
+}
+.side_comment{
+    opacity: 0;
+    align-self: start;
+    position: relative;
+    background-color: aqua;
+}
+
+.fade-in {
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+  }
+  
+  
+  @keyframes fadeIn{
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }

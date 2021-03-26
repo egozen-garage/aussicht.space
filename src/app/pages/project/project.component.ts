@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { ProjectService } from '../../services_strapi/project.service';
 import { ActivatedRoute } from '@angular/router';
+import { SideCommentPositionService } from '../../services/side-comment-position.service';
+
 
 //import { CustomDesignIframeComponent } from '../custom_designs/custom-design-iframe/custom-design-iframe.component';
 //import { CustomDesignJavascriptComponent } from '../custom_designs/custom-design-javascript/custom-design-javascript.component';
@@ -13,9 +15,13 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.scss']
 })
-export class ProjectComponent implements OnInit {
+export class ProjectComponent implements OnInit, AfterViewInit {
   projectID : string = "";
   project:any;
+
+  // @Output() EVENTafterPageLoad = new EventEmitter();
+
+  
 
   // key of object within the json file
   key = "name";
@@ -29,11 +35,13 @@ export class ProjectComponent implements OnInit {
   constructor(
     private projectSvc: ProjectService,
     private route: ActivatedRoute,
+    private sideCommentPosition: SideCommentPositionService,
+    
     ) { 
       if (window.innerWidth >= 1024) {
         //this.isMobileResolution = true;
-        this.image_size = 64;
-        this.image_size_STYLE = 64;
+        this.image_size = 128;
+        this.image_size_STYLE = 128;
       } else if(window.innerWidth > 576 && window.innerWidth < 1024) {
         //this.isMobileResolution = false;
         this.image_size = 64;
@@ -42,36 +50,68 @@ export class ProjectComponent implements OnInit {
         this.image_size = 32;
         this.image_size_STYLE = 32;
       }
+      // this.EVENTafterPageLoad.emit();
     }
-
-  ngOnInit() {
-    // this.projectSvc.getAllProjects().subscribe((res:any) => {
-    //   this.projects = res;
-    // });
-    console.log("project parent componant");
     
-
-    this.route.params.subscribe( p => this.projectID = p['id'] );
-
-    // this.project$ = this.route.paramMap.pipe(
-    //   switchMap(params => {
-    //     const name = params.get('id');
-    //     console.log("id name is:" + name);
-    //     return this.projectSvc.getProject(name);
-    //   })
-    // );
-
-    this.projectSvc.getProject(this.projectID).subscribe((res:any) => {
-      this.project = res;
-      return console.log("project data array: " + this.project );
-    });
-
-    this.single_project_load_gpt_images(this.folder_name)
+  ngAfterViewInit(): void {
+    this.activate_site_comments(this.sideCommentPosition);
+    this.sideCommentPosition.listenResizeWindow();
+  }
+  activate_site_comments(site_comment_service:any){
+    setTimeout(() =>{ 
+      site_comment_service.scanMarkdowns();
+      const side_comments = Array.from(document.getElementsByClassName('side_comment') as HTMLCollectionOf<HTMLElement>)
+      side_comments.forEach(item => {
+        item.style.opacity = "1";
+        item.classList.add("fade-in");
+        // console.log("# # # ///////////////////"+item);
+      });
+    }, 1000);
   }
 
 
 
-  // ----------------------- load gpt images -----------------------
+
+  // side_comment_ID:any
+  callPosition(side_note_ID:any){
+    //console.log("side note id: " + side_note_ID);
+    //console.log("call the position of the code tag");
+    return this.sideCommentPosition.renderCommentPosition(side_note_ID);
+  }
+    
+  ngOnInit() {
+    // this.EVENTafterPageLoad.emit();
+
+    console.log("project parent componant");
+    // this.projectSvc.getAllProjects().subscribe((res:any) => {
+      //   this.projects = res;
+      // });
+      
+      this.route.params.subscribe( p => this.projectID = p['id'] );
+      
+      // this.project$ = this.route.paramMap.pipe(
+        //   switchMap(params => {
+          //     const name = params.get('id');
+          //     console.log("id name is:" + name);
+          //     return this.projectSvc.getProject(name);
+          //   })
+          // );
+          
+      this.projectSvc.getProject(this.projectID).subscribe((res:any) => {
+        this.project = res;
+        return console.log("project data array: " + this.project );
+      });
+      
+      // load gpt images 
+      //this.single_project_load_gpt_images(this.folder_name)
+
+
+  }
+
+
+
+
+// ----------------------- load gpt images -----------------------
 
   // resize_window(event:any){
   //   let window_size = event.target.innerWidth;
@@ -129,7 +169,8 @@ export class ProjectComponent implements OnInit {
       // img_tag.setAttribute("onerror", "this.onerror=null; this.src='/assets/imgs/image_gpt/image_processing.gif'");
       img_tag.setAttribute("onerror", "this.onerror=null; this.src='/assets/imgs/image_gpt/white.png'");
       // 4. Append the img element to the div element
-      image_gpt_container?.insertBefore(img_tag, image_gpt_container.childNodes[0]);
+      // image_gpt_container?.insertBefore(img_tag, image_gpt_container.childNodes[0]);
+      image_gpt_container?.append(img_tag, image_gpt_container.childNodes[0]);
       //image_gpt_container?.appendChild(img_tag);
     });
 
@@ -140,7 +181,8 @@ export class ProjectComponent implements OnInit {
     const image_gpt_container = Array.from(document.getElementById("gpt_images")!.getElementsByTagName('img'));
     const hover_image_gpt_container = document.getElementById("gpt_images");
     let hover:boolean = false;
-    image_gpt_container.reverse().forEach( (file) => {
+    // image_gpt_container.reverse().forEach( (file) => {
+    image_gpt_container.forEach( (file) => {
       setTimeout( () => {
         // add: check if mouse hover container --> if yes: add image --> if no: abort
         file.setAttribute('style', 'display:inline-block; padding: 10px; height:' + this.image_size_STYLE + 'px; width: auto;')
