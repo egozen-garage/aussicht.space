@@ -8,6 +8,7 @@ import { PodcastepisodesService } from '../../services_strapi/podcastepisodes.se
   templateUrl: './podcast-episodes.component.html',
   styleUrls: ['./podcast-episodes.component.scss']
 })
+
 export class PodcastEpisodesComponent implements OnInit {
 
   apiUrl = environment.apiUrl;

@@ -78,6 +78,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     CustomDesignHtmlCssComponent,
     SafePipe,
     AnchorTimingDirective,
+    PodcastEpisodesComponent,
   ],
 
   imports: [
@@ -94,7 +95,6 @@ export class MyHammerConfig extends HammerGestureConfig {
         },
       },
     }),
-    PodcastEpisodesComponent,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
