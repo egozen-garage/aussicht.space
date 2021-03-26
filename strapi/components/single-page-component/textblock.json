@@ -10,7 +10,7 @@
     "subhead": {
       "type": "string"
     },
-    "textblock": {
+    "paragraph": {
       "type": "richtext"
     }
   }

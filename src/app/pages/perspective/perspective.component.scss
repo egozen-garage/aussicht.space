@@ -1,53 +1,59 @@
-.perspective_component{
- border: 1px solid black;
-}
-.perspective_API_project_title {
-
-}
-.perspective_API_content{
-
-}
-.perspective_API_machine_generated{
-
-}
-.perspective_API_media{
-
-}
-.perspective_API_remark{
-
-}
-.perspective_API_textblock{
-
-}
-.perspective_API_relation{
-
-}
-
-
-
-
-// ------------------- old style copied from project ---------------------------------
-
-// ----------- Do we have to adapte the names to perspective? ------------------------
-
-.project-page {
-    padding: 90px var(--margin) 100px var(--margin);
+.project-page, body {
+    padding: 90px 0px 100px 0px;
     margin: 0px;
-    background-color: white;
+    background-color: var(--color-page-background-secondary);
     color: var(--color-black);
 }
 
-// ------ HEADER ------- //
-.project-title, .related-title {
-    font-family: var(--font-family-primary);
-    font-weight: 500;
-    font-size: var(--font-size-primary-s);
-    margin: 0px;
+// ------ PERSPECTIVE PAGE HEADER ------- //
+
+.perspective_header {
+    padding: 0px var(--margin) 0px var(--margin);
 }
 
-.project-artist, .related-author {
-    font-family: var(--font-family-secondary);
+.btn-back2hub {
+    z-index: 9999;
+    font-family: '2070';
+    font-weight: 400;
     font-size: 20px;
+    position: fixed;
+    display: flex;
+    left: var(--margin);
+    float: left;
+    top: 30px;
+    color: black;
+}
+
+.btn-back2hub a {
+    color: black;
+    text-decoration: none;
+    padding: 0px 0px 0px 15px;
+}
+
+.p_title {
+    font-family: var(--font-family-secondary);
+    font-weight: 500;
+    font-size: var(--font-size-title);
+    margin: 0px;
+    line-height: 0.9;
+    padding: 0px 0px 15px 0px;
+    width: 60%;
+}
+
+.p_author {
+    font-family: var(--font-family-secondary);
+    font-size: var(--font-size-primary);
+}
+
+.themes {
+    display: inline-block;
+    color: black;
+    border: 2px solid black;
+    margin: 0px 10px 10px 0px;
+    padding: 5px 15px 5px 15px;
+    font-family: var(--font-family-secondary);
+    font-size: 15px;
+    width: auto;
 }
 
 .project-cover-media {
@@ -59,39 +65,152 @@
     font-size: 12px;
 }
 
+
 // ------ BODY ------- //
 
-.project-body-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: 
-        "intro intro intro ."
-        "subhead subhead . ."
-        "main main . sidebar"
-    
-}
 
-.project-intro {
-    font-family: var(--font-family-primary);
-    font-weight: 300;
-    font-size: var(--font-size-primary-s);
-    line-height: 1;
-    padding: 20px 0px 20px 0px;
-    grid-area: intro;
-}
+    // ------ GRID CONFIGURATIONS ------ //
+    .section-grid {
+        display: grid;
+        grid-template-columns: 20% 40% 20% 20%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            ". intro intro intro"
+            ". subhead subhead ."
+            ". text text text"
+            ". t_machine t_machine t_machine"
+            ". . . t_m_background"
+            ". remark remark remark"
+            ". relation relation relation";
+    }
 
-.project-subhead {
-    font-family: var(--font-family-primary);
-    font-size: 20px;
-    grid-area: subhead;
-}
+    // ------ COMPOSITION CONFIGURATIONS ------ //
+        .comp_intro_container {
+            font-family: var(--font-family-primary);
+            font-weight: 300;
+            font-size: var(--font-size-primary-s);
+            line-height: 1;
+            padding: 20px calc(var(--margin) + 50px) 40px 0px;
+            grid-area: intro;
+            display: block;
+            position: relative;
+        }
 
-.project-description {
-    grid-area: main;
-    font-family: var(--font-family-secondary);
-    font-size: 20px;
-}
+        .comp_intro {
+            position: absolute;
+        }
+
+        .comp_subhead {
+            font-family: var(--font-family-primary);
+            font-size: 20px;
+            grid-area: subhead;
+            display: block;
+            padding: 80px 0px 10px 0px;
+        }
+
+        // configure global textblock format here //
+        .comp_textblock_machine, .comp_textblock_remark {
+            padding: 0px 0px 0px 0px;
+            font-family: var(--font-family-secondary);
+            font-size: 20px;
+        }
+
+        .comp_textblock {
+            grid-area: text;
+            font-family: var(--font-family-secondary);
+            font-size: 20px;
+        }
+
+        .comp_textblock_paragraph {
+            width: 60%;
+            margin: 0px 0px 0px 0px;
+        }
+
+        // MACHINE GENERATED CSS ATTRIBUTES//
+        .comp_textblock_machine {
+            grid-area: t_machine;
+        }
+
+            .txt_m_container, .remark_container, .relation_container {
+                float: right;
+                height: auto;
+                width: 60%;
+                margin: 5px 0px 0px 0px;
+                /* border: 1px solid black; */
+                position: relative;
+            }
+
+                .comp_m_title, .comp_m_output{
+                    font-size: 15px;
+                }
+
+                .comp_m_title {
+                    padding: 0px 40px 0px 10px;
+                    z-index: 100;
+                    font-weight: 500;
+                }
+
+                .comp_m_output {
+                    top: 30px;
+                    text-indent: -50px;
+                    height: auto;
+                    position: absolute;
+                    width: 90%;
+                    padding: 0px 0px 0px 50px;
+                    font-family: var(--font-family-primary);
+                }
+
+                #circle1 {
+                    height: 500px;
+                    width: 600px;
+                    top: -70px;
+                    left: 100px;
+                    background: linear-gradient(156deg, rgba(255,132,154,1) 0%, rgba(243,243,239,0.8) 100%);
+                    border-radius: 40%;
+                    position: absolute;
+                    filter: blur(1.5rem);
+                    z-index: 0;
+                }
+
+                .ghost {
+                    visibility: hidden;
+                    top: 0;
+                    left: 0;
+                    position: relative;
+                }
+
+        // REMARK CSS ATTRIBUTES //
+        .comp_textblock_remark {
+            grid-area: remark;
+        }
+
+            .comp_remark, .comp_relation {
+                width: 70%;
+                color: #031DFF;
+            }
+
+            .c_r_title, .relation_projectname {
+                padding: 0px 0px 0px 50px;
+            }
+
+            .c_r_text, .relation_artistname {
+                padding: 0px 0px 40px 50px;
+                font-family: var(--font-family-primary);
+                line-height: 1;
+                font-weight: 400;
+                font-size: 18px;
+            }
+
+        // RELATION CSS ATTRIBUTES //
+        .comp_textblock_relation {
+            grid-area: relation;
+            padding: 0px 0px 0px 0px;
+        }
+
+            .relation_project_img {
+                width: 300px;
+                padding: 0px 0px 30px 50px;
+            }
 
 .project-related {
     grid-area: sidebar;

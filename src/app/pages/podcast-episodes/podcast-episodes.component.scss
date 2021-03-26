@@ -1,0 +1,108 @@
+.podcast-page {
+    padding: 90px var(--margin) 100px var(--margin);
+    margin: 0px;
+    background-color: var(--color-page-background-primary);
+    color: var(--color-white);
+}
+
+.btn-back2hub {
+    z-index: 9999;
+    font-family: '2070';
+    font-weight: 400;
+    font-size: 20px;
+    position: fixed;
+    display: flex;
+    left: var(--margin);
+    float: left;
+    top: 30px;
+    color: white;
+}
+
+    .btn-back2hub a {
+        color: white;
+        text-decoration: none;
+        padding: 0px 0px 0px 15px;
+    }
+
+.offline_podcast_logo {
+    width: 500px;
+    padding: 0px 0px 30px 0px;
+}
+
+.pod_title {
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-size: var(--font-size-title);
+    margin: 0px;
+    line-height: 0.9;
+    padding: 0px 0px 20px 0px;
+    width: 60%;
+}
+
+.pod_speakers {
+    font-family: var(--font-family-secondary);
+    font-size: var(--font-size-primary);
+    padding: 0px 0px 25px 0px;
+}
+
+.pod_intro {
+    font-family: var(--font-family-primary);
+    font-weight: 300;
+    font-size: var(--font-size-primary-s);
+    line-height: 1;
+    width: 70%;
+}
+
+.podcast-theme-container {
+    padding: 46px 0px 50px 0px;
+}
+
+    .themes {
+        display: inline-block;
+        color: white;
+        border: 2px solid white;
+        margin: 0px 10px 10px 0px;
+        padding: 5px 15px 5px 15px;
+        font-family: var(--font-family-secondary);
+        font-size: 15px;
+        width: auto;
+    }
+
+// ---------- SET BODY ATTRIBUTES --------- //
+.podcast_cover_container {
+    position: relative;
+    height: auto;
+    margin: 20px 0px 50px 0px;
+    background-color: var(--color-page-background-primary);
+    border: 1px solid white;
+}
+
+    .pod_episode_cover {
+        position: absolute;
+        right: 0px;
+        mix-blend-mode: screen;
+        padding: 10px;
+    }
+
+    .ghost {
+        position: relative;
+        visibility: hidden;
+    }
+
+    .pod_page_play_icon {
+        filter: invert(1);
+        height: 100px;
+        width: 100px;
+    }
+
+.podcast_episode_description {
+    font-family: var(--font-family-secondary);
+    font-size: 25px;
+    width: 70%;
+}
+
+.podcast_moderator {
+    font-family: var(--font-family-primary);
+    font-weight: 400;
+    padding: 20px 0px 0px 0px;
+}

@@ -12,8 +12,8 @@
   },
   "attributes": {
     "perspectives": {
-      "collection": "perspective",
-      "via": "projects"
+      "via": "projects",
+      "collection": "perspective"
     },
     "themes": {
       "collection": "theme",
@@ -31,14 +31,11 @@
       "type": "dynamiczone",
       "components": [
         "single-page-component.cover-media",
-        "single-page-component.remark",
         "single-page-component.content",
         "single-page-component.project-gallery",
         "single-page-component.textblock",
         "single-page-component.media",
-        "single-page-component.project-title",
-        "single-page-component.machine-generated",
-        "single-page-component.relation"
+        "single-page-component.project-title"
       ]
     },
     "title": {
