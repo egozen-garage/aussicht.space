@@ -45,8 +45,8 @@ header{
         "intro intro intro ."
         "subhead subhead . ."
         "main main . sidebar"
-        "all all all all"
-    
+        "all all all all";
+
 }
 
 .project-intro {
@@ -144,17 +144,18 @@ header{
 //     width: 30vw;
 //     height: auto;
 // }
-.side_comments div{
-    background-color: chocolate;
-    width: 30vw;
-}
-.side_comment{
+// .side_comments div{
+//     background-color: chocolate;
+//     width: 30vw;
+// }
+.markdown_container > .side_comment{
     grid-area: sidebar;
     grid-row: 1;
     width: 30vw;
     height: auto;
+    background-color: burlywood!important;
 
-    opacity: 0;
+    opacity: 0.5;
     align-self: start;
     position: relative;
     background-color: aqua;
