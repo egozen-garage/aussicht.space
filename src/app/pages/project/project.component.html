@@ -5,8 +5,9 @@
         <p class="project-artist">{{project.artist}}</p>
 
         <!-- ------------- Default Design ------------- -->
+    
         <div *ngIf="project.addon === null" class="project-cover-media">
-            <img src="http://localhost:1337{{project.cover_media.url}}">
+            <img src="{{apiUrl}}{{project.cover_media.url}}">
             <p class="caption">{{project.cover_media.caption}} </p>
         </div>
         <!-- ------------- custom-design-iframe ------------- -->

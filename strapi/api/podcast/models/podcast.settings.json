@@ -11,12 +11,9 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "JSON": {
-      "type": "json"
-    },
     "themes": {
-      "via": "podcast",
-      "collection": "theme"
+      "collection": "theme",
+      "via": "podcast"
     },
     "unit_type": {
       "type": "enumeration",
@@ -26,19 +23,42 @@
       "default": "podcast",
       "required": true
     },
-    "body": {
-      "type": "dynamiczone",
-      "components": [
-        "single-page-component.cover-media",
-        "single-page-component.content",
-        "single-page-component.project-title"
-      ]
-    },
     "title": {
       "type": "string"
     },
-    "guest": {
+    "speakers": {
       "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "moderator": {
+      "type": "string"
+    },
+    "episode_cover": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "offline_episode_logo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }

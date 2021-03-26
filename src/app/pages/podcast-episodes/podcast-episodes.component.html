@@ -1,0 +1,45 @@
+<div class="podcast-page">
+
+    <button class="btn-back2hub">
+        <span class="btn-icon">&#10229;</span>
+        <a [routerLink]="['/units/']" class="btn-txt">Hub</a>
+    </button>
+
+    <header *ngIf="podcast" class="podcast_header">
+        <img class="offline_podcast_logo" src="{{apiUrl}}{{podcast.offline_episode_logo.url}}">
+        <h3 class="pod_title" *ngIf="podcast.title?.length">{{ podcast.title }}</h3>
+        <h3 class="pod_speakers" *ngIf="podcast.speakers?.length">{{ podcast.speakers }}</h3>
+        <div class="pod_intro" *ngIf="podcast.intro?.length">
+            {{ podcast.intro }}
+        </div>
+        <div class="podcast-theme-container">
+            <div *ngFor="let t of podcast.themes" class="themes">{{t.theme_name}}</div>
+        </div>
+    </header>
+
+   <body class="main">
+       
+    <!-- FIELD > EPISODE COVER & PLAY BUTTON ---------------------------------------------------- -->
+        <div class="podcast_cover_container" *ngIf="podcast.episode_cover.url?.length">
+            <img class="pod_episode_cover" src="{{apiUrl}}{{podcast.episode_cover.url}}">
+            <img class="pod_episode_cover ghost" src="{{apiUrl}}{{podcast.episode_cover.url}}">
+
+            <button class="pod_page_play_icon">
+                <img class="play" src="/assets/logos/2070_button_volume_play.png" alt="play-podcast">
+                <img class="pause" src="/assets/logos/2070_button_volume_pause.png" alt="play-podcast">
+            </button>
+        </div>
+
+    <!-- FIELD > DESCRIPTION ---------------------------------------------------- -->
+    <div class="podcast_episode_description" *ngIf="podcast.description?.length">
+        {{ podcast.description }}
+    </div>
+
+    <!-- FIELD > MODERATOR ---------------------------------------------------- -->
+    <div class="podcast_moderator" *ngIf="podcast.moderator?.length">
+        Moderation: {{ podcast.moderator }}
+    </div>
+
+   </body> 
+
+</div>

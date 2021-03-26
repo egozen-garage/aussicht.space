@@ -7,13 +7,30 @@
   },
   "options": {},
   "attributes": {
-    "intro": {
-      "type": "richtext"
-    },
     "textblock": {
       "type": "component",
       "repeatable": false,
       "component": "single-page-component.textblock"
+    },
+    "machine_text": {
+      "type": "component",
+      "repeatable": false,
+      "component": "single-page-component.machine-text"
+    },
+    "relation_to_project": {
+      "type": "component",
+      "repeatable": true,
+      "component": "single-page-component.relation"
+    },
+    "article_remark": {
+      "type": "component",
+      "repeatable": true,
+      "component": "single-page-component.remark"
+    },
+    "intro": {
+      "type": "component",
+      "repeatable": false,
+      "component": "single-page-component.intro-text"
     }
   }
 }

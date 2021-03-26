@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_single_page_component_machine_texts",
+  "info": {
+    "name": "Machine Text",
+    "icon": "braille",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "seed": {
+      "type": "string"
+    },
+    "output": {
+      "type": "richtext"
+    }
+  }
+}

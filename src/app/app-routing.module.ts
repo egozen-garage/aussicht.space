@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LandingPageComponent } from './landing_page/landing-page.component'
-import { UnitHubComponent } from './pages/unit-hub/unit-hub.component'
+import { LandingPageComponent } from './landing_page/landing-page.component';
+import { UnitHubComponent } from './pages/unit-hub/unit-hub.component';
 
 import { ImpressumComponent} from './impressum/impressum.component';
 import { ProjectComponent} from './pages/project/project.component';
 import { PerspectiveComponent} from './pages/perspective/perspective.component';
+import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episodes.component';
 
 const routes: Routes = [
   { path: "", component: LandingPageComponent },
@@ -14,7 +15,7 @@ const routes: Routes = [
     component: UnitHubComponent, 
     children: [
       { path: 'project/:id', component: ProjectComponent},
-      { path: 'podcast/:id', component: ProjectComponent},
+      { path: 'podcast/:id', component: PodcastEpisodesComponent},
       { path: 'perspective/:id', component: PerspectiveComponent},
     ]
   },

@@ -43,6 +43,7 @@ import { SafePipe } from './pipes/safe.pipe';
 import {Location, LocationStrategy, PathLocationStrategy, HashLocationStrategy} from '@angular/common';
 import {APP_BASE_HREF} from '@angular/common';
 import { AnchorTimingDirective } from './directives/anchor-timing.directive';
+import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episodes.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{ 
@@ -78,9 +79,10 @@ export class MyHammerConfig extends HammerGestureConfig {
     SafePipe,
     AnchorTimingDirective,
   ],
+
   imports: [
     MarkdownModule.forRoot({
-      //loader: HttpClient, // optional, only if you use [src] attribute
+      // loader: HttpClient, // optional, only if you use [src] attribute
       markedOptions: {
         provide: MarkedOptions,
         useValue: {
@@ -92,6 +94,7 @@ export class MyHammerConfig extends HammerGestureConfig {
         },
       },
     }),
+    PodcastEpisodesComponent,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -99,11 +102,12 @@ export class MyHammerConfig extends HammerGestureConfig {
     MaterialModule,
     FormsModule,
     ],
-    providers: [
-      // { provide: LocationStrategy, useClass: HashLocationStrategy },
-      { provide: APP_BASE_HREF, useValue: '/' },
-      { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }
-    ],
+  
+  providers: [
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

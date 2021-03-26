@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "project_media": {
+    "single_media": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [

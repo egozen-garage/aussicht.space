@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular
 import { ProjectService } from '../../services_strapi/project.service';
 import { ActivatedRoute } from '@angular/router';
 import { SideCommentPositionService } from '../../services/side-comment-position.service';
+import { environment } from '../../../environments/environment';
 
 
 //import { CustomDesignIframeComponent } from '../custom_designs/custom-design-iframe/custom-design-iframe.component';
@@ -16,6 +17,7 @@ import { SideCommentPositionService } from '../../services/side-comment-position
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements OnInit, AfterViewInit {
+  apiUrl = environment.apiUrl;
   projectID : string = "";
   project:any;
 

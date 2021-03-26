@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_single_page_component_intro_texts",
+  "info": {
+    "name": "Introduction Text",
+    "icon": "align-left",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,5 +1,8 @@
-<body *ngIf="route.children.length === 0" id="unit-hub">
+<!-- HEADER/NAVIGATION -->
 
+<ng-container *ngIf="route.children.length === 0">
+    <app-header></app-header>
+    <body id="unit-hub">
     <div class="filter-container">
         <!-- first associate DISCRETE VALUES with EACH CHECKBOX to TOGGLE ON/OFF STATE  -->
         <div *ngFor="let t of themesFromCms, let i = index" class="allthemes">
@@ -58,7 +61,10 @@
         </div>
         <br>
     </div>
-
 </body>
 
+</ng-container>
+
+
 <router-outlet></router-outlet>
+

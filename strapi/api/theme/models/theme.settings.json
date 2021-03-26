@@ -19,8 +19,8 @@
       "model": "perspective"
     },
     "podcast": {
-      "model": "podcast",
-      "via": "themes"
+      "via": "themes",
+      "model": "podcast"
     },
     "project": {
       "via": "themes",
