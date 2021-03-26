@@ -3,6 +3,7 @@ import { PerspectiveService } from '../../services_strapi/perspective.service';
 import { ActivatedRoute } from '@angular/router';
 import { SideCommentPositionService } from '../../services/side-comment-position.service';
 
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-perspective',
@@ -10,6 +11,7 @@ import { SideCommentPositionService } from '../../services/side-comment-position
   styleUrls: ['./perspective.component.scss']
 })
 export class PerspectiveComponent implements OnInit, AfterViewInit {
+  apiUrl = environment.apiUrl;
   perspectiveID : string = "";
   perspective:any;
   // perspectives: any = [];
