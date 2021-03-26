@@ -1,8 +1,35 @@
-RewriteEngine On
+#RewriteEngine On
 # If an existing asset or directory is requested go to it as it is
-RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
-RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
-RewriteRule ^ - [L]
+#RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+#RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+#RewriteRule ^ - [L]
 
 # If the requested resource doesn't exist, use index.html
-RewriteRule ^ /index.html
+#RewriteRule ^ /index.html
+
+
+
+
+
+# Generated with ngx-htaccess-generator v1.0.6
+# https://julianpoemp.github.io/ngx-htaccess-generator/
+
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # Redirection of requests to index.html
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -s [OR]
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+  RewriteRule ^.*$ - [NC,L]
+  RewriteRule ^(.*) index.html [NC,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Set allow Access-Control-Allow-Origin header
+  
+  SetEnvIf Origin "http(s)?://(www\\.)?(anchor.fm)$" AccessControlAllowOrigin=$0
+  Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+  Header merge Vary Origin
+</IfModule>

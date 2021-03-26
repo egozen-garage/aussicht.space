@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ProjectService } from '../../services_strapi/project.service';
 import { PerspectiveService } from '../../services_strapi/perspective.service';
 import { ThemeService } from '../../services_strapi/theme.service';
@@ -10,6 +10,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./unit-hub.component.scss']
 })
 export class UnitHubComponent implements OnInit {
+  
+
+  // @Output() EVENTafterPageLoad = new EventEmitter();
 
 
   projects: any = [];
@@ -32,11 +35,15 @@ export class UnitHubComponent implements OnInit {
     public route: ActivatedRoute,
     ) { }
 
+
+
   ngOnInit(): void {
     this.projectSvc.getAllProjects().subscribe((res:any) => {
       this.projectsFromCms = res;
       this.projects = this.projectsFromCms;
       this.updateUnits();
+      // this.EVENTafterPageLoad.emit();
+
     });
 
     this.perspectiveSvc.getAllPerspectives().subscribe((res:any) => {

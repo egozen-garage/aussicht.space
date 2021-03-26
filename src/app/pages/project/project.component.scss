@@ -1,11 +1,17 @@
 .project-page {
-    padding: 90px var(--margin) 100px var(--margin);
     margin: 0px;
     background-color: white;
     color: var(--color-black);
 }
+// ------ gpt images ------- //
+#gpt_images{
+}
 
 // ------ HEADER ------- //
+header{
+    padding: 90px var(--margin) 100px var(--margin);
+}
+
 .project-title, .related-title {
     font-family: var(--font-family-primary);
     font-weight: 500;
@@ -30,6 +36,8 @@
 // ------ BODY ------- //
 
 .project-body-container {
+    padding: 90px var(--margin) 100px var(--margin);
+
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
@@ -37,6 +45,7 @@
         "intro intro intro ."
         "subhead subhead . ."
         "main main . sidebar"
+        "all all all all"
     
 }
 
@@ -47,7 +56,10 @@
     line-height: 1;
     padding: 20px 0px 20px 0px;
     grid-area: intro;
+    position: relative;
+
 }
+
 
 .project-subhead {
     font-family: var(--font-family-primary);
@@ -64,3 +76,140 @@
 .project-related {
     grid-area: sidebar;
 }
+
+// ------ recommendation ------- //
+
+@media (max-width: 48em) {
+    .recommendation{
+        padding: 20px var(--margin) 100px var(--margin);
+        display: grid;
+        grid-template-columns: auto;
+    }
+    .recommendation_intro{
+        grid-column: 1 / span 1;
+    }
+    .recommendation_title{
+        grid-column: 1 / span 1;
+    }
+}
+@media (min-width: 48em) {
+    .recommendation{
+        padding: 20px var(--margin) 100px var(--margin);
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .recommendation_intro{
+        grid-column: 1 / span 1;
+    }
+    .recommendation_title{
+        grid-column: 2 / span 1;
+    }
+}
+
+// ------ NEXT ------- //
+
+.next_project{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.next_button{
+    grid-column: 2 / span 1;
+    text-align: right;
+
+    padding: 20px var(--margin) 100px var(--margin);
+}
+.next_button a{
+    float: right;
+}
+
+.previous_button{
+    grid-column: 1 / span 1;
+    padding: 20px var(--margin) 100px var(--margin);
+}
+.previous_button{
+    float: left;
+}
+
+
+// ---------- side comments ------------
+// .markdown_container{
+//     grid-area: intro;
+
+// }
+// .side_comments{
+//     grid-area: sidebar;
+//     grid-row: 1;
+//     background-color: chartreuse;
+//     width: 30vw;
+//     height: auto;
+// }
+.side_comments div{
+    background-color: chocolate;
+    width: 30vw;
+}
+.side_comment{
+    grid-area: sidebar;
+    grid-row: 1;
+    width: 30vw;
+    height: auto;
+
+    opacity: 0;
+    align-self: start;
+    position: relative;
+    background-color: aqua;
+}
+
+.fade-in {
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+  }
+  
+  
+  @keyframes fadeIn{
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }

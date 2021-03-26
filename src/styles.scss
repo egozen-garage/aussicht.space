@@ -481,3 +481,15 @@ button {
 h1, h2, h3 {
   font-family: var(--font-family-primary);
 }
+
+/* ------------ LINK STYLING ------------ */
+
+.active{
+  text-decoration: line-through;
+}
+a {
+  text-decoration-line: none;
+}
+a:hover {
+  text-decoration-line: none;
+}
