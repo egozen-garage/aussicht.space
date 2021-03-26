@@ -2,7 +2,7 @@
 
 <div class="page-impressum">
 
-    <h2>{{impressum.title}}</h2>
+    <h2 class="impressum_top_title">{{impressum.title}}</h2>
 
     
 
@@ -13,11 +13,11 @@
     class="perspective_body"> 
 <!-- __component: add-institution ---------------------------------------------- -->
         <div *ngIf=" impressum.involved_party[i].__component === 'impressum-involved-party.add-institution'"
-        class="involved_party impressum_institution">
-                <h3 *ngIf="impressum.involved_party[i].name?.length">
+        class="impressum_institution">
+                <h3 class="impressum_title" *ngIf="impressum.involved_party[i].name?.length">
                     {{ impressum.involved_party[i].name }}
                 </h3>
-                <div class="impressum_address impressum_small">
+                <div class="impressum_text">
                     <div *ngIf="impressum.involved_party[i].address?.length">
                         {{ impressum.involved_party[i].address }}
                     </div>
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 
-                <h3 *ngIf="impressum.involved_party[i].responsible_person_title?.length">
+                <h3 class="impressum_title" *ngIf="impressum.involved_party[i].responsible_person_title?.length">
                     {{ impressum.involved_party[i].responsible_person_title }}
                 </h3>
                 <div *ngIf="impressum.involved_party[i].responsible_person_name?.length"
@@ -44,12 +44,12 @@
         </div>
 <!-- __component: add-team ---------------------------------------------- -->
         <div *ngIf=" impressum.involved_party[i].__component === 'impressum-involved-party.add-team'"
-        class="involved_party impressum_team">
-            <h3 *ngIf="impressum.involved_party[i].title?.length">
+        class="impressum_team impressum_distance">
+            <h3 class="impressum_title" *ngIf="impressum.involved_party[i].title?.length">
                 {{ impressum.involved_party[i].title }}
             </h3>
             <div *ngIf="impressum.involved_party[i].team_members?.length"
-            class="impressum_light">
+            class="impressum_text">
                 <markdown>
                     {{ impressum.involved_party[i].team_members }}
                 </markdown>
@@ -58,23 +58,21 @@
         </div>
 <!-- __component: add-single-party ---------------------------------------------- -->
         <div *ngIf=" impressum.involved_party[i].__component === 'impressum-involved-party.add-single-party'"
-        class="involved_party impressum_single_party">
+        class="impressum_single_party">
 
-            <h3 *ngIf="impressum.involved_party[i].profession?.length"
-            class="impressum_subtitle">
+            <h3 class="impressum_title" *ngIf="impressum.involved_party[i].profession?.length">
                 {{ impressum.involved_party[i].profession }}
             </h3>
             <div *ngIf="impressum.involved_party[i].name?.length"
-            class="impressum_light">
+            class="impressum_text">
                 {{ impressum.involved_party[i].name }}
             </div>
-            <div class="impressum_light" >
                 <a *ngIf="impressum.involved_party[i].website_link?.length"
                 href="https://{{ impressum.involved_party[i].website_link }}" 
-                target="_blank">
+                target="_blank"
+                class="impressum_title impressum_MAIL">
                     {{ impressum.involved_party[i].website_link }}
                 </a>
-            </div>
         </div>
     </div>
 
@@ -82,7 +80,7 @@
 <!-- promoted_by ------------------------------------------------------------ -->
 <!-- promoted_by ------------------------------------------------------------ -->
 <h3 *ngIf="impressum.promoted_by?.length"
-class="impressum_promoted_by">
+class="impressum_title impressum_promoted_by">
     <markdown>
         {{ impressum.promoted_by }}
     </markdown>

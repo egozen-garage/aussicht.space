@@ -36,17 +36,18 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
     //   this.collect_code_tags(markdown_counter);
     //   this.collect_side_comments(markdown_counter);
     // }
-    const super_rich_text = document.getElementsByClassName("super_rich_text");
+    const super_rich_text = document.getElementsByClassName("markdown_container");
     console.log("super_rich_text" + super_rich_text);
     
     for (var i = 0; i < super_rich_text.length; i++) {
-      let markdown_tag = super_rich_text[i].getElementsByTagName("markdown")[0];
+      let markdown_tag = super_rich_text[i];
+      //.getElementsByTagName("markdown")[0];
       // let side_comments = this.collect_side_comments(super_rich_text[i]);
       
 
       console.log("super_rich_text length: " + i);
-      const markdown_counter = "markdown_nr_" + i;
-      markdown_tag.setAttribute("id", markdown_counter);
+      // const markdown_counter = "markdown_nr_" + i;
+      // markdown_tag.setAttribute("id", markdown_counter);
       // this.collect_code_tags(markdown_tag, side_comments);
       this.collect_code_tags(markdown_tag);
       
@@ -76,16 +77,18 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
       // set distance to top
       difference = blocked_space - calculate_position;
       
-      // console.log("/comment height: " + side_comment_height);
-      // console.log("/calculate_position: " + calculate_position);
-      // console.log("/blocked_space: " + blocked_space);
-      // console.log("/difference: " + difference);
+      console.log("/comment height: " + side_comment_height);
+      console.log("/calculate_position: " + calculate_position);
+      console.log("/blocked_space: " + blocked_space);
+      console.log("/difference: " + difference);
       
       // Distance of last object (from top of COMMENT CONTAINER to bottom of COMMENT) 
       // if ( blocked_space < calculate_position ){
       if ( difference < 0 ){
         console.log("--> no problems");
         side_comments[i].style.top = calculate_position + "px";
+        side_comments[i].style.color = "blue";
+
         // difference = difference + calculate_position
       } else {
         console.log("--> push it down");
@@ -127,7 +130,7 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
 
 
 
-  
+
   
   renderCommentPosition(side_note_ID:any){
     // this.calculate_position_of_code_tags("markdown_nr_0code_tag_0");

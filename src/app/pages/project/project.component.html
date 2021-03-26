@@ -31,28 +31,28 @@
 
 
 
-        <div class="super_rich_text" >
+        <!-- <div class="super_rich_text" > -->
             <!-- <p > -->
                 <markdown *ngIf="project.body[0].intro" class="project-intro markdown_container">
                     <!-- div side comment -->
-                    Markdown --> {{project.body[0].intro}}
-
-                    <!-- <div class="side_comments" id=""> -->
-                        <div [ngClass]="side_comment">
-                            0. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                        </div>
-                        <div [ngClass]="side_comment">
-                            1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                            1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                        </div>
-                        <div [ngClass]="side_comment" >
-                            2. Lorem ipsum dolor sit amet.
-                        </div>
-                        <div [ngClass]="side_comment" >
-                            3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
-                        </div>
-                    <!-- </div> -->
+                    {{project.body[0].intro.text}}
+                    
+                    <span class="side_comment">
+                        0. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
+                    </span>
+                    <span class="side_comment">
+                        1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
+                        1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
+                    </span>
+                    <span class="side_comment">
+                        2. Lorem ipsum dolor sit amet.
+                    </span>
+                    <span class="side_comment" >
+                        3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
+                    </span>
                 </markdown>
+                <!-- <div class="side_comments" id=""> -->
+                <!-- </div> -->
             <!-- </p> -->
             <!-- <div class="side_comments" id="">
                 <div class="side_comment">
@@ -69,8 +69,7 @@
                     3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
                 </div>
             </div> -->
-        </div>
-
+        <!-- </div> -->
 
         
         <!--
@@ -114,15 +113,14 @@
 
 
 
-    <div class="project-body-container">
+    <!-- <div class="project-body-container">
     
         <div class="super_rich_text" >
             <p *ngIf="project.body[0].intro" class="project-intro markdown_container">
                 <markdown>
-                    Markdown--> {{project.body[0].intro}}
+                    Markdown {{project.body[0].intro}}
                 </markdown>
             </p>
-            <!-- *ngIf="project.body[0].side_comment" -->
             <div class="side_comments" id="">
                 <div class="side_comment">
                     0. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
@@ -138,7 +136,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 

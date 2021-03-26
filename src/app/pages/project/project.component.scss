@@ -133,10 +133,10 @@ header{
 
 
 // ---------- side comments ------------
-// .markdown_container{
-//     grid-area: intro;
+.markdown_container{
+    grid-area: intro;
 
-// }
+}
 // .side_comments{
 //     grid-area: sidebar;
 //     grid-row: 1;
@@ -148,12 +148,13 @@ header{
 //     background-color: chocolate;
 //     width: 30vw;
 // }
-.markdown_container > .side_comment{
-    grid-area: sidebar;
+.side_comment{
+    // grid-area: sidebar;
     grid-row: 1;
     width: 30vw;
     height: auto;
-    background-color: burlywood!important;
+    background-color: burlywood;
+    color:chartreuse;
     opacity: 0.5;
     align-self: start;
     position: relative;
@@ -212,4 +213,12 @@ header{
     100% {
       opacity:1;
     }
+  }
+
+  .side_comment_b{
+    background-color: blue;
+  }
+
+  .markdown_container .side_comment{
+    background-color: cadetblue;
   }
