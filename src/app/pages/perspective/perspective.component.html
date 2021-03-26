@@ -21,43 +21,94 @@
         <!-- COMPONENT > "CONTENT" ---------------------------------------------------- -->
             <div *ngIf=" perspective.body[i].__component === 'single-page-component.content'" 
             class="perspective_component perspective_API_content section-grid">
-                <p class="comp_intro" *ngIf="perspective.body[i].intro !== null">
-                    <ng-container *ngIf="perspective.body[i].intro.text?.length">{{ perspective.body[i].intro.text }}</ng-container> 
-                </p>
 
-                <h3 class="comp_subhead" *ngIf="perspective.body[i].textblock.subhead?.length">{{ perspective.body[i].textblock.subhead }}</h3>
-                
-                <p class="comp_textblock" *ngIf="perspective.body[i].textblock.paragraph?.length">
-                    {{ perspective.body[i].textblock.paragraph }}
-                </p>
-                
-                <ng-container *ngIf="perspective.body[i].machine_text.output?.length"> 
-                    <div class="machine-background"><span id="circle1"></span><span id="circle2"></span></div>
-                </ng-container>
-                
-                <div class="comp_m_output" *ngIf="perspective.body[i].machine_text !== null">
-                    <span class="comp_m_title" *ngIf="perspective.body[i].machine_text.seed?.length">
-                        {{ perspective.body[i].machine_text.seed}}
-                    </span>
-                    {{ perspective.body[i].machine_text.output }}
+                <!-- BODY[i].INTRO -->
+                <div class="comp_intro_container" *ngIf="perspective.body[i].intro !== null">
+                    <ng-container class="comp_intro" *ngIf="perspective.body[i].intro.text?.length">
+                        {{ perspective.body[i].intro.text }}
+                    </ng-container> 
                 </div>
 
-                <p class="comp_relation_project" *ngIf="perspective.body[i].relation_to_project?.length">
-                    {{ perspective.body[i].relation_to_project.project_name }}
-                </p>
+                <!-- BODY[i].TEXTBLOCK.SUBHEAD -->
+                <h3 class="comp_subhead" *ngIf="perspective.body[i].textblock.subhead?.length">
+                    {{ perspective.body[i].textblock.subhead }}
+                </h3>
+                
+                <!-- BODY[i].TEXTBLOCK.PARAGRAPH -->
+                <div    [ngClass]=" {   'comp_textblock'            : perspective.body[i].machine_text == null, 
+                                        'comp_textblock_machine'    : perspective.body[i].machine_text !== null, 
+                                        'comp_textblock_remark'     : perspective.body[i].article_remark?.length,
+                                        'comp_textblock_relation'   : perspective.body[i].relation_to_project?.length } " 
+                        *ngIf=    "perspective.body[i].textblock.paragraph?.length" >
 
-                <p class="comp_remark" *ngIf="perspective.body[i].relation_to_project?.length">
-                    {{ perspective.body[i].article_remark.title }}
-                </p>
+                    <!-- MACHINE-GENERATED content is called out here -->
+                    <ng-container *ngIf="perspective.body[i].machine_text !== null">
+                        <div class="txt_m_container">
+                            <div id="circle1"></div>
+                            <span class="comp_m_output">
+                                <span class="comp_m_title" *ngIf="perspective.body[i].machine_text.seed?.length">
+                                    {{ perspective.body[i].machine_text.seed}}
+                                </span>
+                                {{ perspective.body[i].machine_text.output }}
+                            </span>
+                            <span class="comp_m_output ghost">
+                                <span class="comp_m_title" *ngIf="perspective.body[i].machine_text.seed?.length">
+                                    {{ perspective.body[i].machine_text.seed}}
+                                </span>
+                                {{ perspective.body[i].machine_text.output }}
+                            </span>
+                        </div>
+                    </ng-container>
+
+                    <!-- ARTICLE REMARK is called out here (Type Array)-->
+                    <ng-container *ngFor="let remark of perspective.body[i].article_remark, let r = index">
+                        <div class="remark_container">
+                            <code class="comp_remark c_r_title">
+                                {{ perspective.body[i].article_remark[r].title}}
+                            </code>
+                            <div class="comp_remark c_r_text">
+                                {{ perspective.body[i].article_remark[r].text}}
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <!-- PROJECT RELATION is called out here (Type Array)-->
+                    <ng-container *ngFor="let relation of perspective.body[i].relation_to_project, let c = index">
+                        <div class="relation_container">
+                            <div class="comp_relation">
+                                <div class="relation_projectname">
+                                    {{ perspective.body[i].relation_to_project[c].project_name }}
+                                </div>
+                                <div class="relation_artistname">
+                                    {{ perspective.body[i].relation_to_project[c].artist_name }}
+                                    <div class="relation_arrow">&#10230;</div>
+                                </div>
+                                <!-- NEEDS FIX!!! -->
+                                <img class="relation_project_img" src="http://localhost:1337{{perspective.body[i].relation_to_project[c].project_image.formats.small.url}}"> 
+                            </div>
+                        </div>
+
+                    </ng-container>
+
+                    <!-- TEXT PARAGRAPH called out here (Type Array)-->
+                    <div class="comp_textblock_paragraph">
+                        <markdown>{{ perspective.body[i].textblock.paragraph }}</markdown>
+                    </div>
+                </div>
+                
 
             </div>
 
+
+
         <!-- COMPONENT > "TEXTBLOCK" --------------------------------------------------- -->
-            <!-- <div *ngIf=" perspective.body[i].__component === 'single-page-component.textblock'" 
+            <div *ngIf=" perspective.body[i].__component === 'single-page-component.textblock'" 
             class="perspective_component perspective_API_textblock section-grid">
-                <h3 class="comp_subhead" *ngIf="perspective.body[i].subhead?.length">{{ perspective.body[i].subhead }}</h3>
-                <p class="comp_textblock" *ngIf="perspective.body[i].textblock?.length">{{ perspective.body[i].textblock }}</p>
-            </div> -->
+                <div class="comp_textblock">
+                    <h3 class="comp_subhead" *ngIf="perspective.body[i].subhead?.length">{{ perspective.body[i].subhead }}</h3>
+                    <p class="comp_textblock_paragraph" *ngIf="perspective.body[i].paragraph?.length">{{ perspective.body[i].paragraph }}</p>
+                </div>
+            </div>
 
     <!-- __component: machine-generated ------------------------------------------ -->
             <!-- <div *ngIf=" perspective.body[i].__component === 'single-page-component.machine-generated'" 
