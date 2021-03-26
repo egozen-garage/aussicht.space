@@ -119,6 +119,15 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
       // console.log("content of side_comments #: " + side_comments[i].innerHTML);
     } 
   }
+
+
+
+
+
+
+
+
+  
   
   renderCommentPosition(side_note_ID:any){
     // this.calculate_position_of_code_tags("markdown_nr_0code_tag_0");

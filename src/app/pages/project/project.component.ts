@@ -68,7 +68,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
         item.style.opacity = "1";
         item.classList.add("fade-in");
         this.side_comment = "side_comment";
-        // console.log("# # # ///////////////////"+item);
       });
     }, 1000);
   }
