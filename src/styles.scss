@@ -115,6 +115,18 @@ $aussichtDOTspace-theme: mat-light-theme((
 }
 
 @font-face {
+  font-family: 'happy times';
+  font-weight: 700;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    
+  // local('happy times'),
+          url('/assets/fonts/happy-times-NG_bold_master_web.ttf')         format('truetype'),
+          url('/assets/fonts/happy-times-NG_bold_master_web.woff')        format('woff'),
+          url('/assets/fonts/happy-times-NG_bold_master_web.woff2')       format('woff2');
+}
+
+@font-face {
   font-family: '2070mono';
   font-weight: 300;                           /* 300 = light */
   font-style: normal;
