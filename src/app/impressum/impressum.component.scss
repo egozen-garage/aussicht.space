@@ -1,3 +1,20 @@
+.impressum_top_title{
+    margin-bottom: 50px;
+}
+.impressum_title{
+    // font-size: 10px;
+    font-size: 1.75;
+    margin: 0;
+
+}
+.impressum_address{
+    
+    font-family: var(--font-family-secondary);
+    font-size: 1.75rem;
+    font-weight: 300;   
+    line-height: 1.25; 
+}
+
 .page-impressum {
     // height: 60vh;
     background-color: white;
@@ -22,29 +39,93 @@
 }
 
 
-.impressum_institution, .impressum_team, .impressum_copyright_ownership_declaration{
-    margin-bottom: 50px;
-}
 
 .impressum_light{
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
     font-size: 1.75rem;
     font-weight: 300;  
+    line-height: 1.25;
 }
 .impressum_small{
-    font-family: var(--font-family-primary);
-    font-size: 16pt;
-    font-weight: 300;    
+    font-family: var(--font-family-secondary);
+    font-size: 1.75rem;
+    font-weight: 300;   
+    line-height: 1.25; 
 }
 .impressum_link{
-    margin: 10px 0px 10px 0px;
+    margin: 0px 0px 15px 0px;
+}
+.impressum_distance{
+    margin: 40px 0px 40px 0px;
+
 }
 .impressum_promoted_by{
     margin: 40px 0px 40px 0px;
 }
 .impressum_subtitle{
     padding-top: 15px;
+    margin-bottom: 0;
 }
 #impressum_datenschutz{
     text-decoration: underline;
+    font-family: var(--font-family-secondary);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.4;
+
+}
+
+
+
+
+.impressum_MAIL{
+    margin: 0px 0px 150px 0px;
+
+}
+.impressum_single_party{
+    margin-top: 15px;
+
+}
+.impressum_institution{
+    margin: 0px 0px 40px 0px;
+
+}
+
+.impressum_title{
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    font-size: 1.75rem;
+}
+.impressum_text{
+    font-family: var(--font-family-secondary);
+    font-size: 1.75rem;
+    font-weight: 300;   
+    line-height: 1.25; 
+}
+
+
+
+@media (max-width: 48em) {
+    .impressum_light{
+        font-family: var(--font-family-secondary);
+        font-weight: 500;
+        font-size: 1.25rem;
+    }
+    .impressum_title{
+        font-family: var(--font-family-primary);
+        font-weight: 500;
+        font-size: 1.25rem;
+    }
+    .impressum_text{
+        font-family: var(--font-family-secondary);
+        font-size: 1.25rem;
+        font-weight: 300;   
+        line-height: 1.2; 
+    }
+    .impressum_copyright_ownership_declaration{
+
+    }
+}
+@media (min-width: 48em) {
+
 }

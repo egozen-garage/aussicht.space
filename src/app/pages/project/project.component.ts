@@ -54,7 +54,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       }
       // this.EVENTafterPageLoad.emit();
     }
-    
+  
+  // side_comment = "side_comment";
   ngAfterViewInit(): void {
     this.activate_site_comments(this.sideCommentPosition);
     this.sideCommentPosition.listenResizeWindow();
@@ -66,7 +67,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       side_comments.forEach(item => {
         item.style.opacity = "1";
         item.classList.add("fade-in");
-        // console.log("# # # ///////////////////"+item);
+        // this.side_comment = "side_comment";
       });
     }, 1000);
   }
