@@ -4,6 +4,8 @@ import { PerspectiveService } from '../../services_strapi/perspective.service';
 import { ThemeService } from '../../services_strapi/theme.service';
 import { PodcastepisodesService } from '../../services_strapi/podcastepisodes.service';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-unit-hub',
@@ -16,6 +18,8 @@ export class UnitHubComponent implements OnInit {
   // @Output() EVENTafterPageLoad = new EventEmitter();
 
 
+  apiUrl = environment.apiUrl;
+  
   units: any;
 
   projects: any = [];

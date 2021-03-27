@@ -45,12 +45,12 @@
                     <ng-container *ngIf="perspective.body[i].machine_text !== null">
                         <div class="txt_m_container">
                             <div id="circle1"></div>
-                            <span class="comp_m_output">
+                            <markdown class="comp_m_output">
                                 <span class="comp_m_title" *ngIf="perspective.body[i].machine_text.seed?.length">
                                     {{ perspective.body[i].machine_text.seed}}
                                 </span>
                                 {{ perspective.body[i].machine_text.output }}
-                            </span>
+                            </markdown>
                             <span class="comp_m_output ghost">
                                 <span class="comp_m_title" *ngIf="perspective.body[i].machine_text.seed?.length">
                                     {{ perspective.body[i].machine_text.seed}}

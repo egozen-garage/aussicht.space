@@ -36,31 +36,52 @@
         
     </div>
 
-    <div *ngIf="units" class="">
+    <ng-container *ngIf="units" class="">
 
         <!-- FILTER UNITS ACCORDING TO SELECTED THEMES -->
-        <div *ngFor="let u of units" class="unit">
-            <div class="unit-item">
+        <div [ngClass]= " { 'perspectives'  : u.unit_type === 'perspective',
+                            'projects'     : u.unit_type === 'project',
+                            'podcasts'     : u.unit_type === 'podcast'   } "
+              *ngFor= " let u of units " 
+              class= " unit " >
+
+                <!-- PODCAST UNIT -->
+                <div *ngIf="u.unit_type === 'podcast'" class="u-podcast">
+                    <div *ngFor="episode of podcasts, let p = index">
+                        <img class="offline_podcast_logo" src="{{apiUrl}}{{podcasts[p].offline_episode_logo.url}}">
+                        
+                        <div class="unit-title" id="podcast-title">
+                            {{u.title}}
+                        </div>
+                        
+                        <div class="unit-name" id="podcast-speakers" >
+                            {{u.speakers}}
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
                 <!-- <div class="unit-title"></div> -->
                 <div class="unit-name">{{u.artist}} {{u.author}}</div>
+
                 <!-- routerLinkActive="active"  -->
                 <a [routerLink]="['/units/' + u.unit_type, u.id]" class="unit-title">{{u.title}}</a>
                 <div class="unit-type">[ {{u.unit_type}} ]</div>
                 
                 <div class="unit-theme-container">
-                    <div *ngFor="let ut of u.themes">
-                        <div 
+                        <div *ngFor="let ut of u.themes" 
                             [class.visited]="ut.selected"
-                            class="themes">
+                             class="unit-themes">
                             {{ut.theme_name}}
                         </div>
-                    </div>
                 </div>
 
-            </div>
         </div>
-        <br>
-    </div>
+
+    </ng-container>
 </body>
 
 </ng-container>
