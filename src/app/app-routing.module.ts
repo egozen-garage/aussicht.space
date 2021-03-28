@@ -10,6 +10,8 @@ import { ProjectComponent} from './pages/project/project.component';
 import { PerspectiveComponent} from './pages/perspective/perspective.component';
 import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episodes.component';
 
+import { DeviceDetectorService } from 'ngx-device-detector';
+
 const routes: Routes = [
   { path: "", component: LandingPageComponent },
   { path: "units", 
@@ -43,4 +45,22 @@ const routes: Routes = [
   })],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+
+  constructor(private deviceService: DeviceDetectorService) {
+    this.checkDeviceType();
+  }
+
+  deviceInfo:any;
+
+  checkDeviceType(){
+    this.deviceInfo = this.deviceService.getDeviceInfo();
+    const isMobile = this.deviceService.isMobile();
+    const isTablet = this.deviceService.isTablet();
+    const isDesktopDevice = this.deviceService.isDesktop();
+    console.log(this.deviceInfo);
+    console.log("isMobile" + isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
+    console.log("isTablet" + isTablet);  // returns if the device us a tablet (iPad etc)
+    console.log("isDesktopDevice" + isDesktopDevice);
+  }
+}

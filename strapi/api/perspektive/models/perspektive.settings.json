@@ -47,9 +47,11 @@
         "text-types.paragraph-with-remark",
         "text-types.paragraph-with-relation",
         "text-types.paragraph-with-image",
-        "image-types.file",
         "text-types.subhead",
-        "text-types.white-space"
+        "text-types.white-space",
+        "image-types.fullscreen-image",
+        "image-types.single-image",
+        "image-types.couple-images"
       ]
     },
     "preview_image": {

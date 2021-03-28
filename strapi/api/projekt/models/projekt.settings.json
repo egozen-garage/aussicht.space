@@ -60,9 +60,6 @@
       "components": [
         "project-related-info.title",
         "project-related-info.name",
-        "image-types.file",
-        "image-types.image",
-        "image-types.article-image",
         "text-types.paragraph-with-image",
         "text-types.subhead",
         "text-types.white-space",
