@@ -51,7 +51,10 @@
         "text-types.white-space",
         "image-types.fullscreen-image",
         "image-types.single-image",
-        "image-types.couple-images"
+        "image-types.couple-images",
+        "addon.javascript-file-name",
+        "addon.website",
+        "addon.html-css"
       ]
     },
     "preview_image": {
@@ -77,8 +80,8 @@
       "required": false
     },
     "projekts": {
-      "via": "perspektives",
-      "collection": "projekt"
+      "collection": "projekt",
+      "via": "perspektives"
     }
   }
 }

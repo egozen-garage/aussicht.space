@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_addon_html_csses",
+  "info": {
+    "name": "html_css",
+    "icon": "flask"
+  },
+  "options": {},
+  "attributes": {
+    "add_html_css": {
+      "type": "richtext"
+    }
+  }
+}

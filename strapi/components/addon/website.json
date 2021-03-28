@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_addon_websites",
+  "info": {
+    "name": "website",
+    "icon": "globe"
+  },
+  "options": {},
+  "attributes": {
+    "website_link": {
+      "type": "string"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "style-options.styling"
+    }
+  }
+}

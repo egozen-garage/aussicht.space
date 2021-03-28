@@ -42,8 +42,8 @@
       "type": "string"
     },
     "perspektives": {
-      "collection": "perspektive",
       "via": "projekts",
+      "collection": "perspektive",
       "dominant": true
     },
     "podcasts": {
@@ -71,7 +71,10 @@
         "image-types.single-image",
         "image-types.couple-images",
         "image-types.fullscreen-image",
-        "text-types.free-text"
+        "text-types.free-text",
+        "addon.javascript-file-name",
+        "addon.website",
+        "addon.html-css"
       ]
     },
     "article_done": {
