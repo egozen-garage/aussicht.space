@@ -10,13 +10,9 @@
     "width": {
       "type": "enumeration",
       "enum": [
-        "xxsmall",
-        "xsmall",
         "small",
         "medium",
-        "large",
-        "xlarge",
-        "xxlarge"
+        "large"
       ]
     },
     "position": {
