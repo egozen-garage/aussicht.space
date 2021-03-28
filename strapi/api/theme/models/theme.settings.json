@@ -29,6 +29,14 @@
     "selected": {
       "type": "boolean",
       "default": false
+    },
+    "perspektive": {
+      "via": "themes",
+      "model": "perspektive"
+    },
+    "projekt": {
+      "via": "themes",
+      "model": "projekt"
     }
   }
 }

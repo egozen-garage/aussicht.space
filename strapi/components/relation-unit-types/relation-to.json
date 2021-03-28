@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_relation_unit_types_relation_tos",
+  "info": {
+    "name": "relation_to",
+    "icon": "link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "project": {
+      "model": "project"
+    },
+    "perspektive": {
+      "model": "perspektive"
+    },
+    "podcast": {
+      "model": "podcast"
+    }
+  }
+}

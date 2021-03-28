@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_project_related_info_titles",
+  "info": {
+    "name": "title",
+    "icon": "pencil-alt"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "style-options.styling"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_image_types_fullscreen_images",
+  "info": {
+    "name": "fullscreen_image",
+    "icon": "expand-arrows-alt"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

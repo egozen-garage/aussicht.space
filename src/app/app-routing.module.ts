@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LandingPageComponent } from './landing_page/landing-page.component';
 import { UnitHubComponent } from './pages/unit-hub/unit-hub.component';
+import { PreviewComponent } from './pages/preview/preview.component';
 
 import { ImpressumComponent} from './impressum/impressum.component';
 import { ProjectComponent} from './pages/project/project.component';
@@ -19,6 +20,14 @@ const routes: Routes = [
       { path: 'perspective/:id', component: PerspectiveComponent},
     ]
   },
+  { path: "preview", 
+  component: PreviewComponent, 
+  children: [
+    { path: 'project/:id', component: ProjectComponent},
+    { path: 'podcast/:id', component: PodcastEpisodesComponent},
+    { path: 'perspective/:id', component: PerspectiveComponent},
+  ]
+},
   { path: "impressum", component: ImpressumComponent},
   { path: "**", redirectTo: "" }
 ];

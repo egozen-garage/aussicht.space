@@ -59,6 +59,10 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "projekts": {
+      "via": "podcasts",
+      "collection": "projekt"
     }
   }
 }

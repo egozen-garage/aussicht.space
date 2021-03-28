@@ -5,9 +5,8 @@
         <p class="project-artist">{{project.artist}}</p>
 
         <!-- ------------- Default Design ------------- -->
-    
         <div *ngIf="project.addon === null" class="project-cover-media">
-            <img src="{{apiUrl}}{{project.cover_media.url}}">
+            <img src="http://localhost:1337{{project.cover_media.url}}">
             <p class="caption">{{project.cover_media.caption}} </p>
         </div>
         <!-- ------------- custom-design-iframe ------------- -->
@@ -27,34 +26,17 @@
     
     
     <div class="project-body-container">
+    
+        <div class="super_rich_text" >
 
+            
+            <markdown *ngIf="project.body[0].intro" class="project-intro markdown_container">
+                {{project.body[0].intro.text}}
+            </markdown>
+           
 
-
-
-        <!-- <div class="super_rich_text" > -->
-            <!-- <p > -->
-                <markdown *ngIf="project.body[0].intro" class="project-intro markdown_container">
-                    <!-- div side comment -->
-                    {{project.body[0].intro.text}}
-                    
-                    <span class="side_comment">
-                        0. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                    </span>
-                    <span class="side_comment">
-                        1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                        1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                    </span>
-                    <span class="side_comment">
-                        2. Lorem ipsum dolor sit amet.
-                    </span>
-                    <span class="side_comment" >
-                        3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
-                    </span>
-                </markdown>
-                <!-- <div class="side_comments" id=""> -->
-                <!-- </div> -->
-            <!-- </p> -->
-            <!-- <div class="side_comments" id="">
+            <!-- *ngIf="project.body[0].side_comment" -->
+            <div class="side_comments" id="">
                 <div class="side_comment">
                     0. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
                 </div>
@@ -68,8 +50,10 @@
                 <div class="side_comment" >
                     3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
                 </div>
-            </div> -->
-        <!-- </div> -->
+            </div>
+
+        </div>
+
 
         
         <!--
@@ -104,7 +88,6 @@
             3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
         </div>
     </div>
-
     <markdown>
         <code>4. code</code>
     </markdown> -->
@@ -113,14 +96,15 @@
 
 
 
-    <!-- <div class="project-body-container">
+    <div class="project-body-container">
     
         <div class="super_rich_text" >
             <p *ngIf="project.body[0].intro" class="project-intro markdown_container">
                 <markdown>
-                    Markdown {{project.body[0].intro}}
+                    {{project.body[0].intro.text}}
                 </markdown>
             </p>
+            <!-- *ngIf="project.body[0].side_comment" -->
             <div class="side_comments" id="">
                 <div class="side_comment">
                     0. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
@@ -136,7 +120,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
 
 

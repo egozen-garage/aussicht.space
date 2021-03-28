@@ -105,13 +105,23 @@ $aussichtDOTspace-theme: mat-light-theme((
 
 @font-face {
   font-family: 'happy times';
-  font-weight: 500;
+  font-weight: 300;
   font-style: normal;
   unicode-range: U+000-5FF;
   src:    
   // local('happy times'),
           url('/assets/fonts/happy-times-NG_regular_master_web.woff2')  format('woff2'),
           url('/assets/fonts/happy-times-NG_regular_master.ttf')        format('truetype');
+}
+@font-face {
+  font-family: 'happy times';
+  font-weight: 500;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    
+  // local('happy times'),
+          url('/assets/fonts/happy-times-NG_bold_master_web.woff2')  format('woff2'),
+          url('/assets/fonts/happy-times-NG_bold_master.ttf')        format('truetype');
 }
 
 @font-face {
@@ -503,4 +513,18 @@ a:hover {
 
 p {
   margin-bottom: 0rem !important;
+  font-family: var(--font-family-secondary);
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+
+// --------code tag: perspective/project/podcast: keywords within text  -- code tags -------- 
+code {
+  color: #1E2685;
+  font-family: var(--font-family-primary);
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1.25;
 }

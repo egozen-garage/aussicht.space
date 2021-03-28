@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_project_related_info_title_or_names",
+  "info": {
+    "name": "title_or_name",
+    "icon": "user-edit"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

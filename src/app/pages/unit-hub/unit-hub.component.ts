@@ -3,7 +3,7 @@ import { ProjectService } from '../../services_strapi/project.service';
 import { PerspectiveService } from '../../services_strapi/perspective.service';
 import { ThemeService } from '../../services_strapi/theme.service';
 import { PodcastepisodesService } from '../../services_strapi/podcastepisodes.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-unit-hub',
@@ -45,7 +45,10 @@ export class UnitHubComponent implements OnInit {
 
     private themeSvc: ThemeService,
     public route: ActivatedRoute,
-    ) { }
+    private router: Router,
+    ) { 
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    }
 
 
 

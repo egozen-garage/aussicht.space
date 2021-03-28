@@ -79,12 +79,12 @@
 <!-- promoted_by ------------------------------------------------------------ -->
 <!-- promoted_by ------------------------------------------------------------ -->
 <!-- promoted_by ------------------------------------------------------------ -->
-<h3 *ngIf="impressum.promoted_by?.length"
+<div *ngIf="impressum.promoted_by?.length"
 class="impressum_title impressum_promoted_by">
-    <markdown>
+    <!-- <markdown> -->
         {{ impressum.promoted_by }}
-    </markdown>
-</h3>
+    <!-- </markdown> -->
+</div>
 
 <!-- copyright_ownership_declaration ------------------------------------------------------------ -->
 <!-- copyright_ownership_declaration ------------------------------------------------------------ -->

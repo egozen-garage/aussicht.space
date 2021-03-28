@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/perspektives",
+      "handler": "perspektive.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/perspektives/count",
+      "handler": "perspektive.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/perspektives/:id",
+      "handler": "perspektive.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/perspektives",
+      "handler": "perspektive.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/perspektives/:id",
+      "handler": "perspektive.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/perspektives/:id",
+      "handler": "perspektive.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

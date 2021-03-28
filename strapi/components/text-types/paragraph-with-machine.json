@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_text_types_paragraph_with_machines",
+  "info": {
+    "name": "text_machine",
+    "icon": "robot",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "paragraph": {
+      "type": "richtext"
+    },
+    "seed": {
+      "type": "string"
+    },
+    "output": {
+      "type": "richtext"
+    }
+  }
+}

@@ -44,6 +44,7 @@ import {Location, LocationStrategy, PathLocationStrategy, HashLocationStrategy} 
 import {APP_BASE_HREF} from '@angular/common';
 import { AnchorTimingDirective } from './directives/anchor-timing.directive';
 import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episodes.component';
+import { PreviewComponent } from './pages/preview/preview.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{ 
@@ -79,6 +80,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     SafePipe,
     AnchorTimingDirective,
     PodcastEpisodesComponent,
+    PreviewComponent,
   ],
 
   imports: [
@@ -105,7 +107,7 @@ export class MyHammerConfig extends HammerGestureConfig {
   
   providers: [
     // { provide: LocationStrategy, useClass: HashLocationStrategy },
-    { provide: APP_BASE_HREF, useValue: '/' },
+    // { provide: APP_BASE_HREF, useValue: '/' },
     { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }
   ],
   bootstrap: [AppComponent]

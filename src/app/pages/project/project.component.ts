@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular
 import { ProjectService } from '../../services_strapi/project.service';
 import { ActivatedRoute } from '@angular/router';
 import { SideCommentPositionService } from '../../services/side-comment-position.service';
-import { environment } from '../../../environments/environment';
 
 
 //import { CustomDesignIframeComponent } from '../custom_designs/custom-design-iframe/custom-design-iframe.component';
@@ -17,7 +16,6 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements OnInit, AfterViewInit {
-  apiUrl = environment.apiUrl;
   projectID : string = "";
   project:any;
 
@@ -54,8 +52,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       }
       // this.EVENTafterPageLoad.emit();
     }
-  
-  // side_comment = "side_comment";
+    
   ngAfterViewInit(): void {
     this.activate_site_comments(this.sideCommentPosition);
     this.sideCommentPosition.listenResizeWindow();
@@ -67,7 +64,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       side_comments.forEach(item => {
         item.style.opacity = "1";
         item.classList.add("fade-in");
-        // this.side_comment = "side_comment";
+        // console.log("# # # ///////////////////"+item);
       });
     }, 1000);
   }

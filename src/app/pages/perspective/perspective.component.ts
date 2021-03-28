@@ -1,9 +1,11 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { PerspectiveService } from '../../services_strapi/perspective.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouteReuseStrategy } from '@angular/router';
 import { SideCommentPositionService } from '../../services/side-comment-position.service';
+// import { RouteReuseStrategy } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-perspective',
@@ -19,14 +21,22 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
   constructor(
     private perspectiveSvc: PerspectiveService,
     private route: ActivatedRoute,
+    // private router: Router,
     private sideCommentPosition: SideCommentPositionService,
-    ) { }
+    // private routeReuseStrategy: RouteReuseStrategy,
+    ) { 
+      // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+
+      // this.route.routeReuseStrategy.shouldReuseRoute = function () {
+      //   return false;
+      // };
+    }
 
   
 
   ngAfterViewInit(): void {
-    this.activate_site_comments(this.sideCommentPosition);
-    this.sideCommentPosition.listenResizeWindow();
+      this.activate_site_comments(this.sideCommentPosition);
+      this.sideCommentPosition.listenResizeWindow();
   }
   activate_site_comments(site_comment_service:any){
     setTimeout(() =>{ 
@@ -41,7 +51,6 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-
     this.route.params.subscribe( p => this.perspectiveID = p['id'] );
 
     this.perspectiveSvc.getPerspective(this.perspectiveID).subscribe((res:any) => {

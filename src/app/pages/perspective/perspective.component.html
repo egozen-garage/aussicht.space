@@ -1,5 +1,6 @@
 <div class="project-page">
 
+    <!-- BACK TO UNIT HUB ---------------------------------------------- -->
     <button class="btn-back2hub">
         <span class="btn-icon">&#10229;</span>
         <a [routerLink]="['/units/']" class="btn-txt">Hub</a>
@@ -14,132 +15,254 @@
                 </div>
     </div>
 
+
+
+    <!-- BODY BODY BODY BODY ---------------------------------------------------- -->
+    <!-- BODY BODY BODY BODY ---------------------------------------------------- -->
     <body class="main">
+
+        <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
         <ng-container *ngFor="let body of perspective.body, let i = index" 
-        class=""> 
+        class="perspective_component perspective_API_content "> 
 
-        <!-- COMPONENT > "CONTENT" ---------------------------------------------------- -->
-            <div *ngIf=" perspective.body[i].__component === 'single-page-component.content'" 
-            class="perspective_component perspective_API_content section-grid">
-
-                <!-- BODY[i].INTRO -->
-                <div class="comp_intro_container" *ngIf="perspective.body[i].intro !== null">
-                    <ng-container class="comp_intro" *ngIf="perspective.body[i].intro.text?.length">
-                        {{ perspective.body[i].intro.text }}
+            <!-- COMPONENT > "intro" ---------------------------------------------------- -->
+            <div *ngIf=" perspective.body[i].__component === 'text-types.intro'" 
+            class="section-grid">
+                <!-- intro text -->
+                <div class="comp_intro_container">
+                    <ng-container class="comp_intro" *ngIf="perspective.body[i].text?.length">
+                        {{ perspective.body[i].text }}
                     </ng-container> 
                 </div>
+            </div>
 
-                <!-- BODY[i].TEXTBLOCK.SUBHEAD -->
-                <h3 class="comp_subhead" *ngIf="perspective.body[i].textblock.subhead?.length">
-                    {{ perspective.body[i].textblock.subhead }}
-                </h3>
-                
-                <!-- BODY[i].TEXTBLOCK.PARAGRAPH -->
-                <div    [ngClass]=" {   'comp_textblock'            : perspective.body[i].machine_text == null, 
-                                        'comp_textblock_machine'    : perspective.body[i].machine_text !== null, 
-                                        'comp_textblock_remark'     : perspective.body[i].article_remark?.length,
-                                        'comp_textblock_relation'   : perspective.body[i].relation_to_project?.length } " 
-                        *ngIf=    "perspective.body[i].textblock.paragraph?.length" >
 
+
+            <!-- COMPONENT > "subhead" ---------------------------------------------------- -->
+            <div *ngIf=" perspective.body[i].__component === 'text-types.subhead'" 
+            class="section-grid">
+                <p class="subhead" *ngIf="perspective.body[i].subhead?.length">
+                    {{perspective.body[i].subhead}}
+                </p>
+            </div>
+
+
+            <!-- COMPONENT > "paragraph-plain" ---------------------------------------------------- -->
+            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-plain'" 
+            class="section-grid">
+                <!-- text -->
+                <markdown class="plain_text" *ngIf="perspective.body[i].paragraph?.length">
+                    {{ perspective.body[i].paragraph }}
+                </markdown> 
+            </div>
+        
+
+
+            <!-- COMPONENT > "paragraph-with-machine" ---------------------------------------------------- -->
+            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-machine'" 
+            class="section-grid">
+                <div class="comp_textblock_machine">
                     <!-- MACHINE-GENERATED content is called out here -->
+
+
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! no machine_text found in API !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
                     <ng-container *ngIf="perspective.body[i].machine_text !== null">
                         <div class="txt_m_container">
                             <div id="circle1"></div>
                             <span class="comp_m_output">
-                                <span class="comp_m_title" *ngIf="perspective.body[i].machine_text.seed?.length">
-                                    {{ perspective.body[i].machine_text.seed}}
-                                </span>
-                                {{ perspective.body[i].machine_text.output }}
+                                <div class="comp_m_title" *ngIf="perspective.body[i].seed?.length">
+                                    {{ perspective.body[i].seed}}
+                                </div>
+                                <div class="comp_m_text" *ngIf="perspective.body[i].output?.length">
+                                    {{ perspective.body[i].output }}
+                                </div>
                             </span>
                             <span class="comp_m_output ghost">
-                                <span class="comp_m_title" *ngIf="perspective.body[i].machine_text.seed?.length">
-                                    {{ perspective.body[i].machine_text.seed}}
-                                </span>
-                                {{ perspective.body[i].machine_text.output }}
+                                <div class="comp_m_title" *ngIf="perspective.body[i].seed?.length">
+                                    {{ perspective.body[i].seed}}
+                                </div>
+                                <div class="comp_m_text" *ngIf="perspective.body[i].output?.length">
+                                    {{ perspective.body[i].output }}
+                                </div>
                             </span>
                         </div>
                     </ng-container>
-
-                    <!-- ARTICLE REMARK is called out here (Type Array)-->
-                    <ng-container *ngFor="let remark of perspective.body[i].article_remark, let r = index">
-                        <div class="remark_container">
-                            <code class="comp_remark c_r_title">
-                                {{ perspective.body[i].article_remark[r].title}}
-                            </code>
-                            <div class="comp_remark c_r_text">
-                                {{ perspective.body[i].article_remark[r].text}}
-                            </div>
-                        </div>
-                    </ng-container>
-
-                    <!-- PROJECT RELATION is called out here (Type Array)-->
-                    <ng-container *ngFor="let relation of perspective.body[i].relation_to_project, let c = index">
-                        <div class="relation_container">
-                            <div class="comp_relation">
-                                <div class="relation_projectname">
-                                    {{ perspective.body[i].relation_to_project[c].project_name }}
-                                </div>
-                                <div class="relation_artistname">
-                                    {{ perspective.body[i].relation_to_project[c].artist_name }}
-                                    <div class="relation_arrow">&#10230;</div>
-                                </div>
-                                <!-- NEEDS FIX!!! -->
-                                <img class="relation_project_img" src="{{apiUrl}}{{perspective.body[i].relation_to_project[c].project_image.formats.small.url}}"> 
-                            </div>
-                        </div>
-
-                    </ng-container>
-
-                    <!-- TEXT PARAGRAPH called out here (Type Array)-->
+                    <!-- text -->
                     <div class="comp_textblock_paragraph">
-                        <markdown>{{ perspective.body[i].textblock.paragraph }}</markdown>
+                        <markdown class="" *ngIf="perspective.body[i].paragraph?.length">
+                            {{ perspective.body[i].paragraph }}
+                        </markdown> 
                     </div>
                 </div>
-                
-
             </div>
 
 
 
-        <!-- COMPONENT > "TEXTBLOCK" --------------------------------------------------- -->
-            <div *ngIf=" perspective.body[i].__component === 'single-page-component.textblock'" 
-            class="perspective_component perspective_API_textblock section-grid">
-                <div class="comp_textblock">
-                    <h3 class="comp_subhead" *ngIf="perspective.body[i].subhead?.length">{{ perspective.body[i].subhead }}</h3>
-                    <p class="comp_textblock_paragraph" *ngIf="perspective.body[i].paragraph?.length">{{ perspective.body[i].paragraph }}</p>
+            <!-- COMPONENT > "paragraph-with-remark" ---------------------------------------------------- -->
+            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-remark'" 
+            class="section-grid side_comment_container">
+
+                <div class="comp_textblock_remark">
+                    <!-- text -->
+                    <div class="plain_text">
+                        <markdown  *ngIf="perspective.body[i].paragraph?.length">
+                            {{ perspective.body[i].paragraph }}
+                        </markdown> 
+                    </div>
+                    <!-- side comment -->
+                    <div class="side_comments">
+                        <!-- ARTICLE REMARK is called out here (Type Array)-->
+                        <div class="side_comment">
+                            <div class="add_position remark_container">
+                                <div *ngIf="perspective.body[i].remark_title?.length" class="comp_remark c_r_title">
+                                    {{ perspective.body[i].remark_title}}
+                                </div>
+                                <div *ngIf="perspective.body[i].remark_text?.length" class="comp_remark c_r_text">
+                                    {{ perspective.body[i].remark_text}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
-    <!-- __component: machine-generated ------------------------------------------ -->
-            <!-- <div *ngIf=" perspective.body[i].__component === 'single-page-component.machine-generated'" 
-            class="perspective_component perspective_API_machine_generated section-grid"> -->
-                <!-- <span class="p_m_title" *ngIf="perspective.body[i].title?.length">{{ perspective.body[i].title}}</span> -->
-                <!-- <p class="p_m_text" *ngIf="perspective.body[i].text?.length"><span class="p_m_title" *ngIf="perspective.body[i].title?.length">{{ perspective.body[i].title}}</span>{{ perspective.body[i].text }}</p>
-                <p class="p_m_json" *ngIf="perspective.body[i].text_json?.length">{{ perspective.body[i].text_json }}</p>
-            </div> -->
 
-    <!-- __component: media ------------------------------------------------------ -->
-            <div *ngIf=" perspective.body[i].__component === 'single-page-component.media'" 
-            class="perspective_component perspective_API_media">
-                <div *ngFor="let image of perspective.body[i].project_media, let b = index"> 
-                    <img src="{{ apiUrl }}{{ perspective.body[i].project_media[b].formats.medium.url }}" alt="">
+
+            <!-- COMPONENT > "paragraph-with-relation" ---------------------------------------------------- -->
+            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-relation'" 
+            class="section-grid side_comment_container">
+
+                <div class="comp_textblock_relation">
+                    <!-- text -->
+                    <div class="plain_text">
+                        <markdown class="plain_text" *ngIf="perspective.body[i].paragraph?.length">
+                            {{ perspective.body[i].paragraph }}
+                        </markdown> 
+                    </div>
+                    <!-- side comment -->   
+                    <div class="side_comments">
+                        <!-- PROJECT RELATION is called out here (Type Array)-->
+                        <div class="side_comment">
+                            <div class="add_position relation_container">
+                                <div class="comp_relation">
+
+                                    <!-- if PROJECT -->
+                                    <div *ngIf=" perspective.body[i].relation_to.project != null" >
+                                        <a [routerLink]="['/units/project/' + perspective.body[i].relation_to.project.id ]">
+                                            <!-- relation: title artist -->
+                                            <div *ngIf="perspective.body[i].relation_to.project.title?.length" 
+                                            class="relation_title">
+                                                {{ perspective.body[i].relation_to.project.title}}
+                                                <br>
+                                                {{ perspective.body[i].relation_to.project.artist}}
+                                            </div>
+                                            <!-- relation: text -->
+                                            <div *ngIf="perspective.body[i].relation_text?.length" class="relation_artistname">
+                                                {{ perspective.body[i].relation_text }}
+                                                <div class="relation_arrow">&#10230;</div>
+                                            </div>
+                                            <!-- relation: image -->
+                                            <!-- <img src="" alt=""> -->
+                                        </a>
+                                    </div>
+                                    <!-- if PERSPECTIVE -->
+                                    <div *ngIf=" perspective.body[i].relation_to.perspektive != null" >
+                                        <a [routerLink]="['/units/perspective/' + perspective.body[i].relation_to.perspektive.id ]">
+                                            <!-- relation: title artist -->
+                                            <div *ngIf="perspective.body[i].relation_to.perspektive.title?.length" 
+                                            class="relation_title">
+                                                {{ perspective.body[i].relation_to.perspektive.title}}
+                                                <br>
+                                                {{ perspective.body[i].relation_to.perspektive.artist}}
+                                            </div>
+                                            <!-- relation: text -->
+                                            <div *ngIf="perspective.body[i].relation_text?.length" class="relation_artistname">
+                                                {{ perspective.body[i].relation_text }}
+                                                <div class="relation_arrow">&#10230;</div>
+                                            </div>
+                                            <!-- relation: image -->
+                                            <!-- <img src="" alt=""> -->
+                                        </a>
+                                    </div>
+                                    <!-- if PODCAST -->
+                                    <div *ngIf=" perspective.body[i].relation_to.podcast != null" >
+                                        <a [routerLink]="['/units/podcast/' + perspective.body[i].relation_to.podcast.id ]">
+                                            <!-- relation: title artist -->
+                                            <div *ngIf="perspective.body[i].relation_to.podcast.title?.length" 
+                                            class="relation_title">
+                                                {{ perspective.body[i].relation_to.podcast.title}}
+                                                <br>
+                                                {{ perspective.body[i].relation_to.podcast.artist}}
+                                            </div>
+                                            <!-- relation: text -->
+                                            <div *ngIf="perspective.body[i].relation_text?.length" class="relation_artistname">
+                                                {{ perspective.body[i].relation_text }}
+                                                <div class="relation_arrow">&#10230;</div>
+                                            </div>
+                                            <!-- relation: image -->
+                                            <!-- <img src="" alt=""> -->
+                                        </a>
+                                    </div>
+
+
+                                    <!-- <img class="relation_project_img" src="{{apiUrl}}{{perspective.body[i].relation_to.project.cover_media}}">  -->
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
-    <!-- __component: remark ------------------------------------------------------ -->
-            <div *ngIf=" perspective.body[i].__component === 'single-page-component.remark'" 
-            class="perspective_component perspective_API_remark">
-                body > remark: not yet added
+
+
+            <!-- COMPONENT > "paragraph-with-image" ---------------------------------------------------- -->
+            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-image'" 
+            class="section-grid">
+
+                <div class="comp_textblock_machine comp_textblock_image">
+                    <!-- image -->
+                    <img class="txt_m_container indented_image" src="{{apiUrl}}{{perspective.body[i].image.formats.small.url}}"> 
+                    <!-- text -->
+                    <div class="comp_textblock_paragraph">
+                        <markdown class="" *ngIf="perspective.body[i].paragraph?.length">
+                            {{ perspective.body[i].paragraph }}
+                        </markdown> 
+                    </div>
+                </div>
+
             </div>
 
-    <!-- __component: relation ---------------------------------------------------- -->
-            <div *ngIf=" perspective.body[i].__component === 'single-page-component.relation'" 
-            class="perspective_component perspective_API_relation">
-                body > relation: not yet added
+
+
+            <!-- COMPONENT > "image-types.file" ---------------------------------------------------- -->
+            <div *ngIf=" perspective.body[i].__component === 'image-types.file'" 
+            class="image_file"
+            [ngStyle]="{'text-align': perspective.body[i].position }">
+                <!-- image -->
+                <img class="article_image" src="{{apiUrl}}{{perspective.body[i].image.formats.large.url}}"> 
+                <!-- bildunterschrift missing -->
+                <h3 class="image_caption">
+                    {{ perspective.body[i].image.caption }}
+                </h3>
             </div>
-        </ng-container>
+
+
+
+            <!-- COMPONENT > "white-space" ---------------------------------------------------- -->
+            <div *ngIf="perspective.body[i].__component === 'text-types.white-space'" 
+            [ngStyle]="{'width': '100%', 'height': perspective.body[i].distance_in_pixel + 'px' }">
+            </div>
+
             
-    </body>
 
+
+        </ng-container>
+    </body>
 </div>
+
 <router-outlet></router-outlet>

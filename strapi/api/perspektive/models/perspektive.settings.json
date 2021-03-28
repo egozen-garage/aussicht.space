@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "perspektives",
+  "info": {
+    "name": "perspektive",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "article_done": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "unit_type": {
+      "type": "enumeration",
+      "enum": [
+        "perspective"
+      ],
+      "default": "perspective",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "author": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "themes": {
+      "collection": "theme",
+      "via": "perspektive"
+    },
+    "body": {
+      "type": "dynamiczone",
+      "components": [
+        "text-types.intro",
+        "text-types.paragraph-plain",
+        "text-types.paragraph-with-machine",
+        "text-types.paragraph-with-remark",
+        "text-types.paragraph-with-relation",
+        "text-types.paragraph-with-image",
+        "image-types.file",
+        "text-types.subhead",
+        "text-types.white-space"
+      ]
+    },
+    "preview_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "cover_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "projekts": {
+      "via": "perspektives",
+      "collection": "projekt"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_image_types_couple_images",
+  "info": {
+    "name": "couple_images",
+    "icon": "balance-scale"
+  },
+  "options": {},
+  "attributes": {
+    "image_left": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "image_right": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}
