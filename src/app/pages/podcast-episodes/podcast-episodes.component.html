@@ -21,13 +21,70 @@
        
     <!-- FIELD > EPISODE COVER & PLAY BUTTON ---------------------------------------------------- -->
         <div class="podcast_cover_container" *ngIf="podcast.episode_cover.url?.length">
-            <img class="pod_episode_cover" src="{{apiUrl}}{{podcast.episode_cover.url}}">
-            <img class="pod_episode_cover ghost" src="{{apiUrl}}{{podcast.episode_cover.url}}">
 
-            <button class="pod_page_play_icon">
-                <img class="play" src="/assets/logos/2070_button_volume_play.png" alt="play-podcast">
-                <img class="pause" src="/assets/logos/2070_button_volume_pause.png" alt="play-podcast">
-            </button>
+            <div class="podcast_cover_wrapper" (click)="togglePlayPause()">
+                <div class="marquee-container">   
+                    <div *ngIf="play" class="txt-container" id="mydivon">
+                        #play
+                        <br>
+                        #play
+                        <br>
+                        #play
+                        <br>
+                        #play
+                        <br>
+                        #play
+                        <br>
+                        #play
+                        <br>
+                        #play
+                        <br>
+                        #play
+                        <br>
+                        #play
+                        <br>
+                        #play
+                        <br>
+                        #play
+                        <br>
+                        #play
+                        <br>
+                        #play
+                        <br>
+                    </div>     
+                    <div *ngIf="pause" class="txt-container" id="mydivoff">
+                        #pause
+                        <br>
+                        #pause
+                        <br>
+                        #pause
+                        <br>
+                        #pause
+                        <br>
+                        #pause
+                        <br>
+                        #pause
+                        <br>
+                        #pause
+                        <br>
+                        #pause
+                        <br>
+                        #pause
+                        <br>
+                        #pause
+                        <br>
+                        #pause
+                        <br>
+                        #pause
+                        <br>
+                    </div>   
+                    <!-- <button class="pod_page_play_icon">
+                        <img class="play" src="/assets/logos/2070_button_volume_play.png" alt="play-podcast">
+                        <img class="pause" src="/assets/logos/2070_button_volume_pause.png" alt="play-podcast">
+                    </button> -->
+                </div>
+                <img class="pod_episode_cover" src="{{apiUrl}}{{podcast.episode_cover.url}}">
+            </div>
         </div>
 
     <!-- FIELD > DESCRIPTION ---------------------------------------------------- -->

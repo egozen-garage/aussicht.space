@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { PodcastepisodesService } from '../../services_strapi/podcastepisodes.service';
+import { PlayerComponent } from '../../player/player.component';
+import { AudioService } from "../../services/audio.service";
+import { CloudService } from "../../services/cloud.service";
+import { StreamState } from "../../interfaces/stream-state";
+import * as xml2js from 'xml2js';
 
 @Component({
   selector: 'app-podcast-episodes',
@@ -10,6 +15,9 @@ import { PodcastepisodesService } from '../../services_strapi/podcastepisodes.se
 })
 
 export class PodcastEpisodesComponent implements OnInit {
+
+  public play: boolean = true;
+  public pause : boolean = false;
 
   apiUrl = environment.apiUrl;
   podcastID : string = "";
@@ -31,4 +39,10 @@ export class PodcastEpisodesComponent implements OnInit {
     
   }
 
+  togglePlayPause() {
+    this.play = !this.play;
+    this.pause = !this.pause;
+
+    
+  }
 }
