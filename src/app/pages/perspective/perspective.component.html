@@ -290,19 +290,25 @@
             </div>
             
             <!-- COMPONENT > "image-type: single image" ---------------------------------------------------- -->
+
+            <!-- GRID IS DECLARED IN THIS PARENT DIV -->
             <div *ngIf=" perspective.body[i].__component === 'image-types.single-image'" 
-            class="image-type image_single">
+            class="image-type image_single section-grid">
 
-                <div class="image-container" [ngStyle]="{'float': perspective.body[i].style.position }">        
+                <!-- IMAGE / TEXT CONTAINER IS GIVEN A POSITIONAL CLASS HERE -->
+                <div [ngClass]=" {  'e_pos-left'  : perspective.body[i].style.position === 'left',
+                                    'e_pos-center' : perspective.body[i].style.position === 'center',
+                                    'e_pos-right'  : perspective.body[i].style.position === 'right'   } "
+                     class="e-container" 
+                     [ngStyle]="{'float': perspective.body[i].style.position }">        
                     
-                    <!-- <div [ngClass]:" 'img_single_small' ">
+                    <!-- IMAGE / TEXT WIDTH IS DECLARED HERE -->
+                    <img       src="{{ apiUrl}}{{perspective.body[i].image.url }}"
+                         [ngClass]=" { 'e_single-small'  : perspective.body[i].style.width === 'small',
+                                       'e_single-medium' : perspective.body[i].style.width === 'medium',
+                                       'e_single-large'  : perspective.body[i].style.width === 'large'   } "> 
 
-
-                    </div> -->
-                    
-                    <!-- image -->
-                    <img class="image_single" src="{{apiUrl}}{{perspective.body[i].image.url}}"> 
-                    <!-- bildunterschrift missing -->
+                    <!-- caption -->
                     <h3 class="image_caption">
                         {{ perspective.body[i].image.caption }}
                     </h3>

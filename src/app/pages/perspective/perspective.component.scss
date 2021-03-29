@@ -81,7 +81,10 @@
             ". t_machine t_machine t_machine"
             ". . . t_m_background"
             ". remark remark remark"
-            ". relation relation relation";
+            ". relation relation relation"
+            "left left left ."
+            ". center center ."
+            ". right right right";
     }
 
     // ------ COMPOSITION CONFIGURATIONS ------ //
@@ -290,18 +293,45 @@
     width: 40%;
 }
 
-.image_caption{
-    font-weight: 300;
-    text-align: left;
-}
 
 .image-type {
     position: relative;
 }
 
-.image-container {
-    position: absolute;
-}
+// ---------IMAGE / TEXT CONTAINER IS GIVEN A POSITIONAL CLASS and asigned as GRID AREA TYPE HERE ---------- //
+    .e-container {
+        background-color: pink;
+    }
+
+    .e_pos-left {
+        grid-area: left;
+    }
+
+    .ie_pos-center {
+        grid-area: center;
+    }
+
+    .e_pos-right {
+        grid-area: right;
+    }
+
+// ---------IMAGE / TEXT WIDTH IS DECLARED HERE---------- //
+            .e_single-small {
+                width: 30%;
+            }
+
+            .e_single-medium {
+                width: 100%;
+            }
+
+            .e_single-large {
+                width: 80%;
+            }
+
+                .image_caption{
+                    font-weight: 300;
+                    text-align: left;
+                }
 
 // ---------------- subhead ----------------
 
