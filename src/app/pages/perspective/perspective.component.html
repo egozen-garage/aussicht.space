@@ -168,9 +168,8 @@
                                                     <div class="relation_arrow">&#10230;</div>
                                                 </div>
                                                 <!-- relation: image -->
-                                                <div *ngIf="perspective.body[i].relation_to[r].projekt.preview_image != null" 
-                                                class="relation_title">
-                                                    <img src="{{apiUrl}}{{perspective.body[i].relation_to[r].projekt.preview_image.formats.thumbnail.url}}" alt="">
+                                                <div *ngIf="perspective.body[i].relation_to[r].projekt.preview_image != null" >
+                                                    <img class="relation_img" src="{{apiUrl}}{{perspective.body[i].relation_to[r].projekt.preview_image.url}}" alt="">
                                                 </div>
                                             </a>
                                         </div>
@@ -196,9 +195,8 @@
                                                     <div class="relation_arrow">&#10230;</div>
                                                 </div>
                                                 <!-- relation: image -->
-                                                <div *ngIf="perspective.body[i].relation_to[r].perspektive.preview_image != null" 
-                                                class="relation_title">
-                                                    <img src="{{apiUrl}}{{perspective.body[i].relation_to[r].perspektive.preview_image.formats.thumbnail.url}}" alt="">
+                                                <div *ngIf="perspective.body[i].relation_to[r].perspektive.preview_image != null" >
+                                                    <img class="relation_img" src="{{apiUrl}}{{perspective.body[i].relation_to[r].perspektive.preview_image.url}}" alt="">
                                                 </div>
                                             </a>
                                         </div>
@@ -280,18 +278,38 @@
 
 
 
-            <!-- COMPONENT > "image-types.file" ---------------------------------------------------- -->
-            <div *ngIf=" perspective.body[i].__component === 'image-types.file'" 
-            class="image_file"
-            [ngStyle]="{'text-align': perspective.body[i].position }">
+            <!-- COMPONENT > "image-type: fullscreen image" ---------------------------------------------------- -->
+            <div *ngIf=" perspective.body[i].__component === 'image-types.fullscreen-image'" 
+            class="image-type">
                 <!-- image -->
-                <img class="article_image" src="{{apiUrl}}{{perspective.body[i].image.formats.large.url}}"> 
-                <!-- bildunterschrift missing -->
+                <img class="image_fullscreen" src="{{apiUrl}}{{perspective.body[i].image.url}}"> 
+                <!-- caption -->
                 <h3 class="image_caption">
                     {{ perspective.body[i].image.caption }}
                 </h3>
             </div>
+            
+            <!-- COMPONENT > "image-type: single image" ---------------------------------------------------- -->
+            <div *ngIf=" perspective.body[i].__component === 'image-types.single-image'" 
+            class="image-type image_single">
 
+                <div class="image-container" [ngStyle]="{'float': perspective.body[i].style.position }">        
+                    
+                    <!-- <div [ngClass]:" 'img_single_small' ">
+
+
+                    </div> -->
+                    
+                    <!-- image -->
+                    <img class="image_single" src="{{apiUrl}}{{perspective.body[i].image.url}}"> 
+                    <!-- bildunterschrift missing -->
+                    <h3 class="image_caption">
+                        {{ perspective.body[i].image.caption }}
+                    </h3>
+
+                </div>
+
+            </div>
 
 
             <!-- COMPONENT > "white-space" ---------------------------------------------------- -->
