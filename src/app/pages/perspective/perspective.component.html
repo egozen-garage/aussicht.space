@@ -63,9 +63,6 @@
             class="section-grid">
                 <div class="comp_textblock_machine">
                     <!-- MACHINE-GENERATED content is called out here -->
-
-
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! no machine_text found in API !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
                     <ng-container *ngIf="perspective.body[i].machine_text !== null">
                         <div class="txt_m_container">
                             <div id="circle1"></div>
@@ -226,9 +223,8 @@
                                                     {{ perspective.body[i].relation_to[r].description }}
                                                 </div>
                                                 <!-- relation: image -->
-                                                <div *ngIf="perspective.body[i].relation_to[r].podcast.episode_cover != null" 
-                                                class="relation_title">
-                                                    <img src="{{apiUrl}}{{perspective.body[i].relation_to[r].podcast.episode_cover.formats.thumbnail.url}}" alt="">
+                                                <div *ngIf="perspective.body[i].relation_to[r].podcast.episode_cover != null">
+                                                    <img class="relation_img" src="{{apiUrl}}{{perspective.body[i].relation_to[r].podcast.episode_cover.url}}" alt="">
                                                 </div>                                               
                                             </a>
                                         </div>
@@ -269,13 +265,12 @@
             <!-- COMPONENT > "paragraph-with-image" ---------------------------------------------------- -->
             <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-image'" 
             class="section-grid">
-
                 <div class="comp_textblock_machine comp_textblock_image">
-                    <!-- image -->
-                    <img class="txt_m_container indented_image" src="{{apiUrl}}{{perspective.body[i].image.formats.small.url}}"> 
-                    <!-- text -->
-                    <div class="comp_textblock_paragraph">
-                        <markdown class="" *ngIf="perspective.body[i].paragraph?.length">
+                    <!-- call out image -->
+                    <img *ngIf="perspective.body[i].image !== null" class="txt_m_container indented_image" src="{{apiUrl}}{{perspective.body[i].image.url}}"> 
+                    <!-- call out text -->
+                    <div *ngIf="perspective.body[i].paragraph?.length" class="comp_textblock_paragraph">
+                        <markdown class="">
                             {{ perspective.body[i].paragraph }}
                         </markdown> 
                     </div>
