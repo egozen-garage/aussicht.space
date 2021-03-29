@@ -2,7 +2,8 @@
   "collectionName": "components_image_types_single_images",
   "info": {
     "name": "single_image",
-    "icon": "sticky-note"
+    "icon": "sticky-note",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -20,7 +21,8 @@
     "style": {
       "type": "component",
       "repeatable": false,
-      "component": "style-options.styling"
+      "component": "style-options.styling",
+      "required": true
     }
   }
 }

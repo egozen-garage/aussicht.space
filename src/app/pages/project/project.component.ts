@@ -25,8 +25,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
   // key of object within the json file
   key = "name";
-  image_size:number = 32;
-  image_size_STYLE:number = 32;
+  image_size:number = 64;
+  image_size_STYLE:number = 64;
   
   folder_name = "arndt_armin";
   // folder_name = "bastian_castano_moreno";
@@ -46,8 +46,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
         this.image_size = 64;
         this.image_size_STYLE = 64;
       }else if(window.innerWidth <= 576){
-        this.image_size = 32;
-        this.image_size_STYLE = 32;
+        this.image_size = 64;
+        this.image_size_STYLE = 64;
       }
       // this.EVENTafterPageLoad.emit();
     }

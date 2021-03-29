@@ -77,9 +77,10 @@
         "image-types.gpt-images"
       ]
     },
-    "article_done": {
+    "add_to_unit_hub": {
       "type": "boolean",
-      "default": false
+      "default": true,
+      "required": true
     }
   }
 }

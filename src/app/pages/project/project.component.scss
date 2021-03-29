@@ -1,8 +1,4 @@
-.project-page {
-  margin: 0px;
-  background-color: white;
-  color: var(--color-black);
-}
+
 
 
 // ------ HEADER ------- //
@@ -31,20 +27,6 @@ header{
   font-size: 12px;
 }
 
-.super_rich_text {
-  // grid-column: 1 / span 3;
-  background-color: blue;
-  grid-area: all;
-  // padding: 90px var(--margin) 100px var(--margin);
-
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: 
-      "intro intro intro ."
-      "subhead subhead . ."
-      "main main . sidebar"
-}
 
 .project-intro {
   font-family: var(--font-family-primary);
@@ -120,7 +102,11 @@ header{
 // NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
 // new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
 
-
+.project-page {
+  margin: 0px;
+  background-color: white;
+  color: var(--color-black);
+}
 // ------ BODY ------- //
 // ------ BODY ------- //
 // ----------------------- GRID CONFIGURATIONS ----------------------- 
@@ -139,8 +125,40 @@ header{
       ". . . t_m_background"
       ". remark remark remark"
       ". relation relation relation"
-      " all all all all";
+      " all all all all"
+      " left left right right"
+      " next next next next "
+      ". default default default";
   
+}
+
+// ----------------------- cms style classes ----------------------- 
+.width_small{     width: 30%;}
+.width_medium{    width: 50%;}
+.width_large{     width: 100%;}
+
+.aline_left{      text-align: left;}
+.aline_center{    text-align: center;}
+.aline_right{     text-align: right;}
+
+.width_small, .width_medium, .width_large, .aline_left, .aline_center, .aline_right{
+  grid-area: all;
+  width: 100%;
+}
+
+.CMS_style{
+  // grid-area: ;
+  // display: inline;
+  width: 100%;
+  background-color: blueviolet;
+}
+.default{
+  grid-area: default;
+}
+
+// ----------------------- title font ----------------------- 
+.project-title{
+
 }
 
 // ----------------------- gpt images ----------------------- 
@@ -150,52 +168,56 @@ header{
 }
 
 // ----------------------- recommendations -----------------------
-.recommendation{}
+.recommendation{
+  height: auto;
+}
 .recommendation_intro{}
 .recommendation_title{}
 @media (max-width: 48em) {
   .recommendation{
-      padding: 20px var(--margin) 100px var(--margin);
-      display: grid;
-      grid-template-columns: auto;
+    grid-area: all;
+    display: inline-block;
   }
   .recommendation_intro{
-      grid-column: 1 / span 1;
+    grid-area: right;
+    width: 100%;
   }
   .recommendation_title{
-      grid-column: 1 / span 1;
+    grid-area: left;
+    width: 100%;
   }
 }
 @media (min-width: 48em) {
   .recommendation{
-      padding: 20px var(--margin) 100px var(--margin);
-      display: grid;
-      grid-template-columns: auto auto;
+    grid-area: all;
+    display: flex;
+    height: 500px;
   }
   .recommendation_intro{
-      grid-column: 1 / span 1;
+    grid-area: right;
+    width: 100%;
   }
   .recommendation_title{
-      grid-column: 2 / span 1;
+    grid-area: left;
+    width: 100%;
   }
 }
 
 // ----------------------- PREVIOUS / NEXT ----------------------- 
 .next_project{
-  display: grid;
-  grid-template-columns: auto auto;
+  grid-area: next;
+  display: flex;
 }
 .previous_button{
-  grid-column: 1 / span 1;
-  padding: 20px var(--margin) 100px var(--margin);
-  float: left;
+  grid-area: next;
+  width: 100%;
 }
 .next_button{
-  grid-column: 2 / span 1;
+  grid-area: next;
+  width: 100%;
   text-align: right;
-
-  padding: 20px var(--margin) 100px var(--margin);
 }
 .next_button a{
   float: right;
 }
+
