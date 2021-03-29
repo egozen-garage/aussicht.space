@@ -1,20 +1,37 @@
 <div class="project-page">
-    <div class="project-body-container">
+    <div class="">
 
         <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
         <ng-container *ngFor="let body of project.body, let i = index" 
-        class="section-grid"> 
+        class=""> 
 
 <!-- title + name ---------------------------------------------------- -->
 <!-- title + name ---------------------------------------------------- -->
             <!-- COMPONENT > "project-related-info.title" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'project-related-info.title'" 
-            class="section-grid">
-                <div class="project-title">{{project.body[i].title}}</div>
+            class="project-body-container">
+                <div class="default" *ngIf="project.body[i].style !== null " 
+                [ngClass]="{
+                    'width_small'     : project.body[i].style.width === 'small',
+                    'width_medium'    : project.body[i].style.width === 'medium',
+                    'width_large'     : project.body[i].style.width === 'large',
+
+                    'aline_left'      : project.body[i].style.position === 'left',
+                    'aline_center'    : project.body[i].style.position === 'center',
+                    'aline_right'     : project.body[i].style.position === 'right',
+                    
+                    'padding_off'     : project.body[i].style.padding === false,
+                    'padding_on'      : project.body[i].style.padding === true}">
+                <!-- [ngStyle]="{'color': project.body[i].style.hex_color_code === true }" -->
+                        {{project.body[i].title}}
+                        <br>
+                        <img src="/assets/imgs/image_gpt/arndt_armin/original/32_arndt_armin.png" width="100" />
+                </div>
             </div>
+
             <!-- COMPONENT > "project-related-info.name" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'project-related-info.name'" 
-            class="section-grid">
+            class="CMS_style">
                 <div class="project-author">{{project.body[i].name}}</div>
             </div>
 
@@ -24,7 +41,7 @@
 <!-- addon addon addon addon ---------------------------------------------------- -->
             <!-- COMPONENT > "addon.javascript-file-name" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'addon.javascript-file-name'" 
-            class="">
+            class="project-body-container">
                 <!-- ------------- custom-design-javascript ------------- -->
                 <div *ngIf="project.body[i].javascript_file_name?.length" 
                 class="">
@@ -33,7 +50,7 @@
             </div>
             <!-- COMPONENT > "addon.html-css" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'addon.html-css' " 
-            class="">
+            class="project-body-container">
                 <!-- ------------- custom-design-blankHTML ------------- -->
                 <div *ngIf="project.body[i].add_html_css?.length" 
                 class="">
@@ -42,7 +59,7 @@
             </div>
             <!-- COMPONENT > "addon.website" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'addon.website' " 
-            class="">
+            class="project-body-container">
                 <!-- ------------- custom-design-iframe ------------- -->
                 <div *ngIf="project.body[i].website_link?.length" 
                 class="">
@@ -73,7 +90,8 @@
     <!-- ----------------------- recommendations ----------------------- -->
     <div class="recommendation">
         <div class="recommendation_intro">
-            <h2>Related item</h2>
+            <h2>Related</h2>
+            <h2>~type~</h2>
             <h2>--</h2>
         </div>
         <div class="recommendation_title">
