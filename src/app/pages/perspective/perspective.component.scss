@@ -82,9 +82,9 @@
             ". . . t_m_background"
             ". remark remark remark"
             ". relation relation relation"
-            "left left left ."
-            ". center center ."
-            ". right right right";
+            " left left right right"
+            "all all all all"
+            ". default default default";
     }
 
     // ------ COMPOSITION CONFIGURATIONS ------ //
@@ -298,40 +298,28 @@
     position: relative;
 }
 
-// ---------IMAGE / TEXT CONTAINER IS GIVEN A POSITIONAL CLASS and asigned as GRID AREA TYPE HERE ---------- //
-    .e-container {
-        background-color: pink;
-    }
+.image_caption{
+    font-weight: 300;
+}
 
-    .e_pos-left {
-        grid-area: left;
-    }
+// --------- CMS Style Classes ---------- //
 
-    .ie_pos-center {
-        grid-area: center;
-    }
+.default {
+    grid-area: default;
+}
 
-    .e_pos-right {
-        grid-area: right;
-    }
+.align_left   { text-align: left;   }
+.align_center { text-align: center; }
+.align_right  { text-align: right;  }
 
-// ---------IMAGE / TEXT WIDTH IS DECLARED HERE---------- //
-            .e_single-small {
-                width: 30%;
-            }
+.width_small  { width: 30%; }
+.width_medium { width: 50%; }
+.width_large  { width: 80%; }
 
-            .e_single-medium {
-                width: 100%;
-            }
+.width_small, .width_medium, .width_large, .align_left, .align_center, .align_right{
+    grid-area: all;
+}
 
-            .e_single-large {
-                width: 80%;
-            }
-
-                .image_caption{
-                    font-weight: 300;
-                    text-align: left;
-                }
 
 // ---------------- subhead ----------------
 

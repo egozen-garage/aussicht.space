@@ -295,18 +295,22 @@
             <div *ngIf=" perspective.body[i].__component === 'image-types.single-image'" 
             class="image-type image_single section-grid">
 
-                <!-- IMAGE / TEXT CONTAINER IS GIVEN A POSITIONAL CLASS HERE -->
-                <div [ngClass]=" {  'e_pos-left'  : perspective.body[i].style.position === 'left',
-                                    'e_pos-center' : perspective.body[i].style.position === 'center',
-                                    'e_pos-right'  : perspective.body[i].style.position === 'right'   } "
-                     class="e-container" 
-                     [ngStyle]="{'float': perspective.body[i].style.position }">        
+                <div class="default" *ngIf="perspective.body[i].style !== null "
+                [ngClass]="{
+
+                    'align_left'      : perspective.body[i].style.position === 'left',
+                    'align_center'    : perspective.body[i].style.position === 'center',
+                    'align_right'     : perspective.body[i].style.position === 'right',
                     
+                    'padding_off'     : perspective.body[i].style.padding === false,
+                    'padding_on'      : perspective.body[i].style.padding === true}">
+
                     <!-- IMAGE / TEXT WIDTH IS DECLARED HERE -->
-                    <img       src="{{ apiUrl}}{{perspective.body[i].image.url }}"
-                         [ngClass]=" { 'e_single-small'  : perspective.body[i].style.width === 'small',
-                                       'e_single-medium' : perspective.body[i].style.width === 'medium',
-                                       'e_single-large'  : perspective.body[i].style.width === 'large'   } "> 
+                    <img src="{{ apiUrl}}{{perspective.body[i].image.url }}"
+                    [ngClass]="{
+                        'width_small'     : perspective.body[i].style.width === 'small',
+                        'width_medium'    : perspective.body[i].style.width === 'medium',
+                        'width_large'     : perspective.body[i].style.width === 'large' }"> 
 
                     <!-- caption -->
                     <h3 class="image_caption">
@@ -314,8 +318,35 @@
                     </h3>
 
                 </div>
-
             </div>
+
+
+
+
+
+
+
+
+
+                <!-- IMAGE / TEXT CONTAINER IS GIVEN A POSITIONAL CLASS HERE -->
+                <!-- <div [ngClass]=" {  'e_pos-left'  : perspective.body[i].style.position === 'left',
+                                    'e_pos-center' : perspective.body[i].style.position === 'center',
+                                    'e_pos-right'  : perspective.body[i].style.position === 'right'   } "
+                     class="e-container" 
+                     [ngStyle]="{'float': perspective.body[i].style.position }">        
+                    
+                    <img       src="{{ apiUrl}}{{perspective.body[i].image.url }}"
+                         [ngClass]=" { 'e_single-small'  : perspective.body[i].style.width === 'small',
+                                       'e_single-medium' : perspective.body[i].style.width === 'medium',
+                                       'e_single-large'  : perspective.body[i].style.width === 'large'   } "> 
+
+                    <h3 class="image_caption">
+                        {{ perspective.body[i].image.caption }}
+                    </h3>
+
+                </div>
+
+            </div> -->
 
 
             <!-- COMPONENT > "white-space" ---------------------------------------------------- -->
