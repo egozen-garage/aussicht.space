@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/perspectives",
-      "handler": "perspective.find",
+      "path": "/projekts",
+      "handler": "projekt.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/perspectives/count",
-      "handler": "perspective.count",
+      "path": "/projekts/count",
+      "handler": "projekt.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/perspectives/:id",
-      "handler": "perspective.findOne",
+      "path": "/projekts/:id",
+      "handler": "projekt.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/perspectives",
-      "handler": "perspective.create",
+      "path": "/projekts",
+      "handler": "projekt.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/perspectives/:id",
-      "handler": "perspective.update",
+      "path": "/projekts/:id",
+      "handler": "projekt.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/perspectives/:id",
-      "handler": "perspective.delete",
+      "path": "/projekts/:id",
+      "handler": "projekt.delete",
       "config": {
         "policies": []
       }

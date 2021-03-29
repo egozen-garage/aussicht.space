@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_text_types_intros",
+  "info": {
+    "name": "intro",
+    "icon": "bars"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

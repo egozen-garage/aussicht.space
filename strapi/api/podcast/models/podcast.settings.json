@@ -59,6 +59,14 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "projekts": {
+      "via": "podcasts",
+      "collection": "projekt"
+    },
+    "episode_id": {
+      "type": "uid",
+      "required": true
     }
   }
 }

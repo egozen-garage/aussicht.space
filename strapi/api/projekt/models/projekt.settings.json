@@ -1,0 +1,86 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projekts",
+  "info": {
+    "name": "projekt",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "unit_type": {
+      "type": "enumeration",
+      "enum": [
+        "project"
+      ],
+      "default": "project",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "text",
+      "required": true
+    },
+    "preview_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "background_color": {
+      "type": "string"
+    },
+    "perspektives": {
+      "collection": "perspektive",
+      "via": "projekts",
+      "dominant": true
+    },
+    "podcasts": {
+      "collection": "podcast",
+      "via": "projekts",
+      "dominant": true
+    },
+    "themes": {
+      "collection": "theme",
+      "via": "projekt"
+    },
+    "body": {
+      "type": "dynamiczone",
+      "components": [
+        "project-related-info.title",
+        "project-related-info.name",
+        "text-types.paragraph-with-image",
+        "text-types.subhead",
+        "text-types.white-space",
+        "text-types.paragraph-with-relation",
+        "text-types.paragraph-with-machine",
+        "text-types.paragraph-plain",
+        "text-types.intro",
+        "image-types.single-image",
+        "image-types.couple-images",
+        "image-types.fullscreen-image",
+        "text-types.free-text",
+        "addon.javascript-file-name",
+        "addon.website",
+        "addon.html-css",
+        "image-types.gpt-images"
+      ]
+    },
+    "add_to_unit_hub": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

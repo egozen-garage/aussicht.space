@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_text_types_paragraph_with_images",
+  "info": {
+    "name": "text_image",
+    "icon": "object-group",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "paragraph": {
+      "type": "richtext"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

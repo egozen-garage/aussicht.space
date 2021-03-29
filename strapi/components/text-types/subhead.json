@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_text_types_subheads",
+  "info": {
+    "name": "subhead",
+    "icon": "arrow-right"
+  },
+  "options": {},
+  "attributes": {
+    "subhead": {
+      "type": "string"
+    }
+  }
+}

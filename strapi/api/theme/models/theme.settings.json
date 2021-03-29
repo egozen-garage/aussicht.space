@@ -14,21 +14,21 @@
     "theme_name": {
       "type": "string"
     },
-    "perspective": {
-      "via": "themes",
-      "model": "perspective"
-    },
     "podcast": {
       "via": "themes",
       "model": "podcast"
     },
-    "project": {
-      "via": "themes",
-      "model": "project"
-    },
     "selected": {
       "type": "boolean",
       "default": false
+    },
+    "perspektive": {
+      "via": "themes",
+      "model": "perspektive"
+    },
+    "projekt": {
+      "via": "themes",
+      "model": "projekt"
     }
   }
 }

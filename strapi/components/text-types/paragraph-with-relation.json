@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_text_types_paragraph_with_relations",
+  "info": {
+    "name": "text_relation",
+    "icon": "code-branch",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "paragraph": {
+      "type": "richtext"
+    },
+    "relation_to": {
+      "type": "component",
+      "repeatable": true,
+      "component": "relation-unit-types.relation-to"
+    }
+  }
+}

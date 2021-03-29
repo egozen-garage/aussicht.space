@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular
 import { ProjectService } from '../../services_strapi/project.service';
 import { ActivatedRoute } from '@angular/router';
 import { SideCommentPositionService } from '../../services/side-comment-position.service';
-import { environment } from '../../../environments/environment';
 
 
 //import { CustomDesignIframeComponent } from '../custom_designs/custom-design-iframe/custom-design-iframe.component';
@@ -17,7 +16,6 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements OnInit, AfterViewInit {
-  apiUrl = environment.apiUrl;
   projectID : string = "";
   project:any;
 
@@ -27,11 +25,10 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
   // key of object within the json file
   key = "name";
-  image_size:number | undefined;
-  image_size_STYLE:number | undefined;
+  image_size:number = 64;
+  image_size_STYLE:number = 64;
   
-  //folder_name = "arndt_armin";
-  folder_name = "storch_annika";
+  folder_name = "arndt_armin";
   // folder_name = "bastian_castano_moreno";
 
   constructor(
@@ -49,13 +46,12 @@ export class ProjectComponent implements OnInit, AfterViewInit {
         this.image_size = 64;
         this.image_size_STYLE = 64;
       }else if(window.innerWidth <= 576){
-        this.image_size = 32;
-        this.image_size_STYLE = 32;
+        this.image_size = 64;
+        this.image_size_STYLE = 64;
       }
       // this.EVENTafterPageLoad.emit();
     }
-  
-  // side_comment = "side_comment";
+    
   ngAfterViewInit(): void {
     this.activate_site_comments(this.sideCommentPosition);
     this.sideCommentPosition.listenResizeWindow();
@@ -67,7 +63,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       side_comments.forEach(item => {
         item.style.opacity = "1";
         item.classList.add("fade-in");
-        // this.side_comment = "side_comment";
+        // console.log("# # # ///////////////////"+item);
       });
     }, 1000);
   }
@@ -106,7 +102,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       });
       
       // load gpt images 
-      //this.single_project_load_gpt_images(this.folder_name)
+      this.single_project_load_gpt_images(this.folder_name)
 
 
   }
@@ -115,32 +111,13 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
 
 // ----------------------- load gpt images -----------------------
-
-  // resize_window(event:any){
-  //   let window_size = event.target.innerWidth;
-  //   // console.log("window resize: " + window_size);
-  //   if (window_size >= 1024){
-  //     this.image_size = 64;
-  //     this.image_size_STYLE = 64;
-  //   } else if(window_size > 576 && window_size < 1024) {
-  //     this.image_size = 32;
-  //     this.image_size_STYLE = 32;
-  //   } else if(window_size <= 576){
-  //     this.image_size = 32;
-  //     this.image_size_STYLE = 16;
-  //   }
-  // }
-
   //loading_speed = 100;
   //deloading_speed = 90;
   randomNumber:number = 0;
   // maximum = 40;
   minimum = 0;
-  // single_project_load_gpt_images(folder_name:string){
   single_project_load_gpt_images(folder_name:string){
-    //random Number between 25 and 39
     const maximum = 60;
-    console.log("max: " + maximum);
     
     //let cancelled = false;
     // calculate the amount of images needed to cover the whole name
@@ -173,7 +150,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       img_tag.setAttribute("onerror", "this.onerror=null; this.src='/assets/imgs/image_gpt/white.png'");
       // 4. Append the img element to the div element
       // image_gpt_container?.insertBefore(img_tag, image_gpt_container.childNodes[0]);
-      image_gpt_container?.append(img_tag, image_gpt_container.childNodes[0]);
+      image_gpt_container?.append(img_tag);
       //image_gpt_container?.appendChild(img_tag);
     });
 

@@ -81,7 +81,10 @@
             ". t_machine t_machine t_machine"
             ". . . t_m_background"
             ". remark remark remark"
-            ". relation relation relation";
+            ". relation relation relation"
+            " left left right right"
+            "all all all all"
+            ". default default default";
     }
 
     // ------ COMPOSITION CONFIGURATIONS ------ //
@@ -109,10 +112,11 @@
         }
 
         // configure global textblock format here //
-        .comp_textblock_machine, .comp_textblock_remark {
+        .comp_textblock_machine, .comp_textblock_remark, .comp_textblock_relation {
             padding: 0px 0px 0px 0px;
-            font-family: var(--font-family-secondary);
-            font-size: 20px;
+            // font-family: var(--font-family-secondary);
+            // font-size: 24px;
+            // line-height: 1.1;
         }
 
         .comp_textblock {
@@ -131,33 +135,54 @@
             grid-area: t_machine;
         }
 
-            .txt_m_container, .remark_container, .relation_container {
+            .txt_m_container{
                 float: right;
                 height: auto;
                 width: 60%;
-                margin: 5px 0px 0px 0px;
-                /* border: 1px solid black; */
+                // margin: 5px 0px 0px 0px;
+                // border: 1px solid black;
                 position: relative;
+            }
+            .remark_container, .relation_container {
+                float: right;
+                height: auto;
+                width: 100%;
+                // top: 100px;
+                // margin: 5px 0px 200px 0px;
+                /* border: 1px solid black; */
+                position: absolute;
+                padding: 0px 100px 0px 20px;
+
             }
 
                 .comp_m_title, .comp_m_output{
-                    font-size: 15px;
                 }
 
-                .comp_m_title {
-                    padding: 0px 40px 0px 10px;
-                    z-index: 100;
-                    font-weight: 500;
-                }
-
+                
                 .comp_m_output {
-                    top: 30px;
-                    text-indent: -50px;
+                    // top: 30px;
                     height: auto;
                     position: absolute;
                     width: 90%;
-                    padding: 0px 0px 0px 50px;
+                    // padding: 0px 0px 0px 50px;
                     font-family: var(--font-family-primary);
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 1.2;
+                }
+                .comp_m_title {
+                    text-indent: -30px;
+
+                    width: 100%;
+                    z-index: 100;
+                    font-weight: 300;
+                    font-size: 1rem;
+                }
+                .comp_m_text{
+                    text-indent: 170px;
+
+                    padding: 50px 0px 85px 20px;
+                    // line-height: 1.2;
                 }
 
                 #circle1 {
@@ -182,36 +207,125 @@
         // REMARK CSS ATTRIBUTES //
         .comp_textblock_remark {
             grid-area: remark;
+            display: inline-flex;
+        }
+        .comp_textblock_remark .comp_textblock_paragraph{
+            width: 60%;
         }
 
             .comp_remark, .comp_relation {
-                width: 70%;
+                // width: 70%;
+                // color: #031DFF;
+                // font-size: 1.5rem;
+                position: relative;
+                float:left;
+            }
+
+            .c_r_title, .relation_title {
+                // padding: 0px 0px 0px 50px;
+            }
+
+            .c_r_text, .relation_artistname, .c_r_title, .relation_title {
+                // padding: 0px 0px 40px 50px;
                 color: #031DFF;
-            }
-
-            .c_r_title, .relation_projectname {
-                padding: 0px 0px 0px 50px;
-            }
-
-            .c_r_text, .relation_artistname {
-                padding: 0px 0px 40px 50px;
                 font-family: var(--font-family-primary);
-                line-height: 1;
-                font-weight: 400;
-                font-size: 18px;
+                font-size: 1.75rem;
+                font-weight: 300;
+                line-height: 1.25;
             }
 
         // RELATION CSS ATTRIBUTES //
-        .comp_textblock_relation {
+        .comp_textblock_relation {  
             grid-area: relation;
             padding: 0px 0px 0px 0px;
+            display: inline-flex;
+
         }
 
-            .relation_project_img {
-                width: 300px;
-                padding: 0px 0px 30px 50px;
+            .relation_img {
+                max-width: 300px;
+                padding: 0px 0px 30px 0px;
             }
 
 .project-related {
     grid-area: sidebar;
 }
+
+.side_comments{
+    width: 40%;
+}
+.side_comment {
+    opacity: 0;
+    // font-size: 1.75rem;
+}
+.side_comment_padding{
+    padding-bottom: 50px;
+}
+.fade {
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+    }
+
+
+// -------------------------------
+.subhead{
+    grid-area: subhead;
+}
+
+.plain_text{
+    grid-area: text;
+    width: 60%;
+
+}
+
+.comp_textblock_image{
+    grid-area: t_machine;
+}
+
+
+// ---------------- images ----------------
+.indented_image{
+    box-sizing: border-box;
+    margin-right: 22%;
+    padding: 20px 0px 20px 40px;
+    width: 40%;
+}
+
+
+.image-type {
+    position: relative;
+}
+
+.image_caption{
+    font-weight: 300;
+}
+
+// --------- CMS Style Classes ---------- //
+
+.default {
+    grid-area: default;
+}
+
+.align_left   { text-align: left;   }
+.align_center { text-align: center; }
+.align_right  { text-align: right;  }
+
+.width_small  { width: 30%; }
+.width_medium { width: 50%; }
+.width_large  { width: 80%; }
+
+.width_small, .width_medium, .width_large, .align_left, .align_center, .align_right{
+    grid-area: all;
+}
+
+
+// ---------------- subhead ----------------
+
+.subhead{
+    padding: 20px 0px 20px 0px;
+    font-weight: 500;
+
+}
+

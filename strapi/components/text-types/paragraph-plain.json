@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_text_types_paragraph_plains",
+  "info": {
+    "name": "only_text",
+    "icon": "sort-amount-down",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "paragraph": {
+      "type": "richtext"
+    }
+  }
+}

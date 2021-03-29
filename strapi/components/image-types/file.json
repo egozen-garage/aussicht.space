@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_image_types_files",
+  "info": {
+    "name": "file",
+    "icon": "camera",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "position": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "default": "left",
+      "required": true
+    },
+    "styling": {
+      "type": "component",
+      "repeatable": false,
+      "component": "style-options.styling"
+    }
+  }
+}

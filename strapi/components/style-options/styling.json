@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_style_options_stylings",
+  "info": {
+    "name": "styling",
+    "icon": "fill-drip",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "width": {
+      "type": "enumeration",
+      "enum": [
+        "small",
+        "medium",
+        "large"
+      ]
+    },
+    "position": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    },
+    "hex_color_code": {
+      "type": "string"
+    },
+    "padding": {
+      "type": "boolean"
+    }
+  }
+}

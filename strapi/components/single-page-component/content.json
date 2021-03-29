@@ -19,7 +19,7 @@
     },
     "relation_to_project": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "single-page-component.relation"
     },
     "article_remark": {

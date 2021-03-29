@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_image_types_single_images",
+  "info": {
+    "name": "single_image",
+    "icon": "sticky-note",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "style": {
+      "type": "component",
+      "repeatable": false,
+      "component": "style-options.styling",
+      "required": true
+    }
+  }
+}

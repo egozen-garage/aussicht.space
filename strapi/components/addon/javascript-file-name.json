@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_addon_javascript_file_names",
+  "info": {
+    "name": "javascript_file_name",
+    "icon": "file-code"
+  },
+  "options": {},
+  "attributes": {
+    "javascript_file_name": {
+      "type": "string"
+    }
+  }
+}

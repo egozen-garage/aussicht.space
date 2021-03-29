@@ -1,224 +1,223 @@
-.project-page {
-    margin: 0px;
-    background-color: white;
-    color: var(--color-black);
-}
-// ------ gpt images ------- //
-#gpt_images{
-}
+
+
 
 // ------ HEADER ------- //
 header{
-    padding: 90px var(--margin) 100px var(--margin);
+  padding: 90px var(--margin) 100px var(--margin);
 }
 
 .project-title, .related-title {
-    font-family: var(--font-family-primary);
-    font-weight: 500;
-    font-size: var(--font-size-primary-s);
-    margin: 0px;
+  font-family: var(--font-family-primary);
+  font-weight: 500;
+  font-size: var(--font-size-primary-s);
+  margin: 0px;
 }
 
 .project-artist, .related-author {
-    font-family: var(--font-family-secondary);
-    font-size: 20px;
+  font-family: var(--font-family-secondary);
+  font-size: 20px;
 }
 
 .project-cover-media {
-    padding: 30px 0px 0px 0px;
+  padding: 30px 0px 0px 0px;
 }
 
 .caption {
-    font-family: var(--font-family-secondary);
-    font-size: 12px;
+  font-family: var(--font-family-secondary);
+  font-size: 12px;
 }
 
-// ------ BODY ------- //
-
-.project-body-container {
-    padding: 90px var(--margin) 100px var(--margin);
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: 
-        "intro intro intro ."
-        "subhead subhead . ."
-        "main main . sidebar"
-        "all all all all";
-
-}
 
 .project-intro {
-    font-family: var(--font-family-primary);
-    font-weight: 300;
-    font-size: var(--font-size-primary-s);
-    line-height: 1;
-    padding: 20px 0px 20px 0px;
-    grid-area: intro;
-    position: relative;
-
+  font-family: var(--font-family-primary);
+  font-weight: 300;
+  font-size: var(--font-size-primary-s);
+  line-height: 1;
+  padding: 20px 0px 20px 0px;
+  grid-area: intro;
 }
 
 
 .project-subhead {
-    font-family: var(--font-family-primary);
-    font-size: 20px;
-    grid-area: subhead;
+  font-family: var(--font-family-primary);
+  font-size: 20px;
+  grid-area: subhead;
 }
 
 .project-description {
-    grid-area: main;
-    font-family: var(--font-family-secondary);
-    font-size: 20px;
+  grid-area: main;
+  font-family: var(--font-family-secondary);
+  font-size: 20px;
 }
 
 .project-related {
-    grid-area: sidebar;
+  grid-area: sidebar;
 }
 
-// ------ recommendation ------- //
 
-@media (max-width: 48em) {
-    .recommendation{
-        padding: 20px var(--margin) 100px var(--margin);
-        display: grid;
-        grid-template-columns: auto;
-    }
-    .recommendation_intro{
-        grid-column: 1 / span 1;
-    }
-    .recommendation_title{
-        grid-column: 1 / span 1;
-    }
-}
-@media (min-width: 48em) {
-    .recommendation{
-        padding: 20px var(--margin) 100px var(--margin);
-        display: grid;
-        grid-template-columns: auto auto;
-    }
-    .recommendation_intro{
-        grid-column: 1 / span 1;
-    }
-    .recommendation_title{
-        grid-column: 2 / span 1;
-    }
-}
-
-// ------ NEXT ------- //
-
-.next_project{
-    display: grid;
-    grid-template-columns: auto auto;
-}
-
-.next_button{
-    grid-column: 2 / span 1;
-    text-align: right;
-
-    padding: 20px var(--margin) 100px var(--margin);
-}
-.next_button a{
-    float: right;
-}
-
-.previous_button{
-    grid-column: 1 / span 1;
-    padding: 20px var(--margin) 100px var(--margin);
-}
-.previous_button{
-    float: left;
-}
 
 
 // ---------- side comments ------------
 .markdown_container{
-    grid-area: intro;
-
+  position: relative;
 }
-// .side_comments{
-//     grid-area: sidebar;
-//     grid-row: 1;
-//     background-color: chartreuse;
-//     width: 30vw;
-//     height: auto;
-// }
-// .side_comments div{
-//     background-color: chocolate;
-//     width: 30vw;
-// }
+.side_comments{
+  grid-area: sidebar;
+  grid-row: 1;
+  background-color: chartreuse;
+  width: 30vw;
+  height: auto;
+}
+.side_comments div{
+  background-color: chocolate;
+  width: 30vw;
+}
 .side_comment{
-    // grid-area: sidebar;
-    grid-row: 1;
-    width: 30vw;
-    height: auto;
-    background-color: burlywood;
-    color:chartreuse;
-    opacity: 0.5;
-    align-self: start;
-    position: relative;
-    background-color: aqua;
+  opacity: 0;
+  align-self: start;
+  position: relative;
+  background-color: aqua;
 }
 
 .fade-in {
-    animation: fadeIn ease 2s;
-    -webkit-animation: fadeIn ease 2s;
-    -moz-animation: fadeIn ease 2s;
-    -o-animation: fadeIn ease 2s;
-    -ms-animation: fadeIn ease 2s;
-  }
-  
-  
-  @keyframes fadeIn{
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-  
-  @-moz-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-  
-  @-webkit-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-  
-  @-o-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
-  
-  @-ms-keyframes fadeIn {
-    0% {
-      opacity:0;
-    }
-    100% {
-      opacity:1;
-    }
-  }
+  animation: fadeIn ease 2s;
+  -webkit-animation: fadeIn ease 2s;
+  -moz-animation: fadeIn ease 2s;
+  -o-animation: fadeIn ease 2s;
+  -ms-animation: fadeIn ease 2s;
+}
 
-  .side_comment_b{
-    background-color: blue;
-  }
 
-  .markdown_container .side_comment{
-    background-color: cadetblue;
+
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+
+.project-page {
+  margin: 0px;
+  background-color: white;
+  color: var(--color-black);
+}
+// ------ BODY ------- //
+// ------ BODY ------- //
+// ----------------------- GRID CONFIGURATIONS ----------------------- 
+
+.project-body-container {
+  padding: 90px var(--margin) 100px var(--margin);
+
+  display: grid;
+  grid-template-columns: 20% 40% 20% 20%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+      ". intro intro intro"
+      ". subhead subhead ."
+      ". text text text"
+      ". t_machine t_machine t_machine"
+      ". . . t_m_background"
+      ". remark remark remark"
+      ". relation relation relation"
+      " all all all all"
+      " left left right right"
+      " next next next next "
+      ". default default default";
+  
+}
+
+// ----------------------- cms style classes ----------------------- 
+.width_small{     width: 30%;}
+.width_medium{    width: 50%;}
+.width_large{     width: 100%;}
+
+.aline_left{      text-align: left;}
+.aline_center{    text-align: center;}
+.aline_right{     text-align: right;}
+
+.width_small, .width_medium, .width_large, .aline_left, .aline_center, .aline_right{
+  grid-area: all;
+  width: 100%;
+}
+
+.CMS_style{
+  // grid-area: ;
+  // display: inline;
+  width: 100%;
+  background-color: blueviolet;
+}
+.default{
+  grid-area: default;
+}
+
+// ----------------------- title font ----------------------- 
+.project-title{
+
+}
+
+// ----------------------- gpt images ----------------------- 
+#gpt_images{
+  grid-area: all;
+  width: 100%;
+}
+
+// ----------------------- recommendations -----------------------
+.recommendation{
+  height: auto;
+}
+.recommendation_intro{}
+.recommendation_title{}
+@media (max-width: 48em) {
+  .recommendation{
+    grid-area: all;
+    display: inline-block;
   }
+  .recommendation_intro{
+    grid-area: right;
+    width: 100%;
+  }
+  .recommendation_title{
+    grid-area: left;
+    width: 100%;
+  }
+}
+@media (min-width: 48em) {
+  .recommendation{
+    grid-area: all;
+    display: flex;
+    height: 500px;
+  }
+  .recommendation_intro{
+    grid-area: right;
+    width: 100%;
+  }
+  .recommendation_title{
+    grid-area: left;
+    width: 100%;
+  }
+}
+
+// ----------------------- PREVIOUS / NEXT ----------------------- 
+.next_project{
+  grid-area: next;
+  display: flex;
+}
+.previous_button{
+  grid-area: next;
+  width: 100%;
+}
+.next_button{
+  grid-area: next;
+  width: 100%;
+  text-align: right;
+}
+.next_button a{
+  float: right;
+}
+

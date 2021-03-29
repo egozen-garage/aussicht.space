@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_image_types_gpt_images",
+  "info": {
+    "name": "gpt_images",
+    "icon": "grip-vertical"
+  },
+  "options": {},
+  "attributes": {
+    "folder_name": {
+      "type": "string"
+    }
+  }
+}

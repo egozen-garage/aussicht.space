@@ -1,142 +1,83 @@
 <div class="project-page">
+    <div class="">
 
-    <header class="project-header">
-        <p class="project-title">{{project.title}}</p>
-        <p class="project-artist">{{project.artist}}</p>
+        <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
+        <ng-container *ngFor="let body of project.body, let i = index" 
+        class=""> 
 
-        <!-- ------------- Default Design ------------- -->
-    
-        <div *ngIf="project.addon === null" class="project-cover-media">
-            <img src="{{apiUrl}}{{project.cover_media.url}}">
-            <p class="caption">{{project.cover_media.caption}} </p>
-        </div>
-        <!-- ------------- custom-design-iframe ------------- -->
-        <div *ngIf="project.addon !== null && project.addon.website_link?.length > 0 " class="project-cover-media">
-            <app-custom-design-iframe [project]="project"></app-custom-design-iframe>
-        </div>
-        <!-- ------------- custom-design-javascript ------------- -->
-        <div *ngIf="project.addon !== null && project.addon.javascript_file_name?.length > 0" class="project-cover-media">
-            <app-custom-design-javascript [project]="project"></app-custom-design-javascript>
-        </div>
-        <!-- ------------- custom-design-blankHTML ------------- -->
-        <div *ngIf="project.addon !== null && project.addon.add_html_css?.length > 0" class="project-cover-media">
-            <app-custom-design-html-css [project]="project"></app-custom-design-html-css>
-        </div>
-    </header>
+<!-- title + name ---------------------------------------------------- -->
+<!-- title + name ---------------------------------------------------- -->
+            <!-- COMPONENT > "project-related-info.title" ---------------------------------------------------- -->
+            <div *ngIf=" project.body[i].__component === 'project-related-info.title'" 
+            class="project-body-container">
+                <div class="default" *ngIf="project.body[i].style !== null " 
+                [ngClass]="{
+                    'width_small'     : project.body[i].style.width === 'small',
+                    'width_medium'    : project.body[i].style.width === 'medium',
+                    'width_large'     : project.body[i].style.width === 'large',
 
-    
-    
-    <div class="project-body-container">
-
-
-
-
-        <!-- <div class="super_rich_text" > -->
-            <!-- <p > -->
-                <markdown *ngIf="project.body[0].intro" class="project-intro markdown_container">
-                    <!-- div side comment -->
-                    {{project.body[0].intro.text}}
+                    'aline_left'      : project.body[i].style.position === 'left',
+                    'aline_center'    : project.body[i].style.position === 'center',
+                    'aline_right'     : project.body[i].style.position === 'right',
                     
-                    <span class="side_comment">
-                        0. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                    </span>
-                    <span class="side_comment">
-                        1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                        1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                    </span>
-                    <span class="side_comment">
-                        2. Lorem ipsum dolor sit amet.
-                    </span>
-                    <span class="side_comment" >
-                        3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
-                    </span>
-                </markdown>
-                <!-- <div class="side_comments" id=""> -->
-                <!-- </div> -->
-            <!-- </p> -->
-            <!-- <div class="side_comments" id="">
-                <div class="side_comment">
-                    0. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                </div>
-                <div class="side_comment">
-                    1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                    1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                </div>
-                <div class="side_comment" >
-                    2. Lorem ipsum dolor sit amet.
-                </div>
-                <div class="side_comment" >
-                    3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
-                </div>
-            </div> -->
-        <!-- </div> -->
-
-        
-        <!--
-        <p *ngIf="project.body[0].textblock.subhead" class="project-subhead">{{project.body[0].textblock.subhead}}</p>
-        <p class="project-description">{{project.body[0].textblock.textblock}}</p>
-        <br><br>
-        <div class="project-related">
-            <div class="related-label">Related perspective ></div>
-            <a [routerLink]="['/units/' + project.perspectives[0].unit_type, project.perspectives[0].id]">
-                <div class="related-title">{{project.perspectives[0].title}}</div>
-                <div class="related-author">{{project.perspectives[0].author}}</div>
-            </a>
-        </div> -->
-    </div>
-
-
-
-    <!-- <div class="super_rich_text" >
-        <p *ngIf="project.body[0].intro" class="project-intro markdown_container">
-            <markdown>
-                {{project.body[0].intro}}
-            </markdown>
-        </p>
-        <div class="side_comment" 
-        [style.top.px]="page_fully_loaded ? callPosition('side_comment_' + 4) : {'background-color': 'green'}" [id]="'side_comment_' + 4">
-            1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-        </div>
-        <div class="side_comment" >
-            2. Lorem ipsum dolor sit amet.
-        </div>
-        <div class="side_comment" >
-            3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
-        </div>
-    </div>
-
-    <markdown>
-        <code>4. code</code>
-    </markdown> -->
-
-
-
-
-
-    <!-- <div class="project-body-container">
-    
-        <div class="super_rich_text" >
-            <p *ngIf="project.body[0].intro" class="project-intro markdown_container">
-                <markdown>
-                    Markdown {{project.body[0].intro}}
-                </markdown>
-            </p>
-            <div class="side_comments" id="">
-                <div class="side_comment">
-                    0. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                </div>
-                <div class="side_comment">
-                    1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                </div>
-                <div class="side_comment" >
-                    2. Lorem ipsum dolor sit amet.
-                </div>
-                <div class="side_comment" >
-                    3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
+                    'padding_off'     : project.body[i].style.padding === false,
+                    'padding_on'      : project.body[i].style.padding === true}">
+                <!-- [ngStyle]="{'color': project.body[i].style.hex_color_code === true }" -->
+                        {{project.body[i].title}}
+                        <br>
+                        <img src="/assets/imgs/image_gpt/arndt_armin/original/32_arndt_armin.png" width="100" />
                 </div>
             </div>
-        </div>
-    </div> -->
+
+            <!-- COMPONENT > "project-related-info.name" ---------------------------------------------------- -->
+            <div *ngIf=" project.body[i].__component === 'project-related-info.name'" 
+            class="CMS_style">
+                <div class="project-author">{{project.body[i].name}}</div>
+            </div>
+
+
+
+<!-- addon addon addon addon ---------------------------------------------------- -->
+<!-- addon addon addon addon ---------------------------------------------------- -->
+            <!-- COMPONENT > "addon.javascript-file-name" ---------------------------------------------------- -->
+            <div *ngIf=" project.body[i].__component === 'addon.javascript-file-name'" 
+            class="project-body-container">
+                <!-- ------------- custom-design-javascript ------------- -->
+                <div *ngIf="project.body[i].javascript_file_name?.length" 
+                class="">
+                    <app-custom-design-javascript [project]="project.body[i].javascript_file_name"></app-custom-design-javascript>
+                </div>
+            </div>
+            <!-- COMPONENT > "addon.html-css" ---------------------------------------------------- -->
+            <div *ngIf=" project.body[i].__component === 'addon.html-css' " 
+            class="project-body-container">
+                <!-- ------------- custom-design-blankHTML ------------- -->
+                <div *ngIf="project.body[i].add_html_css?.length" 
+                class="">
+                    <app-custom-design-html-css [project]="project.body[i].add_html_css"></app-custom-design-html-css>
+                </div>
+            </div>
+            <!-- COMPONENT > "addon.website" ---------------------------------------------------- -->
+            <div *ngIf=" project.body[i].__component === 'addon.website' " 
+            class="project-body-container">
+                <!-- ------------- custom-design-iframe ------------- -->
+                <div *ngIf="project.body[i].website_link?.length" 
+                class="">
+                    <app-custom-design-iframe [project]="project.body[i].website_link"></app-custom-design-iframe>
+                </div>
+            </div>
+
+
+        </ng-container>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -149,7 +90,8 @@
     <!-- ----------------------- recommendations ----------------------- -->
     <div class="recommendation">
         <div class="recommendation_intro">
-            <h2>Related item</h2>
+            <h2>Related</h2>
+            <h2>~type~</h2>
             <h2>--</h2>
         </div>
         <div class="recommendation_title">
@@ -158,7 +100,7 @@
         </div>
     </div>
 
-    <!-- ----------------------- PREVIOUS NEXT ----------------------- -->
+    <!-- ----------------------- PREVIOUS / NEXT ----------------------- -->
     <div class="next_project">
         <div class="previous_button">
             <h4>-- previous</h4>
@@ -168,13 +110,8 @@
         </div>
     </div>
 
+
+
+    </div>
 </div>
-
-
-
-
-
-
-
-
 <router-outlet></router-outlet>
