@@ -3,19 +3,19 @@
 
         <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
         <ng-container *ngFor="let body of project.body, let i = index" 
-        class=""> 
+        class="section-grid"> 
 
 <!-- title + name ---------------------------------------------------- -->
 <!-- title + name ---------------------------------------------------- -->
             <!-- COMPONENT > "project-related-info.title" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'project-related-info.title'" 
             class="section-grid">
-                <div class="project-title">{{project.title}}</div>
+                <div class="project-title">{{project.body[i].title}}</div>
             </div>
             <!-- COMPONENT > "project-related-info.name" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'project-related-info.name'" 
             class="section-grid">
-                <div class="project-author">{{project.name}}</div>
+                <div class="project-author">{{project.body[i].name}}</div>
             </div>
 
 
@@ -28,28 +28,25 @@
                 <!-- ------------- custom-design-javascript ------------- -->
                 <div *ngIf="project.body[i].javascript_file_name?.length" 
                 class="">
-                    <app-custom-design-javascript [project]="project"></app-custom-design-javascript>
+                    <app-custom-design-javascript [project]="project.body[i].javascript_file_name"></app-custom-design-javascript>
                 </div>
             </div>
-
-
             <!-- COMPONENT > "addon.html-css" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'addon.html-css' " 
             class="">
                 <!-- ------------- custom-design-blankHTML ------------- -->
                 <div *ngIf="project.body[i].add_html_css?.length" 
                 class="">
-                    <app-custom-design-html-css [project]="project"></app-custom-design-html-css>
+                    <app-custom-design-html-css [project]="project.body[i].add_html_css"></app-custom-design-html-css>
                 </div>
             </div>
-        
             <!-- COMPONENT > "addon.website" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'addon.website' " 
             class="">
                 <!-- ------------- custom-design-iframe ------------- -->
                 <div *ngIf="project.body[i].website_link?.length" 
                 class="">
-                    <app-custom-design-iframe [project]="project"></app-custom-design-iframe>
+                    <app-custom-design-iframe [project]="project.body[i].website_link"></app-custom-design-iframe>
                 </div>
             </div>
 
@@ -85,7 +82,7 @@
         </div>
     </div>
 
-    <!-- ----------------------- PREVIOUS NEXT ----------------------- -->
+    <!-- ----------------------- PREVIOUS / NEXT ----------------------- -->
     <div class="next_project">
         <div class="previous_button">
             <h4>-- previous</h4>

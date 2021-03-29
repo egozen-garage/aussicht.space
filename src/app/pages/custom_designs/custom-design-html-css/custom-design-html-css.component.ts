@@ -13,7 +13,7 @@ export class CustomDesignHtmlCssComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer,) {}
 
   ngOnInit(): void {
-    const html_code = this.project.add_html_css;
+    const html_code = this.project;
     this.html_code_save = this.sanitizer.bypassSecurityTrustHtml(html_code);
   }
 }

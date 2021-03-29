@@ -38,16 +38,17 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
       this.activate_site_comments(this.sideCommentPosition);
       this.sideCommentPosition.listenResizeWindow();
   }
+
   activate_site_comments(site_comment_service:any){
     setTimeout(() =>{ 
       site_comment_service.scanMarkdowns();
       const side_comments = Array.from(document.getElementsByClassName('side_comment') as HTMLCollectionOf<HTMLElement>)
       side_comments.forEach(item => {
-        item.style.opacity = "1";
-        item.classList.add("fade-in");
+        item.classList.add("fade");
+        // item.style.opacity = "1";
         // console.log("# # # ///////////////////"+item);
       });
-    }, 1000);
+    }, 3000);
   }
 
   ngOnInit() {
