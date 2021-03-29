@@ -252,9 +252,18 @@
     width: 40%;
 }
 .side_comment {
-    opacity: 0.1;
+    opacity: 0;
     // font-size: 1.75rem;
 }
+.side_comment_padding{
+    padding-bottom: 50px;
+}
+.fade {
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+    }
 
 
 // -------------------------------
@@ -298,3 +307,4 @@
     font-weight: 500;
 
 }
+

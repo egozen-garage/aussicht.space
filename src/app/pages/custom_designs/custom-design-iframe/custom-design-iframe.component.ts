@@ -20,7 +20,7 @@ export class CustomDesignIframeComponent implements OnInit {
   }
 
   ngOnInit() {
-    const unsafeSrc = this.project.website_link;
+    const unsafeSrc = this.project;
     this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(unsafeSrc);  
     console.log("/////////////////" + unsafeSrc);
       

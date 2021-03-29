@@ -3,9 +3,7 @@
   background-color: white;
   color: var(--color-black);
 }
-// ------ gpt images ------- //
-#gpt_images{
-}
+
 
 // ------ HEADER ------- //
 header{
@@ -31,22 +29,6 @@ header{
 .caption {
   font-family: var(--font-family-secondary);
   font-size: 12px;
-}
-
-// ------ BODY ------- //
-
-.project-body-container {
-  padding: 90px var(--margin) 100px var(--margin);
-
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: 
-      "intro intro intro ."
-      "subhead subhead . ."
-      "main main . sidebar"
-      "all all all all"
-  
 }
 
 .super_rich_text {
@@ -90,59 +72,7 @@ header{
   grid-area: sidebar;
 }
 
-// ------ recommendation ------- //
 
-@media (max-width: 48em) {
-  .recommendation{
-      padding: 20px var(--margin) 100px var(--margin);
-      display: grid;
-      grid-template-columns: auto;
-  }
-  .recommendation_intro{
-      grid-column: 1 / span 1;
-  }
-  .recommendation_title{
-      grid-column: 1 / span 1;
-  }
-}
-@media (min-width: 48em) {
-  .recommendation{
-      padding: 20px var(--margin) 100px var(--margin);
-      display: grid;
-      grid-template-columns: auto auto;
-  }
-  .recommendation_intro{
-      grid-column: 1 / span 1;
-  }
-  .recommendation_title{
-      grid-column: 2 / span 1;
-  }
-}
-
-// ------ NEXT ------- //
-
-.next_project{
-  display: grid;
-  grid-template-columns: auto auto;
-}
-
-.next_button{
-  grid-column: 2 / span 1;
-  text-align: right;
-
-  padding: 20px var(--margin) 100px var(--margin);
-}
-.next_button a{
-  float: right;
-}
-
-.previous_button{
-  grid-column: 1 / span 1;
-  padding: 20px var(--margin) 100px var(--margin);
-}
-.previous_button{
-  float: left;
-}
 
 
 // ---------- side comments ------------
@@ -176,47 +106,96 @@ header{
 }
 
 
-@keyframes fadeIn{
-  0% {
-    opacity:0;
+
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+
+
+// ------ BODY ------- //
+// ------ BODY ------- //
+// ----------------------- GRID CONFIGURATIONS ----------------------- 
+
+.project-body-container {
+  padding: 90px var(--margin) 100px var(--margin);
+
+  display: grid;
+  grid-template-columns: 20% 40% 20% 20%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+      ". intro intro intro"
+      ". subhead subhead ."
+      ". text text text"
+      ". t_machine t_machine t_machine"
+      ". . . t_m_background"
+      ". remark remark remark"
+      ". relation relation relation"
+      " all all all all";
+  
+}
+
+// ----------------------- gpt images ----------------------- 
+#gpt_images{
+  grid-area: all;
+  width: 100%;
+}
+
+// ----------------------- recommendations -----------------------
+.recommendation{}
+.recommendation_intro{}
+.recommendation_title{}
+@media (max-width: 48em) {
+  .recommendation{
+      padding: 20px var(--margin) 100px var(--margin);
+      display: grid;
+      grid-template-columns: auto;
   }
-  100% {
-    opacity:1;
+  .recommendation_intro{
+      grid-column: 1 / span 1;
+  }
+  .recommendation_title{
+      grid-column: 1 / span 1;
+  }
+}
+@media (min-width: 48em) {
+  .recommendation{
+      padding: 20px var(--margin) 100px var(--margin);
+      display: grid;
+      grid-template-columns: auto auto;
+  }
+  .recommendation_intro{
+      grid-column: 1 / span 1;
+  }
+  .recommendation_title{
+      grid-column: 2 / span 1;
   }
 }
 
-@-moz-keyframes fadeIn {
-  0% {
-    opacity:0;
-  }
-  100% {
-    opacity:1;
-  }
+// ----------------------- PREVIOUS / NEXT ----------------------- 
+.next_project{
+  display: grid;
+  grid-template-columns: auto auto;
 }
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity:0;
-  }
-  100% {
-    opacity:1;
-  }
+.previous_button{
+  grid-column: 1 / span 1;
+  padding: 20px var(--margin) 100px var(--margin);
+  float: left;
 }
+.next_button{
+  grid-column: 2 / span 1;
+  text-align: right;
 
-@-o-keyframes fadeIn {
-  0% {
-    opacity:0;
-  }
-  100% {
-    opacity:1;
-  }
+  padding: 20px var(--margin) 100px var(--margin);
 }
-
-@-ms-keyframes fadeIn {
-  0% {
-    opacity:0;
-  }
-  100% {
-    opacity:1;
-  }
+.next_button a{
+  float: right;
 }
