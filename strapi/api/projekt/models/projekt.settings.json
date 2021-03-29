@@ -42,8 +42,8 @@
       "type": "string"
     },
     "perspektives": {
-      "via": "projekts",
       "collection": "perspektive",
+      "via": "projekts",
       "dominant": true
     },
     "podcasts": {
@@ -64,7 +64,6 @@
         "text-types.subhead",
         "text-types.white-space",
         "text-types.paragraph-with-relation",
-        "text-types.paragraph-with-remark",
         "text-types.paragraph-with-machine",
         "text-types.paragraph-plain",
         "text-types.intro",
@@ -74,7 +73,8 @@
         "text-types.free-text",
         "addon.javascript-file-name",
         "addon.website",
-        "addon.html-css"
+        "addon.html-css",
+        "image-types.gpt-images"
       ]
     },
     "article_done": {

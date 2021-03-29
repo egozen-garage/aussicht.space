@@ -7,14 +7,20 @@
   },
   "options": {},
   "attributes": {
-    "project": {
-      "model": "project"
+    "projekt": {
+      "model": "projekt"
     },
     "perspektive": {
       "model": "perspektive"
     },
     "podcast": {
       "model": "podcast"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

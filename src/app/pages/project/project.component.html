@@ -1,126 +1,69 @@
 <div class="project-page">
-
-    <header class="project-header">
-        <p class="project-title">{{project.title}}</p>
-        <p class="project-artist">{{project.artist}}</p>
-
-        <!-- ------------- Default Design ------------- -->
-        <div *ngIf="project.addon === null" class="project-cover-media">
-            <img src="http://localhost:1337{{project.cover_media.url}}">
-            <p class="caption">{{project.cover_media.caption}} </p>
-        </div>
-        <!-- ------------- custom-design-iframe ------------- -->
-        <div *ngIf="project.addon !== null && project.addon.website_link?.length > 0 " class="project-cover-media">
-            <app-custom-design-iframe [project]="project"></app-custom-design-iframe>
-        </div>
-        <!-- ------------- custom-design-javascript ------------- -->
-        <div *ngIf="project.addon !== null && project.addon.javascript_file_name?.length > 0" class="project-cover-media">
-            <app-custom-design-javascript [project]="project"></app-custom-design-javascript>
-        </div>
-        <!-- ------------- custom-design-blankHTML ------------- -->
-        <div *ngIf="project.addon !== null && project.addon.add_html_css?.length > 0" class="project-cover-media">
-            <app-custom-design-html-css [project]="project"></app-custom-design-html-css>
-        </div>
-    </header>
-
-    
-    
     <div class="project-body-container">
-    
-        <div class="super_rich_text" >
 
-            
-            <markdown *ngIf="project.body[0].intro" class="project-intro markdown_container">
-                {{project.body[0].intro.text}}
-            </markdown>
-           
+        <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
+        <ng-container *ngFor="let body of project.body, let i = index" 
+        class=""> 
 
-            <!-- *ngIf="project.body[0].side_comment" -->
-            <div class="side_comments" id="">
-                <div class="side_comment">
-                    0. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                </div>
-                <div class="side_comment">
-                    1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                    1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                </div>
-                <div class="side_comment" >
-                    2. Lorem ipsum dolor sit amet.
-                </div>
-                <div class="side_comment" >
-                    3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
+<!-- title + name ---------------------------------------------------- -->
+<!-- title + name ---------------------------------------------------- -->
+            <!-- COMPONENT > "project-related-info.title" ---------------------------------------------------- -->
+            <div *ngIf=" project.body[i].__component === 'project-related-info.title'" 
+            class="section-grid">
+                <div class="project-title">{{project.title}}</div>
+            </div>
+            <!-- COMPONENT > "project-related-info.name" ---------------------------------------------------- -->
+            <div *ngIf=" project.body[i].__component === 'project-related-info.name'" 
+            class="section-grid">
+                <div class="project-author">{{project.name}}</div>
+            </div>
+
+
+
+<!-- addon addon addon addon ---------------------------------------------------- -->
+<!-- addon addon addon addon ---------------------------------------------------- -->
+            <!-- COMPONENT > "addon.javascript-file-name" ---------------------------------------------------- -->
+            <div *ngIf=" project.body[i].__component === 'addon.javascript-file-name'" 
+            class="">
+                <!-- ------------- custom-design-javascript ------------- -->
+                <div *ngIf="project.body[i].javascript_file_name?.length" 
+                class="">
+                    <app-custom-design-javascript [project]="project"></app-custom-design-javascript>
                 </div>
             </div>
 
-        </div>
 
-
+            <!-- COMPONENT > "addon.html-css" ---------------------------------------------------- -->
+            <div *ngIf=" project.body[i].__component === 'addon.html-css' " 
+            class="">
+                <!-- ------------- custom-design-blankHTML ------------- -->
+                <div *ngIf="project.body[i].add_html_css?.length" 
+                class="">
+                    <app-custom-design-html-css [project]="project"></app-custom-design-html-css>
+                </div>
+            </div>
         
-        <!--
-        <p *ngIf="project.body[0].textblock.subhead" class="project-subhead">{{project.body[0].textblock.subhead}}</p>
-        <p class="project-description">{{project.body[0].textblock.textblock}}</p>
-        <br><br>
-        <div class="project-related">
-            <div class="related-label">Related perspective ></div>
-            <a [routerLink]="['/units/' + project.perspectives[0].unit_type, project.perspectives[0].id]">
-                <div class="related-title">{{project.perspectives[0].title}}</div>
-                <div class="related-author">{{project.perspectives[0].author}}</div>
-            </a>
-        </div> -->
-    </div>
-
-
-
-    <!-- <div class="super_rich_text" >
-        <p *ngIf="project.body[0].intro" class="project-intro markdown_container">
-            <markdown>
-                {{project.body[0].intro}}
-            </markdown>
-        </p>
-        <div class="side_comment" 
-        [style.top.px]="page_fully_loaded ? callPosition('side_comment_' + 4) : {'background-color': 'green'}" [id]="'side_comment_' + 4">
-            1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-        </div>
-        <div class="side_comment" >
-            2. Lorem ipsum dolor sit amet.
-        </div>
-        <div class="side_comment" >
-            3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
-        </div>
-    </div>
-    <markdown>
-        <code>4. code</code>
-    </markdown> -->
-
-
-
-
-
-    <div class="project-body-container">
-    
-        <div class="super_rich_text" >
-            <p *ngIf="project.body[0].intro" class="project-intro markdown_container">
-                <markdown>
-                    {{project.body[0].intro.text}}
-                </markdown>
-            </p>
-            <!-- *ngIf="project.body[0].side_comment" -->
-            <div class="side_comments" id="">
-                <div class="side_comment">
-                    0. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                </div>
-                <div class="side_comment">
-                    1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem veniam iure quo eos debitis tempora, culpa nulla unde optio doloremque?
-                </div>
-                <div class="side_comment" >
-                    2. Lorem ipsum dolor sit amet.
-                </div>
-                <div class="side_comment" >
-                    3. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing.
+            <!-- COMPONENT > "addon.website" ---------------------------------------------------- -->
+            <div *ngIf=" project.body[i].__component === 'addon.website' " 
+            class="">
+                <!-- ------------- custom-design-iframe ------------- -->
+                <div *ngIf="project.body[i].website_link?.length" 
+                class="">
+                    <app-custom-design-iframe [project]="project"></app-custom-design-iframe>
                 </div>
             </div>
-        </div>
-    </div>
+
+
+        </ng-container>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -152,13 +95,8 @@
         </div>
     </div>
 
+
+
+    </div>
 </div>
-
-
-
-
-
-
-
-
 <router-outlet></router-outlet>

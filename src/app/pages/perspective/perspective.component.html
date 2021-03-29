@@ -99,19 +99,16 @@
 
 
             <!-- COMPONENT > "paragraph-with-remark" ---------------------------------------------------- -->
-            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-remark'" 
+            <!-- <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-remark'" 
             class="section-grid side_comment_container">
 
                 <div class="comp_textblock_remark">
-                    <!-- text -->
                     <div class="plain_text">
                         <markdown  *ngIf="perspective.body[i].paragraph?.length">
                             {{ perspective.body[i].paragraph }}
                         </markdown> 
                     </div>
-                    <!-- side comment -->
                     <div class="side_comments">
-                        <!-- ARTICLE REMARK is called out here (Type Array)-->
                         <div class="side_comment">
                             <div class="add_position remark_container">
                                 <div *ngIf="perspective.body[i].remark_title?.length" class="comp_remark c_r_title">
@@ -125,7 +122,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> -->
 
 
 
@@ -140,79 +137,128 @@
                             {{ perspective.body[i].paragraph }}
                         </markdown> 
                     </div>
+
                     <!-- side comment -->   
                     <div class="side_comments">
                         <!-- PROJECT RELATION is called out here (Type Array)-->
-                        <div class="side_comment">
-                            <div class="add_position relation_container">
-                                <div class="comp_relation">
 
-                                    <!-- if PROJECT -->
-                                    <div *ngIf=" perspective.body[i].relation_to.project != null" >
-                                        <a [routerLink]="['/units/project/' + perspective.body[i].relation_to.project.id ]">
-                                            <!-- relation: title artist -->
-                                            <div *ngIf="perspective.body[i].relation_to.project.title?.length" 
-                                            class="relation_title">
-                                                {{ perspective.body[i].relation_to.project.title}}
-                                                <br>
-                                                {{ perspective.body[i].relation_to.project.artist}}
-                                            </div>
-                                            <!-- relation: text -->
-                                            <div *ngIf="perspective.body[i].relation_text?.length" class="relation_artistname">
-                                                {{ perspective.body[i].relation_text }}
+                        <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
+                        <ng-container *ngFor="let relation_to of perspective.body[i].relation_to, let r = index" >
+
+                            <div class="side_comment">
+                                <div class="add_position relation_container">
+                                    <div class="comp_relation">
+
+                                        <!-- if PROJECT -->
+                                        <div *ngIf="perspective.body[i].relation_to[r].projekt != null" >
+                                            <a [routerLink]="['/units/project/' + perspective.body[i].relation_to[r].projekt.id ]">
+                                                <!-- relation: title artist -->
+                                                <div *ngIf="perspective.body[i].relation_to[r].projekt.title?.length" 
+                                                class="relation_title">
+                                                    {{ perspective.body[i].relation_to[r].projekt.title}}
+                                                    <br>
+                                                    {{ perspective.body[i].relation_to[r].projekt.artist}}
+                                                </div>
                                                 <div class="relation_arrow">&#10230;</div>
-                                            </div>
-                                            <!-- relation: image -->
-                                            <!-- <img src="" alt=""> -->
-                                        </a>
-                                    </div>
-                                    <!-- if PERSPECTIVE -->
-                                    <div *ngIf=" perspective.body[i].relation_to.perspektive != null" >
-                                        <a [routerLink]="['/units/perspective/' + perspective.body[i].relation_to.perspektive.id ]">
-                                            <!-- relation: title artist -->
-                                            <div *ngIf="perspective.body[i].relation_to.perspektive.title?.length" 
-                                            class="relation_title">
-                                                {{ perspective.body[i].relation_to.perspektive.title}}
-                                                <br>
-                                                {{ perspective.body[i].relation_to.perspektive.artist}}
-                                            </div>
-                                            <!-- relation: text -->
-                                            <div *ngIf="perspective.body[i].relation_text?.length" class="relation_artistname">
-                                                {{ perspective.body[i].relation_text }}
+
+                                                <!-- relation: title -->
+                                                <div *ngIf="perspective.body[i].relation_to[r].title?.length" class="relation_artistname">
+                                                    {{ perspective.body[i].relation_to[r].title }}
+                                                </div>
+                                                <!-- relation: description -->
+                                                <div *ngIf="perspective.body[i].relation_to[r].description?.length" class="relation_artistname">
+                                                    {{ perspective.body[i].relation_to[r].description }}
+                                                    <div class="relation_arrow">&#10230;</div>
+                                                </div>
+                                                <!-- relation: image -->
+                                                <div *ngIf="perspective.body[i].relation_to[r].projekt.preview_image != null" 
+                                                class="relation_title">
+                                                    <img src="{{apiUrl}}{{perspective.body[i].relation_to[r].projekt.preview_image.formats.thumbnail.url}}" alt="">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!-- if PERSPECTIVE -->
+                                        <div *ngIf=" perspective.body[i].relation_to[r].perspektive != null" >
+                                            <a [routerLink]="['/units/perspective/' + perspective.body[i].relation_to[r].perspektive.id ]">
+                                                <!-- relation: title artist -->
+                                                <div *ngIf="perspective.body[i].relation_to[r].perspektive.title?.length" 
+                                                class="relation_title">
+                                                    {{ perspective.body[i].relation_to[r].perspektive.title}}
+                                                    <br>
+                                                    {{ perspective.body[i].relation_to[r].perspektive.author}}
+                                                </div>
                                                 <div class="relation_arrow">&#10230;</div>
-                                            </div>
-                                            <!-- relation: image -->
-                                            <!-- <img src="" alt=""> -->
-                                        </a>
-                                    </div>
-                                    <!-- if PODCAST -->
-                                    <div *ngIf=" perspective.body[i].relation_to.podcast != null" >
-                                        <a [routerLink]="['/units/podcast/' + perspective.body[i].relation_to.podcast.id ]">
-                                            <!-- relation: title artist -->
-                                            <div *ngIf="perspective.body[i].relation_to.podcast.title?.length" 
-                                            class="relation_title">
-                                                {{ perspective.body[i].relation_to.podcast.title}}
-                                                <br>
-                                                {{ perspective.body[i].relation_to.podcast.artist}}
-                                            </div>
-                                            <!-- relation: text -->
-                                            <div *ngIf="perspective.body[i].relation_text?.length" class="relation_artistname">
-                                                {{ perspective.body[i].relation_text }}
+
+                                                <!-- relation: title -->
+                                                <div *ngIf="perspective.body[i].relation_to[r].title?.length" class="relation_artistname">
+                                                    {{ perspective.body[i].relation_to[r].title }}
+                                                </div>
+                                                <!-- relation: description -->
+                                                <div *ngIf="perspective.body[i].relation_to[r].description?.length" class="relation_artistname">
+                                                    {{ perspective.body[i].relation_to[r].description }}
+                                                    <div class="relation_arrow">&#10230;</div>
+                                                </div>
+                                                <!-- relation: image -->
+                                                <div *ngIf="perspective.body[i].relation_to[r].perspektive.preview_image != null" 
+                                                class="relation_title">
+                                                    <img src="{{apiUrl}}{{perspective.body[i].relation_to[r].perspektive.preview_image.formats.thumbnail.url}}" alt="">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!-- if PODCAST -->
+                                        <div *ngIf=" perspective.body[i].relation_to[r].podcast != null" >
+                                            <a [routerLink]="['/units/podcast/' + perspective.body[i].relation_to[r].podcast.id ]">
+                                                <!-- relation: title artist -->
+                                                <div *ngIf="perspective.body[i].relation_to[r].podcast.title?.length" 
+                                                class="relation_title">
+                                                    {{ perspective.body[i].relation_to[r].podcast.title}}
+                                                    <br>
+                                                    {{ perspective.body[i].relation_to[r].podcast.speakers}}
+                                                </div>
                                                 <div class="relation_arrow">&#10230;</div>
+
+                                                <!-- relation: title -->
+                                                <div *ngIf="perspective.body[i].relation_to[r].title?.length" class="relation_artistname">
+                                                    {{ perspective.body[i].relation_to[r].title }}
+                                                </div>
+                                                <!-- relation: description -->
+                                                <div *ngIf="perspective.body[i].relation_to[r].description?.length" class="relation_artistname">
+                                                    {{ perspective.body[i].relation_to[r].description }}
+                                                </div>
+                                                <!-- relation: image -->
+                                                <div *ngIf="perspective.body[i].relation_to[r].podcast.episode_cover != null" 
+                                                class="relation_title">
+                                                    <img src="{{apiUrl}}{{perspective.body[i].relation_to[r].podcast.episode_cover.formats.thumbnail.url}}" alt="">
+                                                </div>                                               
+                                            </a>
+                                        </div>
+                                        <!-- if No PODCAST No PERSPEKTIVE No PROJEKT -->
+                                        <!-- ONLY title and description -->
+                                        <div *ngIf="    perspective.body[i].relation_to[r].projekt === null 
+                                                        && 
+                                                        perspective.body[i].relation_to[r].perspektive === null 
+                                                        && 
+                                                        perspective.body[i].relation_to[r].podcast === null" >
+                                            <!-- relation: title -->
+                                            <div *ngIf="perspective.body[i].relation_to[r].title?.length" class="relation_artistname">
+                                                {{ perspective.body[i].relation_to[r].title }}
                                             </div>
-                                            <!-- relation: image -->
-                                            <!-- <img src="" alt=""> -->
-                                        </a>
+                                            <!-- relation: description -->
+                                            <div *ngIf="perspective.body[i].relation_to[r].description?.length" class="relation_artistname">
+                                                {{ perspective.body[i].relation_to[r].description }}
+                                            </div>
+                                        </div>
+
+
+                                        <!-- <img class="relation_project_img" src="{{apiUrl}}{{perspective.body[i].relation_to.project.cover_media}}">  -->
+
+
+
                                     </div>
-
-
-                                    <!-- <img class="relation_project_img" src="{{apiUrl}}{{perspective.body[i].relation_to.project.cover_media}}">  -->
-
-
-
                                 </div>
                             </div>
-                        </div>
+                            
+                        </ng-container>
                     </div>
                 </div>
 

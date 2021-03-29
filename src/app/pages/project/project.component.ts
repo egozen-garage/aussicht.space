@@ -29,7 +29,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   image_size_STYLE:number | undefined;
   
   //folder_name = "arndt_armin";
-  folder_name = "storch_annika";
   // folder_name = "bastian_castano_moreno";
 
   constructor(

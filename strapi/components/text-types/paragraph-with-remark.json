@@ -15,6 +15,11 @@
     },
     "remark_text": {
       "type": "text"
+    },
+    "add_remark": {
+      "type": "component",
+      "repeatable": true,
+      "component": "remarkation.add-remark"
     }
   }
 }

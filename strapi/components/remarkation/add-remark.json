@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_remarkation_add_remarks",
+  "info": {
+    "name": "add_remark",
+    "icon": "tag"
+  },
+  "options": {},
+  "attributes": {
+    "remark_title": {
+      "type": "string"
+    },
+    "remark_text": {
+      "type": "text"
+    }
+  }
+}

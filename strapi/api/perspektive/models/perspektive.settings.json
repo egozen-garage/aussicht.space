@@ -44,7 +44,6 @@
         "text-types.intro",
         "text-types.paragraph-plain",
         "text-types.paragraph-with-machine",
-        "text-types.paragraph-with-remark",
         "text-types.paragraph-with-relation",
         "text-types.paragraph-with-image",
         "text-types.subhead",
@@ -80,8 +79,8 @@
       "required": false
     },
     "projekts": {
-      "collection": "projekt",
-      "via": "perspektives"
+      "via": "perspektives",
+      "collection": "projekt"
     }
   }
 }

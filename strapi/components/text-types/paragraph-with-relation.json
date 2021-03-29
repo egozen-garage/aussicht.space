@@ -10,12 +10,9 @@
     "paragraph": {
       "type": "richtext"
     },
-    "relation_text": {
-      "type": "text"
-    },
     "relation_to": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "relation-unit-types.relation-to"
     }
   }

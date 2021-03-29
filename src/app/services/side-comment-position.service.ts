@@ -64,10 +64,10 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
       // set distance to top
       difference = blocked_space - calculate_position;
       
-      // console.log("/comment height: " + side_comment_height);
-      // console.log("/calculate_position: " + calculate_position);
-      // console.log("/blocked_space: " + blocked_space);
-      // console.log("/difference: " + difference);
+      console.log("/comment height: " + side_comment_height);
+      console.log("/calculate_position: " + calculate_position);
+      console.log("/blocked_space: " + blocked_space);
+      console.log("/difference: " + difference);
       
       // Distance of last object (from top of COMMENT CONTAINER to bottom of COMMENT) 
       // if ( blocked_space < calculate_position ){
