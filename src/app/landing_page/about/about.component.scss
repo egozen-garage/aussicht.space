@@ -10,10 +10,12 @@
     grid-template-rows: auto;
     z-index: 1;
     color: white;
-    font-family: var(--font-family-secondary);
-    font-weight: 400;
     font-size: var(--font-size-primary);
     line-height: 1.2;
+
+    // ----- ALREADY DEFINED IN MAIN style.scss ----- //
+    // font-family: var(--font-family-secondary);
+    // font-weight: 400;
 }
 
 .text-title {

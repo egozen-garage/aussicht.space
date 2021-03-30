@@ -8,13 +8,19 @@ import { map } from 'rxjs/operators';
 })
 export class PerspectiveService {
 
-  constructor(private http: HttpClient) { }
+  // this.perspectivesCached;
+
+  constructor(private http: HttpClient) {
+    // this.perspectives = getAllPerspectives().subscribe();
+   }
 
   getAllPerspectives() {
     return this.http.get(`${environment.apiUrl}/perspektives`).pipe(map(res => res));
+    // return this.perspectives;
     // return this.http.get(`${environment.apiUrl}/perspectives`).pipe(map(res => res));
   }
 
+  // remove this call
   getPerspective(perspectiveId : any) {
     return this.http.get(`${environment.apiUrl}/perspektives/${perspectiveId}`).pipe(map(res => res));
     // return this.http.get(`${environment.apiUrl}/perspectives/${perspectiveId}`).pipe(map(res => res));
