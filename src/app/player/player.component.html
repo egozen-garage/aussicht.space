@@ -4,10 +4,10 @@
   <!-- *ngIf="ShowPodcastList"  -->
 
   <!-- TOGGLE LIST BUTTON -->
-  <div  id="podcast-header" 
+  <!-- <div  id="podcast-header" 
         [style.display]="toggleOpen ? 'block' : 'none'" 
         (click)="tooglebtn()">
-  </div>  
+  </div>   -->
   
   <input type="checkbox" name="podlist-checkbox" id="idcheckbox">
   <label  class="toggle_list" 
@@ -29,7 +29,7 @@
       <span class='track_name track_number' id='track_name_number_{{file.countingUP}}'>{{file.episode}}</span>
       <span class='track_name track_name_author'>{{ file.author }}</span>
       <span class='track_name track_name_title' id='track_name_{{file.countingUP}}'>
-        <p> <span [innerHTML]> {{file.name}} </span></p>
+        <p> <span [innerHTML]> {{file.name}} </span> </p>
       </span>
       <!-- <span class='track_name podcast_guests'>{{file.guests}}</span> -->
       <span class='track_name podcast_date'>{{file.date}}</span>

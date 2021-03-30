@@ -38,8 +38,6 @@
     color: var(--color-rosa);
 }
 
-
-
 .impressum_light{
     font-family: var(--font-family-secondary);
     font-size: 1.75rem;
@@ -59,11 +57,13 @@
     margin: 40px 0px 40px 0px;
 
 }
-.impressum_promoted_by{
-    font-family: var(--font-family-primary);
+::ng-deep .impressum_promoted_by p {
+    font-family: var(--font-family-primary) !important;
     font-weight: 500;
     margin: 40px 0px 40px 0px;
+    line-height: 1.25;
 }
+
 .impressum_subtitle{
     padding-top: 15px;
     margin-bottom: 0;

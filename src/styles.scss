@@ -43,7 +43,7 @@ $aussichtDOTspace-theme: mat-light-theme((
 
 @font-face {
   font-family: '2070';
-  font-weight: 300;                                               
+  font-weight: 300;                          /* 300 = light */                                           
   font-style: normal;
   unicode-range: U+000-5FF;
   src:    
@@ -76,36 +76,36 @@ $aussichtDOTspace-theme: mat-light-theme((
           url('/assets/fonts/2070-Medium116.ttf')         format('truetype');   /* Safari, Android, iOS */
 }
 
-@font-face {
-  font-family: '2070';
-  font-weight: 700;                           /* 700 = bold */
-  font-style: normal;
-  unicode-range: U+000-5FF;
-  src:    
-  // local('2070'),
-          url('/assets/fonts/2070-Bold156.eot'),
-          url('/assets/fonts/2070-Bold_156_web.woff2')  format('woff2'),        /* Super Modern Browsers iOS */
-          url('/assets/fonts/2070-Bold_156_web.woff')   format('woff'),         /* Pretty Modern Browsers */
-          //url('/assets/fonts/2070-Bold156.svg')         format('svg'),          /* Legacy iOS */
-          url('/assets/fonts/2070-Bold156.ttf')         format('truetype');     /* Safari, Android, iOS */
-}
+// @font-face {
+//   font-family: '2070';
+//   font-weight: 700;                           /* 700 = bold */
+//   font-style: normal;
+//   unicode-range: U+000-5FF;
+//   src:    
+//   // local('2070'),
+//           url('/assets/fonts/2070-Bold156.eot'),
+//           url('/assets/fonts/2070-Bold_156_web.woff2')  format('woff2'),        /* Super Modern Browsers iOS */
+//           url('/assets/fonts/2070-Bold_156_web.woff')   format('woff'),         /* Pretty Modern Browsers */
+//           //url('/assets/fonts/2070-Bold156.svg')         format('svg'),          /* Legacy iOS */
+//           url('/assets/fonts/2070-Bold156.ttf')         format('truetype');     /* Safari, Android, iOS */
+// }
 
-@font-face {
-  font-family: '2070';
-  font-weight: 900;                           /* 900 = black */
-  font-style: normal;
-  unicode-range: U+000-5FF;
-  src:    
-  // local('2070'),
-          url('/assets/fonts/2070-Black_176_web.woff2') format('woff2'),        /* Super Modern Browsers iOS */
-          url('/assets/fonts/2070-Black_176_web.woff')  format('woff'),         /* Pretty Modern Browsers */
-          url('/assets/fonts/2070-Black176.ttf')        format('truetype');     /* Safari, Android, iOS */
-}
+// @font-face {
+//   font-family: '2070';
+//   font-weight: 900;                           /* 900 = black */
+//   font-style: normal;
+//   unicode-range: U+000-5FF;
+//   src:    
+//   // local('2070'),
+//           url('/assets/fonts/2070-Black_176_web.woff2') format('woff2'),        /* Super Modern Browsers iOS */
+//           url('/assets/fonts/2070-Black_176_web.woff')  format('woff'),         /* Pretty Modern Browsers */
+//           url('/assets/fonts/2070-Black176.ttf')        format('truetype');     /* Safari, Android, iOS */
+// }
 
 
 @font-face {
   font-family: 'happy times';
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   unicode-range: U+000-5FF;
   src:    
@@ -113,16 +113,16 @@ $aussichtDOTspace-theme: mat-light-theme((
           url('/assets/fonts/happy-times-NG_regular_master_web.woff2')  format('woff2'),
           url('/assets/fonts/happy-times-NG_regular_master.ttf')        format('truetype');
 }
-@font-face {
-  font-family: 'happy times';
-  font-weight: 500;
-  font-style: normal;
-  unicode-range: U+000-5FF;
-  src:    
-  // local('happy times'),
-          url('/assets/fonts/happy-times-NG_bold_master_web.woff2')  format('woff2'),
-          url('/assets/fonts/happy-times-NG_bold_master.ttf')        format('truetype');
-}
+// @font-face {
+//   font-family: 'happy times';
+//   font-weight: 500;
+//   font-style: normal;
+//   unicode-range: U+000-5FF;
+//   src:    
+//   // local('happy times'),
+//           url('/assets/fonts/happy-times-NG_bold_master_web.woff2')  format('woff2'),
+//           url('/assets/fonts/happy-times-NG_bold_master.ttf')        format('truetype');
+// }
 
 @font-face {
   font-family: 'happy times';
@@ -190,9 +190,6 @@ $aussichtDOTspace-theme: mat-light-theme((
   --padding-footer-logos: 20px 0px 50px 0px;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
 
 /* ---------- RESPONSIVE PROPERTIES --------- */
 
@@ -390,7 +387,7 @@ $aussichtDOTspace-theme: mat-light-theme((
       --font-size-primary: 20px;
       --font-size-primary-s: 15px;
       --font-size-secondary: 20px;
-      --font-size-title: 40px;
+      --font-size-title: 34px;
       --font-size-date: 13px;
       }
 
@@ -524,11 +521,15 @@ a:hover {
 }
 
 p {
-  margin-bottom: 0rem !important;
   font-family: var(--font-family-secondary);
-  font-size: 1.75rem;
-  font-weight: 300;
-  line-height: 1.25;
+  font-weight: 400;
+
+  // ----- #ISSUE: GLOBAL ATTRIBUTE CAUSES CSS CONFLICT IN CHILD PAGES ----- //
+
+  // margin-bottom: 0rem !important;
+  // font-size: 1.75rem;
+  // font-weight: 300;
+  // line-height: 1.25;
 }
 
 

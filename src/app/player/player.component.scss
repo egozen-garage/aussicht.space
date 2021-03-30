@@ -15,6 +15,11 @@
 
 // manipulated style from ANGULAR MATERIAL
 
+p {
+    font-family: var(--font-family-primary);
+    font-weight: 400;
+}
+
 :host ::ng-deep .mat-slider-thumb{
   right: 0px;
   bottom: 0px;

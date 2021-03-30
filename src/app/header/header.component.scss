@@ -19,9 +19,10 @@
 }
 
   header {
-    font-family: '2070';
+    font-family: var(--font-family-primary);
     font-weight: var(--font-weight-primary);
     position: fixed;
+    font-weight: 400;
     // mix-blend-mode: difference;
   }
   
@@ -74,7 +75,6 @@
     width: 100vw;
     padding: 4px 15px;
     font-size: 27px;
-    font-weight: 500;
   }
   
   .menu-dropdown-bg {
@@ -188,24 +188,24 @@
 
 
 /* ---------------- MAIN CSS PROPERTY CONTROL CENTER FOR VARIABLES ---------------- */
-:root {
-  --text: white;
-  --color-white: white;
-  --color-black: black;
-  --color-rosa: #E59BA8;
-  --color-indigo: #1D2273;
-  --margin: 50px;
-  --padding-between-sections: 100px;
+// :root {
+//   --text: white;
+//   --color-white: white;
+//   --color-black: black;
+//   --color-rosa: #E59BA8;
+//   --color-indigo: #1D2273;
+//   --margin: 50px;
+//   --padding-between-sections: 100px;
 
-  --font-family-primary: '2070';
-  --font-family-secondary: 'happy times';
-  --font-family-machine: '2070mono';
+//   --font-family-primary: '2070';
+//   --font-family-secondary: 'happy times';
+//   --font-family-machine: '2070mono';
 
-  --font-size-primary: 40px;
-  --font-size-secondary: 60px;
-  --font-size-title: 90px;
-  --font-size-date: 20px;
-  }
+//   --font-size-primary: 40px;
+//   --font-size-secondary: 60px;
+//   --font-size-title: 90px;
+//   --font-size-date: 20px;
+//   }
 
 
   /* ---------- RESPONSIVE PROPERTIES --------- */
@@ -222,13 +222,13 @@
 }
 
 @media (max-width: 1024px) {
-  :root {
-      --margin: 25px;
-      --font-size-primary: 35px;
-      --font-size-secondary: 35px;
-      --font-size-title: 80px;
-      --font-size-date: 17px;
-  }
+  // :root {
+  //     --margin: 25px;
+  //     --font-size-primary: 35px;
+  //     --font-size-secondary: 35px;
+  //     --font-size-title: 80px;
+  //     --font-size-date: 17px;
+  // }
 
   .lp-title {
       padding-top: 90px;
@@ -312,13 +312,13 @@
       font-weight: 300;
   }
 
-  :root {
-      --margin: 25px;
-      --font-size-primary: 35px;
-      --font-size-secondary: 35px;
-      --font-size-title: 70px;
-      --font-size-date: 17px;
-  }
+  // :root {
+  //     --margin: 25px;
+  //     --font-size-primary: 35px;
+  //     --font-size-secondary: 35px;
+  //     --font-size-title: 70px;
+  //     --font-size-date: 17px;
+  // }
 
   .lp-title {
       padding-top: 90px;
@@ -341,13 +341,13 @@
 /* 36em = 576px */
 
 @media (max-width: 36em) {
-  :root {
-      --margin: 15px;
-      --font-size-primary: 20px;
-      --font-size-secondary: 20px;
-      --font-size-title: 40px;
-      --font-size-date: 13px;
-      }
+  // :root {
+  //     --margin: 15px;
+  //     --font-size-primary: 20px;
+  //     --font-size-secondary: 20px;
+  //     --font-size-title: 30px;
+  //     --font-size-date: 13px;
+  //     }
 
   .lp-title {
       padding-top: 70px;
