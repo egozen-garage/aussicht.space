@@ -60,7 +60,7 @@ export class PreviewComponent implements OnInit {
       this.perspectivesFromCms = this.perspectives;
       this.updateUnits();
     });
-    
+
     this.podcastSvc.getAllPodcastEpisodes().subscribe((res:any) => {
       this.podcasts = res;
       this.podcastsFromCms = this.podcasts;
@@ -72,10 +72,13 @@ export class PreviewComponent implements OnInit {
       this.themesFromCms = res;
       this.themesSelected = this.themesFromCms;
     });
-    
+
   }
 
   updateUnits(): void {
+    if (!this.projectsFromCms || !this.perspectivesFromCms || !this.podcastsFromCms) {
+      return;
+    }
     this.units = [ ...this.projectsFromCms, ...this.perspectivesFromCms, ...this.podcastsFromCms ];
     let today = new Date();
     let seed = today.getDate() + today.getMonth()*31 + today.getFullYear() * 366;
@@ -84,25 +87,25 @@ export class PreviewComponent implements OnInit {
 
   shuffle(array: any[], seed: number) {                // <-- ADDED ARGUMENT
     var m = array.length, t, i;
-  
+
     // While there remain elements to shuffle…
     while (m) {
-  
+
       // Pick a remaining element…
       i = Math.floor(this.random(seed) * m--);        // <-- MODIFIED LINE
-  
+
       // And swap it with the current element.
       t = array[m];
       array[m] = array[i];
       array[i] = t;
       ++seed                                     // <-- ADDED LINE
     }
-  
+
     return array;
   }
-  
+
   random(seed: number) {
-    var x = Math.sin(seed++) * 10000; 
+    var x = Math.sin(seed++) * 10000;
     return x - Math.floor(x);
   }
 
@@ -135,10 +138,10 @@ export class PreviewComponent implements OnInit {
       });
       return (x === y)? 0 : x? -1 : 1;
       });
-    
+
     for (let unit of this.units) {
       for (let theme of unit.themes) {
-        theme.selected = 
+        theme.selected =
           this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === theme.theme_name) && !noThemeSelected;
       }
     }

@@ -13,15 +13,15 @@
                 <div *ngIf="t.perspective || t.podcast || t.project" id="themes_collection">
 
                     <!-- when CHECKED, compare CHECKED VALUES against the PROPERTIES found within the ARRAY OF OBJECTS -->
-                    <div class="checkbox" > 
-                        <input type="checkbox" 
-                            name="toggle-themes" 
-                            [id]="t.id" 
-                            [(ngModel)]="t.selected" 
-                            [value]="t.theme_name" 
+                    <div class="checkbox" >
+                        <input type="checkbox"
+                            name="toggle-themes"
+                            [id]="t.id"
+                            [(ngModel)]="t.selected"
+                            [value]="t.theme_name"
                             (change)="getSelected()">
                     </div>
-                    
+
                     <label
                         [for]="t.id"
                         id="unit-theme-selected-{{t.id}}"
@@ -31,10 +31,10 @@
                     </label>
                 </div>
             </div>
-        
+
             <!-- using ngFor to call a checked method that returns the checked filtered items -->
             <pre>Selected themes: <span *ngFor="let t of themesSelected" style="padding-right:10px;">{{ t.theme_name }}</span></pre>
-            
+
         </div>
 
         <div *ngIf="units" class="masonry">
@@ -43,7 +43,7 @@
             <div [ngClass]= " { 'perspectives'  : u.unit_type === 'perspective',
                                 'projects'     : u.unit_type === 'project',
                                 'podcasts'     : u.unit_type === 'podcast'   } "
-                *ngFor= " let u of units " 
+                *ngFor= " let u of units "
                 class= "units-container" >
 
                     <!-- PODCAST UNIT -->
@@ -51,13 +51,15 @@
 
                         <!-- PODCAST UNIT > CONTENT SECTION -->
                         <!-- EPISODE > LOGO -->
-                        <img class="offline_podcast_logo" src="{{apiUrl}}{{u.offline_episode_logo.url}}">
-                        
+                        <div *ngIf="u.offline_episode_logo">
+                          <img class="offline_podcast_logo" src="{{apiUrl}}{{u.offline_episode_logo.url}}">
+                        </div>
+
                         <!-- EPISODE > TITLE -->
                         <div class="unit-title" id="podcast-title">
                             <a [routerLink]="['/units/' + u.unit_type, u.id]">{{u.title}}</a>
                         </div>
-                        
+
                         <!-- EPISODE > GUEST SPEAKERS -->
                         <div class="unit-name" id="podcast-speakers" >
                             {{u.speakers}}
@@ -65,7 +67,7 @@
 
                         <!-- PODCAST UNIT > THEMES SECTION -->
                         <div class="unit-theme-container">
-                            <div *ngFor="let ut of u.themes" 
+                            <div *ngFor="let ut of u.themes"
                                 [class.visited]="ut.selected"
                                 class="unit-themes" id="podcast-themes">
                                 {{ut.theme_name}}
@@ -82,7 +84,7 @@
                         <div class="unit-title" id="perspective-title">
                             <a [routerLink]="['/units/' + u.unit_type, u.id]">{{u.title}}</a>
                         </div>
-                        
+
                         <!-- ARTICLE > AUTHOR -->
                         <div class="unit-name" id="perspective-author" >
                             {{u.author}}
@@ -90,7 +92,7 @@
 
                         <!-- PERSPECTIVE UNIT > THEMES SECTION -->
                         <div class="unit-theme-container">
-                            <div *ngFor="let ut of u.themes" 
+                            <div *ngFor="let ut of u.themes"
                                 [class.visited]="ut.selected"
                                     class="unit-themes" id="perspective-themes">
                                 {{ut.theme_name}}
@@ -104,13 +106,15 @@
 
                         <!-- PROJECT UNIT > CONTENT SECTION -->
                         <!-- PROJECT > THUMBNAIL IMAGE -->
+                      <div *ngIf="u.preview_image">
                         <img id="project-thumb-img" src="{{apiUrl}}{{u.preview_image.url}}" style="width: 100%;">
+                      </div>
 
                         <!-- PROJECT > TITLE -->
                         <div class="unit-title" id="project-title">
                             <a [routerLink]="['/units/' + u.unit_type, u.id]">{{u.title}}</a>
                         </div>
-                        
+
                         <!-- PROJECT > ARTIST -->
                         <div class="unit-name" id="project-artist" >
                             {{u.artist}}
@@ -118,7 +122,7 @@
 
                         <!-- PERSPECTIVE UNIT > THEMES SECTION -->
                         <div class="unit-theme-container">
-                            <div *ngFor="let ut of u.themes" 
+                            <div *ngFor="let ut of u.themes"
                                 [class.visited]="ut.selected"
                                     class="unit-themes" id="perspective-themes">
                                 {{ut.theme_name}}
