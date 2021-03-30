@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ProjectService } from "./services_strapi/project.service";
+import { PerspectiveService } from "./services_strapi/perspective.service";
+import { PodcastepisodesService } from "./services_strapi/podcastepisodes.service";
 
 // import { Platform } from '@angular/cdk/platform';
 // import { BreakpointObserver } from '@angular/cdk/layout'
@@ -20,6 +23,9 @@ export class AppComponent implements OnInit  {
 
   constructor(
     private http: HttpClient,
+    private projectSvc: ProjectService,
+    private perspectiveSvc: PerspectiveService,
+    private podcastSvc: PodcastepisodesService
     // public platform: Platform,
     // private breakpointObserver: BreakpointObserver
     ){ }
@@ -27,6 +33,10 @@ export class AppComponent implements OnInit  {
     
   // isWideScreen$: Observable<boolean> | undefined;
   ngOnInit(): void{
+    // Fill each service cache to speed up the pages where the data is actually 3needed
+    this.projectSvc.getAllProjects().subscribe();
+    this.perspectiveSvc.getAllPerspectives().subscribe();
+    this.podcastSvc.getAllPodcastEpisodes().subscribe();
   // defining breakpoint for responsive desgin -->
   // defining breakpoint for responsive desgin --> -->
   // defining breakpoint for responsive desgin --> --> -->
