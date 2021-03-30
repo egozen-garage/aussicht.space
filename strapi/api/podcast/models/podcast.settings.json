@@ -11,10 +11,6 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "themes": {
-      "collection": "theme",
-      "via": "podcast"
-    },
     "unit_type": {
       "type": "enumeration",
       "enum": [
@@ -67,6 +63,10 @@
     "episode_id": {
       "type": "uid",
       "required": true
+    },
+    "themes": {
+      "via": "podcasts",
+      "collection": "theme"
     }
   }
 }

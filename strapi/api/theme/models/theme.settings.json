@@ -14,21 +14,24 @@
     "theme_name": {
       "type": "string"
     },
-    "podcast": {
+    "podcasts": {
+      "collection": "podcast",
       "via": "themes",
-      "model": "podcast"
+      "dominant": true
     },
     "selected": {
       "type": "boolean",
       "default": false
     },
-    "perspektive": {
+    "perspektives": {
+      "collection": "perspektive",
       "via": "themes",
-      "model": "perspektive"
+      "dominant": true
     },
-    "projekt": {
+    "projekts": {
+      "collection": "projekt",
       "via": "themes",
-      "model": "projekt"
+      "dominant": true
     }
   }
 }

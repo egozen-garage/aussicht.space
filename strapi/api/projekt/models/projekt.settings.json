@@ -51,10 +51,6 @@
       "via": "projekts",
       "dominant": true
     },
-    "themes": {
-      "collection": "theme",
-      "via": "projekt"
-    },
     "body": {
       "type": "dynamiczone",
       "components": [
@@ -81,6 +77,16 @@
       "type": "boolean",
       "default": true,
       "required": true
+    },
+    "curatorial_intro": {
+      "type": "richtext"
+    },
+    "curatorial_description": {
+      "type": "richtext"
+    },
+    "themes": {
+      "via": "projekts",
+      "collection": "theme"
     }
   }
 }

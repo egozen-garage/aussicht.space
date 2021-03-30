@@ -29,10 +29,6 @@
     "date": {
       "type": "string"
     },
-    "themes": {
-      "collection": "theme",
-      "via": "perspektive"
-    },
     "body": {
       "type": "dynamiczone",
       "components": [
@@ -81,6 +77,10 @@
       "type": "boolean",
       "default": true,
       "required": true
+    },
+    "themes": {
+      "via": "perspektives",
+      "collection": "theme"
     }
   }
 }
