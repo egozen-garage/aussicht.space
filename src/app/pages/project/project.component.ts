@@ -28,8 +28,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   image_size:number = 64;
   image_size_STYLE:number = 64;
   
-  folder_name = "arndt_armin";
-  // folder_name = "bastian_castano_moreno";
 
   constructor(
     private projectSvc: ProjectService,
@@ -102,7 +100,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       });
       
       // load gpt images 
-      this.single_project_load_gpt_images(this.folder_name)
+      // folder_name = project.;
+      // this.single_project_load_gpt_images(this.folder_name)
 
 
   }
