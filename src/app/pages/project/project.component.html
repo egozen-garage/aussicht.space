@@ -3,10 +3,12 @@
 
         <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
         <ng-container *ngFor="let body of project.body, let i = index" 
-        class=""> 
+        class="" id="body_container"> 
 
-<!-- title + name ---------------------------------------------------- -->
-<!-- title + name ---------------------------------------------------- -->
+            <!-- title + name ---------------------------------------------------- -->
+            <!-- title + name ---------------------------------------------------- -->
+            <!-- title + name ---------------------------------------------------- -->
+            <!-- title + name ---------------------------------------------------- -->
             <!-- COMPONENT > "project-related-info.title" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'project-related-info.title'" 
             class="project-body-container">
@@ -24,8 +26,6 @@
                     'padding_on'      : project.body[i].style.padding === true}">
                 <!-- [ngStyle]="{'color': project.body[i].style.hex_color_code === true }" -->
                         {{project.body[i].title}}
-                        <br>
-                        <img src="/assets/imgs/image_gpt/arndt_armin/original/32_arndt_armin.png" width="100" />
                 </div>
             </div>
 
@@ -37,8 +37,10 @@
 
 
 
-<!-- addon addon addon addon ---------------------------------------------------- -->
-<!-- addon addon addon addon ---------------------------------------------------- -->
+            <!-- addon addon addon addon ---------------------------------------------------- -->
+            <!-- addon addon addon addon ---------------------------------------------------- -->
+            <!-- addon addon addon addon ---------------------------------------------------- -->
+            <!-- addon addon addon addon ---------------------------------------------------- -->
             <!-- COMPONENT > "addon.javascript-file-name" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'addon.javascript-file-name'" 
             class="project-body-container">
@@ -68,24 +70,40 @@
             </div>
 
 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\ transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+            <!-- /////////////////////////// transfer from perspective /////////////////////////// -->
+            
+            <!-- add your code here          add your code here       add your code here -->
+            
+            
+            
+            
+            
+            <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\ transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+            <!-- /////////////////////////// transfer from perspective /////////////////////////// -->
+            
+            
+            
         </ng-container>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- ----------------------- add gpt images ----------------------- -->
+        
+        
+        
+    <!-- GPT images --------------------------------------------------------------- -->
+    <!-- GPT images --------------------------------------------------------------- -->
+    <!-- GPT images --------------------------------------------------------------- -->
+    <!-- GPT images --------------------------------------------------------------- -->
     <div id="gpt_images"></div>
+    
 
     <!-- ----------------------- recommendations ----------------------- -->
     <div class="recommendation">

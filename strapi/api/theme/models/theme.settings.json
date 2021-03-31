@@ -29,8 +29,8 @@
       "dominant": true
     },
     "projekts": {
-      "collection": "projekt",
       "via": "themes",
+      "collection": "projekt",
       "dominant": true
     }
   }
