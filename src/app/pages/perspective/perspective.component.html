@@ -67,12 +67,12 @@
                         <div class="txt_m_container">
                             <div id="circle1"></div>
                             <span class="comp_m_output">
-                                <div class="comp_m_title" *ngIf="perspective.body[i].seed?.length">
-                                    {{ perspective.body[i].seed}}
-                                </div>
-                                <div class="comp_m_text" *ngIf="perspective.body[i].output?.length">
-                                    {{ perspective.body[i].output }}
-                                </div>
+                                <span class="comp_m_title" *ngIf="perspective.body[i].seed?.length">
+                                    &#123; {{ perspective.body[i].seed}} &#125;
+                                </span>
+                                <span class="comp_m_text" *ngIf="perspective.body[i].output?.length">
+                                    &#123; ... &quot;{{ perspective.body[i].output }}&quot; ... &#125;
+                                </span>
                             </span>
                             <span class="comp_m_output ghost">
                                 <div class="comp_m_title" *ngIf="perspective.body[i].seed?.length">
@@ -322,7 +322,7 @@
 
 
 
-
+            <!-- COMPONENT > "image-type: couple image" ---------------------------------------------------- -->
 
 
 

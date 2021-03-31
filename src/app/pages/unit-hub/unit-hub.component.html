@@ -51,17 +51,17 @@
 
                         <!-- PODCAST UNIT > CONTENT SECTION -->
                         <!-- EPISODE > LOGO -->
-                        <div *ngIf="u.offline_episode_logo">
+                        <div *ngIf="u.offline_episode_logo !== null">
                           <img class="offline_podcast_logo" src="{{apiUrl}}{{u.offline_episode_logo.url}}">
                         </div>
 
                         <!-- EPISODE > TITLE -->
-                        <div class="unit-title" id="podcast-title">
+                        <div *ngIf="u.title?.length" class="unit-title" id="podcast-title">
                             <a [routerLink]="['/units/' + u.unit_type, u.id]">{{u.title}}</a>
                         </div>
 
                         <!-- EPISODE > GUEST SPEAKERS -->
-                        <div class="unit-name" id="podcast-speakers" >
+                        <div *ngIf="u.speakers?.length" class="unit-name" id="podcast-speakers" >
                             {{u.speakers}}
                         </div>
 

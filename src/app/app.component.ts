@@ -31,9 +31,8 @@ export class AppComponent implements OnInit  {
     private projectSvc: ProjectService,
     private perspectiveSvc: PerspectiveService,
     private podcastSvc: PodcastepisodesService,
-    private themeSvc: ThemeService) {
-    this.checkDeviceType();
-  }
+    private themeSvc: ThemeService
+  ) { this.checkDeviceType();}
 
   deviceInfo:any;
 
@@ -48,9 +47,6 @@ export class AppComponent implements OnInit  {
     console.log("isDesktopDevice: " + isDesktopDevice);
   }
 
-
-
-    
 
     // public platform: Platform,
     // private breakpointObserver: BreakpointObserver
