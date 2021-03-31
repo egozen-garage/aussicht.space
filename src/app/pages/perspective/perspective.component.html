@@ -51,7 +51,7 @@
             <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-plain'" 
             class="section-grid">
                 <!-- text -->
-                <markdown class="plain_text" *ngIf="perspective.body[i].paragraph?.length">
+                <markdown class="plain_text paragraph-text" *ngIf="perspective.body[i].paragraph?.length">
                     {{ perspective.body[i].paragraph }}
                 </markdown> 
             </div>
@@ -86,7 +86,7 @@
                     </ng-container>
                     <!-- text -->
                     <div class="comp_textblock_paragraph">
-                        <markdown class="" *ngIf="perspective.body[i].paragraph?.length">
+                        <markdown class="paragraph-text" *ngIf="perspective.body[i].paragraph?.length">
                             {{ perspective.body[i].paragraph }}
                         </markdown> 
                     </div>
@@ -130,7 +130,7 @@
                 <div class="comp_textblock_relation">
                     <!-- text -->
                     <div class="plain_text CMS_style">
-                        <markdown class="plain_text" *ngIf="perspective.body[i].paragraph?.length">
+                        <markdown class="plain_text paragraph-text" *ngIf="perspective.body[i].paragraph?.length">
                             {{ perspective.body[i].paragraph }}
                         </markdown> 
                     </div>
@@ -268,7 +268,7 @@
                     <img *ngIf="perspective.body[i].image !== null" class="txt_m_container indented_image" src="{{perspective.body[i].image.url}}"> 
                     <!-- call out text -->
                     <div *ngIf="perspective.body[i].paragraph?.length" class="comp_textblock_paragraph">
-                        <markdown class="">
+                        <markdown class="paragraph-text">
                             {{ perspective.body[i].paragraph }}
                         </markdown> 
                     </div>
