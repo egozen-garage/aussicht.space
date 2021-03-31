@@ -1,23 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { map } from 'rxjs/operators';
+import { catchError, map, shareReplay } from 'rxjs/operators';
+import { EMPTY, Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PerspectiveService {
 
-  // this.perspectivesCached;
+  private allPerspectivesCachedObservable: any;
 
-  constructor(private http: HttpClient) {
-    // this.perspectives = getAllPerspectives().subscribe();
-   }
+  constructor(private http: HttpClient) { }
 
-  getAllPerspectives() {
-    return this.http.get(`${environment.apiUrl}/perspektives`).pipe(map(res => res));
-    // return this.perspectives;
-    // return this.http.get(`${environment.apiUrl}/perspectives`).pipe(map(res => res));
+  getAllPerspectives(): Observable<any> {
+    if (this.allPerspectivesCachedObservable) {
+      return this.allPerspectivesCachedObservable;
+    }
+
+    this.allPerspectivesCachedObservable = this.http.get(`${environment.apiUrl}/perspektives`).pipe(
+      shareReplay(1),
+      catchError((err:RTCError) => {
+        delete this.allPerspectivesCachedObservable;
+        return EMPTY;
+      }));
+    return this.allPerspectivesCachedObservable;
   }
 
   // remove this call

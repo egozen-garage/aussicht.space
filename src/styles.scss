@@ -195,17 +195,11 @@ $aussichtDOTspace-theme: mat-light-theme((
 
 /* Macbook Retina 15inch */
 @media (min-width: 1670px) {
-  img.logos {
-    width: 300px;
-  }
+  img.logos { width: 300px; }
 
-  img.logos {
-    width: 300px;
-  }
+  img.logos { width: 300px; }
 
-  span#gefoerdert {
-    left: 50px;
-  }
+  span#gefoerdert { left: 50px; }
 
   span#unterstuetzt {
       left: 75px;
@@ -225,56 +219,32 @@ $aussichtDOTspace-theme: mat-light-theme((
 }
 
 @media (max-width: 1680px) {
-  img.logos {
-    width: 300px;
-  }
+  img.logos { width: 300px; }
 
-  span#gefoerdert {
-    left: 50px;
-  }
+  span#gefoerdert { left: 50px; }
 
-  span#unterstuetzt {
-      left: 75px;
-  }
+  span#unterstuetzt { left: 75px; }
 
-  span#zusammenarbeit {
-      left: 0px;
-  }
+  span#zusammenarbeit { left: 0px; }
 
-  span#medienpartner {
-      left: 50px;
-  }
+  span#medienpartner { left: 50px; }
 
-  span#hotelpartner {
-      left: 83px;
-  }
+  span#hotelpartner { left: 83px; }
 }
 
 /* Macbook 15inch */
 @media (max-width: 1440px) {
-  img.logos {
-    width: 200px;
-  }
+  img.logos { width: 200px; }
 
-  span#gefoerdert {
-    left: 35px;
-  }
+  span#gefoerdert { left: 35px; }
 
-  span#unterstuetzt {
-      left: 50px;
-  }
+  span#unterstuetzt { left: 50px; }
 
-  span#zusammenarbeit {
-      left: 0px;
-  }
+  span#zusammenarbeit { left: 0px; }
 
-  span#medienpartner {
-      left: 35px;
-  }
+  span#medienpartner { left: 35px; }
 
-  span#hotelpartner {
-      left: 50px;
-  }
+  span#hotelpartner { left: 50px; }
 }
 
 /* Macbook 13inch */
@@ -283,15 +253,11 @@ $aussichtDOTspace-theme: mat-light-theme((
       // width: 170px;
     }
 
-  #impressum {
-    font-size: 15px;
-  }
+  #impressum { font-size: 15px; }
 }
 
 @media (min-width: 1280px) {
-  #impressum {
-    font-size: 20px;
-  }
+  #impressum { font-size: 20px; }
 }
 
 @media (max-width: 1024px) {
@@ -308,54 +274,36 @@ $aussichtDOTspace-theme: mat-light-theme((
   //     padding-top: 90px;
   // }
 
-  #artists {
-    font-size: var(--font-size-secondary);
-  }
+  #artists { font-size: var(--font-size-secondary); }
 }
 
 @media (min-width: 885px) {    
-  #impressum {
-  padding: 80px 50px 30px 50px;
-  }
+  #impressum { padding: 80px 50px 30px 50px; }
 }
 
 @media (max-width: 885px) {
-  img.logos {
-    width: 150px;
-  }
+  img.logos { width: 150px; }
   
   #impressum {
     font-size: 12px;
     padding: 80px 50px 30px 50px;
   }
 
-  span#gefoerdert {
-    left: 0px;
-  }
+  span#gefoerdert { left: 0px; }
 
-  span#unterstuetzt {
-      left: 0px;
-  }
+  span#unterstuetzt { left: 0px; }
 
-  span#zusammenarbeit {
-      left: 0px;
-  }
+  span#zusammenarbeit { left: 0px; }
 
-  span#medienpartner {
-      left: 0px;
-  }
+  span#medienpartner { left: 0px; }
 
-  span#hotelpartner {
-      left: 0px;
-  }
+  span#hotelpartner { left: 0px; }
 }
 
 /* 48em = 768px */
 
 @media (max-width: 48em) {
-  .lp-title p {
-      font-weight: 300;
-  }
+  .lp-title p { font-weight: 300; }
 
   :root {
       --margin: 25px;
@@ -391,13 +339,9 @@ $aussichtDOTspace-theme: mat-light-theme((
       --font-size-date: 13px;
       }
 
-  .lp-title {
-      padding-top: 70px;
-  }
+  .lp-title { padding-top: 70px; }
 
-  footer {
-    height: 100vh;
-  }
+  footer { height: 100vh; }
 
   // #artists {
   //   display: none;
@@ -418,43 +362,26 @@ $aussichtDOTspace-theme: mat-light-theme((
 
 
 @media (max-width: 414px) {
-  .logos-container span{
-    font-size: 12px;
-  }
+  .logos-container span{ font-size: 12px; }
     
-  img.logos {
-    width: 160px;
-  }
+  img.logos { width: 160px; }
 
-  .logos-container {
-    position: relative;
-    padding: 15px 0px 0px 0px;
-  }
+  .logos-container { position: relative; padding: 15px 0px 0px 0px; }
 
 }
 
 @media (max-width: 375px) {
-  footer {
-    height: 750px;
-  }
+  footer { height: 750px; }
 
-  :root {
-    --padding-footer-logos: 5px 0px 50px 0px;
-  }
+  :root { --padding-footer-logos: 5px 0px 50px 0px; }
 }
 
 @media (max-width: 320px) {
-  .logos-container span{
-    font-size: 12px;
-  }
+  .logos-container span { font-size: 12px; }
     
-  img.logos {
-    width: 130px;
-  }
+  img.logos { width: 130px; }
 
-  footer {
-    height: 700px;
-  }
+  footer { height: 700px; }
 }
 
 
