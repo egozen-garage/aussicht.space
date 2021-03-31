@@ -32,9 +32,7 @@ export class AppComponent implements OnInit  {
     private perspectiveSvc: PerspectiveService,
     private podcastSvc: PodcastepisodesService,
     private themeSvc: ThemeService
-  ) {
-    this.checkDeviceType();
-  }
+  ) { this.checkDeviceType();}
 
   deviceInfo:any;
 
@@ -50,8 +48,6 @@ export class AppComponent implements OnInit  {
   }
 
 
-
-   
     // public platform: Platform,
     // private breakpointObserver: BreakpointObserver
     // ){ }

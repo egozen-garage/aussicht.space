@@ -106,7 +106,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     ],
   
   providers: [
-    // { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     // { provide: APP_BASE_HREF, useValue: '/' },
     { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }
   ],
