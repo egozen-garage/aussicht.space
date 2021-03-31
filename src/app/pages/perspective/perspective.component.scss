@@ -164,15 +164,15 @@
                     height: auto;
                     position: absolute;
                     width: 90%;
-                    // padding: 0px 0px 0px 50px;
+                    padding: 0px 0px 0px 45px;
                     font-family: var(--font-family-primary);
-                    font-weight: 500;
+                    font-weight: 300;
                     font-size: 20px;
                     line-height: 1.2;
                 }
                 .comp_m_title {
                     text-indent: -30px;
-
+                    margin-left: -50px;
                     width: 100%;
                     z-index: 100;
                     font-weight: 300;
