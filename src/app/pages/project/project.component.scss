@@ -1,10 +1,41 @@
-
-
-
-// ------ HEADER ------- //
-header{
-  padding: 90px var(--margin) 100px var(--margin);
+// ------ back button ------- //
+.btn-back2hub {
+  z-index: 9999;
+  font-family: '2070';
+  font-weight: 400;
+  font-size: 20px;
+  position: fixed;
+  display: flex;
+  left: var(--margin);
+  float: left;
+  top: 30px;
+  color: black;
 }
+
+.btn-back2hub a {
+  color: black;
+  text-decoration: none;
+  padding: 0px 0px 0px 15px;
+}
+
+// ------ themes ------ //
+
+.project-theme-container { grid-area: themes; padding: 30px var(--margin) 0px 0px;}
+
+.themes {
+  display: inline-block;
+  color: black;
+  border: 2px solid black;
+  margin: 0px 10px 10px 0px;
+  padding: 5px 15px 5px 15px;
+  font-family: var(--font-family-secondary);
+  font-size: 15px;
+  width: auto;
+}
+
+
+
+// ------ BODY ------- //
 
 .project-title, .related-title {
   font-family: var(--font-family-primary);
@@ -132,12 +163,13 @@ header{
 // ----------------------- GRID CONFIGURATIONS ----------------------- 
 
 .project-body-container {
-  padding: 90px var(--margin) 100px var(--margin);
-
+  // padding: 90px var(--margin) 100px var(--margin);
   display: grid;
   grid-template-columns: 20% 40% 20% 20%;
   grid-template-rows: auto;
   grid-template-areas: 
+      ". . themes themes"
+      ". . title title"
       ". intro intro intro"
       ". subhead subhead ."
       ". text text text"
@@ -166,15 +198,7 @@ header{
   width: 100%;
 }
 
-.CMS_style{
-  // grid-area: ;
-  // display: inline;
-  width: 100%;
-  background-color: blueviolet;
-}
-.default{
-  grid-area: default;
-}
+[class="default-project-info"] { grid-area: title; width: 100%; padding: 20px var(--margin) 20px 0px; background-color: pink;}
 
 // ----------------------- title font ----------------------- 
 .project-title{

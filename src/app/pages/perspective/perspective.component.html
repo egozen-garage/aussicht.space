@@ -1,4 +1,4 @@
-<div class="project-page">
+<div class="perspective-page">
 
     <!-- BACK TO UNIT HUB ---------------------------------------------- -->
     <button class="btn-back2hub">
@@ -51,7 +51,7 @@
             <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-plain'" 
             class="section-grid">
                 <!-- text -->
-                <markdown class="plain_text" *ngIf="perspective.body[i].paragraph?.length">
+                <markdown class="plain_text paragraph-text" *ngIf="perspective.body[i].paragraph?.length">
                     {{ perspective.body[i].paragraph }}
                 </markdown> 
             </div>
@@ -86,7 +86,7 @@
                     </ng-container>
                     <!-- text -->
                     <div class="comp_textblock_paragraph">
-                        <markdown class="" *ngIf="perspective.body[i].paragraph?.length">
+                        <markdown class="paragraph-text" *ngIf="perspective.body[i].paragraph?.length">
                             {{ perspective.body[i].paragraph }}
                         </markdown> 
                     </div>
@@ -130,7 +130,7 @@
                 <div class="comp_textblock_relation">
                     <!-- text -->
                     <div class="plain_text CMS_style">
-                        <markdown class="plain_text" *ngIf="perspective.body[i].paragraph?.length">
+                        <markdown class="plain_text paragraph-text" *ngIf="perspective.body[i].paragraph?.length">
                             {{ perspective.body[i].paragraph }}
                         </markdown> 
                     </div>
@@ -169,7 +169,7 @@
                                                 </div>
                                                 <!-- relation: image -->
                                                 <div *ngIf="perspective.body[i].relation_to[r].projekt.preview_image != null" >
-                                                    <img class="relation_img" src="{{apiUrl}}{{perspective.body[i].relation_to[r].projekt.preview_image.url}}" alt="">
+                                                    <img class="relation_img" src="{{perspective.body[i].relation_to[r].projekt.preview_image.url}}" alt="">
                                                 </div>
                                             </a>
                                         </div>
@@ -196,7 +196,7 @@
                                                 </div>
                                                 <!-- relation: image -->
                                                 <div *ngIf="perspective.body[i].relation_to[r].perspektive.preview_image != null" >
-                                                    <img class="relation_img" src="{{apiUrl}}{{perspective.body[i].relation_to[r].perspektive.preview_image.url}}" alt="">
+                                                    <img class="relation_img" src="{{perspective.body[i].relation_to[r].perspektive.preview_image.url}}" alt="">
                                                 </div>
                                             </a>
                                         </div>
@@ -222,7 +222,7 @@
                                                 </div>
                                                 <!-- relation: image -->
                                                 <div *ngIf="perspective.body[i].relation_to[r].podcast.episode_cover != null">
-                                                    <img class="relation_img" src="{{apiUrl}}{{perspective.body[i].relation_to[r].podcast.episode_cover.url}}" alt="">
+                                                    <img class="relation_img" src="{{perspective.body[i].relation_to[r].podcast.episode_cover.url}}" alt="">
                                                 </div>                                               
                                             </a>
                                         </div>
@@ -242,12 +242,6 @@
                                                 {{ perspective.body[i].relation_to[r].description }}
                                             </div>
                                         </div>
-
-
-                                        <!-- <img class="relation_project_img" src="{{apiUrl}}{{perspective.body[i].relation_to.project.cover_media}}">  -->
-
-
-
                                     </div>
                                 </div>
                             </div>
@@ -265,10 +259,10 @@
             class="section-grid">
                 <div class="comp_textblock_machine comp_textblock_image">
                     <!-- call out image -->
-                    <img *ngIf="perspective.body[i].image !== null" class="txt_m_container indented_image" src="{{apiUrl}}{{perspective.body[i].image.url}}"> 
+                    <img *ngIf="perspective.body[i].image !== null" class="txt_m_container indented_image" src="{{perspective.body[i].image.url}}"> 
                     <!-- call out text -->
                     <div *ngIf="perspective.body[i].paragraph?.length" class="comp_textblock_paragraph">
-                        <markdown class="">
+                        <markdown class="paragraph-text">
                             {{ perspective.body[i].paragraph }}
                         </markdown> 
                     </div>
@@ -279,23 +273,17 @@
 
 
             <!-- COMPONENT > "image-type: fullscreen image" ---------------------------------------------------- -->
-            <div *ngIf=" perspective.body[i].__component === 'image-types.fullscreen-image'" 
-            class="image-type">
-                <!-- image -->
-                <img class="image_fullscreen" src="{{apiUrl}}{{perspective.body[i].image.url}}"> 
-                <!-- caption -->
-                <h3 class="image_caption">
-                    {{ perspective.body[i].image.caption }}
-                </h3>
-            </div>
+            <figure *ngIf=" perspective.body[i].__component === 'image-types.fullscreen-image'">
+                <img class="img" id="fullscreen" src="{{perspective.body[i].image.url}}"> 
+                    <figcaption class="img_caption">{{ perspective.body[i].image.caption }}</figcaption>
+            </figure>
             
+
             <!-- COMPONENT > "image-type: single image" ---------------------------------------------------- -->
-
-            <!-- GRID IS DECLARED IN THIS PARENT DIV -->
             <div *ngIf=" perspective.body[i].__component === 'image-types.single-image'" 
-            class="image-type image_single section-grid">
+            class="img-section-grid">
 
-                <div class="default" *ngIf="perspective.body[i].style !== null "
+                <figure class="default" *ngIf="perspective.body[i].style !== null "
                 [ngClass]="{
 
                     'align_left'      : perspective.body[i].style.position === 'left',
@@ -306,47 +294,32 @@
                     'padding_on'      : perspective.body[i].style.padding === true}">
 
                     <!-- IMAGE / TEXT WIDTH IS DECLARED HERE -->
-                    <img src="{{ apiUrl}}{{perspective.body[i].image.url }}"
+                    <img class="img" id="single" src="{{perspective.body[i].image.url }}"
                     [ngClass]="{
                         'width_small'     : perspective.body[i].style.width === 'small',
                         'width_medium'    : perspective.body[i].style.width === 'medium',
                         'width_large'     : perspective.body[i].style.width === 'large' }"> 
 
-                    <!-- caption -->
-                    <h3 class="image_caption">
-                        {{ perspective.body[i].image.caption }}
-                    </h3>
-
-                </div>
+                    <figcaption class="img_caption">{{ perspective.body[i].image.caption }}</figcaption>
+                </figure>
             </div>
 
 
 
             <!-- COMPONENT > "image-type: couple image" ---------------------------------------------------- -->
+            <div *ngIf=" perspective.body[i].__component === 'image-types.couple-images'" class="img-section-grid">
 
+                <figure class="img_container" id="c-left">
+                    <img src="{{perspective.body[i].image_left.url }}" class="img" id="left">
+                    <figcaption class="img_caption">{{ perspective.body[i].image_left.caption }}</figcaption>
+                </figure>
 
-
-
-
-                <!-- IMAGE / TEXT CONTAINER IS GIVEN A POSITIONAL CLASS HERE -->
-                <!-- <div [ngClass]=" {  'e_pos-left'  : perspective.body[i].style.position === 'left',
-                                    'e_pos-center' : perspective.body[i].style.position === 'center',
-                                    'e_pos-right'  : perspective.body[i].style.position === 'right'   } "
-                     class="e-container" 
-                     [ngStyle]="{'float': perspective.body[i].style.position }">        
-                    
-                    <img       src="{{ apiUrl}}{{perspective.body[i].image.url }}"
-                         [ngClass]=" { 'e_single-small'  : perspective.body[i].style.width === 'small',
-                                       'e_single-medium' : perspective.body[i].style.width === 'medium',
-                                       'e_single-large'  : perspective.body[i].style.width === 'large'   } "> 
-
-                    <h3 class="image_caption">
-                        {{ perspective.body[i].image.caption }}
-                    </h3>
-
-                </div>
-
-            </div> -->
+                <figure class="img_container" id="c-right">
+                    <img src="{{perspective.body[i].image_right.url }}" class="img" id="right">
+                    <figcaption class="img_caption">{{ perspective.body[i].image_right.caption }}</figcaption>
+                </figure>
+                
+            </div>
 
 
             <!-- COMPONENT > "white-space" ---------------------------------------------------- -->

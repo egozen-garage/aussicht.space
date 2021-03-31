@@ -1,10 +1,20 @@
 <div class="project-page">
 
     <!-- BACK TO UNIT HUB ---------------------------------------------- -->
+    <!-- HEADER -------- HEADER--------- HEADER----------- HEADER---------- HEADER -->
+
+    <!-- back to unit hub -->
     <button class="btn-back2hub">
         <span class="btn-icon">&#10229;</span>
         <a [routerLink]="['/units/']" class="btn-txt">Hub</a>
     </button>
+
+    <!-- themes -->
+    <header class="project-body-container">
+        <div *ngIf="project" class="project-theme-container">
+            <div *ngFor="let t of project.themes" class="themes">{{t.theme_name}}</div>
+        </div>
+    </header>
 
 
     <div class="">
@@ -13,14 +23,11 @@
         <ng-container *ngFor="let body of project.body, let i = index" 
         class="" id="body_container"> 
 
-            <!-- title + name ---------------------------------------------------- -->
-            <!-- title + name ---------------------------------------------------- -->
-            <!-- title + name ---------------------------------------------------- -->
-            <!-- title + name ---------------------------------------------------- -->
+
             <!-- COMPONENT > "project-related-info.title" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'project-related-info.title'" 
             class="project-body-container">
-                <div class="default" *ngIf="project.body[i].style !== null " 
+                <span class="default-project-info" id="project_title" *ngIf="project.body[i].style !== null " 
                 [ngClass]="{
                     'width_small'     : project.body[i].style.width === 'small',
                     'width_medium'    : project.body[i].style.width === 'medium',
@@ -33,14 +40,27 @@
                     'padding_off'     : project.body[i].style.padding === false,
                     'padding_on'      : project.body[i].style.padding === true}">
                 <!-- [ngStyle]="{'color': project.body[i].style.hex_color_code === true }" -->
-                        {{project.body[i].title}}
-                </div>
+                    {{project.body[i].title}}    
+                </span>
             </div>
 
             <!-- COMPONENT > "project-related-info.name" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'project-related-info.name'" 
-            class="CMS_style">
-                <div class="project-author">{{project.body[i].name}}</div>
+            class="project-body-container">
+                <span class="default-project-info" id="project_name" *ngIf="project.body[i].style !== null"
+                [ngClass]="{
+                    'width_small'     : project.body[i].style.width === 'small',
+                    'width_medium'    : project.body[i].style.width === 'medium',
+                    'width_large'     : project.body[i].style.width === 'large',
+
+                    'aline_left'      : project.body[i].style.position === 'left',
+                    'aline_center'    : project.body[i].style.position === 'center',
+                    'aline_right'     : project.body[i].style.position === 'right',
+                    
+                    'padding_off'     : project.body[i].style.padding === false,
+                    'padding_on'      : project.body[i].style.padding === true}">
+                    {{project.body[i].name}}
+                </span>
             </div>
 
 
@@ -93,8 +113,12 @@
             
             <!-- add your code here          add your code here       add your code here -->
             
-            
-            
+            <!-- COMPONENT > "image-type: fullscreen image" ---------------------------------------------------- -->
+            <figure *ngIf=" project.body[i].__component === 'image-types.fullscreen-image'">
+                <img class="img" id="fullscreen" src="{{project.body[i].image.url}}"> 
+                    <figcaption class="img_caption">{{ project.body[i].image.caption }}</figcaption>
+            </figure>
+
             
             
             <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\ transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\ -->

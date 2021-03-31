@@ -7,6 +7,7 @@ import { AudioService } from "../../services/audio.service";
 import { CloudService } from "../../services/cloud.service";
 import { StreamState } from "../../interfaces/stream-state";
 import * as xml2js from 'xml2js';
+import { CurrentTrackService } from 'src/app/services/current-track.service';
 
 @Component({
   selector: 'app-podcast-episodes',
@@ -26,6 +27,7 @@ export class PodcastEpisodesComponent implements OnInit {
   constructor(
     private podcastSvc: PodcastepisodesService,
     private route: ActivatedRoute,
+    private currentTrackService: CurrentTrackService
   ) { }
 
   ngOnInit() {
@@ -42,7 +44,10 @@ export class PodcastEpisodesComponent implements OnInit {
   togglePlayPause() {
     this.play = !this.play;
     this.pause = !this.pause;
-
-    
+    if (this.play) {
+      this.currentTrackService.changeTrack(this.podcastID + "_stopped");
+    } else {
+      this.currentTrackService.changeTrack(this.podcastID + "_started");
+    }
   }
 }

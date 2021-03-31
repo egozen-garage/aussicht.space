@@ -1,4 +1,9 @@
-.project-page, body {
+::ng-deep .paragraph-text p {
+    font-size: 25px;
+    line-height: 1.3;
+}
+
+.perspective-page, body {
     padding: 90px 0px 100px 0px;
     margin: 0px;
     background-color: var(--color-page-background-secondary);
@@ -56,14 +61,11 @@
     width: auto;
 }
 
-.project-cover-media {
-    padding: 30px 0px 0px 0px;
-}
-
-.caption {
-    font-family: var(--font-family-secondary);
-    font-size: 12px;
-}
+// CHECK IF NECESSARY
+// .caption {
+//     font-family: var(--font-family-secondary);
+//     font-size: 12px;
+// }
 
 
 // ------ BODY ------- //
@@ -81,10 +83,18 @@
             ". t_machine t_machine t_machine"
             ". . . t_m_background"
             ". remark remark remark"
-            ". relation relation relation"
-            " left left right right"
-            "all all all all"
-            ". default default default";
+            ". relation relation relation";
+    }
+
+    .img-section-grid {
+        display: grid;
+        grid-template-columns: 20% 30% 25% 25%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+          "all all all all"
+          "left left right right"
+          ". center center ."
+          ". default default default";
     }
 
     // ------ COMPOSITION CONFIGURATIONS ------ //
@@ -154,23 +164,21 @@
                 padding: 0px 100px 0px 20px;
 
             }
-
-                .comp_m_title, .comp_m_output{
-                }
-
-                
+              
                 .comp_m_output {
                     // top: 30px;
                     height: auto;
                     position: absolute;
                     width: 90%;
-                    padding: 0px 0px 0px 45px;
+                    padding: 15px 0px 0px 45px;
                     font-family: var(--font-family-primary);
                     font-weight: 300;
                     font-size: 20px;
                     line-height: 1.2;
                 }
+
                 .comp_m_title {
+                    padding-left: 20px;
                     text-indent: -30px;
                     margin-left: -50px;
                     width: 100%;
@@ -178,10 +186,10 @@
                     font-weight: 300;
                     font-size: 1rem;
                 }
+
                 .comp_m_text{
                     text-indent: 170px;
-
-                    padding: 50px 0px 85px 20px;
+                    padding: 0px 0px 60px 20px;
                     // line-height: 1.2;
                 }
 
@@ -209,9 +217,8 @@
             grid-area: remark;
             display: inline-flex;
         }
-        .comp_textblock_remark .comp_textblock_paragraph{
-            width: 60%;
-        }
+
+        .comp_textblock_remark .comp_textblock_paragraph { width: 60%; }
 
             .comp_remark, .comp_relation {
                 // width: 70%;
@@ -219,10 +226,6 @@
                 // font-size: 1.5rem;
                 position: relative;
                 float:left;
-            }
-
-            .c_r_title, .relation_title {
-                // padding: 0px 0px 0px 50px;
             }
 
             .c_r_text, .relation_artistname, .c_r_title, .relation_title {
@@ -247,20 +250,12 @@
                 padding: 0px 0px 30px 0px;
             }
 
-.project-related {
-    grid-area: sidebar;
-}
+.project-related { grid-area: sidebar; }
 
-.side_comments{
-    width: 40%;
-}
-.side_comment {
-    opacity: 0;
-    // font-size: 1.75rem;
-}
-.side_comment_padding{
-    padding-bottom: 50px;
-}
+.side_comments{ width: 40%; }
+.side_comment { opacity: 0; }
+.side_comment_padding{ padding-bottom: 50px; }
+
 .fade {
     opacity: 1;
     transition: opacity .25s ease-in-out;
@@ -270,19 +265,9 @@
 
 
 // -------------------------------
-.subhead{
-    grid-area: subhead;
-}
-
-.plain_text{
-    grid-area: text;
-    width: 60%;
-
-}
-
-.comp_textblock_image{
-    grid-area: t_machine;
-}
+.subhead { grid-area: subhead;}
+.plain_text{ grid-area: text; width: 60%; }
+.comp_textblock_image { grid-area: t_machine; }
 
 
 // ---------------- images ----------------
@@ -294,19 +279,16 @@
 }
 
 
-.image-type {
-    position: relative;
-}
+.img_container { width: 100%; }
+    #c-left { grid-area: left; }
+    #c-right { grid-area: right; }
 
-.image_caption{
-    font-weight: 300;
-}
+    .img { width: 100%; }
+    .img_caption { font-weight: 300; }
+    
+[class="default"] { grid-area: center; width: 100%; padding: 20px 0px 20px 0px;}
 
 // --------- CMS Style Classes ---------- //
-
-.default {
-    grid-area: default;
-}
 
 .align_left   { text-align: left;   }
 .align_center { text-align: center; }
@@ -316,10 +298,10 @@
 .width_medium { width: 50%; }
 .width_large  { width: 80%; }
 
-.width_small, .width_medium, .width_large, .align_left, .align_center, .align_right{
-    grid-area: all;
-}
+.padding_on {padding: 20px}
+.padding_of {padding: 0px}
 
+.width_small, .width_medium, .width_large, .align_left, .align_center, .align_right { grid-area: all; }
 
 // ---------------- subhead ----------------
 
