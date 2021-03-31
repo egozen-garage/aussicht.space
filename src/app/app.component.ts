@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ProjectService } from "./services_strapi/project.service";
 import { PerspectiveService } from "./services_strapi/perspective.service";
 import { PodcastepisodesService } from "./services_strapi/podcastepisodes.service";
+import { ThemeService } from './services_strapi/theme.service';
 
 // import { Platform } from '@angular/cdk/platform';
 // import { BreakpointObserver } from '@angular/cdk/layout'
@@ -25,7 +26,9 @@ export class AppComponent implements OnInit  {
     private http: HttpClient,
     private projectSvc: ProjectService,
     private perspectiveSvc: PerspectiveService,
-    private podcastSvc: PodcastepisodesService
+    private podcastSvc: PodcastepisodesService,
+    private themeSvc: ThemeService
+
     // public platform: Platform,
     // private breakpointObserver: BreakpointObserver
     ){ }
@@ -37,6 +40,8 @@ export class AppComponent implements OnInit  {
     this.projectSvc.getAllProjects().subscribe();
     this.perspectiveSvc.getAllPerspectives().subscribe();
     this.podcastSvc.getAllPodcastEpisodes().subscribe();
+    this.themeSvc.getAllThemes().subscribe();
+
   // defining breakpoint for responsive desgin -->
   // defining breakpoint for responsive desgin --> -->
   // defining breakpoint for responsive desgin --> --> -->
