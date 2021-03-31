@@ -300,14 +300,13 @@
                     'padding_on'      : perspective.body[i].style.padding === true}">
 
                     <!-- IMAGE / TEXT WIDTH IS DECLARED HERE -->
-                    <img src="{{perspective.body[i].image.url }}"
+                    <img class="img" id="single" src="{{perspective.body[i].image.url }}"
                     [ngClass]="{
                         'width_small'     : perspective.body[i].style.width === 'small',
                         'width_medium'    : perspective.body[i].style.width === 'medium',
                         'width_large'     : perspective.body[i].style.width === 'large' }"> 
 
                     <figcaption class="img_caption">{{ perspective.body[i].image.caption }}</figcaption>
-
                 </figure>
             </div>
 

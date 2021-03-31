@@ -1,3 +1,5 @@
+
+
 .project-page, body {
     padding: 90px 0px 100px 0px;
     margin: 0px;
@@ -283,12 +285,10 @@
 
     .img { width: 100%; }
     .img_caption { font-weight: 300; }
+    
+.default { grid-area: center; width: 100%; margin-left: -15% }
 
 // --------- CMS Style Classes ---------- //
-
-.default {
-    grid-area: default;
-}
 
 .align_left   { text-align: left;   }
 .align_center { text-align: center; }
