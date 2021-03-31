@@ -98,7 +98,10 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       this.projectSvc.getProject(this.projectID).subscribe((res:any) => {
         this.project = res;
 
-        this.folder_name = this.project.GPT_folder_name;      
+        this.folder_name = this.project.GPT_folder_name;
+        if(this.folder_name){
+        this.single_project_load_gpt_images(this.folder_name)
+        }
 
         return console.log("project data array: " + this.project );
       });
@@ -106,7 +109,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
       // load gpt images 
       // this.folder_name = "bianchini_beatrice";
-      // this.single_project_load_gpt_images(this.folder_name)
 
 
   }
