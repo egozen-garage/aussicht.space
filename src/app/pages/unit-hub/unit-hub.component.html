@@ -33,14 +33,14 @@
             </div>
 
             <!-- using ngFor to call a checked method that returns the checked filtered items -->
-            <pre>Selected themes: <span *ngFor="let t of themesSelected" style="padding-right:10px;">{{ t.theme_name }}</span></pre>
+            <!-- <pre>Selected themes: <span *ngFor="let t of themesSelected" style="padding-right:10px;">{{ t.theme_name }}</span></pre> -->
 
         </div>
 
         <div *ngIf="units" class="masonry">
 
             <!-- FILTER UNITS ACCORDING TO SELECTED THEMES -->
-            <div [ngClass]= " { 'perspectives'  : u.unit_type === 'perspective',
+            <div [ngClass]= " { 'perspectives' : u.unit_type === 'perspective',
                                 'projects'     : u.unit_type === 'project',
                                 'podcasts'     : u.unit_type === 'podcast'   } "
                 *ngFor= " let u of units "
@@ -52,7 +52,7 @@
                         <!-- PODCAST UNIT > CONTENT SECTION -->
                         <!-- EPISODE > LOGO -->
                         <div *ngIf="u.offline_episode_logo !== null">
-                          <img class="offline_podcast_logo" src="{{apiUrl}}{{u.offline_episode_logo.url}}">
+                          <img class="offline_podcast_logo" src="{{u.offline_episode_logo.url}}">
                         </div>
 
                         <!-- EPISODE > TITLE -->
@@ -107,7 +107,7 @@
                         <!-- PROJECT UNIT > CONTENT SECTION -->
                         <!-- PROJECT > THUMBNAIL IMAGE -->
                       <div *ngIf="u.preview_image">
-                        <img id="project-thumb-img" src="{{apiUrl}}{{u.preview_image.url}}" style="width: 100%;">
+                        <img id="project-thumb-img" src="{{u.preview_image.url}}" style="width: 100%;">
                       </div>
 
                         <!-- PROJECT > TITLE -->

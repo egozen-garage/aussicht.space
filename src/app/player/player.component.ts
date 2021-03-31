@@ -4,6 +4,8 @@ import { CloudService } from "../services/cloud.service";
 import { StreamState } from "../interfaces/stream-state";
 import * as xml2js from 'xml2js';
 import { map } from 'jquery';
+import { CurrentTrackService } from '../services/current-track.service';
+import { Subscription } from 'rxjs';
 
 
 
@@ -20,11 +22,14 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   state : StreamState | undefined;
   currentFile: any = {};
   toggleOpen = false;
+  message:string | undefined;
+  subscription: Subscription | undefined;
 
   constructor(
     public cloudService: CloudService,
     public audioService: AudioService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private currentTrackService: CurrentTrackService
   ) {
     this.ShowPodcastList = false;
     // get media files
@@ -86,6 +91,11 @@ export class PlayerComponent implements OnInit, AfterViewInit{
 
           //editing the TITLE
           var rawtitle = singleItem.title;
+          var podcastIdGroup = rawtitle.toString().match(/#[0-9]+/);
+          var podcastId = '';
+          if (podcastIdGroup) {
+            podcastId = podcastIdGroup[0];
+          }
           var titleWithNumber = rawtitle.toString().replace(/#/, '');
           var raw_title = titleWithNumber.substr(titleWithNumber.indexOf(" ") + 1);
           var title = raw_title.split('–')[0];
@@ -99,6 +109,7 @@ export class PlayerComponent implements OnInit, AfterViewInit{
           podcastCounter = podcastCounter - 1;
           arr.push({
             countingUP: countingUP,
+            podcastId: podcastId,
             url: singleItem.enclosure[0].$.url,
             raw_name: raw_title,
             name: title,
@@ -123,7 +134,26 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   pass_guests:any;
   pass_raw_name:any;
   public ngOnInit() {
-
+    this.subscription = this.currentTrackService.currentFileAndIndex.subscribe((message: string) => {
+      let parts = message.split("_");
+      let action = parts[1];
+      if (action == "stopped") {
+        this.stop();
+        return;
+      }
+      let podcastId = parts[0];
+      this.message = message;
+      let currentFile;
+      let currentIndex;
+      for(let i=0; i<this.files.length; i++) {
+        if (this.files[i].podcastId == ("#" + podcastId)) {
+          currentFile = this.files[i];
+          currentIndex = i;
+        }
+      }
+      // Nachschlagen in lokalen daten anhand der id
+      this.openFile(currentFile, currentIndex);
+    });
     // const appHeight = () => {
     //   const doc = document.documentElement
     //   doc.style.setProperty('--app-height', `${window.innerHeight}px`)
@@ -144,6 +174,9 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   }
 
   openFile(file:any, index: any) {
+    if (!file || !index) {
+      return;
+    }
     this.currentFile = { index, file };
     this.audioService.stop();
     this.playStream(file.url);
@@ -162,14 +195,12 @@ export class PlayerComponent implements OnInit, AfterViewInit{
       this.audioService.pause();
     }else{
       if ( this.audioService.audioObj.src == ""){
-        // console.log("string is empty");
         let file = this.files[0].url;
         let index = 0;
         this.currentFile = { index, file };
         this.audioService.stop();
         this.audioService.playStream(file).subscribe(events => { });
       } else {
-        // console.log("string is not empty");
         this.audioService.play();
       }
     }
@@ -183,14 +214,12 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     
     //this.audioService.play();
     if ( this.audioService.audioObj.src == ""){
-      // console.log("string is empty");
       let file = this.files[0].url;
       let index = 0;
       this.currentFile = { index, file };
       this.audioService.stop();
       this.audioService.playStream(file).subscribe(events => { });
     } else {
-      // console.log("string is not empty");
       this.audioService.play();
     }
   }
