@@ -20,6 +20,10 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   project:any;
   folder_name:any;
 
+  // current_project:number | undefined;
+  previous_project:number = -1;
+  next_project:number = 1;
+
   // @Output() EVENTafterPageLoad = new EventEmitter();
 
   
@@ -100,8 +104,17 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
         this.folder_name = this.project.GPT_folder_name;
         if(this.folder_name){
-        this.single_project_load_gpt_images(this.folder_name)
+          this.single_project_load_gpt_images(this.folder_name)
         }
+        let current_project = this.project.id;
+        this.previous_project = this.previous_project + current_project;
+        this.next_project = this.next_project + current_project;
+
+        console.log("current project: " + current_project );
+        console.log("previous project: " + this.previous_project );
+        console.log("next project: " + this.next_project );
+        // console.log("amount of projects: " + allProjectsCachedObservable.length);
+        
 
         return console.log("project data array: " + this.project );
       });

@@ -107,6 +107,26 @@ header{
   background-color: white;
   color: var(--color-black);
 }
+
+// ----------------------- Unit Hub Button ----------------------- 
+.btn-back2hub {
+  z-index: 9999;
+  font-family: '2070';
+  font-weight: 400;
+  font-size: 2rem;
+  position: fixed;
+  display: flex;
+  left: var(--margin-s);
+  float: left;
+  top: 30px;
+  color: black;
+}
+.btn-back2hub a {
+  color: black;
+  text-decoration: none;
+  padding: 0px 0px 0px 15px;
+}
+
 // ------ BODY ------- //
 // ------ BODY ------- //
 // ----------------------- GRID CONFIGURATIONS ----------------------- 
@@ -183,58 +203,131 @@ header{
 
 
 
+.project_additional_link {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+      "left right"
+      "next next";
+}
 
 // ----------------------- recommendations -----------------------
 .recommendation{
   height: auto;
+  margin: var(--margin-s);
+  color: black;
+  // display: inline-block;
+
+  // flex-direction: column;
 }
-.recommendation_intro{}
-.recommendation_title{}
+.recommendation_info a {
+color: black;
+}
+.recommendation_info a:hover {
+  color: var(--color-rosa);
+}
+.recommendation_intro{
+  grid-area: left;
+  // grid-column: 1 / span 1;
+  font-family: var(--font-family-primary);
+  font-weight: 400;
+  font-size: 75px;
+  line-height: 0.9em;
+}
+.recommendation_info{
+  grid-area: right;
+  // grid-column: 2 / span 1;
+
+  font-family: var(--font-family-secondary);
+}
+.recommendation_title{
+  font-weight: 700;
+  font-size: var(--font-size-title);
+  line-height: 1em;
+}
+.recommendation_author{
+  font-weight: 300;
+  font-size: var(--font-size-secondary);
+}
+li{
+  list-style-type: none;
+  margin-bottom: 60px;
+}
 @media (max-width: 48em) {
+
+  .project_additional_link {
+    grid-template-columns: 100%;
+    grid-template-areas: 
+      "hundert";
+  }
   .recommendation{
-    grid-area: all;
-    display: inline-block;
+    // grid-area: all;
+    // display: inline-block;
   }
   .recommendation_intro{
-    grid-area: right;
-    width: 100%;
+    grid-area: hundert;
+    font-size: 50px;
+
+    
+    // width: 100%;
   }
-  .recommendation_title{
-    grid-area: left;
-    width: 100%;
+  .recommendation_info{
+    grid-area: hundert;
+    // grid-area: left;
+    // width: 100%;
+    // background-color: cadetblue;
   }
 }
 @media (min-width: 48em) {
   .recommendation{
-    grid-area: all;
-    display: flex;
-    height: 500px;
+    // grid-area: all;
+    // display: flex;
+    // height: 500px;
   }
   .recommendation_intro{
-    grid-area: right;
-    width: 100%;
+    // grid-area: right;
+    // width: 50%;
   }
-  .recommendation_title{
-    grid-area: left;
-    width: 100%;
+  .recommendation_info{
+    // grid-area: left;
+    // width: 50%;
+
   }
 }
 
 // ----------------------- PREVIOUS / NEXT ----------------------- 
 .next_project{
-  grid-area: next;
+  font-family: var(--font-family-primary);
+  font-weight: 300;
+  font-size: 2rem;
+  
+  // grid-area: next;
   display: flex;
+  margin: var(--margin-s);
+}
+.next_project a{
+  color: black;
+}
+.next_project a:hover{
+  color: var(--color-rosa);
+}
+.previous_button, .next_button{
+  margin-bottom: 50px;
+  width: 100%;
+  grid-area: next;
 }
 .previous_button{
-  grid-area: next;
-  width: 100%;
 }
 .next_button{
-  grid-area: next;
-  width: 100%;
   text-align: right;
 }
-.next_button a{
-  float: right;
-}
 
+@media (max-width: 48em) {
+  .next_project{
+    font-size: 1.5rem;
+    margin: 15px;
+    margin-bottom: 0;
+
+  }
+}

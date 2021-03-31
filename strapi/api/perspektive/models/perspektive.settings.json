@@ -79,8 +79,13 @@
       "required": true
     },
     "themes": {
-      "via": "perspektives",
-      "collection": "theme"
+      "collection": "theme",
+      "via": "perspektives"
+    },
+    "perspective_id": {
+      "required": true,
+      "unique": true,
+      "type": "integer"
     }
   }
 }

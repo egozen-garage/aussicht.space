@@ -89,6 +89,11 @@
     },
     "GPT_folder_name": {
       "type": "string"
+    },
+    "project_id": {
+      "type": "integer",
+      "unique": true,
+      "required": true
     }
   }
 }

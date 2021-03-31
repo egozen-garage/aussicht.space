@@ -1,4 +1,12 @@
 <div class="project-page">
+
+    <!-- BACK TO UNIT HUB ---------------------------------------------- -->
+    <button class="btn-back2hub">
+        <span class="btn-icon">&#10229;</span>
+        <a [routerLink]="['/units/']" class="btn-txt">Hub</a>
+    </button>
+
+
     <div class="">
 
         <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
@@ -106,28 +114,56 @@
     
 
     <!-- ----------------------- recommendations ----------------------- -->
-    <div class="recommendation">
-        <div class="recommendation_intro">
-            <h2>Related</h2>
-            <h2>~type~</h2>
-            <h2>--</h2>
-        </div>
-        <div class="recommendation_title">
-            <h1>Title</h1>
-            <h3>author</h3>
-        </div>
-    </div>
+    <ng-container  
+    class="" id=""> 
+    
+        <div class="recommendation project_additional_link">
 
+            <div class="recommendation_intro">
+                Related
+                <br>
+                perspective
+                <br>
+                --
+            </div>
+
+
+            <div  
+            class="recommendation_info">
+                <ul>
+                    <li *ngFor="let perspektives of project.perspektives, let i = index" 
+                        class="recommendation_title">
+                        <a [routerLink]="['/units/' + project.perspektives[i].unit_type + '/' + project.perspektives[i].id ]">
+                            <div *ngIf="project.perspektives[i].title?.length">
+                            {{project.perspektives[i].title}}
+                        </div>
+                        <div *ngIf="project.perspektives[i].author?.length"
+                        class="recommendation_author">
+                            {{project.perspektives[i].author}}
+                        </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+        
+    </ng-container>
+    
+    
+    
     <!-- ----------------------- PREVIOUS / NEXT ----------------------- -->
     <div class="next_project">
-        <div class="previous_button">
-            <h4>-- previous</h4>
+        <div class="previous_button" >
+            <a [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]">&#10229; Previous</a>
         </div>
         <div class="next_button">
-            <h4>next --</h4>
+            <a [routerLink]="['/units/' + project.unit_type + '/' + next_project ]">Next --</a>
         </div>
     </div>
-
+    
 
 
     </div>

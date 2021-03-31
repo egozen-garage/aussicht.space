@@ -59,11 +59,13 @@ export class UnitHubComponent implements OnInit {
   ngOnInit(): void {
     this.projectSvc.getAllProjects().subscribe((res:any) => {
       this.projectsFromCms = res;
-      this.projects = this.projectsFromCms;
+      this.projects = this.projectsFromCms;      
       this.updateUnits();
       // this.EVENTafterPageLoad.emit();
 
     });
+    console.log("length of projects: " + this.projects.length);
+
 
     this.perspectiveSvc.getAllPerspectives().subscribe((res:any) => {
       this.perspectives = res;

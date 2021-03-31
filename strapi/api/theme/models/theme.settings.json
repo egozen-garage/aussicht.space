@@ -15,8 +15,8 @@
       "type": "string"
     },
     "podcasts": {
-      "collection": "podcast",
       "via": "themes",
+      "collection": "podcast",
       "dominant": true
     },
     "selected": {
@@ -24,8 +24,8 @@
       "default": false
     },
     "perspektives": {
-      "collection": "perspektive",
       "via": "themes",
+      "collection": "perspektive",
       "dominant": true
     },
     "projekts": {

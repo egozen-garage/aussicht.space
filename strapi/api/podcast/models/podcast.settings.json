@@ -60,13 +60,14 @@
       "via": "podcasts",
       "collection": "projekt"
     },
-    "episode_id": {
-      "type": "uid",
-      "required": true
-    },
     "themes": {
-      "via": "podcasts",
-      "collection": "theme"
+      "collection": "theme",
+      "via": "podcasts"
+    },
+    "episode_id": {
+      "type": "integer",
+      "required": true,
+      "unique": true
     }
   }
 }
