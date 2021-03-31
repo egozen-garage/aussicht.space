@@ -388,6 +388,11 @@ $aussichtDOTspace-theme: mat-light-theme((
 
 /* --------------------------------------------------------------------------- */
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
   body {
       overflow-x: hidden;
       background-color: var(--color-black);
@@ -450,6 +455,8 @@ a:hover {
 p {
   font-family: var(--font-family-secondary);
   font-weight: 400;
+  margin-bottom: 0rem !important;
+
 
   // ----- #ISSUE: GLOBAL ATTRIBUTE CAUSES CSS CONFLICT IN CHILD PAGES ----- //
 
