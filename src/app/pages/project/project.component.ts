@@ -18,6 +18,7 @@ import { SideCommentPositionService } from '../../services/side-comment-position
 export class ProjectComponent implements OnInit, AfterViewInit {
   projectID : string = "";
   project:any;
+  folder_name:any;
 
   // @Output() EVENTafterPageLoad = new EventEmitter();
 
@@ -96,11 +97,15 @@ export class ProjectComponent implements OnInit, AfterViewInit {
           
       this.projectSvc.getProject(this.projectID).subscribe((res:any) => {
         this.project = res;
+
+        this.folder_name = this.project.GPT_folder_name;      
+
         return console.log("project data array: " + this.project );
       });
-      
+
+
       // load gpt images 
-      // folder_name = project.;
+      // this.folder_name = "bianchini_beatrice";
       // this.single_project_load_gpt_images(this.folder_name)
 
 
@@ -116,6 +121,10 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   // maximum = 40;
   minimum = 0;
   single_project_load_gpt_images(folder_name:string){
+
+    console.log("projectpage is loaded: " + folder_name);
+    
+    
     const maximum = 60;
     
     //let cancelled = false;
@@ -125,6 +134,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     // build the directory folder path
     const ImageDirectory = ("/assets/imgs/image_gpt/" + folder_name + "/generated/" + this.image_size + "/" + this.image_size + "_" + folder_name + "_");
 
+    console.log("image path: " + ImageDirectory);
+    
     //create array of image paths
     let ImagePath_array = [];
     for (let i = 0; i < amount_of_images; i++){
@@ -139,7 +150,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     // call array of image paths and add an image for each object
     ImagePath_array.forEach(function (file) {
       // 1. Select the div element using the id property
-      const image_gpt_container = document.getElementById("gpt_images");
+      const image_gpt_container = document.getElementById("gpt_images");      
       // 2. Create a new <img> element programmatically
       const img_tag = document.createElement("img");
       // 3. Add the path to src 
@@ -162,6 +173,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     let hover:boolean = false;
     // image_gpt_container.reverse().forEach( (file) => {
     image_gpt_container.forEach( (file) => {
+      console.log("check position");
+
       setTimeout( () => {
         // add: check if mouse hover container --> if yes: add image --> if no: abort
         file.setAttribute('style', 'display:inline-block; padding: 10px; height:' + this.image_size_STYLE + 'px; width: auto;')

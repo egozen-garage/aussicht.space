@@ -3,7 +3,7 @@
 
         <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
         <ng-container *ngFor="let body of project.body, let i = index" 
-        class=""> 
+        class="" id="body_container"> 
 
             <!-- title + name ---------------------------------------------------- -->
             <!-- title + name ---------------------------------------------------- -->
@@ -70,46 +70,40 @@
             </div>
 
 
-            <!-- GPT images GPT images ---------------------------------------------------- -->
-            <!-- GPT images GPT images ---------------------------------------------------- -->
-            <!-- GPT images GPT images ---------------------------------------------------- -->
-            <!-- GPT images GPT images ---------------------------------------------------- -->
-
-            <!-- COMPONENT > "project-related-info.title" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'image-types.gpt-images'" 
-            class="project-body-container">
-                <div  *ngIf="project.body[i].folder_name?.length" class="gpt_images">{{ single_project_load_gpt_images(project.body[i].folder_name) }}</div>
-            </div>
-
-
-
-
-
-
             
-
+            
+            
+            
+            
+            
+            
+            
+            
+            
             <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\ transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
             <!-- /////////////////////////// transfer from perspective /////////////////////////// -->
             
-                <!-- add your code here          add your code here       add your code here -->
+            <!-- add your code here          add your code here       add your code here -->
             
-
-
-
-
+            
+            
+            
+            
             <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\ transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
             <!-- /////////////////////////// transfer from perspective /////////////////////////// -->
-
-
-
+            
+            
+            
         </ng-container>
-
-
-
-
-
-
-
+        
+        
+        
+    <!-- GPT images --------------------------------------------------------------- -->
+    <!-- GPT images --------------------------------------------------------------- -->
+    <!-- GPT images --------------------------------------------------------------- -->
+    <!-- GPT images --------------------------------------------------------------- -->
+    <div  *ngIf="project.GPT_folder_name?.length" id="gpt_images">gpt here:</div>
+    
 
     <!-- ----------------------- recommendations ----------------------- -->
     <div class="recommendation">

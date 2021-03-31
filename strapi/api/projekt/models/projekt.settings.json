@@ -69,8 +69,7 @@
         "text-types.free-text",
         "addon.javascript-file-name",
         "addon.website",
-        "addon.html-css",
-        "image-types.gpt-images"
+        "addon.html-css"
       ]
     },
     "add_to_unit_hub": {
@@ -85,8 +84,11 @@
       "type": "richtext"
     },
     "themes": {
-      "via": "projekts",
-      "collection": "theme"
+      "collection": "theme",
+      "via": "projekts"
+    },
+    "GPT_folder_name": {
+      "type": "string"
     }
   }
 }
