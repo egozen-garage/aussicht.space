@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ProjectService } from "./services_strapi/project.service";
+import { PerspectiveService } from "./services_strapi/perspective.service";
+import { PodcastepisodesService } from "./services_strapi/podcastepisodes.service";
+import { ThemeService } from './services_strapi/theme.service';
 
 import { DeviceDetectorService } from 'ngx-device-detector';
 
@@ -23,7 +27,11 @@ export class AppComponent implements OnInit  {
 
   constructor(
     private http: HttpClient,
-    private deviceService: DeviceDetectorService) {
+    private deviceService: DeviceDetectorService,
+    private projectSvc: ProjectService,
+    private perspectiveSvc: PerspectiveService,
+    private podcastSvc: PodcastepisodesService,
+    private themeSvc: ThemeService) {
     this.checkDeviceType();
   }
 
@@ -42,10 +50,21 @@ export class AppComponent implements OnInit  {
 
 
 
+    
+
+    // public platform: Platform,
+    // private breakpointObserver: BreakpointObserver
+    // ){ }
 
     
   // isWideScreen$: Observable<boolean> | undefined;
   ngOnInit(): void{
+    // Fill each service cache to speed up the pages where the data is actually 3needed
+    this.projectSvc.getAllProjects().subscribe();
+    this.perspectiveSvc.getAllPerspectives().subscribe();
+    this.podcastSvc.getAllPodcastEpisodes().subscribe();
+    this.themeSvc.getAllThemes().subscribe();
+
   // defining breakpoint for responsive desgin -->
   // defining breakpoint for responsive desgin --> -->
   // defining breakpoint for responsive desgin --> --> -->
