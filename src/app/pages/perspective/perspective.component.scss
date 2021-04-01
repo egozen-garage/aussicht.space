@@ -312,10 +312,11 @@
     #c-left { grid-area: left; }
     #c-right { grid-area: right; }
 
-    .img { width: 100%; }
+    #fullscreen { width: 100%; }
     .img_caption { font-weight: 300; }
     
 [class="default"] { grid-area: center; width: 100%; padding: 20px 0px 20px 0px;}
+[class="img"] { width: 100%;}
 
 // --------- CMS Style Classes ---------- //
 
@@ -325,7 +326,7 @@
 
 .width_small  { width: 30%; }
 .width_medium { width: 50%; }
-.width_large  { width: 80%; }
+.width_large  { width: 75%; }
 
 .padding_on {padding: 20px}
 .padding_of {padding: 0px}

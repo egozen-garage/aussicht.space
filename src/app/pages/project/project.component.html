@@ -34,9 +34,9 @@
                     'width_medium'    : project.body[i].style.width === 'medium',
                     'width_large'     : project.body[i].style.width === 'large',
 
-                    'aline_left'      : project.body[i].style.position === 'left',
-                    'aline_center'    : project.body[i].style.position === 'center',
-                    'aline_right'     : project.body[i].style.position === 'right',
+                    'align_left'      : project.body[i].style.position === 'left',
+                    'align_center'    : project.body[i].style.position === 'center',
+                    'align_right'     : project.body[i].style.position === 'right',
                     
                     'padding_off'     : project.body[i].style.padding === false,
                     'padding_on'      : project.body[i].style.padding === true}">
@@ -55,9 +55,9 @@
                     'width_medium'    : project.body[i].style.width === 'medium',
                     'width_large'     : project.body[i].style.width === 'large',
 
-                    'aline_left'      : project.body[i].style.position === 'left',
-                    'aline_center'    : project.body[i].style.position === 'center',
-                    'aline_right'     : project.body[i].style.position === 'right',
+                    'align_left'      : project.body[i].style.position === 'left',
+                    'align_center'    : project.body[i].style.position === 'center',
+                    'align_right'     : project.body[i].style.position === 'right',
                     
                     'padding_off'     : project.body[i].style.padding === false,
                     'padding_on'      : project.body[i].style.padding === true}">
@@ -353,6 +353,47 @@
                 <img class="img" id="fullscreen" src="{{project.body[i].image.url}}"> 
                     <figcaption class="img_caption">{{ project.body[i].image.caption }}</figcaption>
             </figure>
+
+            <!-- COMPONENT > "image-type: single image" ---------------------------------------------------- -->
+            <div *ngIf=" project.body[i].__component === 'image-types.single-image'" 
+            class="img-section-grid">
+
+                <figure class="default" *ngIf="project.body[i].style !== null "
+                [ngClass]="{
+
+                    'align_left'      : project.body[i].style.position === 'left',
+                    'align_center'    : project.body[i].style.position === 'center',
+                    'align_right'     : project.body[i].style.position === 'right',
+                    
+                    'padding_off'     : project.body[i].style.padding === false,
+                    'padding_on'      : project.body[i].style.padding === true}">
+
+                    <!-- IMAGE / TEXT WIDTH IS DECLARED HERE -->
+                    <img class="img" id="single" src="{{project.body[i].image.url }}"
+                    [ngClass]="{
+                        'width_small'     : project.body[i].style.width === 'small',
+                        'width_medium'    : project.body[i].style.width === 'medium',
+                        'width_large'     : project.body[i].style.width === 'large' }"> 
+
+                    <figcaption class="img_caption">{{ project.body[i].image.caption }}</figcaption>
+                </figure>
+            </div>
+
+
+            <!-- COMPONENT > "image-type: couple image" ---------------------------------------------------- -->
+            <div *ngIf=" project.body[i].__component === 'image-types.couple-images'" class="img-section-grid">
+
+                <figure class="img_container" id="c-left"> 
+                    <img src="{{project.body[i].image_left.url }}" class="img" id="left">
+                    <figcaption class="img_caption">{{ project.body[i].image_left.caption }}</figcaption>
+                </figure>
+
+                <figure class="img_container" id="c-right">
+                    <img src="{{project.body[i].image_right.url }}" class="img" id="right">
+                    <figcaption class="img_caption">{{ project.body[i].image_right.caption }}</figcaption>
+                </figure>
+                
+            </div>
 
             
             

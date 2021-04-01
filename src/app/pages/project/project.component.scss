@@ -192,28 +192,26 @@ span#project_title {
 }
 
 // ----------------------- cms style classes ----------------------- 
-.width_small{     width: 30%;}
-.width_medium{    width: 50%;}
-.width_large{     width: 100%;}
+.width_small{     width: 30% !important;}
+.width_medium{    width: 50% !important;}
+.width_large{     width: 75% !important;}
 
-.aline_left{      text-align: left;}
-.aline_center{    text-align: center;}
-.aline_right{     text-align: right;}
+.align_left{      text-align: left;}
+.align_center{    text-align: center;}
+.align_right{     text-align: right;}
 
 .padding_on {padding: 20px}
 .padding_of {padding: 0px}
 
-.width_small, .width_medium, .width_large, .aline_left, .aline_center, .aline_right{
+.width_small, .width_medium, .width_large, .align_left, .align_center, .align_right{
   grid-area: all;
   // width: 100%;
 }
 
 [class="default-project-info"] { grid-area: title; width: 100%; padding: 0px var(--margin) 10px 0px;}
+[class="default"] { grid-area: center; width: 100%; padding: 20px 0px 20px 0px;}
+[class="img"] { width: 100%;}
 
-// ----------------------- title font ----------------------- 
-.project-title{
-
-}
 
 // ----------------------- gpt images ----------------------- 
 #gpt_images{
@@ -403,17 +401,19 @@ span#project_title {
     }
 
 
-// \\\\\\\\\\\\\\\\\\\\\\\\\\\ transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
-// /////////////////////////// transfer from perspective /////////////////////////// 
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\ IMAGES transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+// /////////////////////////// IMAGES transfer from perspective /////////////////////////// 
 
-    // add your code here          add your code here       add your code here 
+.img_container { width: 100%; }
+    #c-left { grid-area: left; }
+    #c-right { grid-area: right; }
+
+    #fullscreen { width: 100%; }
+    .img_caption { font-weight: 300; }
 
 
-
-
-
-// \\\\\\\\\\\\\\\\\\\\\\\\\\\ transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\
-// /////////////////////////// transfer from perspective ///////////////////////////
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\ IMAGES transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\
+// /////////////////////////// IMAGES transfer from perspective ///////////////////////////
 
 
 
