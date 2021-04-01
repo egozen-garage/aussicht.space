@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { PerspectiveService } from '../../services_strapi/perspective.service';
 import { ActivatedRoute, Router, RouteReuseStrategy } from '@angular/router';
-import { SideCommentPositionService } from '../../services/side-comment-position.service';
+// import { SideCommentPositionService } from '../../services/side-comment-position.service';
 // import { RouteReuseStrategy } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './perspective.component.html',
   styleUrls: ['./perspective.component.scss']
 })
-export class PerspectiveComponent implements OnInit, AfterViewInit {
+export class PerspectiveComponent implements OnInit {
   apiUrl = environment.apiUrl;
   perspectiveID : string = "";
   perspective:any;
@@ -22,7 +22,6 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
     private perspectiveSvc: PerspectiveService,
     private route: ActivatedRoute,
     // private router: Router,
-    private sideCommentPosition: SideCommentPositionService,
     // private routeReuseStrategy: RouteReuseStrategy,
     ) { 
       // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
@@ -34,22 +33,7 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
 
   
 
-  ngAfterViewInit(): void {
-      this.activate_site_comments(this.sideCommentPosition);
-      this.sideCommentPosition.listenResizeWindow();
-  }
 
-  activate_site_comments(site_comment_service:any){
-    setTimeout(() =>{ 
-      site_comment_service.scanMarkdowns();
-      const side_comments = Array.from(document.getElementsByClassName('side_comment') as HTMLCollectionOf<HTMLElement>)
-      side_comments.forEach(item => {
-        item.classList.add("fade");
-        // item.style.opacity = "1";
-        // console.log("# # # ///////////////////"+item);
-      });
-    }, 3000);
-  }
 
   ngOnInit() {
     this.route.params.subscribe( p => this.perspectiveID = p['id'] );

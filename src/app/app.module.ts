@@ -45,6 +45,9 @@ import {APP_BASE_HREF} from '@angular/common';
 import { AnchorTimingDirective } from './directives/anchor-timing.directive';
 import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episodes.component';
 import { PreviewComponent } from './pages/preview/preview.component';
+import { TextTypesComponent } from './pages/content_components/text-types/text-types.component';
+import { ImageTypesComponent } from './pages/content_components/image-types/image-types.component';
+import { BackToHubComponent } from './pages/content_components/back-to-hub/back-to-hub.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{ 
@@ -81,6 +84,9 @@ export class MyHammerConfig extends HammerGestureConfig {
     AnchorTimingDirective,
     PodcastEpisodesComponent,
     PreviewComponent,
+    TextTypesComponent,
+    ImageTypesComponent,
+    BackToHubComponent,
   ],
 
   imports: [

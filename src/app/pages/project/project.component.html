@@ -3,11 +3,7 @@
     <!-- BACK TO UNIT HUB ---------------------------------------------- -->
     <!-- HEADER -------- HEADER--------- HEADER----------- HEADER---------- HEADER -->
 
-    <!-- back to unit hub -->
-    <button class="btn-back2hub">
-        <span class="btn-icon">&#10229;</span>
-        <a [routerLink]="['/units/']" class="btn-txt">Hub</a>
-    </button>
+    <app-back-to-hub></app-back-to-hub>
 
     <!-- themes -->
     <header class="project-body-container">
@@ -22,6 +18,9 @@
         <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
         <ng-container *ngFor="let body of project.body, let i = index" 
         class="" id="body_container"> 
+
+            <app-text-types [body]="body"></app-text-types>
+            <app-image-types [body]="body"></app-image-types>
 
 
             <!-- COMPONENT > "project-related-info.title" ---------------------------------------------------- -->
@@ -104,213 +103,6 @@
            
             <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\ text types \\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
             <!-- /////////////////////////// text types /////////////////////////// -->
-            <!-- COMPONENT > "intro" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'text-types.intro'" 
-            class="section-grid">
-                <!-- intro text -->
-                <div class="comp_intro_container">
-                    <ng-container class="comp_intro" *ngIf="project.body[i].text?.length">
-                        {{ project.body[i].text }}
-                    </ng-container> 
-                </div>
-            </div>
-
-            <!-- COMPONENT > "subhead" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'text-types.subhead'" 
-            class="section-grid">
-                <p class="subhead" *ngIf="project.body[i].subhead?.length">
-                    {{project.body[i].subhead}}
-                </p>
-            </div>
-
-            <!-- COMPONENT > "paragraph-plain" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'text-types.paragraph-plain'" 
-            class="section-grid">
-                <!-- text -->
-                <markdown class="plain_text paragraph-text" *ngIf="project.body[i].paragraph?.length">
-                    {{ project.body[i].paragraph }}
-                </markdown> 
-            </div>
-
-            <!-- COMPONENT > "paragraph-with-image" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'text-types.paragraph-with-image'" 
-            class="section-grid">
-                <div class="comp_textblock_machine comp_textblock_image">
-                    <!-- call out image -->
-                    <img *ngIf="project.body[i].image !== null" class="txt_m_container indented_image" src="{{project.body[i].image.url}}"> 
-                    <!-- call out text -->
-                    <div *ngIf="project.body[i].paragraph?.length" class="comp_textblock_paragraph">
-                        <markdown class="paragraph-text">
-                            {{ project.body[i].paragraph }}
-                        </markdown> 
-                    </div>
-                </div>
-            </div>
-            
-            <!-- COMPONENT > "paragraph-with-machine" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'text-types.paragraph-with-machine'" 
-            class="section-grid">
-                <div class="comp_textblock_machine">
-                    <!-- MACHINE-GENERATED content is called out here -->
-                    <ng-container *ngIf="project.body[i].machine_text !== null">
-                        <div class="txt_m_container">
-                            <div id="circle1"></div>
-                            <span class="comp_m_output">
-                                <span class="comp_m_title" *ngIf="project.body[i].seed?.length">
-                                    &#123; {{ project.body[i].seed}} &#125;
-                                </span>
-                                <span class="comp_m_text" *ngIf="project.body[i].output?.length">
-                                    &#123; ... &quot;{{ project.body[i].output }}&quot; ... &#125;
-                                </span>
-                            </span>
-                            <span class="comp_m_output ghost">
-                                <div class="comp_m_title" *ngIf="project.body[i].seed?.length">
-                                    {{ project.body[i].seed}}
-                                </div>
-                                <div class="comp_m_text" *ngIf="project.body[i].output?.length">
-                                    {{ project.body[i].output }}
-                                </div>
-                            </span>
-                        </div>
-                    </ng-container>
-                    <!-- text -->
-                    <div class="comp_textblock_paragraph">
-                        <markdown class="paragraph-text" *ngIf="project.body[i].paragraph?.length">
-                            {{ project.body[i].paragraph }}
-                        </markdown> 
-                    </div>
-                </div>
-            </div>
-
-            <!-- COMPONENT > "paragraph-with-relation" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'text-types.paragraph-with-relation'" 
-            class="section-grid side_comment_container">
-
-                <div class="comp_textblock_relation">
-                    <!-- text -->
-                    <div class="plain_text CMS_style">
-                        <markdown class="plain_text paragraph-text" *ngIf="project.body[i].paragraph?.length">
-                            {{ project.body[i].paragraph }}
-                        </markdown> 
-                    </div>
-
-                    <!-- side comment -->   
-                    <div class="side_comments">
-                        <!-- PROJECT RELATION is called out here (Type Array)-->
-
-                        <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
-                        <ng-container *ngFor="let relation_to of project.body[i].relation_to, let r = index" >
-
-                            <div class="side_comment">
-                                <div class="side_comment_padding relation_container">
-                                    <div class="comp_relation">
-
-                                        <!-- if PROJECT -->
-                                        <div *ngIf="project.body[i].relation_to[r].projekt != null" >
-                                            <a [routerLink]="['/units/project/' + project.body[i].relation_to[r].projekt.id ]">
-                                                <!-- relation: title artist -->
-                                                <div *ngIf="project.body[i].relation_to[r].projekt.title?.length" 
-                                                class="relation_title">
-                                                    {{ project.body[i].relation_to[r].projekt.title}}
-                                                    <br>
-                                                    {{ project.body[i].relation_to[r].projekt.artist}}
-                                                </div>
-                                                <div class="relation_arrow">&#10230;</div>
-
-                                                <!-- relation: title -->
-                                                <div *ngIf="project.body[i].relation_to[r].title?.length" class="relation_artistname">
-                                                    {{ project.body[i].relation_to[r].title }}
-                                                </div>
-                                                <!-- relation: description -->
-                                                <div *ngIf="project.body[i].relation_to[r].description?.length" class="relation_artistname">
-                                                    {{ project.body[i].relation_to[r].description }}
-                                                    <div class="relation_arrow">&#10230;</div>
-                                                </div>
-                                                <!-- relation: image -->
-                                                <div *ngIf="project.body[i].relation_to[r].projekt.preview_image != null" >
-                                                    <img class="relation_img" src="{{project.body[i].relation_to[r].projekt.preview_image.url}}" alt="">
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <!-- if PERSPECTIVE -->
-                                        <div *ngIf=" project.body[i].relation_to[r].perspektive != null" >
-                                            <a [routerLink]="['/units/perspective/' + project.body[i].relation_to[r].perspektive.id ]">
-                                                <!-- relation: title artist -->
-                                                <div *ngIf="project.body[i].relation_to[r].perspektive.title?.length" 
-                                                class="relation_title">
-                                                    {{ project.body[i].relation_to[r].perspektive.title}}
-                                                    <br>
-                                                    {{ project.body[i].relation_to[r].perspektive.author}}
-                                                </div>
-                                                <div class="relation_arrow">&#10230;</div>
-
-                                                <!-- relation: title -->
-                                                <div *ngIf="project.body[i].relation_to[r].title?.length" class="relation_artistname">
-                                                    {{ project.body[i].relation_to[r].title }}
-                                                </div>
-                                                <!-- relation: description -->
-                                                <div *ngIf="project.body[i].relation_to[r].description?.length" class="relation_artistname">
-                                                    {{ project.body[i].relation_to[r].description }}
-                                                    <div class="relation_arrow">&#10230;</div>
-                                                </div>
-                                                <!-- relation: image -->
-                                                <div *ngIf="project.body[i].relation_to[r].perspektive.preview_image != null" >
-                                                    <img class="relation_img" src="{{project.body[i].relation_to[r].perspektive.preview_image.url}}" alt="">
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <!-- if PODCAST -->
-                                        <div *ngIf=" project.body[i].relation_to[r].podcast != null" >
-                                            <a [routerLink]="['/units/podcast/' + project.body[i].relation_to[r].podcast.id ]">
-                                                <!-- relation: title artist -->
-                                                <div *ngIf="project.body[i].relation_to[r].podcast.title?.length" 
-                                                class="relation_title">
-                                                    {{ project.body[i].relation_to[r].podcast.title}}
-                                                    <br>
-                                                    {{ project.body[i].relation_to[r].podcast.speakers}}
-                                                </div>
-                                                <div class="relation_arrow">&#10230;</div>
-
-                                                <!-- relation: title -->
-                                                <div *ngIf="project.body[i].relation_to[r].title?.length" class="relation_artistname">
-                                                    {{ project.body[i].relation_to[r].title }}
-                                                </div>
-                                                <!-- relation: description -->
-                                                <div *ngIf="project.body[i].relation_to[r].description?.length" class="relation_artistname">
-                                                    {{ project.body[i].relation_to[r].description }}
-                                                </div>
-                                                <!-- relation: image -->
-                                                <div *ngIf="project.body[i].relation_to[r].podcast.episode_cover != null">
-                                                    <img class="relation_img" src="{{project.body[i].relation_to[r].podcast.episode_cover.url}}" alt="">
-                                                </div>                                               
-                                            </a>
-                                        </div>
-                                        <!-- if No PODCAST No PERSPEKTIVE No PROJEKT -->
-                                        <!-- ONLY title and description -->
-                                        <div *ngIf="    project.body[i].relation_to[r].projekt === null 
-                                                        && 
-                                                        project.body[i].relation_to[r].perspektive === null 
-                                                        && 
-                                                        project.body[i].relation_to[r].podcast === null" >
-                                            <!-- relation: title -->
-                                            <div *ngIf="project.body[i].relation_to[r].title?.length" class="relation_artistname">
-                                                {{ project.body[i].relation_to[r].title }}
-                                            </div>
-                                            <!-- relation: description -->
-                                            <div *ngIf="project.body[i].relation_to[r].description?.length" class="relation_artistname">
-                                                {{ project.body[i].relation_to[r].description }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </ng-container>
-                    </div>
-                </div>
-
-            </div>
-
             <!-- COMPONENT > "free_text" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'text-types.free-text'" 
             class="img-section-grid">
@@ -341,68 +133,8 @@
 
 
             
+    
             
-            
-            <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\ transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
-            <!-- /////////////////////////// transfer from perspective /////////////////////////// -->
-            
-            <!-- add your code here          add your code here       add your code here -->
-            
-            <!-- COMPONENT > "image-type: fullscreen image" ---------------------------------------------------- -->
-            <figure *ngIf=" project.body[i].__component === 'image-types.fullscreen-image'">
-                <img class="img" id="fullscreen" src="{{project.body[i].image.url}}"> 
-                    <figcaption class="img_caption">{{ project.body[i].image.caption }}</figcaption>
-            </figure>
-
-            <!-- COMPONENT > "image-type: single image" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'image-types.single-image'" 
-            class="img-section-grid">
-
-                <figure class="default" *ngIf="project.body[i].style !== null "
-                [ngClass]="{
-
-                    'align_left'      : project.body[i].style.position === 'left',
-                    'align_center'    : project.body[i].style.position === 'center',
-                    'align_right'     : project.body[i].style.position === 'right',
-                    
-                    'padding_off'     : project.body[i].style.padding === false,
-                    'padding_on'      : project.body[i].style.padding === true}">
-
-                    <!-- IMAGE / TEXT WIDTH IS DECLARED HERE -->
-                    <img class="img" id="single" src="{{project.body[i].image.url }}"
-                    [ngClass]="{
-                        'width_small'     : project.body[i].style.width === 'small',
-                        'width_medium'    : project.body[i].style.width === 'medium',
-                        'width_large'     : project.body[i].style.width === 'large' }"> 
-
-                    <figcaption class="img_caption">{{ project.body[i].image.caption }}</figcaption>
-                </figure>
-            </div>
-
-
-            <!-- COMPONENT > "image-type: couple image" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'image-types.couple-images'" class="img-section-grid">
-
-                <figure class="img_container" id="c-left"> 
-                    <img src="{{project.body[i].image_left.url }}" class="img" id="left">
-                    <figcaption class="img_caption">{{ project.body[i].image_left.caption }}</figcaption>
-                </figure>
-
-                <figure class="img_container" id="c-right">
-                    <img src="{{project.body[i].image_right.url }}" class="img" id="right">
-                    <figcaption class="img_caption">{{ project.body[i].image_right.caption }}</figcaption>
-                </figure>
-                
-            </div>
-
-            
-            <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\ transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
-            <!-- /////////////////////////// transfer from perspective /////////////////////////// -->
-            
-            <!-- COMPONENT > "white-space" ---------------------------------------------------- -->
-            <div *ngIf="project.body[i].__component === 'text-types.white-space'" 
-            [ngStyle]="{'width': '100%', 'height': project.body[i].distance_in_pixel + 'px' }">
-            </div>
 
         </ng-container>
 

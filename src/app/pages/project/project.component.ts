@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { ProjectService } from '../../services_strapi/project.service';
 import { ActivatedRoute } from '@angular/router';
-import { SideCommentPositionService } from '../../services/side-comment-position.service';
+// import { SideCommentPositionService } from '../../services/side-comment-position.service';
 
 
 //import { CustomDesignIframeComponent } from '../custom_designs/custom-design-iframe/custom-design-iframe.component';
@@ -15,7 +15,7 @@ import { SideCommentPositionService } from '../../services/side-comment-position
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.scss']
 })
-export class ProjectComponent implements OnInit, AfterViewInit {
+export class ProjectComponent implements OnInit {
   projectID : string = "";
   project:any;
   folder_name:any;
@@ -37,7 +37,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   constructor(
     private projectSvc: ProjectService,
     private route: ActivatedRoute,
-    private sideCommentPosition: SideCommentPositionService,
+    // private sideCommentPosition: SideCommentPositionService,
     
     ) { 
       if (window.innerWidth >= 1024) {
@@ -55,22 +55,21 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       // this.EVENTafterPageLoad.emit();
     }
     
-  ngAfterViewInit(): void {
-    this.activate_site_comments(this.sideCommentPosition);
-    this.sideCommentPosition.listenResizeWindow();
-  }
+  // ngAfterViewInit(): void {
+  //   this.activate_site_comments(this.sideCommentPosition);
+  //   this.sideCommentPosition.listenResizeWindow();
+  // }
 
-  activate_site_comments(site_comment_service:any){
-    setTimeout(() =>{ 
-      site_comment_service.scanMarkdowns();
-      const side_comments = Array.from(document.getElementsByClassName('side_comment') as HTMLCollectionOf<HTMLElement>)
-      side_comments.forEach(item => {
-        item.style.opacity = "1";
-        item.classList.add("fade-in");
-        // console.log("# # # ///////////////////"+item);
-      });
-    }, 1000);
-  }
+  // activate_site_comments(site_comment_service:any){
+  //   setTimeout(() =>{ 
+  //     site_comment_service.scanMarkdowns();
+  //     const side_comments = Array.from(document.getElementsByClassName('side_comment') as HTMLCollectionOf<HTMLElement>)
+  //     side_comments.forEach(item => {
+  //       item.style.opacity = "1";
+  //       item.classList.add("fade-in");
+  //     });
+  //   }, 1000);
+  // }
 
   toggleCuratorialContent(){
     var icon = document.querySelector('.icon');
@@ -82,7 +81,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   callPosition(side_note_ID:any){
     //console.log("side note id: " + side_note_ID);
     //console.log("call the position of the code tag");
-    return this.sideCommentPosition.renderCommentPosition(side_note_ID);
+    // return this.sideCommentPosition.renderCommentPosition(side_note_ID);
   }
     
   ngOnInit() {
