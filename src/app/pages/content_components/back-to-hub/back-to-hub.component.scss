@@ -1,0 +1,18 @@
+.btn-back2hub {
+    z-index: 9999;
+    font-family: '2070';
+    font-weight: 400;
+    font-size: 20px;
+    position: fixed;
+    display: flex;
+    left: var(--margin);
+    float: left;
+    top: 30px;
+    color: black;
+}
+
+.btn-back2hub a {
+    color: black;
+    text-decoration: none;
+    padding: 0px 0px 0px 15px;
+}

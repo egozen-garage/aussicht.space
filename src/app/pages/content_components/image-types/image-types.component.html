@@ -1,0 +1,48 @@
+<!-- COMPONENT > "image-type: fullscreen image" ---------------------------------------------------- -->
+<figure *ngIf=" body.__component === 'image-types.fullscreen-image'">
+    <img class="img" id="fullscreen" src="{{body.image.url}}"> 
+        <figcaption class="img_caption">{{ body.image.caption }}</figcaption>
+</figure>
+
+
+<!-- COMPONENT > "image-type: single image" ---------------------------------------------------- -->
+<div *ngIf=" body.__component === 'image-types.single-image'" 
+class="img-section-grid">
+
+    <figure class="default" *ngIf="body.style !== null "
+    [ngClass]="{
+
+        'align_left'      : body.style.position === 'left',
+        'align_center'    : body.style.position === 'center',
+        'align_right'     : body.style.position === 'right',
+        
+        'padding_off'     : body.style.padding === false,
+        'padding_on'      : body.style.padding === true}">
+
+        <!-- IMAGE / TEXT WIDTH IS DECLARED HERE -->
+        <img class="img" id="single" src="{{body.image.url }}"
+        [ngClass]="{
+            'width_small'     : body.style.width === 'small',
+            'width_medium'    : body.style.width === 'medium',
+            'width_large'     : body.style.width === 'large' }"> 
+
+        <figcaption class="img_caption">{{ body.image.caption }}</figcaption>
+    </figure>
+</div>
+
+
+
+<!-- COMPONENT > "image-type: couple image" ---------------------------------------------------- -->
+<div *ngIf=" body.__component === 'image-types.couple-images'" class="img-section-grid">
+
+    <figure class="img_container" id="c-left">
+        <img src="{{body.image_left.url }}" class="img" id="left">
+        <figcaption class="img_caption">{{ body.image_left.caption }}</figcaption>
+    </figure>
+
+    <figure class="img_container" id="c-right">
+        <img src="{{body.image_right.url }}" class="img" id="right">
+        <figcaption class="img_caption">{{ body.image_right.caption }}</figcaption>
+    </figure>
+    
+</div>

@@ -1,0 +1,45 @@
+// ------ GRID CONFIGURATIONS ------ //
+    .img-section-grid {
+        display: grid;
+        grid-template-columns: 20% 30% 25% 25%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+          "all all all all"
+          "left left right right"
+          ". center center ."
+          ". default default default";
+    }
+
+
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\ images \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+// /////////////////////////// images ///////////////////////////
+
+
+.img_container { width: 100%; }
+#c-left { grid-area: left; }
+#c-right { grid-area: right; }
+
+#fullscreen { width: 100%; }
+.img_caption { font-weight: 300; }
+
+
+
+// ----------------------- cms style classes ----------------------- 
+.width_small{     width: 30% !important;}
+.width_medium{    width: 50% !important;}
+.width_large{     width: 75% !important;}
+
+.align_left{      text-align: left;}
+.align_center{    text-align: center;}
+.align_right{     text-align: right;}
+
+.padding_on {padding: 20px}
+.padding_of {padding: 0px}
+
+.width_small, .width_medium, .width_large, .align_left, .align_center, .align_right{
+  grid-area: all;
+  // width: 100%;
+}
+
+[class="default"] { grid-area: center; width: 100%; padding: 20px 0px 20px 0px;}
+[class="img"] { width: 100%;}

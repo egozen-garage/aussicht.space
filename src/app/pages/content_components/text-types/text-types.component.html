@@ -1,0 +1,222 @@
+<!-- COMPONENT > "intro" ---------------------------------------------------- -->
+<div *ngIf=" body.__component === 'text-types.intro'" 
+class="section-grid">
+    <!-- intro text -->
+    <div class="comp_intro_container">
+        <ng-container class="comp_intro" *ngIf="body.text?.length">
+            {{ body.text }}
+        </ng-container> 
+    </div>
+</div>
+
+
+
+
+<!-- COMPONENT > "subhead" ---------------------------------------------------- -->
+<div *ngIf=" body.__component === 'text-types.subhead'" 
+class="section-grid">
+    <p class="subhead" *ngIf="body.subhead?.length">
+        {{body.subhead}}
+    </p>
+</div>
+
+
+<!-- COMPONENT > "paragraph-plain" ---------------------------------------------------- -->
+<div *ngIf=" body.__component === 'text-types.paragraph-plain'" 
+class="section-grid">
+    <!-- text -->
+    <markdown class="plain_text paragraph-text" *ngIf="body.paragraph?.length">
+        {{ body.paragraph }}
+    </markdown> 
+</div>
+
+
+
+<!-- COMPONENT > "paragraph-with-machine" ---------------------------------------------------- -->
+<div *ngIf=" body.__component === 'text-types.paragraph-with-machine'" 
+class="section-grid">
+    <div class="comp_textblock_machine">
+        <!-- MACHINE-GENERATED content is called out here -->
+        <ng-container *ngIf="body.machine_text !== null">
+            <div class="txt_m_container">
+                <div id="circle1"></div>
+                <span class="comp_m_output">
+                    <span class="comp_m_title" *ngIf="body.seed?.length">
+                        &#123; {{ body.seed}} &#125;
+                    </span>
+                    <span class="comp_m_text" *ngIf="body.output?.length">
+                        &#123; ... &quot;{{ body.output }}&quot; ... &#125;
+                    </span>
+                </span>
+                <span class="comp_m_output ghost">
+                    <div class="comp_m_title" *ngIf="body.seed?.length">
+                        {{ body.seed}}
+                    </div>
+                    <div class="comp_m_text" *ngIf="body.output?.length">
+                        {{ body.output }}
+                    </div>
+                </span>
+            </div>
+        </ng-container>
+        <!-- text -->
+        <div class="comp_textblock_paragraph">
+            <markdown class="paragraph-text" *ngIf="body.paragraph?.length">
+                {{ body.paragraph }}
+            </markdown> 
+        </div>
+    </div>
+</div>
+
+
+
+<!-- COMPONENT > "paragraph-with-relation" ---------------------------------------------------- -->
+<div *ngIf=" body.__component === 'text-types.paragraph-with-relation'" 
+class="section-grid side_comment_container">
+
+    <div class="comp_textblock_relation">
+        <!-- text -->
+        <div class="plain_text CMS_style">
+            <markdown class="plain_text paragraph-text" *ngIf="body.paragraph?.length">
+                {{ body.paragraph }}
+            </markdown> 
+        </div>
+
+        <!-- side comment -->   
+        <div class="side_comments">
+            <!-- PROJECT RELATION is called out here (Type Array)-->
+
+            <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
+            <ng-container *ngFor="let relation_to of body.relation_to, let r = index" >
+
+                <div class="side_comment">
+                    <div class="side_comment_padding relation_container">
+                        <div class="comp_relation">
+
+                            <!-- if PROJECT -->
+                            <div *ngIf="body.relation_to[r].projekt != null" >
+                                <a [routerLink]="['/units/project/' + body.relation_to[r].projekt.id ]">
+                                    <!-- relation: title artist -->
+                                    <div *ngIf="body.relation_to[r].projekt.title?.length" 
+                                    class="relation_title">
+                                        {{ body.relation_to[r].projekt.title}}
+                                        <br>
+                                        {{ body.relation_to[r].projekt.artist}}
+                                    </div>
+                                    <div class="relation_arrow">&#10230;</div>
+
+                                    <!-- relation: title -->
+                                    <div *ngIf="body.relation_to[r].title?.length" class="relation_artistname">
+                                        {{ body.relation_to[r].title }}
+                                    </div>
+                                    <!-- relation: description -->
+                                    <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
+                                        {{ body.relation_to[r].description }}
+                                        <div class="relation_arrow">&#10230;</div>
+                                    </div>
+                                    <!-- relation: image -->
+                                    <div *ngIf="body.relation_to[r].projekt.preview_image != null" >
+                                        <img class="relation_img" src="{{body.relation_to[r].projekt.preview_image.url}}" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- if PERSPECTIVE -->
+                            <div *ngIf=" body.relation_to[r].perspektive != null" >
+                                <a [routerLink]="['/units/perspective/' + body.relation_to[r].perspektive.id ]">
+                                    <!-- relation: title artist -->
+                                    <div *ngIf="body.relation_to[r].perspektive.title?.length" 
+                                    class="relation_title">
+                                        {{ body.relation_to[r].perspektive.title}}
+                                        <br>
+                                        {{ body.relation_to[r].perspektive.author}}
+                                    </div>
+                                    <div class="relation_arrow">&#10230;</div>
+
+                                    <!-- relation: title -->
+                                    <div *ngIf="body.relation_to[r].title?.length" class="relation_artistname">
+                                        {{ body.relation_to[r].title }}
+                                    </div>
+                                    <!-- relation: description -->
+                                    <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
+                                        {{ body.relation_to[r].description }}
+                                        <div class="relation_arrow">&#10230;</div>
+                                    </div>
+                                    <!-- relation: image -->
+                                    <div *ngIf="body.relation_to[r].perspektive.preview_image != null" >
+                                        <img class="relation_img" src="{{body.relation_to[r].perspektive.preview_image.url}}" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- if PODCAST -->
+                            <div *ngIf=" body.relation_to[r].podcast != null" >
+                                <a [routerLink]="['/units/podcast/' + body.relation_to[r].podcast.id ]">
+                                    <!-- relation: title artist -->
+                                    <div *ngIf="body.relation_to[r].podcast.title?.length" 
+                                    class="relation_title">
+                                        {{ body.relation_to[r].podcast.title}}
+                                        <br>
+                                        {{ body.relation_to[r].podcast.speakers}}
+                                    </div>
+                                    <div class="relation_arrow">&#10230;</div>
+
+                                    <!-- relation: title -->
+                                    <div *ngIf="body.relation_to[r].title?.length" class="relation_artistname">
+                                        {{ body.relation_to[r].title }}
+                                    </div>
+                                    <!-- relation: description -->
+                                    <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
+                                        {{ body.relation_to[r].description }}
+                                    </div>
+                                    <!-- relation: image -->
+                                    <div *ngIf="body.relation_to[r].podcast.episode_cover != null">
+                                        <img class="relation_img" src="{{body.relation_to[r].podcast.episode_cover.url}}" alt="">
+                                    </div>                                               
+                                </a>
+                            </div>
+                            <!-- if No PODCAST No PERSPEKTIVE No PROJEKT -->
+                            <!-- ONLY title and description -->
+                            <div *ngIf="    body.relation_to[r].projekt === null 
+                                            && 
+                                            body.relation_to[r].perspektive === null 
+                                            && 
+                                            body.relation_to[r].podcast === null" >
+                                <!-- relation: title -->
+                                <div *ngIf="body.relation_to[r].title?.length" class="relation_artistname">
+                                    {{ body.relation_to[r].title }}
+                                </div>
+                                <!-- relation: description -->
+                                <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
+                                    {{ body.relation_to[r].description }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </ng-container>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- COMPONENT > "paragraph-with-image" ---------------------------------------------------- -->
+<div *ngIf=" body.__component === 'text-types.paragraph-with-image'" 
+class="section-grid">
+    <div class="comp_textblock_machine comp_textblock_image">
+        <!-- call out image -->
+        <img *ngIf="body.image !== null" class="txt_m_container indented_image" src="{{body.image.url}}"> 
+        <!-- call out text -->
+        <div *ngIf="body.paragraph?.length" class="comp_textblock_paragraph">
+            <markdown class="paragraph-text">
+                {{ body.paragraph }}
+            </markdown> 
+        </div>
+    </div>
+
+</div>
+
+
+<!-- COMPONENT > "white-space" ---------------------------------------------------- -->
+<div *ngIf="body.__component === 'text-types.white-space'" 
+[ngStyle]="{'width': '100%', 'height': body.distance_in_pixel + 'px' }">
+</div>
