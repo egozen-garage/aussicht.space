@@ -16,7 +16,7 @@ import { SideCommentPositionService } from '../../services/side-comment-position
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements OnInit, AfterViewInit {
-  projectID : string = "";
+  private projectTitle: string = "";
   project:any;
   folder_name:any;
 
@@ -26,20 +26,20 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
   // @Output() EVENTafterPageLoad = new EventEmitter();
 
-  
+
 
   // key of object within the json file
   key = "name";
   image_size:number = 64;
   image_size_STYLE:number = 64;
-  
+
 
   constructor(
     private projectSvc: ProjectService,
     private route: ActivatedRoute,
     private sideCommentPosition: SideCommentPositionService,
-    
-    ) { 
+
+    ) {
       if (window.innerWidth >= 1024) {
         //this.isMobileResolution = true;
         this.image_size = 128;
@@ -54,13 +54,13 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       }
       // this.EVENTafterPageLoad.emit();
     }
-    
+
   ngAfterViewInit(): void {
     this.activate_site_comments(this.sideCommentPosition);
     this.sideCommentPosition.listenResizeWindow();
   }
   activate_site_comments(site_comment_service:any){
-    setTimeout(() =>{ 
+    setTimeout(() =>{
       site_comment_service.scanMarkdowns();
       const side_comments = Array.from(document.getElementsByClassName('side_comment') as HTMLCollectionOf<HTMLElement>)
       side_comments.forEach(item => {
@@ -80,7 +80,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     //console.log("call the position of the code tag");
     return this.sideCommentPosition.renderCommentPosition(side_note_ID);
   }
-    
+
   ngOnInit() {
     // this.EVENTafterPageLoad.emit();
 
@@ -88,9 +88,35 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     // this.projectSvc.getAllProjects().subscribe((res:any) => {
       //   this.projects = res;
       // });
-      
-      this.route.params.subscribe( p => this.projectID = p['id'] );
-      
+
+    this.route.params.subscribe( p => {
+      this.projectTitle = p['title'];
+      this.projectSvc.getAllProjects().subscribe((allProjects:any[]) => {
+        for (let i=0; i<allProjects.length; i++) {
+          let project = allProjects[i];
+          if (encodeURIComponent(project.title) == this.projectTitle) {
+            this.project = project;
+
+            this.folder_name = this.project.GPT_folder_name;
+            if(this.folder_name){
+              this.single_project_load_gpt_images(this.folder_name)
+            }
+            let current_project = this.project.id;
+            this.previous_project = this.previous_project + current_project;
+            this.next_project = this.next_project + current_project;
+
+            console.log("current project: " + current_project );
+            console.log("previous project: " + this.previous_project );
+            console.log("next project: " + this.next_project );
+            // console.log("amount of projects: " + allProjectsCachedObservable.length);
+
+
+            return console.log("project data array: " + this.project );
+          }
+        }
+      });
+    });
+
       // this.project$ = this.route.paramMap.pipe(
         //   switchMap(params => {
           //     const name = params.get('id');
@@ -98,29 +124,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
           //     return this.projectSvc.getProject(name);
           //   })
           // );
-          
-      this.projectSvc.getProject(this.projectID).subscribe((res:any) => {
-        this.project = res;
-
-        this.folder_name = this.project.GPT_folder_name;
-        if(this.folder_name){
-          this.single_project_load_gpt_images(this.folder_name)
-        }
-        let current_project = this.project.id;
-        this.previous_project = this.previous_project + current_project;
-        this.next_project = this.next_project + current_project;
-
-        console.log("current project: " + current_project );
-        console.log("previous project: " + this.previous_project );
-        console.log("next project: " + this.next_project );
-        // console.log("amount of projects: " + allProjectsCachedObservable.length);
-        
-
-        return console.log("project data array: " + this.project );
-      });
-
-
-      // load gpt images 
+      // load gpt images
       // this.folder_name = "bianchini_beatrice";
 
 
@@ -138,10 +142,10 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   single_project_load_gpt_images(folder_name:string){
 
     console.log("projectpage is loaded: " + folder_name);
-    
-    
+
+
     const maximum = 60;
-    
+
     //let cancelled = false;
     // calculate the amount of images needed to cover the whole name
     // const amount_of_images = Math.round( (artist_name.length + artist_forename.length) / 2);
@@ -150,7 +154,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     const ImageDirectory = ("/assets/imgs/image_gpt/" + folder_name + "/generated/" + this.image_size + "/" + this.image_size + "_" + folder_name + "_");
 
     console.log("image path: " + ImageDirectory);
-    
+
     //create array of image paths
     let ImagePath_array = [];
     for (let i = 0; i < amount_of_images; i++){
@@ -165,10 +169,10 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     // call array of image paths and add an image for each object
     ImagePath_array.forEach(function (file) {
       // 1. Select the div element using the id property
-      const image_gpt_container = document.getElementById("gpt_images");      
+      const image_gpt_container = document.getElementById("gpt_images");
       // 2. Create a new <img> element programmatically
       const img_tag = document.createElement("img");
-      // 3. Add the path to src 
+      // 3. Add the path to src
       img_tag.src = file;
       img_tag.setAttribute("style", "display:none;");
       // img_tag.setAttribute("onerror", "this.onerror=null; this.src='/assets/imgs/image_gpt/image_processing.gif'");
@@ -193,7 +197,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       setTimeout( () => {
         // add: check if mouse hover container --> if yes: add image --> if no: abort
         file.setAttribute('style', 'display:inline-block; padding: 10px; height:' + this.image_size_STYLE + 'px; width: auto;')
-      }, time_until_start + (counter * loading_speed)); 
+      }, time_until_start + (counter * loading_speed));
 
       counter = counter +1;
     });

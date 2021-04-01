@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../services_strapi/project.service';
 import { PerspectiveService } from '../../services_strapi/perspective.service';
 import { ThemeService } from '../../services_strapi/theme.service';
@@ -20,7 +20,7 @@ export class UnitHubComponent implements OnInit {
 
   apiUrl = environment.apiUrl;
 
-  units: any;
+  unitAndEncodedHrefList: any;
 
   projects: any = [];
   projectId: any = [];
@@ -59,7 +59,7 @@ export class UnitHubComponent implements OnInit {
   ngOnInit(): void {
     this.projectSvc.getAllProjects().subscribe((res:any) => {
       this.projectsFromCms = res;
-      this.projects = this.projectsFromCms;      
+      this.projects = this.projectsFromCms;
       this.updateUnits();
       // this.EVENTafterPageLoad.emit();
 
@@ -91,10 +91,15 @@ export class UnitHubComponent implements OnInit {
     if (!this.projectsFromCms || !this.perspectivesFromCms || !this.podcastsFromCms) {
       return;
     }
-    this.units = [ ...this.projectsFromCms, ...this.perspectivesFromCms, ...this.podcastsFromCms ];
+    let orderedUnits = [ ...this.projectsFromCms, ...this.perspectivesFromCms, ...this.podcastsFromCms ];
     let today = new Date();
     let seed = today.getDate() + today.getMonth()*31 + today.getFullYear() * 366;
-    this.units = this.shuffle(this.units, seed);
+    this.unitAndEncodedHrefList = this.shuffle(orderedUnits, seed);
+    this.unitAndEncodedHrefList = this.unitAndEncodedHrefList.map((u: any) => {
+      return {
+        unit: u,
+        titleEncoded: encodeURIComponent(u.title)
+      }});
   }
 
   shuffle(array: any[], seed: number) {                // <-- ADDED ARGUMENT
@@ -141,18 +146,18 @@ export class UnitHubComponent implements OnInit {
     //     return this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === themeOfUnit.theme_name);
     //   });
     // });
-    this.units = this.units.sort((unit1: any, unit2: any) => {
-      let x = unit1.themes.some((themeOfUnit: any) => {
+    this.unitAndEncodedHrefList = this.unitAndEncodedHrefList.sort((unit1: any, unit2: any) => {
+      let x = unit1.unit.themes.some((themeOfUnit: any) => {
         return this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === themeOfUnit.theme_name);
       });
-      let y = unit2.themes.some((themeOfUnit: any) => {
+      let y = unit2.unit.themes.some((themeOfUnit: any) => {
         return this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === themeOfUnit.theme_name);
       });
       return (x === y)? 0 : x? -1 : 1;
       });
 
-    for (let unit of this.units) {
-      for (let theme of unit.themes) {
+    for (let uh of this.unitAndEncodedHrefList) {
+      for (let theme of uh.unit.themes) {
         theme.selected =
           this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === theme.theme_name) && !noThemeSelected;
       }
@@ -210,6 +215,5 @@ export class UnitHubComponent implements OnInit {
     // else {
     //   const selected_theme = document.getElementById("unit-theme-selected-" + theme_id);
     //   selected_theme?.setAttribute("style", "background-color: black; color: white;")
-    // }
-
+  // }
 }

@@ -22,7 +22,7 @@ export class PodcastEpisodesComponent implements OnInit {
   public pause : boolean = false;
 
   apiUrl = environment.apiUrl;
-  podcastID : string = "";
+  podcastTitle: string = "";
   podcast:any;
   subscription: Subscription | undefined;
 
@@ -43,20 +43,25 @@ export class PodcastEpisodesComponent implements OnInit {
       this.pause = !this.play;
     });
 
-    this.route.params.subscribe( p => this.podcastID = p['id'] );
-
-    this.podcastSvc.getPodcastEpisode(this.podcastID).subscribe((res:any) => {
-      this.podcast = res;
-      return console.log("podcast data array: " + this.podcast );
+    this.route.params.subscribe( p => {
+      this.podcastTitle = p['title'];
+      this.podcastSvc.getAllPodcastEpisodes().subscribe((allPodcastEpisodes:any[]) => {
+        for (let i=0; i<allPodcastEpisodes.length; i++) {
+          let podcastEpisode = allPodcastEpisodes[i];
+          if (encodeURIComponent(podcastEpisode.title) == this.podcastTitle) {
+            this.podcast = podcastEpisode;
+            return;
+          }
+        }
+      });
     });
-    
   }
 
   togglePlayPause() {
     if (this.play) {
-      this.currentTrackService.changeTrack("#" + this.podcastID + "_started");
+      this.currentTrackService.changeTrack("#" + this.podcast.id + "_started");
     } else {
-      this.currentTrackService.changeTrack("#" + this.podcastID + "_stopped");
+      this.currentTrackService.changeTrack("#" + this.podcast.id + "_stopped");
     }
   }
 }

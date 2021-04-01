@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class PerspectiveComponent implements OnInit, AfterViewInit {
   apiUrl = environment.apiUrl;
-  perspectiveID : string = "";
+  private perspectiveTitle: string = "";
   perspective:any;
 
   // perspectives: any = [];
@@ -24,7 +24,7 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
     // private router: Router,
     private sideCommentPosition: SideCommentPositionService,
     // private routeReuseStrategy: RouteReuseStrategy,
-    ) { 
+    ) {
       // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
       // this.route.routeReuseStrategy.shouldReuseRoute = function () {
@@ -32,7 +32,7 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
       // };
     }
 
-  
+
 
   ngAfterViewInit(): void {
       this.activate_site_comments(this.sideCommentPosition);
@@ -40,7 +40,7 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
   }
 
   activate_site_comments(site_comment_service:any){
-    setTimeout(() =>{ 
+    setTimeout(() =>{
       site_comment_service.scanMarkdowns();
       const side_comments = Array.from(document.getElementsByClassName('side_comment') as HTMLCollectionOf<HTMLElement>)
       side_comments.forEach(item => {
@@ -52,13 +52,18 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe( p => this.perspectiveID = p['id'] );
-
-    this.perspectiveSvc.getPerspective(this.perspectiveID).subscribe((res:any) => {
-      this.perspective = res;
-      return console.log("perspective data array: " + this.perspective );
+    this.route.params.subscribe( p => {
+      this.perspectiveTitle = p['title'];
+      this.perspectiveSvc.getAllPerspectives().subscribe((allPerspectives:any[]) => {
+        for (let i=0; i<allPerspectives.length; i++) {
+          let perspective = allPerspectives[i];
+          if (encodeURIComponent(perspective.title) == this.perspectiveTitle) {
+            this.perspective = perspective;
+            return;
+          }
+        }
+      });
     });
-
   }
 
 }

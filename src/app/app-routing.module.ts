@@ -13,16 +13,16 @@ import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episo
 
 const routes: Routes = [
   { path: "", component: LandingPageComponent },
-  { path: "units", 
-    component: UnitHubComponent, 
+  { path: "units",
+    component: UnitHubComponent,
     children: [
-      { path: 'project/:id', component: ProjectComponent},
-      { path: 'podcast/:id', component: PodcastEpisodesComponent},
-      { path: 'perspective/:id', component: PerspectiveComponent},
+      { path: 'project/:title', component: ProjectComponent},
+      { path: 'podcast/:title', component: PodcastEpisodesComponent},
+      { path: 'perspective/:title', component: PerspectiveComponent},
     ]
   },
-  { path: "preview", 
-  component: PreviewComponent, 
+  { path: "preview",
+  component: PreviewComponent,
   children: [
     { path: 'project/:id', component: ProjectComponent},
     { path: 'podcast/:id', component: PodcastEpisodesComponent},
@@ -39,11 +39,11 @@ const routes: Routes = [
     anchorScrolling: 'enabled',
     //scrollPositionRestoration: 'enabled',
     onSameUrlNavigation: 'reload',
-    // enableTracing: true, 
+    // enableTracing: true,
     //scrollOffset: [0, 0],
   })],
   exports: [RouterModule],
 })
-export class AppRoutingModule { 
+export class AppRoutingModule {
 
 }

@@ -22,24 +22,24 @@
     <body class="main">
 
         <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
-        <ng-container *ngFor="let body of perspective.body, let i = index" 
-        class="perspective_component perspective_API_content "> 
+        <ng-container *ngFor="let body of perspective.body, let i = index"
+        class="perspective_component perspective_API_content ">
 
             <!-- COMPONENT > "intro" ---------------------------------------------------- -->
-            <div *ngIf=" perspective.body[i].__component === 'text-types.intro'" 
+            <div *ngIf=" perspective.body[i].__component === 'text-types.intro'"
             class="section-grid">
                 <!-- intro text -->
                 <div class="comp_intro_container">
                     <ng-container class="comp_intro" *ngIf="perspective.body[i].text?.length">
                         {{ perspective.body[i].text }}
-                    </ng-container> 
+                    </ng-container>
                 </div>
             </div>
 
 
 
             <!-- COMPONENT > "subhead" ---------------------------------------------------- -->
-            <div *ngIf=" perspective.body[i].__component === 'text-types.subhead'" 
+            <div *ngIf=" perspective.body[i].__component === 'text-types.subhead'"
             class="section-grid">
                 <p class="subhead" *ngIf="perspective.body[i].subhead?.length">
                     {{perspective.body[i].subhead}}
@@ -48,18 +48,18 @@
 
 
             <!-- COMPONENT > "paragraph-plain" ---------------------------------------------------- -->
-            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-plain'" 
+            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-plain'"
             class="section-grid">
                 <!-- text -->
                 <markdown class="plain_text paragraph-text" *ngIf="perspective.body[i].paragraph?.length">
                     {{ perspective.body[i].paragraph }}
-                </markdown> 
+                </markdown>
             </div>
-        
+
 
 
             <!-- COMPONENT > "paragraph-with-machine" ---------------------------------------------------- -->
-            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-machine'" 
+            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-machine'"
             class="section-grid">
                 <div class="comp_textblock_machine">
                     <!-- MACHINE-GENERATED content is called out here -->
@@ -88,7 +88,7 @@
                     <div class="comp_textblock_paragraph">
                         <markdown class="paragraph-text" *ngIf="perspective.body[i].paragraph?.length">
                             {{ perspective.body[i].paragraph }}
-                        </markdown> 
+                        </markdown>
                     </div>
                 </div>
             </div>
@@ -96,14 +96,14 @@
 
 
             <!-- COMPONENT > "paragraph-with-remark" ---------------------------------------------------- -->
-            <!-- <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-remark'" 
+            <!-- <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-remark'"
             class="section-grid side_comment_container">
 
                 <div class="comp_textblock_remark">
                     <div class="plain_text">
                         <markdown  *ngIf="perspective.body[i].paragraph?.length">
                             {{ perspective.body[i].paragraph }}
-                        </markdown> 
+                        </markdown>
                     </div>
                     <div class="side_comments">
                         <div class="side_comment">
@@ -124,7 +124,7 @@
 
 
             <!-- COMPONENT > "paragraph-with-relation" ---------------------------------------------------- -->
-            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-relation'" 
+            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-relation'"
             class="section-grid side_comment_container">
 
                 <div class="comp_textblock_relation">
@@ -132,10 +132,10 @@
                     <div class="plain_text CMS_style">
                         <markdown class="plain_text paragraph-text" *ngIf="perspective.body[i].paragraph?.length">
                             {{ perspective.body[i].paragraph }}
-                        </markdown> 
+                        </markdown>
                     </div>
 
-                    <!-- side comment -->   
+                    <!-- side comment -->
                     <div class="side_comments">
                         <!-- PROJECT RELATION is called out here (Type Array)-->
 
@@ -150,7 +150,7 @@
                                         <div *ngIf="perspective.body[i].relation_to[r].projekt != null" >
                                             <a [routerLink]="['/units/project/' + perspective.body[i].relation_to[r].projekt.id ]">
                                                 <!-- relation: title artist -->
-                                                <div *ngIf="perspective.body[i].relation_to[r].projekt.title?.length" 
+                                                <div *ngIf="perspective.body[i].relation_to[r].projekt.title?.length"
                                                 class="relation_title">
                                                     {{ perspective.body[i].relation_to[r].projekt.title}}
                                                     <br>
@@ -177,7 +177,7 @@
                                         <div *ngIf=" perspective.body[i].relation_to[r].perspektive != null" >
                                             <a [routerLink]="['/units/perspective/' + perspective.body[i].relation_to[r].perspektive.id ]">
                                                 <!-- relation: title artist -->
-                                                <div *ngIf="perspective.body[i].relation_to[r].perspektive.title?.length" 
+                                                <div *ngIf="perspective.body[i].relation_to[r].perspektive.title?.length"
                                                 class="relation_title">
                                                     {{ perspective.body[i].relation_to[r].perspektive.title}}
                                                     <br>
@@ -204,7 +204,7 @@
                                         <div *ngIf=" perspective.body[i].relation_to[r].podcast != null" >
                                             <a [routerLink]="['/units/podcast/' + perspective.body[i].relation_to[r].podcast.id ]">
                                                 <!-- relation: title artist -->
-                                                <div *ngIf="perspective.body[i].relation_to[r].podcast.title?.length" 
+                                                <div *ngIf="perspective.body[i].relation_to[r].podcast.title?.length"
                                                 class="relation_title">
                                                     {{ perspective.body[i].relation_to[r].podcast.title}}
                                                     <br>
@@ -223,15 +223,15 @@
                                                 <!-- relation: image -->
                                                 <div *ngIf="perspective.body[i].relation_to[r].podcast.episode_cover != null">
                                                     <img class="relation_img" src="{{perspective.body[i].relation_to[r].podcast.episode_cover.url}}" alt="">
-                                                </div>                                               
+                                                </div>
                                             </a>
                                         </div>
                                         <!-- if No PODCAST No PERSPEKTIVE No PROJEKT -->
                                         <!-- ONLY title and description -->
-                                        <div *ngIf="    perspective.body[i].relation_to[r].projekt === null 
-                                                        && 
-                                                        perspective.body[i].relation_to[r].perspektive === null 
-                                                        && 
+                                        <div *ngIf="    perspective.body[i].relation_to[r].projekt === null
+                                                        &&
+                                                        perspective.body[i].relation_to[r].perspektive === null
+                                                        &&
                                                         perspective.body[i].relation_to[r].podcast === null" >
                                             <!-- relation: title -->
                                             <div *ngIf="perspective.body[i].relation_to[r].title?.length" class="relation_artistname">
@@ -245,7 +245,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </ng-container>
                     </div>
                 </div>
@@ -255,16 +255,16 @@
 
 
             <!-- COMPONENT > "paragraph-with-image" ---------------------------------------------------- -->
-            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-image'" 
+            <div *ngIf=" perspective.body[i].__component === 'text-types.paragraph-with-image'"
             class="section-grid">
                 <div class="comp_textblock_machine comp_textblock_image">
                     <!-- call out image -->
-                    <img *ngIf="perspective.body[i].image !== null" class="txt_m_container indented_image" src="{{perspective.body[i].image.url}}"> 
+                    <img *ngIf="perspective.body[i].image !== null" class="txt_m_container indented_image" src="{{perspective.body[i].image.url}}">
                     <!-- call out text -->
                     <div *ngIf="perspective.body[i].paragraph?.length" class="comp_textblock_paragraph">
                         <markdown class="paragraph-text">
                             {{ perspective.body[i].paragraph }}
-                        </markdown> 
+                        </markdown>
                     </div>
                 </div>
 
@@ -274,13 +274,13 @@
 
             <!-- COMPONENT > "image-type: fullscreen image" ---------------------------------------------------- -->
             <figure *ngIf=" perspective.body[i].__component === 'image-types.fullscreen-image'">
-                <img class="img" id="fullscreen" src="{{perspective.body[i].image.url}}"> 
+                <img class="img" id="fullscreen" src="{{perspective.body[i].image.url}}">
                     <figcaption class="img_caption">{{ perspective.body[i].image.caption }}</figcaption>
             </figure>
-            
+
 
             <!-- COMPONENT > "image-type: single image" ---------------------------------------------------- -->
-            <div *ngIf=" perspective.body[i].__component === 'image-types.single-image'" 
+            <div *ngIf=" perspective.body[i].__component === 'image-types.single-image'"
             class="img-section-grid">
 
                 <figure class="default" *ngIf="perspective.body[i].style !== null "
@@ -289,7 +289,7 @@
                     'align_left'      : perspective.body[i].style.position === 'left',
                     'align_center'    : perspective.body[i].style.position === 'center',
                     'align_right'     : perspective.body[i].style.position === 'right',
-                    
+
                     'padding_off'     : perspective.body[i].style.padding === false,
                     'padding_on'      : perspective.body[i].style.padding === true}">
 
@@ -298,7 +298,7 @@
                     [ngClass]="{
                         'width_small'     : perspective.body[i].style.width === 'small',
                         'width_medium'    : perspective.body[i].style.width === 'medium',
-                        'width_large'     : perspective.body[i].style.width === 'large' }"> 
+                        'width_large'     : perspective.body[i].style.width === 'large' }">
 
                     <figcaption class="img_caption">{{ perspective.body[i].image.caption }}</figcaption>
                 </figure>
@@ -318,16 +318,16 @@
                     <img src="{{perspective.body[i].image_right.url }}" class="img" id="right">
                     <figcaption class="img_caption">{{ perspective.body[i].image_right.caption }}</figcaption>
                 </figure>
-                
+
             </div>
 
 
             <!-- COMPONENT > "white-space" ---------------------------------------------------- -->
-            <div *ngIf="perspective.body[i].__component === 'text-types.white-space'" 
+            <div *ngIf="perspective.body[i].__component === 'text-types.white-space'"
             [ngStyle]="{'width': '100%', 'height': perspective.body[i].distance_in_pixel + 'px' }">
             </div>
 
-            
+
 
 
         </ng-container>
