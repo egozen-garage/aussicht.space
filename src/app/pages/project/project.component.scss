@@ -415,13 +415,17 @@ span#project_title {
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\ CURATORIAL TEXT \\\\\\\\\\\\\\\\\\\\\\\\\\\
 // /////////////////////////// CURATORIAL TEXT ///////////////////////////
 
-
 input[type='checkbox'] { display: none; }
 
-.collapsible-button {
+label.collapsible-button {
   font-family: var(--font-family-primary);
-  font-weight: 500;
-  font-size: 1.2em;
+  font-size: var(--font-size-secondary);
+  font-weight: 400;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  margin: 20px var(--margin) -10px var(--margin);
+  vertical-align: bottom;
 }
 
 .content span {
@@ -430,20 +434,35 @@ input[type='checkbox'] { display: none; }
   margin: 0px;
 }
 
-label.collapsible-button {
-  cursor: pointer;
+.curatorial-content {
+  max-height: 0em;
+  overflow: hidden;
+  transition: max-height .6s ease-in-out;
+  background-color: black;
+  color: white;
 }
 
-.curatorial-content {
-  padding: 0px 0px 0px 104px;
-  line-height: 1;
-  max-height: 0px;
-  overflow: hidden;
-  transition: max-height .5s ease-in-out;
-}
+  .curatorial-content-wrapper {
+    margin: 20px var(--margin);
+  }
+
+    #curatorial-intro {
+      font-family: var(--font-family-primary);
+      font-size: var(--font-size-primary-s);
+      font-weight: 300;
+      line-height: 1.2;
+      // padding: 20px var(--margin);
+    }
+
+    #curatorial-description {
+      font-family: var(--font-family-secondary);
+      font-size: var(--font-size-primary-s);
+      font-weight: 300;
+      line-height: 1.2;
+    }
 
 #event:checked + .collapsible-button + .curatorial-content { 
-  max-height: 600px; 
+  max-height: 100em; 
 }
 
 .icon {
@@ -457,10 +476,10 @@ label.collapsible-button {
     content: "";
     position: absolute;
     top: 50%;
-    right: -33px;
+    right: -50px;
     background-color: black;
-    width: 20px;
-    height: 2px;
+    width: 32px;
+    height: 6px;
     transition: .4s ease;
   }
   
@@ -507,7 +526,7 @@ color: black;
   // grid-column: 1 / span 1;
   font-family: var(--font-family-primary);
   font-weight: 400;
-  font-size: 75px;
+  font-size: var(--font-size-secondary);
   line-height: 0.9em;
 }
 .recommendation_info{
@@ -541,7 +560,7 @@ li{
   .recommendation_intro{
     grid-area: intro;
     margin-bottom: 20px;
-    font-size: 30px;
+    // font-size: 30px;
   }
   .recommendation_info{
     grid-area: info;
