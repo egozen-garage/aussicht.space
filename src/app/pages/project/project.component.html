@@ -28,6 +28,7 @@
             <div *ngIf=" project.body[i].__component === 'project-related-info.title'" 
             class="project-body-container">
                 <span class="default-project-info" id="project_title" *ngIf="project.body[i].style !== null " 
+                [ngStyle]="{'color': project.body[i].style.hex_color_code }"
                 [ngClass]="{
                     'width_small'     : project.body[i].style.width === 'small',
                     'width_medium'    : project.body[i].style.width === 'medium',
@@ -39,7 +40,7 @@
                     
                     'padding_off'     : project.body[i].style.padding === false,
                     'padding_on'      : project.body[i].style.padding === true}">
-                <!-- [ngStyle]="{'color': project.body[i].style.hex_color_code === true }" -->
+            
                     {{project.body[i].title}}    
                 </span>
             </div>
@@ -47,7 +48,8 @@
             <!-- COMPONENT > "project-related-info.name" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'project-related-info.name'" 
             class="project-body-container">
-                <span class="default-project-info" id="project_name" *ngIf="project.body[i].style !== null"
+                <span class="default-project-info" id="project_artist" *ngIf="project.body[i].style !== null"
+                [ngStyle]="{'color': project.body[i].style.hex_color_code }"
                 [ngClass]="{
                     'width_small'     : project.body[i].style.width === 'small',
                     'width_medium'    : project.body[i].style.width === 'medium',
