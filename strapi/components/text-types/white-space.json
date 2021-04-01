@@ -2,14 +2,15 @@
   "collectionName": "components_text_types_white_spaces",
   "info": {
     "name": "white_space",
-    "icon": "arrows-alt-v"
+    "icon": "arrows-alt-v",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "distance_in_pixel": {
       "type": "string",
       "private": false,
-      "default": "200"
+      "default": "200px"
     }
   }
 }
