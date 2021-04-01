@@ -24,6 +24,7 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   toggleOpen = false;
   message:string | undefined;
   subscription: Subscription | undefined;
+  private streamIsSubscribed: boolean = false;
 
   constructor(
     public cloudService: CloudService,
@@ -135,10 +136,13 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   pass_raw_name:any;
   public ngOnInit() {
     this.subscription = this.currentTrackService.currentFileAndIndex.subscribe((message: string) => {
+      if (message == '') {
+        return; // Ignore empty initial message
+      }
       let parts = message.split("_");
       let action = parts[1];
       if (action == "stopped") {
-        this.stop();
+        this.pause();
         return;
       }
       let podcastId = parts[0];
@@ -146,7 +150,7 @@ export class PlayerComponent implements OnInit, AfterViewInit{
       let currentFile;
       let currentIndex;
       for(let i=0; i<this.files.length; i++) {
-        if (this.files[i].podcastId == ("#" + podcastId)) {
+        if (this.files[i].podcastId == podcastId) {
           currentFile = this.files[i];
           currentIndex = i;
         }
@@ -173,12 +177,20 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     });
   }
 
-  openFile(file:any, index: any) {
-    if (!file || !index) {
+  openFileByUpdatingService(file: any, index: any) {
+    this.currentTrackService.changeTrack(file.podcastId + "_started");
+  }
+
+  private openFile(file:any, index: any) {
+    if (!file) {
       return;
     }
     this.currentFile = { index, file };
     this.audioService.stop();
+    if (!this.streamIsSubscribed) {
+      this.audioService.playStream(file).subscribe(events => { });
+      this.streamIsSubscribed = true;
+    }
     this.playStream(file.url);
 
     this.pass_episode = file.episode;
@@ -192,17 +204,15 @@ export class PlayerComponent implements OnInit, AfterViewInit{
 
   playpause(){
     if(this.state?.playing == true){
-      this.audioService.pause();
+      this.currentTrackService.changeTrack(this.currentFile.file.podcastId + "_stopped");
     }else{
       if ( this.audioService.audioObj.src == ""){
-        let file = this.files[0].url;
+        let file = this.files[0];
         let index = 0;
         this.currentFile = { index, file };
         this.audioService.stop();
-        this.audioService.playStream(file).subscribe(events => { });
-      } else {
-        this.audioService.play();
       }
+      this.currentTrackService.changeTrack(this.currentFile.file.podcastId + "_started");
     }
 
   }
@@ -231,13 +241,13 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   next() {
     const index = this.currentFile.index + 1;
     const file = this.files[index];
-    this.openFile(file, index);
+    this.openFileByUpdatingService(file, index);
   }
 
   previous() {
     const index = this.currentFile.index - 1;
     const file = this.files[index];
-    this.openFile(file, index);
+    this.openFileByUpdatingService(file, index);
   }
 
   isFirstPlaying() {

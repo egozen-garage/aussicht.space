@@ -8,6 +8,7 @@ import { CloudService } from "../../services/cloud.service";
 import { StreamState } from "../../interfaces/stream-state";
 import * as xml2js from 'xml2js';
 import { CurrentTrackService } from 'src/app/services/current-track.service';
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'app-podcast-episodes',
@@ -23,6 +24,7 @@ export class PodcastEpisodesComponent implements OnInit {
   apiUrl = environment.apiUrl;
   podcastID : string = "";
   podcast:any;
+  subscription: Subscription | undefined;
 
   constructor(
     private podcastSvc: PodcastepisodesService,
@@ -31,6 +33,15 @@ export class PodcastEpisodesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.subscription = this.currentTrackService.currentFileAndIndex.subscribe((message: string) => {
+      if (message == '') {
+        return; // Ignore empty initial message
+      }
+      let parts = message.split("_");
+      let action = parts[1];
+      this.play = (action == "stopped");
+      this.pause = !this.play;
+    });
 
     this.route.params.subscribe( p => this.podcastID = p['id'] );
 
@@ -42,12 +53,10 @@ export class PodcastEpisodesComponent implements OnInit {
   }
 
   togglePlayPause() {
-    this.play = !this.play;
-    this.pause = !this.pause;
     if (this.play) {
-      this.currentTrackService.changeTrack(this.podcastID + "_stopped");
+      this.currentTrackService.changeTrack("#" + this.podcastID + "_started");
     } else {
-      this.currentTrackService.changeTrack(this.podcastID + "_started");
+      this.currentTrackService.changeTrack("#" + this.podcastID + "_stopped");
     }
   }
 }
