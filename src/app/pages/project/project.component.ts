@@ -172,7 +172,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       img_tag.src = file;
       img_tag.setAttribute("style", "display:none;");
       // img_tag.setAttribute("onerror", "this.onerror=null; this.src='/assets/imgs/image_gpt/image_processing.gif'");
-      img_tag.setAttribute("onerror", "this.onerror=null; this.src='/assets/imgs/image_gpt/white.png'");
+      img_tag.setAttribute("onerror", "this.onerror=null; this.src='/assets/imgs/image_gpt/empty.png'");
       // 4. Append the img element to the div element
       // image_gpt_container?.insertBefore(img_tag, image_gpt_container.childNodes[0]);
       image_gpt_container?.append(img_tag);

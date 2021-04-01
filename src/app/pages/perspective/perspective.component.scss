@@ -97,7 +97,14 @@
           ". default default default";
     }
 
-    // ------ COMPOSITION CONFIGURATIONS ------ //
+
+
+// ------ COMPOSITION CONFIGURATIONS ------ //
+
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\ text types \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+// /////////////////////////// text types ///////////////////////////
+
+// COMPONENT > "intro" ---------------------------------------------------- 
         .comp_intro_container {
             font-family: var(--font-family-primary);
             font-weight: 300;
@@ -108,175 +115,197 @@
             display: block;
             position: relative;
         }
-
         .comp_intro {
             position: absolute;
         }
-
-        .comp_subhead {
-            font-family: var(--font-family-primary);
-            font-size: 20px;
-            grid-area: subhead;
-            display: block;
-            padding: 80px 0px 10px 0px;
-        }
+        // .comp_subhead {
+        //     font-family: var(--font-family-primary);
+        //     font-size: 20px;
+        //     grid-area: subhead;
+        //     display: block;
+        //     padding: 80px 0px 10px 0px;
+        // }
 
         // configure global textblock format here //
-        .comp_textblock_machine, .comp_textblock_remark, .comp_textblock_relation {
-            padding: 0px 0px 0px 0px;
+        // .comp_textblock_machine, .comp_textblock_remark, .comp_textblock_relation {
+            // padding: 0px 0px 0px 0px;
             // font-family: var(--font-family-secondary);
             // font-size: 24px;
             // line-height: 1.1;
-        }
+        // }
 
-        .comp_textblock {
-            grid-area: text;
-            font-family: var(--font-family-secondary);
-            font-size: 20px;
-        }
+        // .comp_textblock {
+        //     grid-area: text;
+        //     font-family: var(--font-family-secondary);
+        //     font-size: 20px;
+        // }
 
-        .comp_textblock_paragraph {
+// COMPONENT > "paragraph-with-machine" ---------------------------------------------------- 
+// COMPONENT > "paragraph-with-image" ---------------------------------------------------- 
+    .comp_textblock_paragraph {
+        width: 60%;
+        margin: 0px 0px 0px 0px;
+    }
+// COMPONENT > "paragraph-with-image" ---------------------------------------------------- 
+    .comp_textblock_image { 
+        grid-area: t_machine; 
+    }
+    .indented_image{
+        box-sizing: border-box;
+        margin-right: 22%;
+        padding: 20px 0px 20px 40px;
+        width: 40%;
+    }
+
+// COMPONENT > "paragraph-with-machine" ---------------------------------------------------- 
+    // MACHINE GENERATED CSS ATTRIBUTES//
+    .comp_textblock_machine {
+        grid-area: t_machine;
+        padding: 0px 0px 0px 0px;
+    }
+        .txt_m_container{
+            float: right;
+            height: auto;
             width: 60%;
-            margin: 0px 0px 0px 0px;
+            // margin: 5px 0px 0px 0px;
+            // border: 1px solid black;
+            position: relative;
         }
+        .remark_container, .relation_container {
+            float: right;
+            height: auto;
+            width: 100%;
+            // top: 100px;
+            // margin: 5px 0px 200px 0px;
+            /* border: 1px solid black; */
+            // position: absolute;
+            padding: 0px 100px 0px 20px;
 
-        // MACHINE GENERATED CSS ATTRIBUTES//
-        .comp_textblock_machine {
-            grid-area: t_machine;
         }
-
-            .txt_m_container{
-                float: right;
+            .comp_m_output {
+                // top: 30px;
                 height: auto;
-                width: 60%;
-                // margin: 5px 0px 0px 0px;
-                // border: 1px solid black;
-                position: relative;
-            }
-            .remark_container, .relation_container {
-                float: right;
-                height: auto;
-                width: 100%;
-                // top: 100px;
-                // margin: 5px 0px 200px 0px;
-                /* border: 1px solid black; */
                 position: absolute;
-                padding: 0px 100px 0px 20px;
-
-            }
-              
-                .comp_m_output {
-                    // top: 30px;
-                    height: auto;
-                    position: absolute;
-                    width: 90%;
-                    padding: 15px 0px 0px 45px;
-                    font-family: var(--font-family-primary);
-                    font-weight: 300;
-                    font-size: 20px;
-                    line-height: 1.2;
-                }
-
-                .comp_m_title {
-                    padding-left: 20px;
-                    text-indent: -30px;
-                    margin-left: -50px;
-                    width: 100%;
-                    z-index: 100;
-                    font-weight: 300;
-                    font-size: 1rem;
-                }
-
-                .comp_m_text{
-                    text-indent: 170px;
-                    padding: 0px 0px 60px 20px;
-                    // line-height: 1.2;
-                }
-
-                #circle1 {
-                    height: 500px;
-                    width: 600px;
-                    top: -70px;
-                    left: 100px;
-                    background: linear-gradient(156deg, rgba(255,132,154,1) 0%, rgba(243,243,239,0.8) 100%);
-                    border-radius: 40%;
-                    position: absolute;
-                    filter: blur(1.5rem);
-                    z-index: 0;
-                }
-
-                .ghost {
-                    visibility: hidden;
-                    top: 0;
-                    left: 0;
-                    position: relative;
-                }
-
-        // REMARK CSS ATTRIBUTES //
-        .comp_textblock_remark {
-            grid-area: remark;
-            display: inline-flex;
-        }
-
-        .comp_textblock_remark .comp_textblock_paragraph { width: 60%; }
-
-            .comp_remark, .comp_relation {
-                // width: 70%;
-                // color: #031DFF;
-                // font-size: 1.5rem;
-                position: relative;
-                float:left;
-            }
-
-            .c_r_text, .relation_artistname, .c_r_title, .relation_title {
-                // padding: 0px 0px 40px 50px;
-                color: #031DFF;
+                width: 90%;
+                padding: 15px 0px 0px 45px;
                 font-family: var(--font-family-primary);
-                font-size: 1.75rem;
                 font-weight: 300;
-                line-height: 1.25;
+                font-size: 20px;
+                line-height: 1.2;
+            }
+            .comp_m_title {
+                padding-left: 20px;
+                text-indent: -30px;
+                margin-left: -50px;
+                width: 100%;
+                z-index: 100;
+                font-weight: 300;
+                font-size: 1rem;
+            }
+            .comp_m_text{
+                text-indent: 170px;
+                padding: 0px 0px 60px 20px;
+                // line-height: 1.2;
+            }
+            #circle1 {
+                height: 500px;
+                width: 600px;
+                top: -70px;
+                left: 100px;
+                background: linear-gradient(156deg, rgba(255,132,154,1) 0%, rgba(243,243,239,0.8) 100%);
+                border-radius: 40%;
+                position: absolute;
+                filter: blur(1.5rem);
+                z-index: 0;
+            }
+            .ghost {
+                visibility: hidden;
+                top: 0;
+                left: 0;
+                position: relative;
             }
 
-        // RELATION CSS ATTRIBUTES //
-        .comp_textblock_relation {  
-            grid-area: relation;
-            padding: 0px 0px 0px 0px;
-            display: inline-flex;
 
-        }
+// COMPONENT > "subhead" ---------------------------------------------------- 
+    .subhead{
+        grid-area: subhead;
+        padding: 20px 0px 20px 0px;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 1.3;
+    }
 
-            .relation_img {
-                max-width: 300px;
-                padding: 0px 0px 30px 0px;
-            }
-
-.project-related { grid-area: sidebar; }
-
-.side_comments{ width: 40%; }
-.side_comment { opacity: 0; }
-.side_comment_padding{ padding-bottom: 50px; }
-
-.fade {
-    opacity: 1;
-    transition: opacity .25s ease-in-out;
-    -moz-transition: opacity .25s ease-in-out;
-    -webkit-transition: opacity .25s ease-in-out;
+// COMPONENT > "paragraph-plain" ----------------------------------------------------
+    .plain_text{ 
+        grid-area: text; 
+        width: 60%; 
     }
 
 
-// -------------------------------
-.subhead { grid-area: subhead;}
-.plain_text{ grid-area: text; width: 60%; }
-.comp_textblock_image { grid-area: t_machine; }
 
 
-// ---------------- images ----------------
-.indented_image{
-    box-sizing: border-box;
-    margin-right: 22%;
-    padding: 20px 0px 20px 40px;
-    width: 40%;
-}
+
+// COMPONENT > "text-remark" ----------------------------------------------------
+// .comp_textblock_remark {
+//     grid-area: remark;
+//     display: inline-flex;
+// }
+// .comp_remark {
+//     position: relative;
+//     float:left;
+// }
+// .comp_textblock_remark .comp_textblock_paragraph { width: 60%; }
+
+
+// COMPONENT > "text-relation" ----------------------------------------------------
+    .comp_relation {
+        // width: 70%;
+        // color: #031DFF;
+        // font-size: 1.5rem;
+        position: relative;
+        float:left;
+    }
+    .c_r_text, .relation_artistname, .c_r_title, .relation_title {
+        // padding: 0px 0px 40px 50px;
+        color: #031DFF;
+        font-family: var(--font-family-primary);
+        font-size: 1.75rem;
+        font-weight: 300;
+        line-height: 1.25;
+    }
+    .comp_textblock_relation {  
+        grid-area: relation;
+        padding: 0px 0px 0px 0px;
+        display: inline-flex;
+    }
+    .relation_img {
+        max-width: 300px;
+        padding: 0px 0px 30px 0px;
+    }
+
+    .project-related { grid-area: sidebar; }
+
+    .side_comments{ width: 40%; }
+    .side_comment { opacity: 0; }
+    .side_comment_padding{ padding-bottom: 50px; }
+
+    .fade {
+        opacity: 1;
+        transition: opacity .25s ease-in-out;
+        -moz-transition: opacity .25s ease-in-out;
+        -webkit-transition: opacity .25s ease-in-out;
+    }
+
+
+
+
+
+
+
+
+
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\ images \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+// /////////////////////////// images ///////////////////////////
 
 
 .img_container { width: 100%; }
@@ -303,11 +332,4 @@
 
 .width_small, .width_medium, .width_large, .align_left, .align_center, .align_right { grid-area: all; }
 
-// ---------------- subhead ----------------
-
-.subhead{
-    padding: 20px 0px 20px 0px;
-    font-weight: 500;
-
-}
 

@@ -1,22 +1,22 @@
 // ------ back button ------- //
-.btn-back2hub {
-  z-index: 9999;
-  font-family: '2070';
-  font-weight: 400;
-  font-size: 20px;
-  position: fixed;
-  display: flex;
-  left: var(--margin);
-  float: left;
-  top: 30px;
-  color: black;
-}
+// .btn-back2hub {
+//   z-index: 9999;
+//   font-family: '2070';
+//   font-weight: 400;
+//   font-size: 20px;
+//   position: fixed;
+//   display: flex;
+//   left: var(--margin);
+//   float: left;
+//   top: 30px;
+//   color: black;
+// }
 
-.btn-back2hub a {
-  color: black;
-  text-decoration: none;
-  padding: 0px 0px 0px 15px;
-}
+// .btn-back2hub a {
+//   color: black;
+//   text-decoration: none;
+//   padding: 0px 0px 0px 15px;
+// }
 
 // ------ themes ------ //
 
@@ -89,54 +89,61 @@
 
 
 // ---------- side comments ------------
-.markdown_container{
-  position: relative;
-}
-.side_comments{
-  grid-area: sidebar;
-  grid-row: 1;
-  background-color: chartreuse;
-  width: 30vw;
-  height: auto;
-}
-.side_comments div{
-  background-color: chocolate;
-  width: 30vw;
-}
-.side_comment{
-  opacity: 0;
-  align-self: start;
-  position: relative;
-  background-color: aqua;
-}
+// .markdown_container{
+//   position: relative;
+// }
+// .side_comments{
+//   grid-area: sidebar;
+//   grid-row: 1;
+//   background-color: chartreuse;
+//   width: 30vw;
+//   height: auto;
+// }
+// .side_comments div{
+//   background-color: chocolate;
+//   width: 30vw;
+// }
+// .side_comment{
+//   opacity: 0;
+//   align-self: start;
+//   position: relative;
+//   background-color: aqua;
+// }
 
-.fade-in {
-  animation: fadeIn ease 2s;
-  -webkit-animation: fadeIn ease 2s;
-  -moz-animation: fadeIn ease 2s;
-  -o-animation: fadeIn ease 2s;
-  -ms-animation: fadeIn ease 2s;
+// .fade-in {
+//   animation: fadeIn ease 2s;
+//   -webkit-animation: fadeIn ease 2s;
+//   -moz-animation: fadeIn ease 2s;
+//   -o-animation: fadeIn ease 2s;
+//   -ms-animation: fadeIn ease 2s;
+// }
+
+
+
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
+// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
+
+::ng-deep .paragraph-text p {
+  font-size: 25px;
+  line-height: 1.3;
 }
-
-
-
-// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
-// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
-// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
-// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
-// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
-// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
-// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
-// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
-// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
-// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
-// NEW new NEW new NEW new NEW new NEW new NEW new NEW new NEW
-// new NEW new NEW new NEW new NEW new NEW new NEW new NEW new
 
 .project-page {
   margin: 0px;
   background-color: white;
   color: var(--color-black);
+
+  // padding: 90px 0px 100px 0px;
 }
 
 // ----------------------- Unit Hub Button ----------------------- 
@@ -158,8 +165,9 @@
   padding: 0px 0px 0px 15px;
 }
 
-// ------ BODY ------- //
-// ------ BODY ------- //
+
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\ BODY \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+// /////////////////////////// BODY /////////////////////////// 
 // ----------------------- GRID CONFIGURATIONS ----------------------- 
 
 .project-body-container {
@@ -181,7 +189,16 @@
       " left left right right"
       " next next next next "
       ". default default default";
-  
+}
+.img-section-grid {
+  display: grid;
+  grid-template-columns: 20% 30% 25% 25%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "all all all all"
+    "left left right right"
+    ". center center ."
+    ". default default default";
 }
 
 // ----------------------- cms style classes ----------------------- 
@@ -213,6 +230,186 @@
 
 
 
+
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\ text types \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+// /////////////////////////// text types /////////////////////////// 
+// ------ GRID CONFIGURATIONS ------ //
+.section-grid {
+  display: grid;
+  grid-template-columns: 20% 40% 20% 20%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+      ". intro intro intro"
+      ". subhead subhead ."
+      ". text text text"
+      ". t_machine t_machine t_machine"
+      ". . . t_m_background"
+      ". remark remark remark"
+      ". relation relation relation";
+}
+
+
+// COMPONENT > "free_text" ---------------------------------------------------- 
+.free_text { width: 100%; }
+.width_small, .width_medium, .width_large, .align_left, .align_center, .align_right { grid-area: all; }
+
+
+
+// COMPONENT > "intro" ---------------------------------------------------- 
+    .comp_intro_container {
+      font-family: var(--font-family-primary);
+      font-weight: 300;
+      font-size: var(--font-size-primary-s);
+      line-height: 1;
+      padding: 20px calc(var(--margin) + 50px) 40px 0px;
+      grid-area: intro;
+      display: block;
+      position: relative;
+    }
+    .comp_intro {
+      position: absolute;
+    }
+
+
+// COMPONENT > "subhead" ---------------------------------------------------- 
+    .subhead{
+      grid-area: subhead;
+      padding: 20px 0px 20px 0px;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 1.3;
+    }
+
+// COMPONENT > "paragraph-plain" ----------------------------------------------------
+    .plain_text{ grid-area: text; width: 60%; }
+
+
+// COMPONENT > "paragraph-with-machine" ---------------------------------------------------- 
+// COMPONENT > "paragraph-with-image" ---------------------------------------------------- 
+    .comp_textblock_paragraph {
+      width: 60%;
+      margin: 0px 0px 0px 0px;
+    }
+// COMPONENT > "paragraph-with-image" ---------------------------------------------------- 
+    .comp_textblock_image { 
+      grid-area: t_machine; 
+    }
+    .indented_image{
+      box-sizing: border-box;
+      margin-right: 22%;
+      padding: 20px 0px 20px 40px;
+      width: 40%;
+    }
+
+// COMPONENT > "paragraph-with-machine" ---------------------------------------------------- 
+// MACHINE GENERATED CSS ATTRIBUTES//
+      .comp_textblock_machine {
+          grid-area: t_machine;
+          padding: 0px 0px 0px 0px;
+      }
+          .txt_m_container{
+              float: right;
+              height: auto;
+              width: 60%;
+              // margin: 5px 0px 0px 0px;
+              // border: 1px solid black;
+              position: relative;
+          }
+          .remark_container, .relation_container {
+              float: right;
+              height: auto;
+              width: 100%;
+              // top: 100px;
+              // margin: 5px 0px 200px 0px;
+              /* border: 1px solid black; */
+              // position: absolute;
+              padding: 0px 100px 0px 20px;
+
+          }
+              .comp_m_output {
+                  // top: 30px;
+                  height: auto;
+                  position: absolute;
+                  width: 90%;
+                  padding: 15px 0px 0px 45px;
+                  font-family: var(--font-family-primary);
+                  font-weight: 300;
+                  font-size: 20px;
+                  line-height: 1.2;
+              }
+              .comp_m_title {
+                  padding-left: 20px;
+                  text-indent: -30px;
+                  margin-left: -50px;
+                  width: 100%;
+                  z-index: 100;
+                  font-weight: 300;
+                  font-size: 1rem;
+              }
+              .comp_m_text{
+                  text-indent: 170px;
+                  padding: 0px 0px 60px 20px;
+                  // line-height: 1.2;
+              }
+              #circle1 {
+                  height: 500px;
+                  width: 600px;
+                  top: -70px;
+                  left: 100px;
+                  background: linear-gradient(156deg, rgba(255,132,154,1) 0%, rgba(243,243,239,0.8) 100%);
+                  border-radius: 40%;
+                  position: absolute;
+                  filter: blur(1.5rem);
+                  z-index: 0;
+              }
+              .ghost {
+                  visibility: hidden;
+                  top: 0;
+                  left: 0;
+                  position: relative;
+              }
+
+
+// COMPONENT > "text-relation" ----------------------------------------------------
+    .comp_relation {
+      // width: 70%;
+      // color: #031DFF;
+      // font-size: 1.5rem;
+      position: relative;
+      float:left;
+    }
+    .c_r_text, .relation_artistname, .c_r_title, .relation_title {
+      // padding: 0px 0px 40px 50px;
+      color: #031DFF;
+      font-family: var(--font-family-primary);
+      font-size: 1.75rem;
+      font-weight: 300;
+      line-height: 1.25;
+    }
+    .comp_textblock_relation {  
+      grid-area: relation;
+      padding: 0px 0px 0px 0px;
+      display: inline-flex;
+    }
+    .relation_img {
+      max-width: 300px;
+      padding: 0px 0px 30px 0px;
+    }
+
+    .project-related { grid-area: sidebar; }
+
+    .side_comments{ width: 40%; }
+    .side_comment { opacity: 0; }
+    .side_comment_padding{ padding-bottom: 50px; }
+
+    .fade {
+      opacity: 1;
+      transition: opacity .25s ease-in-out;
+      -moz-transition: opacity .25s ease-in-out;
+      -webkit-transition: opacity .25s ease-in-out;
+    }
+
+
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\ transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 // /////////////////////////// transfer from perspective /////////////////////////// 
 
@@ -233,7 +430,9 @@
   grid-template-rows: auto;
   grid-template-areas: 
       "left right"
-      "next next";
+      "next next"
+      "intro intro"
+      "info info";
 }
 
 // ----------------------- recommendations -----------------------
@@ -280,43 +479,28 @@ li{
 }
 @media (max-width: 48em) {
 
-  .project_additional_link {
-    grid-template-columns: 100%;
-    grid-template-areas: 
-      "hundert";
-  }
+  // .project_additional_link {
+  //   grid-template-columns: 100%;
+  //   grid-template-areas: 
+  //     "hundert";
+  // }
   .recommendation{
-    // grid-area: all;
-    // display: inline-block;
   }
   .recommendation_intro{
-    grid-area: hundert;
-    font-size: 50px;
-
-    
-    // width: 100%;
+    grid-area: intro;
+    margin-bottom: 20px;
+    font-size: 30px;
   }
   .recommendation_info{
-    grid-area: hundert;
-    // grid-area: left;
-    // width: 100%;
-    // background-color: cadetblue;
+    grid-area: info;
   }
 }
 @media (min-width: 48em) {
   .recommendation{
-    // grid-area: all;
-    // display: flex;
-    // height: 500px;
   }
   .recommendation_intro{
-    // grid-area: right;
-    // width: 50%;
   }
   .recommendation_info{
-    // grid-area: left;
-    // width: 50%;
-
   }
 }
 
@@ -347,11 +531,23 @@ li{
   text-align: right;
 }
 
+
+
+
+
+
+
 @media (max-width: 48em) {
   .next_project{
-    font-size: 1.5rem;
-    margin: 15px;
+    font-size: 1rem;
+    // margin: 15px;
     margin-bottom: 0;
-
+  }
+  .btn-back2hub{
+    font-size: 1em; 
+    // left: 15px;
+  }
+  .recommendation{
+    margin: 15px;
   }
 }
