@@ -10,7 +10,7 @@
     </button>
 
     <!-- themes -->
-    <header class="project-body-container">
+    <header class="header-grid">
         <div *ngIf="project" class="project-theme-container">
             <div *ngFor="let t of project.themes" class="themes">{{t.theme_name}}</div>
         </div>
@@ -26,7 +26,7 @@
 
             <!-- COMPONENT > "project-related-info.title" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'project-related-info.title'" 
-            class="project-body-container">
+            class="header-grid">
                 <span class="default-project-info" id="project_title" *ngIf="project.body[i].style !== null " 
                 [ngStyle]="{'color': project.body[i].style.hex_color_code }"
                 [ngClass]="{
@@ -47,7 +47,7 @@
 
             <!-- COMPONENT > "project-related-info.name" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'project-related-info.name'" 
-            class="project-body-container">
+            class="header-grid">
                 <span class="default-project-info" id="project_artist" *ngIf="project.body[i].style !== null"
                 [ngStyle]="{'color': project.body[i].style.hex_color_code }"
                 [ngClass]="{
@@ -73,7 +73,7 @@
             <!-- addon addon addon addon ---------------------------------------------------- -->
             <!-- COMPONENT > "addon.javascript-file-name" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'addon.javascript-file-name'" 
-            class="project-body-container">
+            class="section-grid">
                 <!-- ------------- custom-design-javascript ------------- -->
                 <div *ngIf="project.body[i].javascript_file_name?.length" 
                 class="">
@@ -82,7 +82,7 @@
             </div>
             <!-- COMPONENT > "addon.html-css" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'addon.html-css' " 
-            class="project-body-container">
+            class="section-grid">
                 <!-- ------------- custom-design-blankHTML ------------- -->
                 <div *ngIf="project.body[i].add_html_css?.length" 
                 class="">
@@ -91,7 +91,7 @@
             </div>
             <!-- COMPONENT > "addon.website" ---------------------------------------------------- -->
             <div *ngIf=" project.body[i].__component === 'addon.website' " 
-            class="project-body-container">
+            class="section-grid">
                 <!-- ------------- custom-design-iframe ------------- -->
                 <div *ngIf="project.body[i].website_link?.length" 
                 class="">

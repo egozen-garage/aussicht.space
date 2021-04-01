@@ -159,9 +159,10 @@ span#project_title {
 
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\ BODY \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 // /////////////////////////// BODY /////////////////////////// 
-// ----------------------- GRID CONFIGURATIONS ----------------------- 
 
-.project-body-container {
+// ----------------------- GRID CONFIGURATIONS ----------------------- 
+// grid config with center-left alignment for project themes, artist name and project title
+.header-grid {
   // padding: 90px var(--margin) 100px var(--margin);
   display: grid;
   grid-template-columns: 20% 30% 10% 20% 20%;
@@ -169,17 +170,26 @@ span#project_title {
   grid-template-areas: 
       ". . themes themes themes"
       ". . title title title"
-      ". intro intro intro intro"
-      ". subhead subhead subhead ."
-      ". text text text text"
-      ". t_machine t_machine t_machine t_machine"
-      ". . . . t_m_background"
-      ". remark remark remark remark"
-      ". relation relation relation relation"
       " all all all all all"
       ". default default default default";
 }
 
+// grid config for all text type components
+.section-grid {
+  display: grid;
+  grid-template-columns: 20% 40% 20% 20%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+      ". intro intro intro"
+      ". subhead subhead ."
+      ". text text text"
+      ". t_machine t_machine t_machine"
+      ". . . t_m_background"
+      ". remark remark remark"
+      ". relation relation relation";
+}
+
+// grid config for all image type components
 .img-section-grid {
   display: grid;
   grid-template-columns: 20% 30% 25% 25%;
@@ -224,20 +234,6 @@ span#project_title {
 
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\ text types \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 // /////////////////////////// text types /////////////////////////// 
-// ------ GRID CONFIGURATIONS ------ //
-.section-grid {
-  display: grid;
-  grid-template-columns: 20% 40% 20% 20%;
-  grid-template-rows: auto;
-  grid-template-areas: 
-      ". intro intro intro"
-      ". subhead subhead ."
-      ". text text text"
-      ". t_machine t_machine t_machine"
-      ". . . t_m_background"
-      ". remark remark remark"
-      ". relation relation relation";
-}
 
 
 // COMPONENT > "free_text" ---------------------------------------------------- 
