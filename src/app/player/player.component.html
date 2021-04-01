@@ -1,6 +1,6 @@
 <!-- <div id="show_hide_button" (click)="ShowPodcastList=true">+</div> -->
 
-<div [ngClass]="{'height': resize_player_container}" id="podcast_area_all" class="player-container">
+<div [ngClass]="{'height': resize_player_container}" (mouseenter)="tooglebtn()" (mouseleave)="tooglebtn()" id="podcast_area_all" class="player-container">
   <!-- *ngIf="ShowPodcastList"  -->
 
   <!-- TOGGLE LIST BUTTON -->
