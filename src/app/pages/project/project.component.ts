@@ -59,6 +59,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     this.activate_site_comments(this.sideCommentPosition);
     this.sideCommentPosition.listenResizeWindow();
   }
+
   activate_site_comments(site_comment_service:any){
     setTimeout(() =>{ 
       site_comment_service.scanMarkdowns();
@@ -71,7 +72,10 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     }, 1000);
   }
 
-
+  toggleCuratorialContent(){
+    var icon = document.querySelector('.icon');
+    icon!.classList.toggle('show-more');
+  }
 
 
   // side_comment_ID:any
