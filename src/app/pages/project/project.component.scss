@@ -1,26 +1,6 @@
-// ------ back button ------- //
-// .btn-back2hub {
-//   z-index: 9999;
-//   font-family: '2070';
-//   font-weight: 400;
-//   font-size: 20px;
-//   position: fixed;
-//   display: flex;
-//   left: var(--margin);
-//   float: left;
-//   top: 30px;
-//   color: black;
-// }
-
-// .btn-back2hub a {
-//   color: black;
-//   text-decoration: none;
-//   padding: 0px 0px 0px 15px;
-// }
-
 // ------ themes ------ //
 
-.project-theme-container { grid-area: themes; padding: 30px var(--margin) 0px 0px;}
+.project-theme-container { grid-area: themes; padding: 35px var(--margin) 0px 0px;}
 
 .themes {
   display: inline-block;
@@ -33,6 +13,10 @@
   width: auto;
 }
 
+// padding for header // 
+header {
+  padding-bottom: 20vh;
+}
 
 
 // ------ BODY ------- //
@@ -44,9 +28,16 @@
   margin: 0px;
 }
 
-.project-artist, .related-author {
+span#project_artist {
   font-family: var(--font-family-secondary);
-  font-size: 20px;
+  font-size: var(--font-size-primary);
+  line-height: 1;
+}
+
+span#project_title {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-secondary);
+  line-height: 1;
 }
 
 .project-cover-media {
@@ -173,23 +164,22 @@
 .project-body-container {
   // padding: 90px var(--margin) 100px var(--margin);
   display: grid;
-  grid-template-columns: 20% 40% 20% 20%;
+  grid-template-columns: 20% 30% 10% 20% 20%;
   grid-template-rows: auto;
   grid-template-areas: 
-      ". . themes themes"
-      ". . title title"
-      ". intro intro intro"
-      ". subhead subhead ."
-      ". text text text"
-      ". t_machine t_machine t_machine"
-      ". . . t_m_background"
-      ". remark remark remark"
-      ". relation relation relation"
-      " all all all all"
-      " left left right right"
-      " next next next next "
-      ". default default default";
+      ". . themes themes themes"
+      ". . title title title"
+      ". intro intro intro intro"
+      ". subhead subhead subhead ."
+      ". text text text text"
+      ". t_machine t_machine t_machine t_machine"
+      ". . . . t_m_background"
+      ". remark remark remark remark"
+      ". relation relation relation relation"
+      " all all all all all"
+      ". default default default default";
 }
+
 .img-section-grid {
   display: grid;
   grid-template-columns: 20% 30% 25% 25%;
@@ -202,25 +192,26 @@
 }
 
 // ----------------------- cms style classes ----------------------- 
-.width_small{     width: 30%;}
-.width_medium{    width: 50%;}
-.width_large{     width: 100%;}
+.width_small{     width: 30% !important;}
+.width_medium{    width: 50% !important;}
+.width_large{     width: 75% !important;}
 
-.aline_left{      text-align: left;}
-.aline_center{    text-align: center;}
-.aline_right{     text-align: right;}
+.align_left{      text-align: left;}
+.align_center{    text-align: center;}
+.align_right{     text-align: right;}
 
-.width_small, .width_medium, .width_large, .aline_left, .aline_center, .aline_right{
+.padding_on {padding: 20px}
+.padding_of {padding: 0px}
+
+.width_small, .width_medium, .width_large, .align_left, .align_center, .align_right{
   grid-area: all;
-  width: 100%;
+  // width: 100%;
 }
 
-[class="default-project-info"] { grid-area: title; width: 100%; padding: 20px var(--margin) 20px 0px; background-color: pink;}
+[class="default-project-info"] { grid-area: title; width: 100%; padding: 0px var(--margin) 10px 0px;}
+[class="default"] { grid-area: center; width: 100%; padding: 20px 0px 20px 0px;}
+[class="img"] { width: 100%;}
 
-// ----------------------- title font ----------------------- 
-.project-title{
-
-}
 
 // ----------------------- gpt images ----------------------- 
 #gpt_images{
@@ -251,7 +242,7 @@
 
 // COMPONENT > "free_text" ---------------------------------------------------- 
 .free_text { width: 100%; }
-.width_small, .width_medium, .width_large, .align_left, .align_center, .align_right { grid-area: all; }
+// .width_small, .width_medium, .width_large, .align_left, .align_center, .align_right { grid-area: all; }
 
 
 
@@ -410,17 +401,19 @@
     }
 
 
-// \\\\\\\\\\\\\\\\\\\\\\\\\\\ transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
-// /////////////////////////// transfer from perspective /////////////////////////// 
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\ IMAGES transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+// /////////////////////////// IMAGES transfer from perspective /////////////////////////// 
 
-    // add your code here          add your code here       add your code here 
+.img_container { width: 100%; }
+    #c-left { grid-area: left; }
+    #c-right { grid-area: right; }
+
+    #fullscreen { width: 100%; }
+    .img_caption { font-weight: 300; }
 
 
-
-
-
-// \\\\\\\\\\\\\\\\\\\\\\\\\\\ transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\
-// /////////////////////////// transfer from perspective ///////////////////////////
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\ IMAGES transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\
+// /////////////////////////// IMAGES transfer from perspective ///////////////////////////
 
 
 
