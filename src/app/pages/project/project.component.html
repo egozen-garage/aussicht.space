@@ -396,7 +396,6 @@
             </div>
 
             
-            
             <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\ transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
             <!-- /////////////////////////// transfer from perspective /////////////////////////// -->
             
@@ -405,9 +404,26 @@
             [ngStyle]="{'width': '100%', 'height': project.body[i].distance_in_pixel + 'px' }">
             </div>
 
-            
         </ng-container>
-        
+
+            <!-- CURATORIAL TEXT------------------------------------------------------------- -->
+            <!-- CURATORIAL TEXT------------------------------------------------------------- -->
+            <!-- CURATORIAL TEXT------------------------------------------------------------- -->
+            <!-- CURATORIAL TEXT------------------------------------------------------------- -->
+            <!-- CURATORIAL TEXT------------------------------------------------------------- -->
+            <!-- COMPONENT > "addon.javascript-file-name" ---------------------------------------------------- -->
+            <div class="collapsible-wrap" id="curatorial-text" *ngIf="project.curatorial_intro?.length">
+                <input type="checkbox" class="toggle" id="event">
+                <label for="event" class="collapsible-button icon show-more" (click)="toggleCuratorialContent()">
+                    <span class="plusminus">
+                        Mehr dazu
+                    </span>
+                </label>
+                <div class="curatorial-content">
+                    <span id="curatorial-intro">{{project.curatorial_intro}}</span>
+                    <span id="curatorial-description">{{project.curatorial_description}}</span>
+                </div>
+            </div>        
         
         
     <!-- GPT images --------------------------------------------------------------- -->

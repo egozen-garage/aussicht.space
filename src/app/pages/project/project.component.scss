@@ -412,10 +412,69 @@ span#project_title {
     .img_caption { font-weight: 300; }
 
 
-// \\\\\\\\\\\\\\\\\\\\\\\\\\\ IMAGES transfer from perspective \\\\\\\\\\\\\\\\\\\\\\\\\\\
-// /////////////////////////// IMAGES transfer from perspective ///////////////////////////
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\ CURATORIAL TEXT \\\\\\\\\\\\\\\\\\\\\\\\\\\
+// /////////////////////////// CURATORIAL TEXT ///////////////////////////
 
 
+input[type='checkbox'] { display: none; }
+
+.collapsible-button {
+  font-family: var(--font-family-primary);
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+.content span {
+  font-family: var(--font-size-secondary);
+  font-size: 2em;
+  margin: 0px;
+}
+
+label.collapsible-button {
+  cursor: pointer;
+}
+
+.curatorial-content {
+  padding: 0px 0px 0px 104px;
+  line-height: 1;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .5s ease-in-out;
+}
+
+#event:checked + .collapsible-button + .curatorial-content { 
+  max-height: 600px; 
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  cursor: pointer;
+  
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -33px;
+    background-color: black;
+    width: 20px;
+    height: 2px;
+    transition: .4s ease;
+  }
+  
+  &.show-more::after {
+    transform: rotate(-90deg) ;
+  }
+  &.show-more::before {
+    transform: rotate(-180deg) ;
+  }
+}
+
+
+
+// ---------------------------------------------------------------
 
 .project_additional_link {
   display: grid;
