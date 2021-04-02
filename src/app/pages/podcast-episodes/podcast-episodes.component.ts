@@ -59,9 +59,9 @@ export class PodcastEpisodesComponent implements OnInit {
 
   togglePlayPause() {
     if (this.play) {
-      this.currentTrackService.changeTrack("#" + this.podcast.id + "_started");
+      this.currentTrackService.changeTrack("#" + this.podcast.episode_id + "_started");
     } else {
-      this.currentTrackService.changeTrack("#" + this.podcast.id + "_stopped");
+      this.currentTrackService.changeTrack("#" + this.podcast.episode_id + "_stopped");
     }
   }
 }
