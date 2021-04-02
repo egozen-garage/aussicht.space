@@ -18,16 +18,16 @@
 .img_container { width: 100%; }
   #c-left { grid-area: left; position: relative; }
     img#left {
-      -webkit-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.15);      /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-      -moz-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.15);         /* Firefox 3.5 - 3.6 */
-      box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.15);              /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+      -webkit-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.1);      /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+      -moz-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.1);         /* Firefox 3.5 - 3.6 */
+      box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.1);              /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
     }
     
   #c-right { grid-area: right; position: relative; }  
     img#right {
-      -webkit-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.15);
-      -moz-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.15);
-      box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.15);
+      -webkit-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.1);
+      -moz-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.1);
+      box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.1);
     }
 
 #fullscreen { width: 100%; }
@@ -66,4 +66,16 @@
   font-weight: 700;
   line-height: 1.2;
   position: relative;
+}
+
+
+// ---- IPAD PRO ---- //
+@media (max-width: 1200px) {
+  .img-section-grid {
+    grid-template-columns: 15% 35% 25% 25%;
+  }
+}
+
+// ---- IPAD (768 x 1042) ---- //
+@media (max-width: 48em) {
 }

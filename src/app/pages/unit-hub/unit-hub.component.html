@@ -10,7 +10,7 @@
             <div *ngFor="let t of themesFromCms, let i = index" class="allthemes">
 
                 <!-- || = "or" operation  -->
-                <div *ngIf="t.perspective || t.podcast || t.project" id="themes_collection">
+                <div *ngIf="t.perspectives?.length || t.podcasts?.length || t.projects?.length" id="themes_collection">
 
                     <!-- when CHECKED, compare CHECKED VALUES against the PROPERTIES found within the ARRAY OF OBJECTS -->
                     <div class="checkbox" >
@@ -117,7 +117,7 @@
 
                         <!-- PROJECT > ARTIST -->
                         <div class="unit-name" id="project-artist" >
-                            {{u.artist}}
+                            {{u.name}}
                         </div>
 
                         <!-- PERSPECTIVE UNIT > THEMES SECTION -->

@@ -98,9 +98,9 @@ class="section-grid side_comment_container">
                                     <!-- relation: title artist -->
                                     <div *ngIf="body.relation_to[r].projekt.title?.length" 
                                     class="relation_title">
-                                        {{ body.relation_to[r].projekt.title}}
+                                        <span id="project_title">{{ body.relation_to[r].projekt.title}}</span>
                                         <br>
-                                        {{ body.relation_to[r].projekt.artist}}
+                                        <span id="artist_name">{{ body.relation_to[r].projekt.name}}</span>
                                     </div>
                                     <div class="relation_arrow">&#10230;</div>
 
@@ -125,9 +125,9 @@ class="section-grid side_comment_container">
                                     <!-- relation: title artist -->
                                     <div *ngIf="body.relation_to[r].perspektive.title?.length" 
                                     class="relation_title">
-                                        {{ body.relation_to[r].perspektive.title}}
+                                        <span id="perspective_title">{{ body.relation_to[r].perspektive.title}}</span>
                                         <br>
-                                        {{ body.relation_to[r].perspektive.author}}
+                                        <span id="perspective_authro">{{ body.relation_to[r].perspektive.author}}</span>
                                     </div>
                                     <div class="relation_arrow">&#10230;</div>
 
@@ -152,9 +152,9 @@ class="section-grid side_comment_container">
                                     <!-- relation: title artist -->
                                     <div *ngIf="body.relation_to[r].podcast.title?.length" 
                                     class="relation_title">
-                                        {{ body.relation_to[r].podcast.title}}
+                                        <span id="podcast_title">{{ body.relation_to[r].podcast.title}}</span>
                                         <br>
-                                        {{ body.relation_to[r].podcast.speakers}}
+                                        <span id="podcast_speakers">{{ body.relation_to[r].podcast.speakers}}</span>
                                     </div>
                                     <div class="relation_arrow">&#10230;</div>
 

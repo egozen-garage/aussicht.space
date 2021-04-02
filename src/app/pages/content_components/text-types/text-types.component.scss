@@ -86,7 +86,7 @@
             padding: 15px 0px 0px 45px;
             font-family: var(--font-family-primary);
             font-weight: 300;
-            font-size: 20px;
+            font-size: var(--font-size-date);
             line-height: 1.2;
         }
         .comp_m_title {
@@ -104,15 +104,21 @@
             // line-height: 1.2;
         }
         #circle1 {
-            height: 500px;
-            width: 600px;
+            height: 130%;
+            width: 30em;
             top: -70px;
             left: 100px;
-            background: linear-gradient(156deg, rgba(255,132,154,1) 0%, rgba(243,243,239,0.8) 100%);
-            border-radius: 40%;
+            border-radius: 50%;
             position: absolute;
-            filter: blur(1.5rem);
+            filter: blur(1.8rem);
             z-index: 0;
+
+            // colour gradient
+            background: rgb(251,170,183);
+            background: -moz-linear-gradient(146deg, rgba(251,170,183,0.6082808123249299) 0%, rgba(255,132,154,0.7091211484593838) 9%, rgba(252,154,171,0.7455357142857143) 26%, rgba(245,219,221,0.6867121848739496) 68%, rgba(243,243,239,0.3449754901960784) 100%);
+            background: -webkit-linear-gradient(146deg, rgba(251,170,183,0.6082808123249299) 0%, rgba(255,132,154,0.7091211484593838) 9%, rgba(252,154,171,0.7455357142857143) 26%, rgba(245,219,221,0.6867121848739496) 68%, rgba(243,243,239,0.3449754901960784) 100%);
+            background: linear-gradient(146deg, rgba(251,170,183,0.6082808123249299) 0%, rgba(255,132,154,0.7091211484593838) 9%, rgba(252,154,171,0.7455357142857143) 26%, rgba(245,219,221,0.6867121848739496) 68%, rgba(243,243,239,0.3449754901960784) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fbaab7",endColorstr="#f3f3ef",GradientType=1);
         }
         .ghost {
             visibility: hidden;
@@ -161,10 +167,27 @@
 .c_r_text, .relation_artistname, .c_r_title, .relation_title {
     color: #031DFF;
     font-family: var(--font-family-primary);
-    font-size: 1.75rem;
+    font-size: var(--font-size-date);
     font-weight: 300;
     line-height: 1.25;
 }
+
+.relation_title #project_title, .relation_title #podcast_title {
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+}
+
+.relation_title #artist_name, .relation_title #podcast_speakers, .relation_title #perspective_author {
+    font-family: var(--font-family-secondary);
+    font-weight: 500;
+}
+
+.relation_title #perspective_title {
+    font-family: var(--font-family-secondary);
+    font-weight: 700;
+}
+
+
 .comp_textblock_relation {  
     grid-area: relation;
     padding: 0px 0px 0px 0px;
@@ -186,4 +209,83 @@
     transition: opacity .25s ease-in-out;
     -moz-transition: opacity .25s ease-in-out;
     -webkit-transition: opacity .25s ease-in-out;
+}
+
+
+// @media (min-width: 1200px) {
+//     #circle1 {
+//         height: 130%;
+//         width: 30em;
+//     }
+// }
+
+
+// ---- IPAD PRO ---- //
+@media (max-width: 1200px) {
+
+    .section-grid {
+        grid-template-columns: 15% 45% 25% 15%;
+    }
+
+    #circle1 {
+        height: 100%;
+        width: 20em;
+        top: -20px;
+    }
+
+    .relation_img {
+        max-width: 200px;
+        padding: 0px 0px 30px 0px;
+    }
+
+    .relation_container { padding: 0px 70px 0px 60px; }
+    .indented_image { margin-right: 18%; }
+    .plain_text{ width: 70%;}
+
+}
+
+
+// ---- IPAD (768 x 1042) ---- //
+@media (max-width: 768px) {
+    #circle1 {
+        height: 100%;
+        width: 22em;
+        top: -32px;
+        left: -35px;
+    }
+
+    .relation_img { max-width: 140px; padding: 0px 0px 30px 0px; }
+
+    .relation_container { padding: 0px 70px 0px 60px; }
+
+    .comp_textblock_paragraph {
+        width: 72%;
+        margin: 0px 0px 0px 0px;
+    }
+
+    .comp_intro_container {
+        font-family: var(--font-family-primary);
+        font-weight: 300;
+        font-size: var(--font-size-primary-s);
+        line-height: 1;
+        padding: 20px calc(var(--margin) + 50px) 40px 0px;
+        grid-area: intro;
+        display: block;
+        position: relative;
+    }
+}
+
+@media (max-width: 48em) {
+    #circle1 { display: none; }
+    .txt_img_container { float: none; max-height: 300px; width: 75%; }
+    .indented_image { margin: 0px 0px 0px 40px; }
+
+ 
+// ---- side elements for now deactivated ----
+    .side_comment { display: none; }
+    .txt_m_container { display: none; }
+
+    .comp_textblock_paragraph {
+        width: 90%;
+      }
 }
