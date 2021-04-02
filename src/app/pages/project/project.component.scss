@@ -155,12 +155,16 @@ span#project_title {
       ". default default default default";
 }
 [class="default-project-info"] { grid-area: title; width: 100%; padding: 0px var(--margin) 10px 0px;}
+.default-project-info {
+  position: relative;
+}
 
 
 
 // ----------------------- gpt images ----------------------- 
 #gpt_images{
   grid-area: all;
+  padding: 30px var(--margin-s);
   width: 100%;
 }
 
@@ -172,7 +176,9 @@ span#project_title {
 
 
 // COMPONENT > "free_text" ---------------------------------------------------- 
-.free_text { width: 100%; }
+// .free_text { 
+//   grid-area: all; 
+// }
 // .width_small, .width_medium, .width_large, .align_left, .align_center, .align_right { grid-area: all; }
 
 
@@ -190,7 +196,7 @@ label.collapsible-button {
   cursor: pointer;
   width: auto;
   height: auto;
-  margin: 20px var(--margin) -10px var(--margin);
+  margin: 20px var(--margin) -10px var(--margin-s);
   vertical-align: bottom;
 }
 
@@ -204,8 +210,12 @@ label.collapsible-button {
   max-height: 0em;
   overflow: hidden;
   transition: max-height .6s ease-in-out;
-  background-color: black;
-  color: white;
+  color: black;
+
+  background: rgb(255,255,255);
+  background: -moz-linear-gradient(180deg, rgba(255,255,255,0) 98%, rgba(0,0,0,.10) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(255,255,255,0) 98%, rgba(0,0,0,.10) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0) 98%, rgba(0,0,0,.10) 100%);
 }
 
   .curatorial-content-wrapper {
@@ -303,8 +313,8 @@ color: black;
 }
 .recommendation_title{
   font-weight: 700;
-  font-size: var(--font-size-title);
-  line-height: 1em;
+  font-size: var(--font-size-primary-s);
+  line-height: 1.78em;
 }
 .recommendation_author{
   font-weight: 300;

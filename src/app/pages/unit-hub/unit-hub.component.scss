@@ -60,7 +60,8 @@ a {
     margin: 0;
     margin-bottom: 3.5rem;
     break-inside: avoid;
-    position: relative;
+    // -- to raise all units to foreground -- //
+    // position: relative;
     font-weight: 500;
     font-family: var(--font-family-primary);
     padding: 20px;
@@ -151,6 +152,7 @@ a {
     background-color: #F5F5F1;
     // color: black !important;
     height: auto;
+    position: relative;
 }
 
                                                     // --- ADD HOVER SHADOW EFFECT --- //
@@ -183,6 +185,7 @@ a {
     // color: black !important;
     height: auto;
     padding: 0px !important;
+    position: relative;
 }
 
                                                     // --- ADD HOVER SHADOW EFFECT --- //

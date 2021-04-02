@@ -46,3 +46,30 @@ class="img-section-grid">
     </figure>
     
 </div>
+
+<!-- is functioning like an image component -->
+<!-- COMPONENT > "free_text" ---------------------------------------------------- -->
+<div *ngIf=" body.__component === 'text-types.free-text'" 
+class="img-section-grid">
+
+    <div class="default" *ngIf="body.style !== null "
+    [ngClass]="{
+
+        'align_left'      : body.style.position === 'left',
+        'align_center'    : body.style.position === 'center',
+        'align_right'     : body.style.position === 'right',
+        
+        'padding_off'     : body.style.padding === false,
+        'padding_on'      : body.style.padding === true}">
+
+        <!-- IMAGE / TEXT WIDTH IS DECLARED HERE -->
+        <!-- id="single" -->
+        <div class="free_text" 
+        [ngClass]="{
+            'width_txt_small'     : body.style.width === 'small',
+            'width_txt_medium'    : body.style.width === 'medium',
+            'width_txt_large'     : body.style.width === 'large' }"> 
+            {{ body.text }}
+        </div>
+    </div>
+</div>

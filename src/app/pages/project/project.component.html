@@ -99,37 +99,6 @@
             </div>
 
 
-            
-           
-            <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\ text types \\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
-            <!-- /////////////////////////// text types /////////////////////////// -->
-            <!-- COMPONENT > "free_text" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'text-types.free-text'" 
-            class="img-section-grid">
-
-                <div class="default" *ngIf="project.body[i].style !== null "
-                [ngClass]="{
-
-                    'align_left'      : project.body[i].style.position === 'left',
-                    'align_center'    : project.body[i].style.position === 'center',
-                    'align_right'     : project.body[i].style.position === 'right',
-                    
-                    'padding_off'     : project.body[i].style.padding === false,
-                    'padding_on'      : project.body[i].style.padding === true}">
-
-                    <!-- IMAGE / TEXT WIDTH IS DECLARED HERE -->
-                    <!-- id="single" -->
-                    <div class="free_text" 
-                    [ngClass]="{
-                        'width_small'     : project.body[i].style.width === 'small',
-                        'width_medium'    : project.body[i].style.width === 'medium',
-                        'width_large'     : project.body[i].style.width === 'large' }"> 
-
-                    </div>
-
-                    <div class="free_text">{{ project.body[i].text }}</div>
-                </div>
-            </div>
 
 
             
@@ -148,7 +117,7 @@
                 <input type="checkbox" class="toggle" id="event">
                 <label for="event" class="collapsible-button icon show-more" (click)="toggleCuratorialContent()">
                     <span class="plusminus">
-                        Mehr dazu
+                        Mehr zu {{project.title}}
                     </span>
                 </label>
                 <div class="curatorial-content">

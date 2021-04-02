@@ -16,8 +16,19 @@
 
 
 .img_container { width: 100%; }
-#c-left { grid-area: left; }
-#c-right { grid-area: right; }
+  #c-left { grid-area: left; position: relative; }
+    img#left {
+      -webkit-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.15);      /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+      -moz-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.15);         /* Firefox 3.5 - 3.6 */
+      box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.15);              /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+    }
+    
+  #c-right { grid-area: right; position: relative; }  
+    img#right {
+      -webkit-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.15);
+      -moz-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.15);
+      box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.15);
+    }
 
 #fullscreen { width: 100%; }
 .img_caption { font-weight: 300; }
@@ -29,9 +40,13 @@
 .width_medium{    width: 50% !important;}
 .width_large{     width: 75% !important;}
 
-.align_left{      text-align: left;}
+.width_txt_small{     width: 48% !important;}
+.width_txt_medium{    width: 67% !important;}
+.width_txt_large{     width: 90% !important;}
+
+.align_left{      text-align: left; position: relative;}
 .align_center{    text-align: center;}
-.align_right{     text-align: right;}
+.align_right{     text-align: right; position: relative;}
 
 .padding_on {padding: 20px}
 .padding_of {padding: 0px}
@@ -43,3 +58,12 @@
 
 [class="default"] { grid-area: center; width: 100%; padding: 20px 0px 20px 0px;}
 [class="img"] { width: 100%;}
+[class="free_text"] { width: 100%;}
+.free_text {
+  padding: 2% 13% 2% 0%;
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-primary-s);
+  font-weight: 700;
+  line-height: 1.2;
+  position: relative;
+}
