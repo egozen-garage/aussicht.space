@@ -17,7 +17,6 @@ export class HelperService {
       .replace(/Ä/g, "Ae")
       .replace(/Ö/g, "Oe")
       .replace(/Ü/g, "Ue");
-    console.log(encodeURIComponent(textWithReplacedSpecialCharacters));
     return encodeURIComponent(textWithReplacedSpecialCharacters);
   }
 }
