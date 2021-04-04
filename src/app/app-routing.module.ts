@@ -24,9 +24,9 @@ const routes: Routes = [
   { path: "preview",
   component: PreviewComponent,
   children: [
-    { path: 'project/:id', component: ProjectComponent},
-    { path: 'podcast/:id', component: PodcastEpisodesComponent},
-    { path: 'perspective/:id', component: PerspectiveComponent},
+    { path: 'project/:title', component: ProjectComponent},
+    { path: 'podcast/:title', component: PodcastEpisodesComponent},
+    { path: 'perspective/:title', component: PerspectiveComponent},
   ]
 },
   { path: "impressum", component: ImpressumComponent},

@@ -94,8 +94,8 @@ export class UnitHubComponent implements OnInit {
     let orderedUnits = [ ...this.projectsFromCms, ...this.perspectivesFromCms, ...this.podcastsFromCms ];
     let today = new Date();
     let seed = today.getDate() + today.getMonth()*31 + today.getFullYear() * 366;
-    this.unitAndEncodedHrefList = this.shuffle(orderedUnits, seed);
-    this.unitAndEncodedHrefList = this.unitAndEncodedHrefList.map((u: any) => {
+    let shuffledUnits = this.shuffle(orderedUnits, seed);
+    this.unitAndEncodedHrefList = shuffledUnits.map((u: any) => {
       return {
         unit: u,
         titleEncoded: encodeURIComponent(u.title)

@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PreviewComponent implements OnInit {
 
 
-  units: any;
+  unitAndEncodedHrefList: any;
 
   projects: any = [];
   projectId: any = [];
@@ -79,10 +79,15 @@ export class PreviewComponent implements OnInit {
     if (!this.projectsFromCms || !this.perspectivesFromCms || !this.podcastsFromCms) {
       return;
     }
-    this.units = [ ...this.projectsFromCms, ...this.perspectivesFromCms, ...this.podcastsFromCms ];
+    let orderedUnits = [ ...this.projectsFromCms, ...this.perspectivesFromCms, ...this.podcastsFromCms ];
     let today = new Date();
     let seed = today.getDate() + today.getMonth()*31 + today.getFullYear() * 366;
-    this.units = this.shuffle(this.units, seed);
+    let shuffledUnits = this.shuffle(orderedUnits, seed);
+    this.unitAndEncodedHrefList = shuffledUnits.map((u: any) => {
+      return {
+        unit: u,
+        titleEncoded: encodeURIComponent(u.title)
+      }});
   }
 
   shuffle(array: any[], seed: number) {                // <-- ADDED ARGUMENT
@@ -129,18 +134,18 @@ export class PreviewComponent implements OnInit {
     //     return this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === themeOfUnit.theme_name);
     //   });
     // });
-    this.units = this.units.sort((unit1: any, unit2: any) => {
-      let x = unit1.themes.some((themeOfUnit: any) => {
+    this.unitAndEncodedHrefList = this.unitAndEncodedHrefList.sort((uh1: any, uh2: any) => {
+      let x = uh1.unit.themes.some((themeOfUnit: any) => {
         return this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === themeOfUnit.theme_name);
       });
-      let y = unit2.themes.some((themeOfUnit: any) => {
+      let y = uh2.unit.themes.some((themeOfUnit: any) => {
         return this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === themeOfUnit.theme_name);
       });
       return (x === y)? 0 : x? -1 : 1;
       });
 
-    for (let unit of this.units) {
-      for (let theme of unit.themes) {
+    for (let unit of this.unitAndEncodedHrefList) {
+      for (let theme of unit.unit.themes) {
         theme.selected =
           this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === theme.theme_name) && !noThemeSelected;
       }
