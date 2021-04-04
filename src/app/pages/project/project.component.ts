@@ -17,7 +17,7 @@ import { HelperService } from "../../services/helper.service";
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.scss']
 })
-export class ProjectComponent implements OnInit, AfterViewInit {
+export class ProjectComponent implements OnInit {
   projectID : string = "";
   private projectTitle: string = "";
   project:any;

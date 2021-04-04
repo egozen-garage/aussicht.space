@@ -25,6 +25,7 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   message:string | undefined;
   subscription: Subscription | undefined;
   private streamIsSubscribed: boolean = false;
+  
 
   constructor(
     public cloudService: CloudService,
