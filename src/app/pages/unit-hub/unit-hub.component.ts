@@ -5,6 +5,7 @@ import { ThemeService } from '../../services_strapi/theme.service';
 import { PodcastepisodesService } from '../../services_strapi/podcastepisodes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
+import { HelperService } from "../../services/helper.service";
 
 
 @Component({
@@ -46,7 +47,7 @@ export class UnitHubComponent implements OnInit {
     private projectSvc: ProjectService,
     private perspectiveSvc: PerspectiveService,
     private podcastSvc: PodcastepisodesService,
-
+    private helperService: HelperService,
     private themeSvc: ThemeService,
     public route: ActivatedRoute,
     private router: Router,
@@ -98,7 +99,7 @@ export class UnitHubComponent implements OnInit {
     this.unitAndEncodedHrefList = shuffledUnits.map((u: any) => {
       return {
         unit: u,
-        titleEncoded: encodeURIComponent(u.title)
+        titleEncoded: this.helperService.encodeCustomURI(u.title)
       }});
   }
 

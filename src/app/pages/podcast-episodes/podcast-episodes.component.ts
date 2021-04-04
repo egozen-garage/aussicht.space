@@ -9,6 +9,7 @@ import { StreamState } from "../../interfaces/stream-state";
 import * as xml2js from 'xml2js';
 import { CurrentTrackService } from 'src/app/services/current-track.service';
 import { Subscription } from "rxjs";
+import { HelperService } from "../../services/helper.service";
 
 @Component({
   selector: 'app-podcast-episodes',
@@ -29,6 +30,7 @@ export class PodcastEpisodesComponent implements OnInit {
   constructor(
     private podcastSvc: PodcastepisodesService,
     private route: ActivatedRoute,
+    private helperService: HelperService,
     private currentTrackService: CurrentTrackService
   ) { }
 
@@ -48,7 +50,7 @@ export class PodcastEpisodesComponent implements OnInit {
       this.podcastSvc.getAllPodcastEpisodes().subscribe((allPodcastEpisodes:any[]) => {
         for (let i=0; i<allPodcastEpisodes.length; i++) {
           let podcastEpisode = allPodcastEpisodes[i];
-          if (encodeURIComponent(podcastEpisode.title) == this.podcastTitle) {
+          if (this.helperService.encodeCustomURI(podcastEpisode.title) == this.podcastTitle) {
             this.podcast = podcastEpisode;
             return;
           }

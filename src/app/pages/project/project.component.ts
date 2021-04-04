@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular
 import { ProjectService } from '../../services_strapi/project.service';
 import { ActivatedRoute } from '@angular/router';
 import { SideCommentPositionService } from '../../services/side-comment-position.service';
+import { HelperService } from "../../services/helper.service";
 
 
 //import { CustomDesignIframeComponent } from '../custom_designs/custom-design-iframe/custom-design-iframe.component';
@@ -37,6 +38,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   constructor(
     private projectSvc: ProjectService,
     private route: ActivatedRoute,
+    private helperService: HelperService,
     private sideCommentPosition: SideCommentPositionService,
 
     ) {
@@ -94,7 +96,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       this.projectSvc.getAllProjects().subscribe((allProjects:any[]) => {
         for (let i=0; i<allProjects.length; i++) {
           let project = allProjects[i];
-          if (encodeURIComponent(project.title) == this.projectTitle) {
+          if (this.helperService.encodeCustomURI(project.title) == this.projectTitle) {
             this.project = project;
 
             this.folder_name = this.project.GPT_folder_name;

@@ -6,6 +6,7 @@ import { SideCommentPositionService } from '../../services/side-comment-position
 
 import { environment } from '../../../environments/environment';
 import { Subscription } from 'rxjs';
+import { HelperService } from "../../services/helper.service";
 
 @Component({
   selector: 'app-perspective',
@@ -21,6 +22,7 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
   constructor(
     private perspectiveSvc: PerspectiveService,
     private route: ActivatedRoute,
+    private helperService: HelperService,
     // private router: Router,
     private sideCommentPosition: SideCommentPositionService,
     // private routeReuseStrategy: RouteReuseStrategy,
@@ -57,7 +59,7 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
       this.perspectiveSvc.getAllPerspectives().subscribe((allPerspectives:any[]) => {
         for (let i=0; i<allPerspectives.length; i++) {
           let perspective = allPerspectives[i];
-          if (encodeURIComponent(perspective.title) == this.perspectiveTitle) {
+          if (this.helperService.encodeCustomURI(perspective.title) == this.perspectiveTitle) {
             this.perspective = perspective;
             return;
           }

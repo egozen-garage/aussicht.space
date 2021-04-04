@@ -4,6 +4,7 @@ import { PerspectiveService } from '../../services_strapi/perspective.service';
 import { ThemeService } from '../../services_strapi/theme.service';
 import { PodcastepisodesService } from '../../services_strapi/podcastepisodes.service';
 import { ActivatedRoute } from '@angular/router';
+import { HelperService } from "../../services/helper.service";
 
 @Component({
   selector: 'app-preview',
@@ -39,7 +40,7 @@ export class PreviewComponent implements OnInit {
     private projectSvc: ProjectService,
     private perspectiveSvc: PerspectiveService,
     private podcastSvc: PodcastepisodesService,
-
+    private helperService: HelperService,
     private themeSvc: ThemeService,
     public route: ActivatedRoute,
     ) { }
@@ -86,7 +87,7 @@ export class PreviewComponent implements OnInit {
     this.unitAndEncodedHrefList = shuffledUnits.map((u: any) => {
       return {
         unit: u,
-        titleEncoded: encodeURIComponent(u.title)
+        titleEncoded: this.helperService.encodeCustomURI(u.title)
       }});
   }
 
