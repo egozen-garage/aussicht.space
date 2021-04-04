@@ -18,8 +18,8 @@
     <body class="main">
 
         <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
-        <ng-container *ngFor="let body of perspective.body, let i = index" 
-        class="perspective_component perspective_API_content "> 
+        <ng-container *ngFor="let body of perspective.body, let i = index"
+        class="perspective_component perspective_API_content ">
 
             <app-text-types [body]="body"></app-text-types>
             <app-image-types [body]="body"></app-image-types>

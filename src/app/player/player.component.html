@@ -21,8 +21,8 @@
   <!-- PODCAST LIST COLLAPSIBLE -->
   <ul *ngIf="ShowPodcastList" [ngClass]="{'background-color': ListColor}" [ngClass]="{'animation': slideListInOut}"  class="podcast_track_list">
     <!-- <div class="toggle_list" id="close_list" (click)="ShowPodcastList=true">close</div> -->
-    <div *ngFor="let file of files; let i = index" (click)="openFile(file, i)" class='player-controls play'
-      id='podcast_list_object_{{file.episode}}'>
+    <div *ngFor="let file of files; let i = index" (click)="openFileByUpdatingService(file, i)" class='player-controls play'
+         id='podcast_list_object_{{file.episode}}'>
       <span class='track_name podcast_play_pause_icon'>
         <img src="/assets/logos/2070_button_play.png" class="play_pause_symbol">
       </span>
