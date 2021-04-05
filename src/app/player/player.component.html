@@ -1,19 +1,19 @@
 <!-- <div id="show_hide_button" (click)="ShowPodcastList=true">+</div> -->
 
-<div [ngClass]="{'height': resize_player_container}" (mouseenter)="tooglebtn()" (mouseleave)="tooglebtn()" id="podcast_area_all" class="player-container">
+<div [ngClass]="{'height': resize_player_container}" (mouseenter)="togglebtn()" (mouseleave)="togglebtn()" id="podcast_area_all" class="player-container">
   <!-- *ngIf="ShowPodcastList"  -->
 
   <!-- TOGGLE LIST BUTTON -->
   <!-- <div  id="podcast-header" 
         [style.display]="toggleOpen ? 'block' : 'none'" 
-        (click)="tooglebtn()">
+        (click)="togglebtn()">
   </div>   -->
   
   <input type="checkbox" name="podlist-checkbox" id="idcheckbox">
   <label  class="toggle_list" 
         for="idcheckbox"
         id="toggle-btn" 
-        (click)="tooglebtn()">
+        (click)="togglebtn2()">
           <span id="btn-logo">aussicht.space</span>
           <span id="btn-txt" >{{toggleOpen ? 'zu &#8595;' : 'auf &#8593;'}}</span>
   </label>

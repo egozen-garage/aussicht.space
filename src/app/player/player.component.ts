@@ -5,6 +5,7 @@ import { StreamState } from "../interfaces/stream-state";
 import * as xml2js from 'xml2js';
 import { map } from 'jquery';
 import { CurrentTrackService } from '../services/current-track.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { Subscription } from 'rxjs';
 
 
@@ -18,17 +19,25 @@ declare var setDocHeight: () => void;
 })
 export class PlayerComponent implements OnInit, AfterViewInit{
   ShowPodcastList: boolean | undefined;
+  isMobile: boolean | undefined;
+  isTablet: boolean | undefined;
+  isDesktopDevice: boolean | undefined;
+  deviceInfo:any;
+
   files: Array<any> = [];
   state : StreamState | undefined;
   currentFile: any = {};
-  toggleOpen = false;
+  toggleOpen: boolean | undefined;
   message:string | undefined;
   subscription: Subscription | undefined;
   private streamIsSubscribed: boolean = false;
+  podcastButton: HTMLElement | null = null;
+  podcastButtonLogo: HTMLElement | null = null;
+  podcastAreaAll: HTMLElement | null = null;
   
-
   constructor(
     public cloudService: CloudService,
+    private deviceService: DeviceDetectorService,
     public audioService: AudioService,
     private renderer: Renderer2,
     private currentTrackService: CurrentTrackService
@@ -36,8 +45,7 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     this.ShowPodcastList = false;
     // get media files
     cloudService.loadXML().subscribe((data: any) => {
-      this.files = this.parseXML(data);
-      
+      this.files = this.parseXML(data);      
       this.pass_episode = this.files[0].episode;
       this.pass_author = this.files[0].author;
       this.pass_name = this.files[0].name;
@@ -50,25 +58,46 @@ export class PlayerComponent implements OnInit, AfterViewInit{
       this.state = state;
     });
   }
+ 
+  togglebtn() {
+    if(!this.isMobile){
+      this.ShowPodcastList = !this.ShowPodcastList;
+      console.log("activate desktop toggle function, is mobile?", this.isMobile);
+      if (this.ShowPodcastList){
+        console.log("activate if statement 1", this.ShowPodcastList);
+        this.toggleOpen = true;
+        this.renderer.setStyle(this.podcastButton, 'height', '117px');
+        this.renderer.setStyle(this.podcastButtonLogo, 'display', 'block');
+        // document.getElementById("podcast-header").class.toggle-btn-expand
+      }
+      if (!this.ShowPodcastList){
+        console.log("activate if statement 2", this.ShowPodcastList);
+        this.toggleOpen = false;
+        this.renderer.setStyle(this.podcastButton, 'height', '20px');
+        this.renderer.setStyle(this.podcastButtonLogo, 'display', 'none');
+      }
+    }
+  }
 
-  
-
-
-  tooglebtn() {
-    const podcastButton = document.getElementById('toggle-btn');
-    const podcastButtonLogo = document.getElementById('btn-logo');
-
-    this.ShowPodcastList = !this.ShowPodcastList;
-    if (this.ShowPodcastList){
-      this.toggleOpen = true;
-      this.renderer.setStyle(podcastButton, 'height', '117px');
-      this.renderer.setStyle(podcastButtonLogo, 'display', 'block');
-      // document.getElementById("podcast-header").class.toggle-btn-expand
-    } 
-    if (!this.ShowPodcastList){
-      this.toggleOpen = false;
-      this.renderer.setStyle(podcastButton, 'height', '20px');
-      this.renderer.setStyle(podcastButtonLogo, 'display', 'none');
+  togglebtn2() {
+    if(this.isMobile){
+      this.ShowPodcastList = !this.ShowPodcastList;
+      console.log("activate mobile toggle function, is mobile?", this.isMobile);
+      if (this.ShowPodcastList){
+        console.log("activate if statement 1", this.ShowPodcastList);
+        this.toggleOpen = true;
+        console.log("this.podcastButton: ", this.podcastButton);
+        console.log("this.podcastButtonLogo: ", this.podcastButtonLogo);
+        this.renderer.setStyle(this.podcastButton, 'height', '117px');
+        this.renderer.setStyle(this.podcastButtonLogo, 'display', 'block');
+        // document.getElementById("podcast-header").class.toggle-btn-expand
+      }
+      if (!this.ShowPodcastList){
+        console.log("activate if statement 2", this.ShowPodcastList);
+        this.toggleOpen = false;
+        this.renderer.setStyle(this.podcastButton, 'height', '20px');
+        this.renderer.setStyle(this.podcastButtonLogo, 'display', 'none');
+      }
     }
   }
 
@@ -136,6 +165,10 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   pass_guests:any;
   pass_raw_name:any;
   public ngOnInit() {
+    this.podcastButton = document.getElementById('toggle-btn');
+    this.podcastButtonLogo = document.getElementById('btn-logo');
+    this.podcastAreaAll = document.getElementById('podcast_area_all');
+
     this.subscription = this.currentTrackService.currentFileAndIndex.subscribe((message: string) => {
       if (message == '') {
         return; // Ignore empty initial message
@@ -159,6 +192,19 @@ export class PlayerComponent implements OnInit, AfterViewInit{
       // Nachschlagen in lokalen daten anhand der id
       this.openFile(currentFile, currentIndex);
     });
+
+
+
+    // READ OUT DEVICE TYPE
+    this.deviceInfo = this.deviceService.getDeviceInfo();
+    this.isMobile = this.deviceService.isMobile();
+    this.isTablet = this.deviceService.isTablet();
+    this.isDesktopDevice = this.deviceService.isDesktop();
+    console.log(this.deviceInfo);
+    console.log("isMobile: " + this.isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
+    console.log("isTablet: " + this.isTablet);  // returns if the device us a tablet (iPad etc)
+    console.log("isDesktopDevice: " + this.isDesktopDevice);
+
     // const appHeight = () => {
     //   const doc = document.documentElement
     //   doc.style.setProperty('--app-height', `${window.innerHeight}px`)
