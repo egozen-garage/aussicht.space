@@ -1,2 +1,34 @@
-<p>custom-design-iframe works!</p>
-<iframe [src]="safeSrc" frameBorder="0"></iframe>
+<!-- ------------- custom-design-iframe ------------- -->
+<div 
+    *ngIf="body.website_link?.length" 
+    class="grid-area" 
+    [ngClass]="{
+        'align_left'      : body.style.position === 'left',
+        'align_center'    : body.style.position === 'center',
+        'align_right'     : body.style.position === 'right'}">
+
+    <div 
+        class="default" 
+        *ngIf="body.style !== null "
+        [ngClass]="{
+            
+            'padding_off'     : body.style.padding === false,
+            'padding_on'      : body.style.padding === true,
+
+            'width_small'     : body.style.width === 'small',
+            'width_medium'    : body.style.width === 'medium',
+            'width_large'     : body.style.width === 'large'}">
+
+        <div class="embed-container" [ngStyle]="{'top': body.style.offset_y}">
+            <iframe 
+                allowfullscreen  
+                [src]="safeSrc" 
+                frameBorder="0">
+            </iframe>
+        </div>
+    
+    
+    </div>
+
+
+</div>

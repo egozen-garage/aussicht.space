@@ -65,7 +65,7 @@ span#btn-logo {
     font-size: 20px;
     left: var(--margin);
     color: white;
-    top: 30px;
+    top: 18px;
     position: absolute;
     display: none;
 }
@@ -324,7 +324,14 @@ audio {
     }
 
     .podcast_track_list {
-        height: calc(100vh - 170px);
+        // height: calc(100vh - 170px);
+        height: calc(var(--vh) - 125px);
+        // height: -webkit-fill-available;
+        // height: calc((var(--vh, 1vh) * 100)-170px);
+        
+        // source: https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit/
+        // min-height: calc(100vh - 170px); /* Fallback for browsers that do not support Custom Properties */
+        // min-height: -webkit-fill-available;
         // height: calc(var(--vh, 1vh) * 100);
         // min-height: -webkit-fill-available;
     }

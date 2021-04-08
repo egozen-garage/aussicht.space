@@ -150,6 +150,17 @@ $aussichtDOTspace-theme: mat-light-theme((
 }
 
 @font-face {
+  font-family: '2070mono';
+  font-weight: 500;                           /* 500 = medium */
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src:    
+  // local('2070mono'),
+          url('/assets/fonts/2070_Mono-Medium_116_web.woff2')    format('woff2'),        /* Super Modern Browsers iOS */
+          url('/assets/fonts/2070_Mono-Medium_116_web.woff')  format('woff');         /* Pretty Modern Browsers */
+}
+
+@font-face {
   font-family: '2070CircledNumbers';
   font-weight: 400;                           /* 400 = normal */
   font-style: normal;
@@ -181,13 +192,15 @@ $aussichtDOTspace-theme: mat-light-theme((
   --font-family-secondary: 'happy times';
   --font-family-machine: '2070mono';
   
-  --font-weight-primary: 500;
+  --font-weight-primary: 400;
 
   --font-size-primary: 40px;
   --font-size-primary-s: 37px;
   --font-size-secondary: 60px;
   --font-size-title: 90px;
   --font-size-date: 20px;
+  --font-size-paragraph: 22px;
+  --font-size-machine-text: 21px;
 
   --padding-footer-logos: 20px 0px 50px 0px;
   }
@@ -472,9 +485,9 @@ p {
 
 // --------code tag: perspective/project/podcast: keywords within text  -- code tags -------- 
 code {
-  color: #1E2685;
+  color: #031DFF;
   font-family: var(--font-family-primary);
-  font-size: 1.75rem;
-  font-weight: 300;
+  font-size: var(--font-size-paragraph);
+  font-weight: 400;
   line-height: 1.25;
 }

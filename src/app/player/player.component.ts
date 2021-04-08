@@ -24,6 +24,9 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   isDesktopDevice: boolean | undefined;
   deviceInfo:any;
 
+  // detecting real-time window size
+  public innerHeight: any;
+
   files: Array<any> = [];
   state : StreamState | undefined;
   currentFile: any = {};
@@ -62,19 +65,11 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   togglebtn() {
     if(!this.isMobile){
       this.ShowPodcastList = !this.ShowPodcastList;
-      console.log("activate desktop toggle function, is mobile?", this.isMobile);
       if (this.ShowPodcastList){
-        console.log("activate if statement 1", this.ShowPodcastList);
         this.toggleOpen = true;
-        this.renderer.setStyle(this.podcastButton, 'height', '117px');
-        this.renderer.setStyle(this.podcastButtonLogo, 'display', 'block');
-        // document.getElementById("podcast-header").class.toggle-btn-expand
       }
       if (!this.ShowPodcastList){
-        console.log("activate if statement 2", this.ShowPodcastList);
         this.toggleOpen = false;
-        this.renderer.setStyle(this.podcastButton, 'height', '20px');
-        this.renderer.setStyle(this.podcastButtonLogo, 'display', 'none');
       }
     }
   }
@@ -82,18 +77,13 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   togglebtn2() {
     if(this.isMobile){
       this.ShowPodcastList = !this.ShowPodcastList;
-      console.log("activate mobile toggle function, is mobile?", this.isMobile);
       if (this.ShowPodcastList){
-        console.log("activate if statement 1", this.ShowPodcastList);
         this.toggleOpen = true;
-        console.log("this.podcastButton: ", this.podcastButton);
-        console.log("this.podcastButtonLogo: ", this.podcastButtonLogo);
-        this.renderer.setStyle(this.podcastButton, 'height', '117px');
+        this.renderer.setStyle(this.podcastButton, 'height', '60px');
         this.renderer.setStyle(this.podcastButtonLogo, 'display', 'block');
         // document.getElementById("podcast-header").class.toggle-btn-expand
       }
       if (!this.ShowPodcastList){
-        console.log("activate if statement 2", this.ShowPodcastList);
         this.toggleOpen = false;
         this.renderer.setStyle(this.podcastButton, 'height', '20px');
         this.renderer.setStyle(this.podcastButtonLogo, 'display', 'none');
@@ -164,7 +154,20 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   pass_date:any;
   pass_guests:any;
   pass_raw_name:any;
+
+
   public ngOnInit() {
+
+    // ---- READ VIEWPORT HEIGHT ON INIT AND DECLARE VARIABLE ---- //
+    // Get the viewport height and multiply it by 1% to get a value for a vh unit
+    this.innerHeight = window.innerHeight;
+    let vh = this.innerHeight;
+    // Then set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    console.log("show me px value of window height on init", `${vh}px`);
+    
+
+
     this.podcastButton = document.getElementById('toggle-btn');
     this.podcastButtonLogo = document.getElementById('btn-logo');
     this.podcastAreaAll = document.getElementById('podcast_area_all');
@@ -205,16 +208,17 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     console.log("isTablet: " + this.isTablet);  // returns if the device us a tablet (iPad etc)
     console.log("isDesktopDevice: " + this.isDesktopDevice);
 
-    // const appHeight = () => {
-    //   const doc = document.documentElement
-    //   doc.style.setProperty('--app-height', `${window.innerHeight}px`)
-    // }
-    
-    // window.addEventListener('resize', appHeight)
-    // appHeight()
   }
 
   ngAfterViewInit(): void {
+    // ---- LISTEN TO RESIZE EVENT ---- //
+    // taken from Louis Hoebregs https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+    window.addEventListener('resize', () => {
+      // Execute same script as before
+      let vh = window.innerHeight;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      console.log("show me value of vh afterviewinit", `${vh}px`);
+    });
   }
 
 
@@ -248,7 +252,6 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     this.pass_raw_name = file.raw_name;
   }
 
-
   playpause(){
     if(this.state?.playing == true){
       this.currentTrackService.changeTrack(this.currentFile.file.podcastId + "_stopped");
@@ -263,6 +266,7 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     }
 
   }
+
   pause() {
     this.audioService.pause();
   }
@@ -300,6 +304,7 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   isFirstPlaying() {
     return this.currentFile.index === 0;
   }
+
   isLastPlaying() {
     return this.currentFile.index === this.files.length - 1;
   }
@@ -312,24 +317,6 @@ export class PlayerComponent implements OnInit, AfterViewInit{
   resize_player_container = '';
   ListColor = '#0a4ace';
   slideListInOut = '';
-  // ShowPlayerList(){
-  //   console.log("swipe it");
-    
-  //   // console.log("hello World");
-  //   //chang podcastplayer height to 150px;
-  //   // this.resize_player_container = '150px';
-  //   // this.ListColor = 'blue';
-  //   //this.slideListInOut = 'all 0.5s ease-in-out';
-  //   // this.slideListInOut = '0.5s ease-out 0s 1 slideUp;';
-  //   // console.log("show the list");
-  // }
-  // HidePlayerList(){
-  //   // this.resize_player_container = '50px';
-  //   //this.ShowList = 'collapse';
-  //   //this.slideListInOut = 'all 0.5s ease-in-out';
-  //   // this.slideListInOut = '0.5s ease-out 0s 1 slideUp';
-  //   // console.log("hide the list");
-  // }
 
   CallSetDocHeight() {
     setDocHeight();

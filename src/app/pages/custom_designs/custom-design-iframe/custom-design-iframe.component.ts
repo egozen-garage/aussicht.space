@@ -9,6 +9,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class CustomDesignIframeComponent implements OnInit {
 
   @Input() project:any;
+  @Input() body:any;
 
 
 

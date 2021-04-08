@@ -22,7 +22,6 @@
     font-family: var(--font-family-primary);
     font-weight: var(--font-weight-primary);
     position: fixed;
-    font-weight: 400;
     // mix-blend-mode: difference;
   }
   
@@ -298,7 +297,7 @@
 @media (max-width: 48em) {
   #header_black_background{
     display: block;
-    height: 60px;
+    height: 75px;
     transition: 0.4s;
   }
   
@@ -348,6 +347,11 @@
   //     --font-size-title: 30px;
   //     --font-size-date: 13px;
   //     }
+
+  #header_black_background{
+    height: 60px;
+  }
+  
 
   .lp-title {
       padding-top: 70px;

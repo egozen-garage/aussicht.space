@@ -33,7 +33,9 @@
 #fullscreen { width: 100%; }
 .img_caption { font-weight: 300; }
 
-
+.default {
+  position: relative;
+}
 
 // ----------------------- cms style classes ----------------------- 
 .width_small{     width: 30% !important;}

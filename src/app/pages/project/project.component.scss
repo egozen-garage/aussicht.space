@@ -5,7 +5,7 @@
 .themes {
   display: inline-block;
   color: black;
-  border: 2px solid black;
+  border: 1px solid black;
   margin: 0px 10px 10px 0px;
   padding: 5px 15px 5px 15px;
   font-family: var(--font-family-secondary);
@@ -15,18 +15,17 @@
 
 // padding for header // 
 header {
-  padding-bottom: 20vh;
+  padding-bottom: 5vh;
 }
 
 
 // ------ BODY ------- //
 
-.project-title, .related-title {
-  font-family: var(--font-family-primary);
-  font-weight: 500;
-  font-size: var(--font-size-primary-s);
-  margin: 0px;
-}
+// .project-title, .related-title {
+//   font-family: var(--font-family-primary);
+//   font-size: var(--font-size-primary-s);
+//   margin: 0px;
+// }
 
 span#project_artist {
   font-family: var(--font-family-secondary);
@@ -37,6 +36,7 @@ span#project_artist {
 span#project_title {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-secondary);
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -154,6 +154,22 @@ span#project_title {
       " all all all all all"
       ". default default default default";
 }
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 20% 40% 20% 20%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+      "intro intro . ."
+      ". subhead subhead ."
+      ". text text text"
+      ". t_machine t_machine t_machine"
+      ". . . t_m_background"
+      ". remark remark remark"
+      ". relation relation relation"
+      "all all all all";
+}
+
 [class="default-project-info"] { grid-area: title; width: 100%; padding: 0px var(--margin) 10px 0px;}
 .default-project-info {
   position: relative;

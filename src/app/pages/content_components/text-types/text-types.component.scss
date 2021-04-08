@@ -4,7 +4,7 @@
     grid-template-columns: 20% 40% 20% 20%;
     grid-template-rows: auto;
     grid-template-areas: 
-        ". intro intro intro"
+        "intro intro . ."
         ". subhead subhead ."
         ". text text text"
         ". t_machine t_machine t_machine"
@@ -22,10 +22,10 @@
 // COMPONENT > "intro" ---------------------------------------------------- 
 .comp_intro_container {
     font-family: var(--font-family-primary);
-    font-weight: 300;
+    font-weight: 400;
     font-size: var(--font-size-primary-s);
     line-height: 1;
-    padding: 20px calc(var(--margin) + 50px) 40px 0px;
+    padding: 20px calc(var(--margin) + 50px) 40px var(--margin);
     grid-area: intro;
     display: block;
     position: relative;
@@ -84,9 +84,9 @@
             position: absolute;
             width: 90%;
             padding: 15px 0px 0px 45px;
-            font-family: var(--font-family-primary);
-            font-weight: 300;
-            font-size: var(--font-size-date);
+            font-family: var(--font-family-machine);
+            font-weight: 400;
+            font-size: var(--font-size-machine-text);
             line-height: 1.2;
         }
         .comp_m_title {

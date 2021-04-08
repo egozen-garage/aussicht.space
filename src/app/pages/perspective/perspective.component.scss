@@ -1,10 +1,10 @@
 ::ng-deep .paragraph-text p {
-    font-size: 25px;
-    line-height: 1.3;
+    font-size: var(--font-size-paragraph);
+    line-height: 1.4;
 }
 
 .perspective-page, body {
-    padding: 90px 0px 100px 0px;
+    padding: 120px 0px 100px 0px;
     margin: 0px;
     background-color: var(--color-page-background-secondary);
     color: var(--color-black);
@@ -16,6 +16,10 @@
     padding: 0px var(--margin) 0px var(--margin);
 }
 
+body.main {
+    padding: 0px 0px 100px 0px;
+}
+
 
 
 .p_title {
@@ -24,19 +28,23 @@
     font-size: var(--font-size-title);
     margin: 0px;
     line-height: 0.9;
-    padding: 0px 0px 15px 0px;
+    padding: 0px 0px 20px 0px;
     width: 60%;
 }
 
 .p_author {
     font-family: var(--font-family-secondary);
-    font-size: var(--font-size-primary);
+    font-size: var(--font-size-primary-s);
+    margin: 0;
+    padding: 10px 0px 0px 0px;
 }
+
+.perspective-theme-container { padding: 46px 0px 50px 0px; margin: 0; }
 
 .themes {
     display: inline-block;
     color: black;
-    border: 2px solid black;
+    border: 1px solid black;
     margin: 0px 10px 10px 0px;
     padding: 5px 15px 5px 15px;
     font-family: var(--font-family-secondary);
