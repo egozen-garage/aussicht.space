@@ -60,14 +60,14 @@ export class UnitHubComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.updateNColumns(window.innerWidth);
-    this.columns = this.resetColumns();
+    this.updateNColumns();
+    this.resetAndFillColumns;
     this.projectSvc.getAllProjects().subscribe((res:any) => {
       this.projectsFromCms = res;
       this.projects = this.projectsFromCms;
       this.updateUnits();
       if (this.unitAndEncodedHrefList) {
-        this.fillColumns();
+        this.resetAndFillColumns();
       }
       // this.EVENTafterPageLoad.emit();
 
@@ -80,7 +80,7 @@ export class UnitHubComponent implements OnInit {
       this.perspectivesFromCms = this.perspectives;
       this.updateUnits();
       if (this.unitAndEncodedHrefList) {
-        this.fillColumns();
+        this.resetAndFillColumns();
       }
     });
 
@@ -89,7 +89,7 @@ export class UnitHubComponent implements OnInit {
       this.podcastsFromCms = this.podcasts;
       this.updateUnits();
       if (this.unitAndEncodedHrefList) {
-        this.fillColumns();
+        this.resetAndFillColumns();
       }
     });
 
@@ -102,35 +102,21 @@ export class UnitHubComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.updateNColumns(event.target.innerWidth);
-  }
-
-  private updateNColumns(windowWidth: number) {
-    console.log("updateNColumns called");
-    let nColumnsNew = Math.ceil(windowWidth / 380);
+  private updateNColumns() {
+    let nColumnsNew = Math.ceil(window.innerWidth / 380);
     if (this.nColumns !== nColumnsNew) {
-      console.log("nColumns changed from ", this.nColumns ," to ", nColumnsNew ,", filling columns");
       this.nColumns = nColumnsNew;
-      this.fillColumns();
+      this.resetAndFillColumns();
     }
   }
 
-  private resetColumns() {
-    console.log("resetColumns called: creating ", this.nColumns, " columns");
-    return Array(this.nColumns).fill(0).map(() => []);
-  }
-
-  private fillColumns() {
-    console.log("fillColumns called");
-    let emptyColumns: any = this.resetColumns();
-    console.log("emptyColumns before filling: ", emptyColumns);
+  private resetAndFillColumns() {
+    let emptyColumns: any = Array(this.nColumns).fill(0).map(() => []);
     if (this.unitAndEncodedHrefList) {
       for (let i = 0; i < this.unitAndEncodedHrefList.length; i++) {
         emptyColumns[i % emptyColumns.length].push(this.unitAndEncodedHrefList[i]);
       }
       this.columns = emptyColumns;
-      console.log("this.columns after filling: ", this.columns);
     }
   }
 
@@ -209,7 +195,7 @@ export class UnitHubComponent implements OnInit {
           this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === theme.theme_name) && !noThemeSelected;
       }
     }
-    this.fillColumns();
+    this.resetAndFillColumns();
   }
 
 //   foo(unit1: any, unit2: any) {
