@@ -39,26 +39,30 @@ a {
         transition-duration: 0.2s;
     }
 
-    input[type='checkbox'] { 
+    input[type='checkbox'] {
         display: none;
-      } 
+      }
 
     .allthemes {
         display: inline-block;
     }
 
-// --- MASONRY --- //
-.masonry {
-    margin: 2rem 0;
-    display: block;
-    columns: 350px;
-    gap: 1rem;
+.unitflexcolumn {
+  margin: 2rem 0;
+  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.unitflexitem {
+  display: flex;
+  flex-direction: column;
 }
 
 // --- UNITS CONTAINER --- //
 .units-container {
-    margin: 0;
-    margin-bottom: 3.5rem;
+    margin: 1rem;
+//    margin-bottom: 3.5rem;
     break-inside: avoid;
     // -- to raise all units to foreground -- //
     // position: relative;
