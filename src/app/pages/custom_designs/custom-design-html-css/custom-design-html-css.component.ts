@@ -9,6 +9,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class CustomDesignHtmlCssComponent implements OnInit {
   @Input() project:any;
   html_code_save:any;
+  @Input() body:any;
   
   constructor(private sanitizer: DomSanitizer,) {}
 

@@ -81,13 +81,9 @@
             </div>
 
             <!-- COMPONENT > "addon.html-css" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'addon.html-css' " 
+            <app-custom-design-html-css [body]="body" [project]="project.body[i].add_html_css" *ngIf=" body.__component === 'addon.html-css' " 
             class="section-grid">
-                <!-- ------------- custom-design-blankHTML ------------- -->
-                <div *ngIf="project.body[i].add_html_css?.length">
-                    <app-custom-design-html-css [project]="project.body[i].add_html_css"></app-custom-design-html-css>
-                </div>
-            </div>
+            </app-custom-design-html-css>
 
             <!-- COMPONENT > "addon.website" ---------------------------------------------------- -->
             <app-custom-design-iframe [body]="body" [project]="project.body[i].website_link" *ngIf="body.__component === 'addon.website'" class="section-grid">
