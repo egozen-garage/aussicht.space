@@ -7,6 +7,8 @@ import { ThemeService } from './services_strapi/theme.service';
 
 import { DeviceDetectorService } from 'ngx-device-detector';
 
+import { LanguageApiSwitchService } from './services_strapi/language/language-api-switch.service'
+
 // import { Platform } from '@angular/cdk/platform';
 // import { BreakpointObserver } from '@angular/cdk/layout'
 // import { Observable } from 'rxjs';
@@ -31,7 +33,8 @@ export class AppComponent implements OnInit  {
     private projectSvc: ProjectService,
     private perspectiveSvc: PerspectiveService,
     private podcastSvc: PodcastepisodesService,
-    private themeSvc: ThemeService
+    private themeSvc: ThemeService,
+    private selectLanguageAPI: LanguageApiSwitchService,
   ) { this.checkDeviceType();}
 
   deviceInfo:any;
@@ -45,6 +48,8 @@ export class AppComponent implements OnInit  {
     console.log("isMobile: " + isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
     console.log("isTablet: " + isTablet);  // returns if the device us a tablet (iPad etc)
     console.log("isDesktopDevice: " + isDesktopDevice);
+    this.selectLanguageAPI;
+    // this.langSwitch.choose_language();
   }
 
 
