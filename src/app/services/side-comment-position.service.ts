@@ -1,6 +1,7 @@
 import { taggedTemplate } from '@angular/compiler/src/output/output_ast';
 import { AfterViewInit, Injectable, OnInit } from '@angular/core';
 import { fromEvent, Observable, Subscription } from 'rxjs';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,42 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
   resizeObservable$!: Observable<Event>;
   resizeSubscription$: Subscription = new Subscription;
 
-  constructor() {
-  }
+  constructor(
+    private deviceService: DeviceDetectorService
+  ) {}
+  isMobile = this.deviceService.isMobile();
+  isTablet = this.deviceService.isTablet();
+  isDesktopDevice = this.deviceService.isDesktop();
+
   ngOnInit(): void { 
   }
 
   ngAfterViewInit(): void {
+  }
+
+
+  run_side_comments(){
+    if (this.isMobile){
+      console.log("start mobile comments");    
+      this.mobile_side_comments();
+    } else if (!this.isMobile){
+      console.log("no non no non no Mobile");
+      this.activate_site_comments();
+      this.listenResizeWindow();
+    }
+  }
+
+
+  activate_site_comments(){
+    setTimeout(() =>{ 
+      this.scanMarkdowns();
+      const side_comments = Array.from(document.getElementsByClassName('side_comment') as HTMLCollectionOf<HTMLElement>)
+      side_comments.forEach(item => {
+        item.classList.add("fade");
+        // item.style.opacity = "1";
+        // console.log("# # # ///////////////////"+item);
+      });
+    }, 1000);
   }
 
   listenResizeWindow(){
@@ -29,20 +60,14 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
   
   scanMarkdowns(){
     const super_rich_text = document.getElementsByClassName("side_comment_container");
+    // console.log("super_rich_text length: " + super_rich_text.length);
     
     for (var i = 0; i < super_rich_text.length; i++) {
-      console.log("super_rich_text nr.: " + i);
-
+      // console.log("super_rich_text nr.: " + i);
       let markdown_tag = super_rich_text[i].getElementsByTagName("markdown")[0];
       let position_of_markdown_tag = markdown_tag.getElementsByTagName("p")[0].offsetTop;
       let side_comments = this.collect_side_comments(super_rich_text[i]);
-      
-
-      // console.log("super_rich_text length: " + i);
-      // const markdown_counter = "markdown_nr_" + i;
-      // markdown_tag.setAttribute("id", markdown_counter);
       this.collect_code_tags(markdown_tag, side_comments, position_of_markdown_tag);
-      
     }
   }
 
@@ -53,72 +78,30 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
     var distance_of_previous_comment = 0;
     let comment_height = 1;
 
-
-    // let code_tag_position, side_comment_height, difference;
-    // var minus = 0;
-    // var blocked_space = 0;
     const code_tags = markdown_ID.getElementsByTagName("code");
-    console.log("amount code---------< " + code_tags.length );
+    // console.log("amount code---------< " + code_tags.length );
     for (var i = 0; i < code_tags.length; i++) {
       distance_paragraph_to_top = position_of_markdown_tag;
       distance_keyword_to_top = this.calculate_position_of_code_tags(code_tags[i]);
       comment_height = side_comments[i].clientHeight;  // height of the current comment
 
       distance_to_top_of_paragraph = distance_keyword_to_top - distance_paragraph_to_top;
-
-      
-      
       additional_distance = distance_of_previous_comment - distance_to_top_of_paragraph;
       
-      console.log("/comment_height: " + comment_height);
-      console.log("/distance_paragraph_to_top: " + distance_paragraph_to_top);
-      console.log("/distance_keyword_to_top: " + distance_keyword_to_top);
-      console.log("/distance_to_top_of_paragraph: " + distance_to_top_of_paragraph);
-      console.log("/additional_distance: " + additional_distance);
+      // console.log("/comment_height: " + comment_height);
+      // console.log("/distance_paragraph_to_top: " + distance_paragraph_to_top);
+      // console.log("/distance_keyword_to_top: " + distance_keyword_to_top);
+      // console.log("/distance_to_top_of_paragraph: " + distance_to_top_of_paragraph);
+      // console.log("/additional_distance: " + additional_distance);
       
       if (distance_to_top_of_paragraph < distance_of_previous_comment) {
         side_comments[i].style.marginTop =  0 + "px";
       } else {
         side_comments[i].style.marginTop =  distance_to_top_of_paragraph - distance_of_previous_comment + "px";
       }
-      
       distance_of_previous_comment = comment_height;
-
-      // console.log("####### nr: " + i);
-      // code_tag_position = this.calculate_position_of_code_tags(code_tags[i]);
-      // side_comment_height = side_comments[i].offsetHeight;
-      
-      // substract height of the previous comment
-      // let calculate_position = code_tag_position - minus - position_of_markdown_tag;
-      // set distance to top
-      // difference = blocked_space - calculate_position;
-      
-      // console.log("/comment height: " + side_comment_height);
-      // console.log("/calculate_position: " + calculate_position);
-      // console.log("/blocked_space: " + blocked_space);
-      // console.log("/difference: " + difference);
-      
-      // Distance of last object (from top of COMMENT CONTAINER to bottom of COMMENT) 
-      // if ( blocked_space < calculate_position ){
-      // if ( difference < 0 ){
-      //   console.log("--> no problems");
-        // side_comments[i].style.top = calculate_position + "px";
-            //side_comments[i].getElementsByClassName("add_position")[0].style.top = calculate_position - 4 + "px";
-        // side_comments[i].getElementsByTagName("div")[0].style.top = calculate_position + "px";
-        // difference = difference + calculate_position
-      // } else {
-      //   console.log("--> push it down");
-        // side_comments[i].style.top = calculate_position + difference + 20 + "px";
-            //side_comments[i].getElementsByClassName("add_position")[0].style.top =  calculate_position - 4 + difference + 20 + "px";
-        // side_comments[i].getElementsByTagName("div")[0].style.top = calculate_position + difference + 20 + "px";
-      // }
-
-      // prepare for the following comment
-      // blocked_space = calculate_position;
-      // minus = minus + side_comment_height;
     } 
   }
-
 
   // add window resize function
   calculate_position_of_code_tags(code_tag_ID:any){
@@ -126,45 +109,69 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
     return code_tag_position;
   }
 
-
   collect_side_comments(super_rich_text_ID:any){
     const side_comments = super_rich_text_ID.getElementsByClassName("side_comment");
-    console.log("amount of comments-------<" +  side_comments.length);
-    // console.log("/comment_height: " + side_comments[0].offsetHeight);
+    // if (this.deviceService.isMobile()) {
+    //   console.log("site comments length: "+ side_comments.length);
+    //   console.log("testing if mobile: " + this.deviceService.isMobile());
+    // }
+    // console.log("amount of comments-------<" +  side_comments.length);
     return side_comments;
+  }
+  
 
-    for (var i = 0; i < side_comments.length; i++) {
-      // side_comments[i].setAttribute("id", markdown_ID + "side_comment_" + i);
-      // side_comments[i].setAttribute("class", "side_comments_" + markdown_ID);
-      // console.log("content of side_comments #: " + side_comments[i].innerHTML);
-    } 
+
+
+  mobile_side_comments(){
+    let current_side_comment_id:any, current_side_comment:any;
+    console.log("mobile_side_comments function");
+    
+    const side_comment_containers = document.getElementsByClassName("side_comment_container");
+    for (var i = 0; i < side_comment_containers.length; i++) {
+      let markdown_tag = side_comment_containers[i].getElementsByTagName("markdown")[0];
+      let side_comments = side_comment_containers[i].getElementsByClassName("side_comment");
+      let code_tags = markdown_tag.getElementsByTagName("code");
+
+      for (var b = 0; b <= side_comments.length; b++) {
+        current_side_comment = side_comments[b].outerHTML;
+        current_side_comment_id = side_comments[b].id;
+        console.log("current b = " + b);
+        console.log("amount of side comments = " + side_comments.length);
+        console.log("current_side_comment_id" + current_side_comment_id);
+        
+        // side_comments[b].innerHTML = "";
+        // code_tags[b].id = "code_tag-" + current_side_comment_id;
+
+        let current_keyword = code_tags[b].innerHTML;
+        code_tags[b].innerHTML = current_keyword + current_side_comment;
+        // side_comment_containers[i].getElementsByClassName("side_comments")[0].innerHTML = "";
+
+        code_tags[b].addEventListener('click', function (event) {
+          // console.log("key word clicked.");
+          console.log("current_side_comment_id: " + current_side_comment_id);
+          if(document.getElementById(current_side_comment_id)!.style.display === "none"){
+            document.getElementById(current_side_comment_id)!.style.display = "inline";
+          } else {
+            document.getElementById(current_side_comment_id)!.style.display = "none";
+          }
+        });
+      }
+      side_comment_containers[i].getElementsByClassName("side_comments")[0].innerHTML = "";
+    }
   }
-  
-  renderCommentPosition(side_note_ID:any){
-    // this.calculate_position_of_code_tags("markdown_nr_0code_tag_0");
-    let distance_to_top = this.calculate_position_of_code_tags("markdown_nr_0code_tag_0");
-    
-    // substract sidenote height
-    let side_comment_height = document.getElementById(side_note_ID)!.offsetHeight;
-    
-    //console.log("side height: "+ side_comment_height);
-    
-    distance_to_top = distance_to_top + side_comment_height;
-    // const distance_to_top = 500;
-    return distance_to_top;
-  }
-  
-  
+
+
+
+
+
+  // renderCommentPosition(side_note_ID:any){
+  //   // this.calculate_position_of_code_tags("markdown_nr_0code_tag_0");
+  //   let distance_to_top = this.calculate_position_of_code_tags("markdown_nr_0code_tag_0");
+  //   // substract sidenote height
+  //   let side_comment_height = document.getElementById(side_note_ID)!.offsetHeight;
+  //   //console.log("side height: "+ side_comment_height);
+  //   distance_to_top = distance_to_top + side_comment_height;
+  //   // const distance_to_top = 500;
+  //   return distance_to_top;
+  // }  
 }
-
-
-
-// 1. call markdown Array (change to call super_rich_text array)
-// 2. for each super_rich_text array 
-//       --> select markdown
-//             --> collect code tags
-//       --> collect footnotes
-
-// 3. for each code tag
-//       --> call height position
-//               --> apply height to footnote

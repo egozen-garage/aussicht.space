@@ -88,7 +88,7 @@ class="section-grid side_comment_container">
             <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
             <ng-container *ngFor="let relation_to of body.relation_to, let r = index" >
 
-                <div class="side_comment">
+                <div id="relation_paragraph_{{body.id}}_comment_{{relation_to.id}}" class="side_comment">
                     <div class="side_comment_padding relation_container">
                         <div class="comp_relation">
 

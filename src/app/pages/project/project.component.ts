@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { ProjectService } from '../../services_strapi/project.service';
 import { ActivatedRoute } from '@angular/router';
-// import { SideCommentPositionService } from '../../services/side-comment-position.service';
+import { SideCommentPositionService } from '../../services/side-comment-position.service';
 
 
 //import { CustomDesignIframeComponent } from '../custom_designs/custom-design-iframe/custom-design-iframe.component';
@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.scss']
 })
-export class ProjectComponent implements OnInit {
+export class ProjectComponent implements OnInit, AfterViewInit {
   projectID : string = "";
   project:any;
   folder_name:any;
@@ -37,9 +37,8 @@ export class ProjectComponent implements OnInit {
   constructor(
     private projectSvc: ProjectService,
     private route: ActivatedRoute,
-    // private sideCommentPosition: SideCommentPositionService,
-    
-    ) { 
+    private sideCommentPosition: SideCommentPositionService    
+    ) {       
       if (window.innerWidth >= 1024) {
         //this.isMobileResolution = true;
         this.image_size = 128;
@@ -55,10 +54,11 @@ export class ProjectComponent implements OnInit {
       // this.EVENTafterPageLoad.emit();
     }
     
-  // ngAfterViewInit(): void {
-  //   this.activate_site_comments(this.sideCommentPosition);
-  //   this.sideCommentPosition.listenResizeWindow();
-  // }
+  ngAfterViewInit(): void {
+    this.sideCommentPosition.run_side_comments(); 
+    // this.activate_site_comments(this.sideCommentPosition);
+    // this.sideCommentPosition.listenResizeWindow();
+  }
 
   // activate_site_comments(site_comment_service:any){
   //   setTimeout(() =>{ 
