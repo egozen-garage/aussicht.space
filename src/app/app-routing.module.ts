@@ -10,27 +10,32 @@ import { ProjectComponent} from './pages/project/project.component';
 import { PerspectiveComponent} from './pages/perspective/perspective.component';
 import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episodes.component';
 
-
 const routes: Routes = [
-  { path: "", component: LandingPageComponent },
-  { path: "units",
-    component: UnitHubComponent,
+  // { path: "", component: LandingPageComponent},
+  { path: ":language", component: LandingPageComponent,
     children: [
-      { path: 'project/:title', component: ProjectComponent},
-      { path: 'podcast/:title', component: PodcastEpisodesComponent},
-      { path: 'perspective/:title', component: PerspectiveComponent},
+      { path: "units", component: UnitHubComponent,
+        children: [
+          { path: 'project/:title', component: ProjectComponent},
+          { path: 'podcast/:title', component: PodcastEpisodesComponent},
+          { path: 'perspective/:title', component: PerspectiveComponent},
+          // { path: '', redirectTo:'', pathMatch:"full" }
+
+        ]
+      },{
+        path: "impressum", component: ImpressumComponent
+      }
     ]
   },
-  { path: "preview",
-  component: PreviewComponent,
-  children: [
-    { path: 'project/:title', component: ProjectComponent},
-    { path: 'podcast/:title', component: PodcastEpisodesComponent},
-    { path: 'perspective/:title', component: PerspectiveComponent},
-  ]
-},
-  { path: "impressum", component: ImpressumComponent},
   { path: "**", redirectTo: "" }
+  // { path: "preview",
+  // component: PreviewComponent,
+  // children: [
+  //   { path: 'project/:title', component: ProjectComponent},
+  //   { path: 'podcast/:title', component: PodcastEpisodesComponent},
+  //   { path: 'perspective/:title', component: PerspectiveComponent},
+  // ]
+  // },
 ];
 
 @NgModule({
