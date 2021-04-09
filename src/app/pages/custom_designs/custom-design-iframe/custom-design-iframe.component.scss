@@ -1,6 +1,5 @@
 .grid-area {
   position: relative;
-  grid-area: all;
   width: 100vw;
   display: flex;
 }
@@ -32,11 +31,12 @@
 .width_medium { width: 50% !important; }
 .width_large  { width: 75% !important; }
 
-.align_left   { justify-content: flex-start; }
-.align_center { justify-content: center;     }
-.align_right  { justify-content: flex-end;   }
+.align_left   { justify-content: flex-start; grid-area: all; }
+.align_center { justify-content: center; grid-area: all;     }
+.align_right  { justify-content: flex-end; grid-area: all;   }
 
 .padding_on {padding: 20px}
 .padding_of {padding: 0px}
 
-[class="default"] { grid-area: center; width: 100%; padding: 20px 0px 20px 0px;}
+[class="default"] { width: 100%; padding: 20px 0px 20px 0px;}
+[class="grid-area"] { grid-area: relation; padding: 20px 0px 20px 0px;}
