@@ -12,22 +12,17 @@ import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episo
 
 const routes: Routes = [
   // { path: "", component: LandingPageComponent},
-  { path: ":language", component: LandingPageComponent,
+  { path: ":language", component: LandingPageComponent},
+  { path: ":language/units", component: UnitHubComponent,
     children: [
-      { path: "units", component: UnitHubComponent,
-        children: [
-          { path: 'project/:title', component: ProjectComponent},
-          { path: 'podcast/:title', component: PodcastEpisodesComponent},
-          { path: 'perspective/:title', component: PerspectiveComponent},
-          // { path: '', redirectTo:'', pathMatch:"full" }
-
-        ]
-      },{
-        path: "impressum", component: ImpressumComponent
-      }
+      { path: 'project/:title', component: ProjectComponent},
+      { path: 'podcast/:title', component: PodcastEpisodesComponent},
+      { path: 'perspective/:title', component: PerspectiveComponent},
+      // { path: '', redirectTo:'', pathMatch:"full" }
     ]
   },
-  { path: "**", redirectTo: "" }
+  { path: ":language/impressum", component: ImpressumComponent },
+  { path: "**", redirectTo: "de" }
   // { path: "preview",
   // component: PreviewComponent,
   // children: [

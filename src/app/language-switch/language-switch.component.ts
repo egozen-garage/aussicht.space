@@ -20,9 +20,10 @@ export class LanguageSwitchComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     ) { 
+      this.selectLanguageAPI;
       this.route.params.subscribe(params => {
         this.language = params['language'];
-        // this.selectLanguageAPI.test();
+        this.selectLanguageAPI.test();
         if (this.language=== "de"){
           console.log("language is German");
         }else if (this.language === "en"){
@@ -41,7 +42,7 @@ export class LanguageSwitchComponent implements OnInit {
   }
 
   selectLanguage(){
-    this.router.navigate([this.language]).then(() => {
+    this.router.navigate([this.language], {relativeTo: this.route}).then(() => {
       window.location.reload();
     });
   }
