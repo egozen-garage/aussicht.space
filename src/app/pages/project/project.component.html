@@ -107,8 +107,16 @@
                 </label>
                 <div class="curatorial-content">
                     <div class="curatorial-content-wrapper">
-                        <span id="curatorial-intro">{{project.curatorial_intro}}</span>
-                        <span id="curatorial-description">{{project.curatorial_description}}</span>
+                        <span id="curatorial-intro">
+                            <markdown> 
+                                {{project.curatorial_intro}}
+                            </markdown>     
+                        </span>
+                        <span id="curatorial-description">
+                            <markdown> 
+                                {{project.curatorial_description}}
+                            </markdown>     
+                        </span>
                     </div>
                 </div>
             </div>        
