@@ -140,7 +140,7 @@
                 <br>
                 perspective
                 <br>
-                &#10230;
+                <img [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]" class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next">
             </div>
 
 
@@ -173,10 +173,12 @@
     <!-- ----------------------- PREVIOUS / NEXT ----------------------- -->
     <div class="next_project">
         <div class="previous_button" >
-            <a [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]">&#10229; Previous</a>
+            <img [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]" class="btn-icon" id="arrow-previous" src="/assets/logos/2070_arrow_left.png" alt="previous">
+            <a [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]">Previous</a>
         </div>
         <div class="next_button">
-            <a [routerLink]="['/units/' + project.unit_type + '/' + next_project ]">Next &#10230;</a>
+            <a [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]">Next </a>
+            <img [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]" class="btn-icon" id="arrow-next" src="/assets/logos/2070_arrow_right.png" alt="next">
         </div>
     </div>
     

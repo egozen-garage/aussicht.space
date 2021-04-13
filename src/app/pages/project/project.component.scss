@@ -371,7 +371,7 @@ li{
 // ----------------------- PREVIOUS / NEXT ----------------------- 
 .next_project{
   font-family: var(--font-family-primary);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 2rem;
   
   // grid-area: next;
@@ -388,11 +388,34 @@ li{
   margin-bottom: 50px;
   width: 100%;
   grid-area: next;
+  position: relative;
 }
-.previous_button{
+
+#arrow-next {
+  right: 0px;
 }
+
+#arrow-related {
+  position: static;
+  margin: 15px 2px 0px 0px;
+  height: 0.7em;
+}
+
+.previous_button a {
+  padding: 0px 0px 0px 30px;
+}
+
+.next_button a {
+  padding: 0px 30px 0px 0px;
+}
+
 .next_button{
   text-align: right;
+}
+.btn-icon {
+  height: 0.8em;
+  position: absolute;
+  top: 20%;
 }
 
 

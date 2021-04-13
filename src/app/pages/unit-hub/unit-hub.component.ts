@@ -103,7 +103,7 @@ export class UnitHubComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   private updateNColumns() {
-    let nColumnsNew = Math.ceil(window.innerWidth / 380);
+    let nColumnsNew = Math.ceil(window.innerWidth / 500);
     if (this.nColumns !== nColumnsNew) {
       this.nColumns = nColumnsNew;
       this.resetAndFillColumns();
