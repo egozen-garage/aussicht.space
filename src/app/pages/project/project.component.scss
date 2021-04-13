@@ -301,8 +301,9 @@ label.collapsible-button {
 // ----------------------- recommendations -----------------------
 .recommendation{
   height: auto;
-  margin: var(--margin-s);
+  padding: var(--margin-s);
   color: black;
+  background-color: #f5f5f0;
   // display: inline-block;
 
   // flex-direction: column;
