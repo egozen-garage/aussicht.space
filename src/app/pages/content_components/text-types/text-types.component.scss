@@ -195,7 +195,11 @@
 }
 .relation_img {
     max-width: 300px;
-    padding: 0px 0px 30px 0px;
+    padding: 10px 0px 30px 0px;
+}
+
+.btn-icon {
+    height: 1em;
 }
 
 .project-related { grid-area: sidebar; }

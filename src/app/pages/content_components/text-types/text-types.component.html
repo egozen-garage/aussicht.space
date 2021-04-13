@@ -104,7 +104,9 @@ class="section-grid side_comment_container">
                                         <br>
                                         <span id="artist_name">{{ body.relation_to[r].projekt.name}}</span>
                                     </div>
-                                    <div class="relation_arrow">&#10230;</div>
+                                    <div class="relation_arrow">
+                                        <img class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next">
+                                    </div>
 
                                     <!-- relation: title -->
                                     <div *ngIf="body.relation_to[r].title?.length" class="relation_artistname">
@@ -113,7 +115,9 @@ class="section-grid side_comment_container">
                                     <!-- relation: description -->
                                     <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
                                         {{ body.relation_to[r].description }}
-                                        <div class="relation_arrow">&#10230;</div>
+                                        <div class="relation_arrow">
+                                            <img class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next">
+                                        </div>
                                     </div>
                                     <!-- relation: image -->
                                     <div *ngIf="body.relation_to[r].projekt.preview_image != null" >
