@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ProjectService } from '../../services_strapi/project.service';
 import { PerspectiveService } from '../../services_strapi/perspective.service';
 import { ThemeService } from '../../services_strapi/theme.service';
@@ -17,6 +17,8 @@ export class UnitHubComponent implements OnInit {
 
 
   // @Output() EVENTafterPageLoad = new EventEmitter();
+  nColumns: number = 1;
+  columns: any[] = [[]];
 
 
   apiUrl = environment.apiUrl;
@@ -58,10 +60,15 @@ export class UnitHubComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.updateNColumns();
+    this.resetAndFillColumns;
     this.projectSvc.getAllProjects().subscribe((res:any) => {
       this.projectsFromCms = res;
       this.projects = this.projectsFromCms;
       this.updateUnits();
+      if (this.unitAndEncodedHrefList) {
+        this.resetAndFillColumns();
+      }
       // this.EVENTafterPageLoad.emit();
 
     });
@@ -72,12 +79,18 @@ export class UnitHubComponent implements OnInit {
       this.perspectives = res;
       this.perspectivesFromCms = this.perspectives;
       this.updateUnits();
+      if (this.unitAndEncodedHrefList) {
+        this.resetAndFillColumns();
+      }
     });
 
     this.podcastSvc.getAllPodcastEpisodes().subscribe((res:any) => {
       this.podcasts = res;
       this.podcastsFromCms = this.podcasts;
       this.updateUnits();
+      if (this.unitAndEncodedHrefList) {
+        this.resetAndFillColumns();
+      }
     });
 
 
@@ -86,6 +99,25 @@ export class UnitHubComponent implements OnInit {
       this.themesSelected = this.themesFromCms;
     });
 
+  }
+
+  @HostListener('window:resize', ['$event'])
+  private updateNColumns() {
+    let nColumnsNew = Math.ceil(window.innerWidth / 380);
+    if (this.nColumns !== nColumnsNew) {
+      this.nColumns = nColumnsNew;
+      this.resetAndFillColumns();
+    }
+  }
+
+  private resetAndFillColumns() {
+    let emptyColumns: any = Array(this.nColumns).fill(0).map(() => []);
+    if (this.unitAndEncodedHrefList) {
+      for (let i = 0; i < this.unitAndEncodedHrefList.length; i++) {
+        emptyColumns[i % emptyColumns.length].push(this.unitAndEncodedHrefList[i]);
+      }
+      this.columns = emptyColumns;
+    }
   }
 
   updateUnits(): void {
@@ -163,6 +195,7 @@ export class UnitHubComponent implements OnInit {
           this.themesSelected.some((selectedTheme: any) => selectedTheme.theme_name === theme.theme_name) && !noThemeSelected;
       }
     }
+    this.resetAndFillColumns();
   }
 
 //   foo(unit1: any, unit2: any) {

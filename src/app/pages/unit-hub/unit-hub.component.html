@@ -37,101 +37,100 @@
 
         </div>
 
-        <div *ngIf="unitAndEncodedHrefList" class="masonry">
+        <div *ngIf="unitAndEncodedHrefList" class="unitflexcolumn">
 
-            <!-- FILTER UNITS ACCORDING TO SELECTED THEMES -->
-            <div [ngClass]= " { 'perspectives' : uh.unit.unit_type === 'perspective',
-                                'projects'     : uh.unit.unit_type === 'project',
-                                'podcasts'     : uh.unit.unit_type === 'podcast'   } "
-                *ngFor= " let uh of unitAndEncodedHrefList "
-                class= "units-container" >
+            <div *ngFor="let column of columns" class="unitflexitem">
 
-                    <!-- PODCAST UNIT -->
-                    <div *ngIf="uh.unit.unit_type === 'podcast'" class="unit-content">
+                    <!-- FILTER UNITS ACCORDING TO SELECTED THEMES -->
+                    <div [ngClass]= " { 'perspectives' : uh.unit.unit_type === 'perspective',
+                                        'projects'     : uh.unit.unit_type === 'project',
+                                        'podcasts'     : uh.unit.unit_type === 'podcast'   } "
+                        *ngFor= "let uh of column"
+                        class= "units-container" >
 
-                        <!-- PODCAST UNIT > CONTENT SECTION -->
-                        <!-- EPISODE > LOGO -->
-                        <div *ngIf="uh.unit.offline_episode_logo !== null">
-                          <img class="offline_podcast_logo" src="{{uh.unit.offline_episode_logo.url}}">
-                        </div>
+                            <!-- PODCAST UNIT -->
+                            <div *ngIf="uh.unit.unit_type === 'podcast'" class="unit-content">
 
-                        <!-- EPISODE > TITLE -->
-                        <div *ngIf="uh.unit.title?.length" class="unit-title" id="podcast-title">
-                            <a [routerLink]="[('/units/' + uh.unit.unit_type), uh.titleEncoded]">{{uh.unit.title}}</a>
-                        </div>
+                                <!-- PODCAST UNIT > CONTENT SECTION -->
+                                <!-- EPISODE > LOGO -->
+                                <div *ngIf="uh.unit.offline_episode_logo !== null">
+                                  <img class="offline_podcast_logo" src="{{uh.unit.offline_episode_logo.url}}">
+                                </div>
 
-                        <!-- EPISODE > GUEST SPEAKERS -->
-                        <div *ngIf="uh.unit.speakers?.length" class="unit-name" id="podcast-speakers" >
-                            {{uh.unit.speakers}}
-                        </div>
+                                <!-- EPISODE > TITLE -->
+                                <div *ngIf="uh.unit.title?.length" class="unit-title" id="podcast-title">
+                                    <a [routerLink]="[('/units/' + uh.unit.unit_type), uh.titleEncoded]">{{uh.unit.title}}</a>
+                                </div>
 
-                        <!-- PODCAST UNIT > THEMES SECTION -->
-                        <div class="unit-theme-container">
-                            <div *ngFor="let ut of uh.unit.themes"
-                                [class.visited]="ut.selected"
-                                class="unit-themes" id="podcast-themes">
-                                {{ut.theme_name}}
+                                <!-- EPISODE > GUEST SPEAKERS -->
+                                <div *ngIf="uh.unit.speakers?.length" class="unit-name" id="podcast-speakers" >
+                                    {{uh.unit.speakers}}
+                                </div>
+
+                                <!-- PODCAST UNIT > THEMES SECTION -->
+                                <div class="unit-theme-container">
+                                    <div *ngFor="let ut of uh.unit.themes"
+                                        [class.visited]="ut.selected"
+                                        class="unit-themes" id="podcast-themes">
+                                        {{ut.theme_name}}
+                                    </div>
+                                </div>
+
                             </div>
-                        </div>
 
-                    </div>
+                            <!-- PERSPECTIVE UNIT -->
+                            <div *ngIf="uh.unit.unit_type === 'perspective'" class="unit-content">
 
-                    <!-- PERSPECTIVE UNIT -->
-                    <div *ngIf="uh.unit.unit_type === 'perspective'" class="unit-content">
+                                <!-- PERSPECTIVE UNIT > CONTENT SECTION -->
+                                <!-- ARTICLE > TITLE -->
+                                <div class="unit-title" id="perspective-title">
+                                    <a [routerLink]="['/units/' + uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
+                                </div>
 
-                        <!-- PERSPECTIVE UNIT > CONTENT SECTION -->
-                        <!-- ARTICLE > TITLE -->
-                        <div class="unit-title" id="perspective-title">
-                            <a [routerLink]="['/units/' + uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
-                        </div>
+                                <!-- ARTICLE > AUTHOR -->
+                                <div class="unit-name" id="perspective-author" >
+                                    {{uh.unit.author}}
+                                </div>
 
-                        <!-- ARTICLE > AUTHOR -->
-                        <div class="unit-name" id="perspective-author" >
-                            {{uh.unit.author}}
-                        </div>
+                                <!-- PERSPECTIVE UNIT > THEMES SECTION -->
+                                <div class="unit-theme-container">
+                                    <div *ngFor="let ut of uh.unit.themes"
+                                        [class.visited]="ut.selected"
+                                            class="unit-themes" id="perspective-themes">
+                                        {{ut.theme_name}}
+                                    </div>
+                                </div>
 
-                        <!-- PERSPECTIVE UNIT > THEMES SECTION -->
-                        <div class="unit-theme-container">
-                            <div *ngFor="let ut of uh.unit.themes"
-                                [class.visited]="ut.selected"
-                                    class="unit-themes" id="perspective-themes">
-                                {{ut.theme_name}}
                             </div>
-                        </div>
 
-                    </div>
+                            <!-- PROJECT UNIT -->
+                            <div *ngIf="uh.unit.unit_type === 'project'" class="unit-content" >
 
-                    <!-- PROJECT UNIT -->
-                    <div *ngIf="uh.unit.unit_type === 'project'" class="unit-content" >
+                                <!-- PROJECT UNIT > CONTENT SECTION -->
+                                <!-- PROJECT > THUMBNAIL IMAGE -->
+                              <div *ngIf="uh.unit.preview_image">
+                                <img id="project-thumb-img" src="{{uh.unit.preview_image.url}}" style="width: 100%;">
+                              </div>
 
-                        <!-- PROJECT UNIT > CONTENT SECTION -->
-                        <!-- PROJECT > THUMBNAIL IMAGE -->
-                      <div *ngIf="uh.unit.preview_image">
-                        <img id="project-thumb-img" src="{{uh.unit.preview_image.url}}" style="width: 100%;">
-                      </div>
+                                <!-- PROJECT > TITLE -->
+                                <div class="unit-title" id="project-title">
+                                    <a [routerLink]="['/units/' + uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
+                                </div>
 
-                        <!-- PROJECT > TITLE -->
-                        <div class="unit-title" id="project-title">
-                            <a [routerLink]="['/units/' + uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
-                        </div>
+                                <!-- PROJECT > ARTIST -->
+                                <div class="unit-name" id="project-artist" >
+                                    {{uh.unit.artist}}
+                                </div>
 
-                        <!-- PROJECT > ARTIST -->
-                        <div class="unit-name" id="project-artist" >
-                            {{uh.unit.name}}
-                        </div>
+                                <!-- PERSPECTIVE UNIT > THEMES SECTION -->
+                                <div class="unit-theme-container">
+                                    <div *ngFor="let ut of uh.unit.themes"
+                                        [class.visited]="ut.selected"
+                                            class="unit-themes" id="perspective-themes">
+                                        {{ut.theme_name}}
+                                    </div>
+                                </div>
 
-                        <!-- PERSPECTIVE UNIT > THEMES SECTION -->
-                        <div class="unit-theme-container">
-                            <div *ngFor="let ut of uh.unit.themes"
-                                [class.visited]="ut.selected"
-                                    class="unit-themes" id="perspective-themes">
-                                {{ut.theme_name}}
-                            </div>
-                        </div>
-
-                    </div>
-
-            </div>
 
         </div>
 
