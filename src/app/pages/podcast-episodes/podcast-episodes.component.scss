@@ -8,23 +8,32 @@
 
 .podcast-header { height: 100vh; }
 
-.btn-back2hub {
-    z-index: 9999;
-    font-family: '2070';
-    font-weight: 400;
-    font-size: 20px;
-    position: fixed;
-    display: flex;
-    left: var(--margin);
-    float: left;
-    top: 30px;
-    color: white;
-}
 
+// BACK TO UNIT HUB
+    .btn-back2hub {
+        z-index: 9999;
+        font-family: '2070';
+        font-weight: 400;
+        font-size: 30px;
+        position: fixed;
+        display: flex;
+        left: var(--margin-s);
+        float: left;
+        top: 30px;
+        color: white;
+    }
+    
     .btn-back2hub a {
         color: white;
         text-decoration: none;
-        padding: 0px 0px 0px 15px;
+        padding: 0px 0px 0px 30px;
+    }
+    
+    .btn-icon {
+        height: 0.8em;
+        position: absolute;
+        top: 20%;
+        filter: invert(1);
     }
 
 .offline_podcast_logo {

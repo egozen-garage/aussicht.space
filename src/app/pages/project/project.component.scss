@@ -180,7 +180,7 @@ span#project_title {
 // ----------------------- gpt images ----------------------- 
 #gpt_images{
   grid-area: all;
-  padding: 30px var(--margin-s);
+  padding: 30px 22px;
   width: 100%;
 }
 
@@ -227,6 +227,7 @@ label.collapsible-button {
   overflow: hidden;
   transition: max-height .6s ease-in-out;
   color: black;
+  padding: 0px;
 
   background: rgb(255,255,255);
   background: -moz-linear-gradient(180deg, rgba(255,255,255,0) 98%, rgba(0,0,0,.10) 100%);
@@ -235,7 +236,7 @@ label.collapsible-button {
 }
 
   .curatorial-content-wrapper {
-    margin: 20px var(--margin);
+    margin: 20px var(--margin-s);
   }
 
     #curatorial-intro {
@@ -254,7 +255,7 @@ label.collapsible-button {
     }
 
 #event:checked + .collapsible-button + .curatorial-content { 
-  max-height: 100em; 
+  max-height: 200em; 
 }
 
 .icon {
