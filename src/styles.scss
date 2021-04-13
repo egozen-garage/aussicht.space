@@ -113,6 +113,7 @@ $aussichtDOTspace-theme: mat-light-theme((
           url('/assets/fonts/happy-times-NG_regular_master_web.woff2')  format('woff2'),
           url('/assets/fonts/happy-times-NG_regular_master.ttf')        format('truetype');
 }
+
 // @font-face {
 //   font-family: 'happy times';
 //   font-weight: 500;
@@ -490,4 +491,8 @@ code {
   font-size: var(--font-size-paragraph);
   font-weight: 400;
   line-height: 1.25;
+}
+
+em {
+
 }

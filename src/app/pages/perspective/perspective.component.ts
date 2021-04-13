@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { PerspectiveService } from '../../services_strapi/perspective.service';
 import { ActivatedRoute, Router, RouteReuseStrategy } from '@angular/router';
 // import { SideCommentPositionService } from '../../services/side-comment-position.service';
@@ -14,6 +14,7 @@ import { HelperService } from "../../services/helper.service";
   styleUrls: ['./perspective.component.scss']
 })
 export class PerspectiveComponent implements OnInit {
+
   apiUrl = environment.apiUrl;
   private perspectiveTitle: string = "";
   perspective:any;
@@ -48,6 +49,8 @@ export class PerspectiveComponent implements OnInit {
   //   }, 3000);
   // }
 
+  // When the user scrolls the page, execute myFunction 
+
   ngOnInit() {
     this.route.params.subscribe( p => {
       this.perspectiveTitle = p['title'];
@@ -62,5 +65,17 @@ export class PerspectiveComponent implements OnInit {
       });
     });
   }
+
+
+@HostListener('window:scroll', ['$event']) onScrollEvent($event: any){
+  console.log($event);
+  console.log("scrolling");
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  var scrollID = document.getElementById("scrollBar");
+  scrollID!.style.width = scrolled + "%";
+} 
+
 
 }
