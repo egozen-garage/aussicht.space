@@ -1,6 +1,6 @@
 ::ng-deep .paragraph-text p {
     font-size: var(--font-size-paragraph);
-    line-height: 1.4;
+    line-height: var(--line-height-paragraph);
 }
 
 .perspective-page, body {

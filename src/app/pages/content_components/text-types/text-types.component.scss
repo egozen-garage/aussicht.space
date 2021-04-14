@@ -19,6 +19,22 @@
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\ text types \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 // /////////////////////////// text types ///////////////////////////
 
+// Everything paragraph text ---------------------------------------------------- 
+::ng-deep .paragraph-text p {
+    font-size: var(--font-size-paragraph);
+    font-family: var(--font-family-secondary);
+    line-height: var(--line-height-paragraph);
+}
+
+::ng-deep .intro-text p {
+    font-family: var(--font-family-primary);
+}
+
+::ng-deep .intro-text p em{
+    font-family: var(--font-family-primary);
+    font-style: italic;
+}
+
 // COMPONENT > "intro" ---------------------------------------------------- 
 .comp_intro_container {
     font-family: var(--font-family-primary);

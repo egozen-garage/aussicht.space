@@ -26,7 +26,7 @@
     .btn-back2hub a {
         color: white;
         text-decoration: none;
-        padding: 0px 0px 0px 30px;
+        padding: 0px 0px 0px 35px;
     }
     
     .btn-icon {
@@ -149,7 +149,8 @@
 
 .podcast_episode_description {
     font-family: var(--font-family-secondary);
-    font-size: 25px;
+    font-size: var(--font-size-paragraph);
+    line-height: var(--line-height-paragraph);
     width: 70%;
 }
 
