@@ -57,13 +57,18 @@
     margin: 40px 0px 40px 0px;
 
 }
-::ng-deep .impressum_promoted_by p {
+
+::ng-deep #ownership-declaration p {
+    font-family: var(--font-family-secondary) !important;
+    font-weight: 400;
+}
+
+::ng-deep #promoted_by p {
     font-family: var(--font-family-primary) !important;
     font-weight: 500;
     margin: 40px 0px 40px 0px;
     line-height: 1.25;
 }
-
 .impressum_subtitle{
     padding-top: 15px;
     margin-bottom: 0;

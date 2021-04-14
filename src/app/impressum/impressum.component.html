@@ -50,7 +50,7 @@
             </h3>
             <div *ngIf="impressum.involved_party[i].team_members?.length"
             class="impressum_text">
-                <markdown>
+                <markdown class="paragraph">
                     {{ impressum.involved_party[i].team_members }}
                 </markdown>
             </div>
@@ -81,7 +81,7 @@
 <!-- promoted_by ------------------------------------------------------------ -->
 <div *ngIf="impressum.promoted_by?.length"
 class="impressum_title">
-    <markdown class="impressum_promoted_by">
+    <markdown class="paragraph" id="promoted_by">
         {{ impressum.promoted_by }}
     </markdown>
 </div>
@@ -91,7 +91,7 @@ class="impressum_title">
 <!-- copyright_ownership_declaration ------------------------------------------------------------ -->
 <div *ngIf="impressum.copyright_ownership_declaration?.length" 
 class="impressum_copyright_ownership_declaration">
-    <markdown>
+    <markdown class="paragraph" id="ownership-declaration">
         {{ impressum.copyright_ownership_declaration }}
     </markdown>
 </div>

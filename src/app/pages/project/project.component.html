@@ -98,7 +98,7 @@
             <!-- CURATORIAL TEXT------------------------------------------------------------- -->
             <!-- CURATORIAL TEXT------------------------------------------------------------- -->
             <!-- COMPONENT > "addon.javascript-file-name" ---------------------------------------------------- -->
-            <div class="collapsible-wrap" id="curatorial-text" *ngIf="project.curatorial_intro?.length">
+            <div class="collapsible-wrap" id="curatorial-text" *ngIf="project.curatorial_intro?.length || project.curatorial_description?.length">
                 <input type="checkbox" class="toggle" id="event">
                 <label for="event" class="collapsible-button icon show-more" (click)="toggleCuratorialContent()">
                     <span class="plusminus">
@@ -107,7 +107,7 @@
                 </label>
                 <div class="curatorial-content">
                     <div class="curatorial-content-wrapper">
-                        <span id="curatorial-intro">
+                        <span  id="curatorial-intro">
                             <markdown> 
                                 {{project.curatorial_intro}}
                             </markdown>     
