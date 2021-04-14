@@ -14,8 +14,8 @@
     line-height: 1.2;
 
     // ----- ALREADY DEFINED IN MAIN style.scss ----- //
-    // font-family: var(--font-family-secondary);
-    // font-weight: 400;
+    font-family: var(--font-family-secondary);
+    font-weight: 400;
 }
 
 .text-title {
@@ -27,4 +27,8 @@
 .text-circlednumbers {
     font-family: "2070CircledNumbers";
     font-weight: 300;
+}
+
+div#über p {
+
 }

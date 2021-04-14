@@ -31,7 +31,19 @@
     }
 
 #fullscreen { width: 100%; }
-.img_caption { font-weight: 300;}
+.img_caption { 
+  font-weight: 300;
+  position: relative;
+  z-index: 2;
+  height: 0.8em;
+}
+
+.caption_txt {
+  text-align: left !important;
+  background-color: white;
+  position: absolute;
+  padding-bottom: 10px;
+}
 
 .default {
   position: relative;
@@ -46,12 +58,16 @@
 .width_txt_medium{    width: 67% !important;}
 .width_txt_large{     width: 90% !important;}
 
-.align_left{      text-align: left; position: relative;}
-.align_center{    text-align: center;}
-.align_right{     text-align: right; position: relative;}
+.align_left{      text-align: left; position: relative; }
+.align_center{    text-align: center; }
+.align_right{     text-align: right; position: relative; }
 
-.padding_on {padding: 20px}
-.padding_of {padding: 0px}
+.caption_align_left{     left: 0; }
+.caption_align_center{    right: 35%;}
+.caption_align_right{     right: 0; }
+
+.padding_on {padding: 0px 20px}
+.padding_of {padding: 0px 0px}
 
 .width_small, .width_medium, .width_large, .align_left, .align_center, .align_right{
   grid-area: all;
