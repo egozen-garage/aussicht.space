@@ -26,8 +26,8 @@ import { CheckArtistHoverPipe } from './pipes/check-artist-hover.pipe';
 import { ArtistListOldComponent } from './landing_page/artist-list-old/artist-list-old.component';
 import { MouseCursorTrailComponent } from './mouse-cursor-trail/mouse-cursor-trail.component';
 
-import * as Hammer from 'hammerjs';
-import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+// import * as Hammer from 'hammerjs';
+// import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { LandingPageComponent } from './landing_page/landing-page.component';
 import { UnitHubComponent } from './pages/unit-hub/unit-hub.component';
 import { ImpressumComponent } from './impressum/impressum.component';
@@ -50,12 +50,12 @@ import { ImageTypesComponent } from './pages/content_components/image-types/imag
 import { BackToHubComponent } from './pages/content_components/back-to-hub/back-to-hub.component';
 import { LanguageSwitchComponent } from './language-switch/language-switch.component';
 
-export class MyHammerConfig extends HammerGestureConfig {
-  overrides = <any>{ 
-    // override hammerjs defautl configuration
-    'swipe': { direction: Hammer.DIRECTION_ALL}
-  }
-}
+// export class MyHammerConfig extends HammerGestureConfig {
+//   overrides = <any>{ 
+//     // override hammerjs defautl configuration
+//     'swipe': { direction: Hammer.DIRECTION_ALL}
+//   }
+// }
 
 @NgModule({
   declarations: [
@@ -116,7 +116,7 @@ export class MyHammerConfig extends HammerGestureConfig {
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     // { provide: APP_BASE_HREF, useValue: '/' },
-    { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }
+    // { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }
   ],
   bootstrap: [AppComponent]
 })

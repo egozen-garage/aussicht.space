@@ -11,18 +11,97 @@ import { PerspectiveComponent} from './pages/perspective/perspective.component';
 import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episodes.component';
 
 const routes: Routes = [
-  // { path: "", component: LandingPageComponent},
-  { path: ":language", component: LandingPageComponent},
-  { path: ":language/units", component: UnitHubComponent,
+    // ------------ routing version 1 ------------
+  //   { path: "de", component: LandingPageComponent,
+  //     children: [
+  //       { path: "impressum", component: ImpressumComponent },
+  //       { path: "units", component: UnitHubComponent,
+  //         children: [
+  //           { path: 'project/:title', component: ProjectComponent},
+  //           { path: 'podcast/:title', component: PodcastEpisodesComponent},
+  //           { path: 'perspective/:title', component: PerspectiveComponent},
+  //           // { path: '', redirectTo:'', pathMatch:"full" }
+  //         ]
+  //       },
+  //     ]
+  //   },
+  //   { path: "en", component: LandingPageComponent,
+  //   children: [
+  //     { path: "impressum", component: ImpressumComponent},
+  //     { path: "units", component: UnitHubComponent,
+  //       children: [
+  //         { path: 'project/:title', component: ProjectComponent},
+  //         { path: 'podcast/:title', component: PodcastEpisodesComponent},
+  //         { path: 'perspective/:title', component: PerspectiveComponent},
+  //         // { path: '', redirectTo:'', pathMatch:"full" }
+  //       ]
+  //     },
+  //   ]
+  // },
+  //   { path: "**", redirectTo: "de" }
+
+  // ------------ routing version 2 ------------
+    { path: ":language", component: LandingPageComponent,
     children: [
-      { path: 'project/:title', component: ProjectComponent},
-      { path: 'podcast/:title', component: PodcastEpisodesComponent},
-      { path: 'perspective/:title', component: PerspectiveComponent},
-      // { path: '', redirectTo:'', pathMatch:"full" }
+      { path: "impressum", component: ImpressumComponent },
+      { path: "units", component: UnitHubComponent,
+        children: [
+          { path: 'project/:title', component: ProjectComponent},
+          { path: 'podcast/:title', component: PodcastEpisodesComponent},
+          { path: 'perspective/:title', component: PerspectiveComponent},
+          // { path: '', redirectTo:'', pathMatch:"full" }
+        ]
+      },
     ]
   },
-  { path: ":language/impressum", component: ImpressumComponent },
   { path: "**", redirectTo: "de" }
+
+
+//   { path: "", component: LandingPageComponent,
+//   children: [
+//     { path: "impressum", component: ImpressumComponent },
+//     { path: "units", component: UnitHubComponent,
+//       children: [
+//         { path: 'project/:title', component: ProjectComponent},
+//         { path: 'podcast/:title', component: PodcastEpisodesComponent},
+//         { path: 'perspective/:title', component: PerspectiveComponent},
+//         // { path: '', redirectTo:'', pathMatch:"full" }
+//       ]
+//     },
+//   ]
+// },
+// { path: "**", redirectTo: "" }
+
+
+  // // ------------ routing version 3 (alternative) ------------
+  // { path: ":language", component: LandingPageComponent},
+  // { path: ":language/impressum", component: ImpressumComponent },
+  // { path: ":language/units", component: UnitHubComponent,
+  //   children: [
+  //     { path: 'project/:title', component: ProjectComponent},
+  //     { path: 'podcast/:title', component: PodcastEpisodesComponent},
+  //     { path: 'perspective/:title', component: PerspectiveComponent},
+  //     // { path: '', redirectTo:'', pathMatch:"full" }
+  //   ]
+  // },
+  // { path: "**", redirectTo: "de" }
+
+  // { path: "", component: LandingPageComponent},
+  // { path: "impressum", component: ImpressumComponent },
+  // { path: "units", component: UnitHubComponent,
+  //   children: [
+  //     { path: 'project/:title', component: ProjectComponent},
+  //     { path: 'podcast/:title', component: PodcastEpisodesComponent},
+  //     { path: 'perspective/:title', component: PerspectiveComponent},
+  //     // { path: '', redirectTo:'', pathMatch:"full" }
+  //   ]
+  // },
+  // { path: "**", redirectTo: "" }
+
+
+
+
+  // ------------ ignore the following routing ------------
   // { path: "preview",
   // component: PreviewComponent,
   // children: [
