@@ -5,7 +5,15 @@
     <app-header></app-header>
 
     <body id="unit-hub">
+
+
+        <input type="checkbox" class="toggle-filter-mobile" id="showThemes">
+        <label for="showThemes" class="themes filter-btn">Filter</label> 
+
         <div class="filter-container">
+
+            <span class="showThemes" class="themes ghost" id="filter-btn-mobile">Filter</span> 
+
             <!-- first associate DISCRETE VALUES with EACH CHECKBOX to TOGGLE ON/OFF STATE  -->
             <div *ngFor="let t of themesFromCms, let i = index" class="allthemes">
 

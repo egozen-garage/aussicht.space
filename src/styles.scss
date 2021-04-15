@@ -208,8 +208,11 @@ $aussichtDOTspace-theme: mat-light-theme((
 
   --font-size-primary: 40px;
   --font-size-primary-s: 37px;
+  --font-size-primary-xs: 30px;
+
   --font-size-secondary: 60px;
   --font-size-title: 90px;
+  --font-size-title-perspectives: 90px;
   --font-size-date: 20px;
   --font-size-paragraph: 22px;
   --font-size-machine-text: 21px;
@@ -221,6 +224,10 @@ $aussichtDOTspace-theme: mat-light-theme((
 
 
 /* ---------- RESPONSIVE PROPERTIES --------- */
+
+/* ------------------------------------------------------------ */
+/* ---------------------DESKTOP SECTION------------------------- */
+/* ------------------------------------------------------------ */
 
 /* Macbook Retina 15inch */
 @media (min-width: 1670px) {
@@ -329,6 +336,10 @@ $aussichtDOTspace-theme: mat-light-theme((
   span#hotelpartner { left: 0px; }
 }
 
+/* ------------------------------------------------------------ */
+/* ---------------------TABLET SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
 /* 48em = 768px */
 
 @media (max-width: 48em) {
@@ -336,17 +347,18 @@ $aussichtDOTspace-theme: mat-light-theme((
 
   :root {
       --margin: 25px;
-      --margin-s: 15px;
+      --margin-s: 25px;
       --font-size-primary: 35px;
       --font-size-primary-s: 30px;
       --font-size-secondary: 35px;
+      --font-size-title-perspectives: 70px;
       --font-size-title: 70px;
       --font-size-date: 17px;
   }
 
-  // .lp-title {
-  //     padding-top: 90px;
-  // }
+  .perspective-page {
+    padding: 100px 0px 100px 0px !important;
+}
 
 }
 
@@ -363,8 +375,12 @@ $aussichtDOTspace-theme: mat-light-theme((
   :root {
       --margin: 15px;
       --font-size-primary: 20px;
-      --font-size-primary-s: 15px;
+      --font-size-primary-s: 16px;
+      --font-size-primary-xs: 20px;
       --font-size-secondary: 20px;
+      --font-size-title-perspectives: 45px;
+      --font-size-paragraph: 16px;
+      --font-size-machine-text: 16px;
       --font-size-title: 34px;
       --font-size-date: 13px;
       }
@@ -390,6 +406,9 @@ $aussichtDOTspace-theme: mat-light-theme((
 
 }
 
+/* ------------------------------------------------------------ */
+/* ---------------------MOBILE SECTION------------------------- */
+/* ------------------------------------------------------------ */
 
 @media (max-width: 414px) {
   .logos-container span{ font-size: 12px; }
@@ -412,6 +431,17 @@ $aussichtDOTspace-theme: mat-light-theme((
   img.logos { width: 130px; }
 
   footer { height: 700px; }
+
+  .perspective-page {
+    padding: 75px 0px 100px 0px !important;
+  }
+
+  :root {
+    --font-size-primary-s: 15px;
+    --font-size-paragraph: 15px;
+    --font-size-machine-text: 15px;
+    --font-size-title-perspectives: 40px;
+    }
 }
 
 

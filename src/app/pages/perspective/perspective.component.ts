@@ -68,8 +68,6 @@ export class PerspectiveComponent implements OnInit {
 
 
 @HostListener('window:scroll', ['$event']) onScrollEvent($event: any){
-  console.log($event);
-  console.log("scrolling");
   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
   var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   var scrolled = (winScroll / height) * 100;

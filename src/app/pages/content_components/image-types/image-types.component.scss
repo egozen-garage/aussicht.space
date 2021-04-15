@@ -40,7 +40,6 @@
 
 .caption_txt {
   text-align: left !important;
-  background-color: white;
   position: absolute;
   margin-bottom: 10px;
 }
@@ -87,13 +86,38 @@
 }
 
 
-// ---- IPAD PRO ---- //
+/* ------------------------------------------------------------ */
+/* ---------------------TABLET SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+
+// ---- iPad PRO ---- //
 @media (max-width: 1200px) {
   .img-section-grid {
     grid-template-columns: 15% 35% 25% 25%;
   }
 }
 
-// ---- IPAD (768 x 1042) ---- //
+// ---- iPad(768 x 1042) ---- //
 @media (max-width: 48em) {
+  .width_small{     width: 50% !important;}
+  .width_medium{    width: 80% !important;}
+  .width_large{     width: 100% !important;}
+}
+
+/* ------------------------------------------------------------ */
+/* ---------------------MOBILE SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+/* 36em = 576px */
+// ---- iPhone Plus + iPhone Flipped (approx 560px width)---- //
+@media (max-width: 36em) { 
+
+  #c-left { grid-area: all; }
+  #c-right { grid-area: center; padding: 20px 0px 0px var(--margin-s); width: 145%;} 
+
+  .width_small{     width: 80% !important;}
+  .width_medium{    width: 100% !important;}
+  .width_large{     width: 120% !important;}
+
 }

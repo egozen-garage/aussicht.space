@@ -19,6 +19,8 @@
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\ text types \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 // /////////////////////////// text types ///////////////////////////
 
+input[type='checkbox'] { display: none; }
+
 // Everything paragraph text ---------------------------------------------------- 
 ::ng-deep .paragraph-text p {
     font-size: var(--font-size-paragraph);
@@ -41,10 +43,14 @@
     font-weight: 400;
     font-size: var(--font-size-primary-s);
     line-height: 1;
-    padding: 20px calc(var(--margin) + 50px) 40px var(--margin);
+    padding: 20px 0px 40px var(--margin-s);
     grid-area: intro;
     display: block;
     position: relative;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }
 .comp_intro {
     position: absolute;
@@ -79,6 +85,7 @@
         height: auto;
         width: 60%;
         position: relative;
+        hyphens: auto;
     }
 
     .txt_img_container{
@@ -108,15 +115,18 @@
         .comp_m_title {
             padding-left: 20px;
             text-indent: -30px;
-            margin-left: -50px;
-            width: 100%;
+            margin-left: -35px;
+            width: auto;
             z-index: 100;
             font-weight: 300;
             font-size: 1rem;
         }
         .comp_m_text{
+            max-height: 100%;
             text-indent: 170px;
             padding: 0px 0px 60px 20px;
+            overflow: hidden;
+            transition: max-height .4s ease-in-out;
             // line-height: 1.2;
         }
         #circle1 {
@@ -143,13 +153,40 @@
             position: relative;
         }
 
+        .icon {
+            // width: 80px;
+            // height: 80px;
+            position: relative;
+            cursor: pointer;
+            
+            &::after,
+            &::before {
+              content: "";
+              position: absolute;
+              top: 40%;
+              left: -85px;
+              background-color: black;
+              width: 21px;
+              height: 3px;
+              transition: .4s ease;
+            }
+            
+            &.show-more::after {
+              transform: rotate(-90deg) ;
+            }
+            &.show-more::before {
+              transform: rotate(-180deg) ;
+            }
+          }
+          
 
 // COMPONENT > "subhead" ---------------------------------------------------- 
 .subhead{
+    font-family: var(--font-family-primary);
     grid-area: subhead;
     padding: 20px 0px 20px 0px;
-    font-weight: 700;
-    font-size: 25px;
+    font-weight: 500;
+    font-size: var(--font-size-paragraph);
     line-height: 1.3;
 }
 
@@ -240,6 +277,11 @@
 // }
 
 
+
+/* ------------------------------------------------------------ */
+/* ---------------------TABLET SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
 // ---- IPAD PRO ---- //
 @media (max-width: 1200px) {
 
@@ -264,6 +306,8 @@
 
 }
 
+@media (min-width: 768px) {
+}
 
 // ---- IPAD (768 x 1042) ---- //
 @media (max-width: 768px) {
@@ -284,28 +328,81 @@
     }
 
     .comp_intro_container {
-        font-family: var(--font-family-primary);
-        font-weight: 300;
-        font-size: var(--font-size-primary-s);
-        line-height: 1;
-        padding: 20px calc(var(--margin) + 50px) 40px 0px;
-        grid-area: intro;
-        display: block;
-        position: relative;
+        grid-area: all;
+        width: 70%;
+        padding: 0px 0px 40px var(--margin-s);
     }
-}
 
-@media (max-width: 48em) {
-    #circle1 { display: none; }
+    #circle1 { 
+        display: block;
+        width: 40em;
+        top: 23px; 
+    }
     .txt_img_container { float: none; max-height: 300px; width: 75%; }
     .indented_image { margin: 0px 0px 0px 40px; }
 
  
 // ---- side elements for now deactivated ----
-    .side_comment { display: none; }
-    .txt_m_container { display: none; }
-
-    .comp_textblock_paragraph {
+    .side_comments { display: none; }
+    .txt_m_container { 
+        display: block;
+        float: left; 
         width: 90%;
+        padding-top: 30px;
+    }
+
+    .comp_textblock_paragraph { width: 90%;}
+    .plain_text{ width: 90%;}
+    .comp_m_title {
+        width: auto;
+        padding-left: 0px;
+        text-indent: 0px;
+        margin-left: 0px;
+        font-size: 1em;
+    }
+
+    .comp_m_output {
+        position: relative;
+        padding: 0px;
+    }
+    
+    .comp_m_text {
+        display: block;
+        max-height: 0em;
+        padding: 0px;
+    }
+
+    .checkbox:checked ~ .comp_m_text {
+        // display: block;
+        max-height: 200em; 
       }
+      
+
+    .indented_image { margin: 40px 0px 40px -60px; padding: 0px; }
+
 }
+
+/* ------------------------------------------------------------ */
+/* ---------------------MOBILE SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+/* 36em = 576px */
+// ---- iPhone Plus + iPhone Flipped (approx 560px width)---- //
+@media (max-width: 36em) {
+
+    .comp_intro_container { width: 80%; line-height: 1.3; }
+    
+    .icon {
+        &::after,
+        &::before {
+            left: -36px;
+            width: 15px;
+            height: 2px;
+        }
+    }
+
+    .indented_image {
+        margin: 40px 0px 40px -35px;
+    }
+
+ }

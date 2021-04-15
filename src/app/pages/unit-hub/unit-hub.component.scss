@@ -21,6 +21,21 @@ a {
     font-size: 15px;
 }
 
+#filter-btn-mobile {
+    display: none;
+}
+
+.ghost {
+    visibility: hidden;
+}
+
+.filter-btn {
+    position: absolute;
+    display: none;
+    transition: width .4s ease-in-out;
+    box-sizing: border-box;
+}
+
 .visited {
     background: linear-gradient(156deg, rgba(229,155,168,1) 0%, rgba(201,138,161,1) 34%, rgba(29,34,115,1) 100%);
     color: white !important;
@@ -29,7 +44,10 @@ a {
 
     // --- HEADER > THEMES PANEL ATTRIBUTES --- //
     .filter-container {
-        padding: 10px 0px 10px 0px;
+        margin: 10px 0px 10px 0px;
+        background-color: white;
+        overflow: hidden;
+        transition: max-height .7s ease-in-out;
     }
 
     label.themes:hover {
@@ -56,7 +74,7 @@ a {
 .unitflexitem {
   display: flex;
   flex-direction: column;
-  min-width: 350px;
+  min-width: 320px;
   flex-grow: 1;
   flex-basis: 0;
 }
@@ -90,7 +108,7 @@ a {
 
         .unit-title {
             // text-decoration: none;
-            font-size: 30px;
+            font-size: var(--font-size-primary-xs);
             line-height: 1;
         }
 
@@ -216,3 +234,34 @@ a {
         color: black;
         border: 1px solid black;
     }
+
+/* ------------------------------------------------------------ */
+/* ---------------------TABLET SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+// ---- iPad (768 x 1042) ---- //
+@media (max-width: 768px) {
+    .filter-container { margin: 15px 0px 35px 0px;  max-height: 0px;}
+    .filter-btn {top: 91px; display: initial;}
+    #filter-btn-mobile { display: inline-block;}
+    #showThemes:checked + .filter-btn + .filter-container { max-height: 50em}
+    #showThemes:checked +.filter-btn {
+        background: linear-gradient(156deg, rgba(229,155,168,1) 0%, rgba(201,138,161,1) 34%, rgba(29,34,115,1) 100%);
+        color: white !important;
+        border: none !important;
+    }
+}
+
+/* ------------------------------------------------------------ */
+/* ---------------------MOBILE SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+/* 36em = 576px */
+// ---- iPhone Plus + iPhone Flipped (approx 560px width)---- //
+@media (max-width: 36em) {
+    .filter-container { margin: 0px 0px 35px 0px;  max-height: 0px;}
+    .filter-btn {top: 76px;}
+}
+
+/* ---- iPhone 5 ---- */
+@media (max-width: 320px) { }

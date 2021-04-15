@@ -43,10 +43,11 @@ class="section-grid">
             <div class="txt_m_container">
                 <div id="circle1"></div>
                 <span class="comp_m_output">
-                    <span class="comp_m_title" *ngIf="body.seed?.length">
+                    <input class="checkbox" type="checkbox" id="trigger-{{body.id}}">
+                    <label class="comp_m_title show-more" [ngClass]="{ 'icon' : isMobile == true || isTablet == true }" (click)="toggleContent()" for="trigger-{{body.id}}" id="{{body.id}}" *ngIf="body.seed?.length">
                         {{ body.seed}}
-                    </span>
-                    <span class="comp_m_text" *ngIf="body.output?.length">
+                    </label>
+                    <span class="comp_m_text" id="collapsible-{{body.id}}" *ngIf="body.output?.length">
                         &#123; ... &quot;{{ body.output }}&quot; ... &#125;
                     </span>
                 </span>
@@ -114,7 +115,9 @@ class="section-grid side_comment_container">
                                     </div>
                                     <!-- relation: description -->
                                     <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
-                                        {{ body.relation_to[r].description }}
+                                        <markdown>
+                                            {{ body.relation_to[r].description }}
+                                        </markdown> 
                                         <div class="relation_arrow">
                                             <img class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next">
                                         </div>
@@ -143,7 +146,9 @@ class="section-grid side_comment_container">
                                     </div>
                                     <!-- relation: description -->
                                     <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
-                                        {{ body.relation_to[r].description }}
+                                        <markdown>
+                                            {{ body.relation_to[r].description }}
+                                        </markdown>
                                         <div class="relation_arrow">&#10230;</div>
                                     </div>
                                     <!-- relation: image -->
@@ -170,7 +175,9 @@ class="section-grid side_comment_container">
                                     </div>
                                     <!-- relation: description -->
                                     <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
-                                        {{ body.relation_to[r].description }}
+                                        <markdown>
+                                            {{ body.relation_to[r].description }}
+                                        </markdown>
                                     </div>
                                     <!-- relation: image -->
                                     <div *ngIf="body.relation_to[r].podcast.episode_cover != null">
@@ -191,7 +198,9 @@ class="section-grid side_comment_container">
                                 </div>
                                 <!-- relation: description -->
                                 <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
-                                    {{ body.relation_to[r].description }}
+                                    <markdown>
+                                        {{ body.relation_to[r].description }}
+                                    </markdown>
                                 </div>
                             </div>
                         </div>
@@ -223,6 +232,6 @@ class="section-grid">
 
 
 <!-- COMPONENT > "white-space" ---------------------------------------------------- -->
-<div *ngIf="body.__component === 'text-types.white-space'" 
+<div class="white-space" *ngIf="body.__component === 'text-types.white-space'" 
 [ngStyle]="{'width': '100%', 'height': body.distance_in_pixel}">
 </div>

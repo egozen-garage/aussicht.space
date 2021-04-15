@@ -2,12 +2,12 @@
     z-index: 9999;
     font-family: '2070';
     font-weight: 400;
-    font-size: 30px;
+    font-size: var(--font-size-primary-xs);
     position: fixed;
     display: flex;
     left: var(--margin-s);
     float: left;
-    top: 30px;
+    top: var(--margin-s);
     color: black;
 }
 
