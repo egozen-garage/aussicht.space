@@ -131,32 +131,40 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
       let markdown_tag = side_comment_containers[i].getElementsByTagName("markdown")[0];
       let side_comments = side_comment_containers[i].getElementsByClassName("side_comment");
       let code_tags = markdown_tag.getElementsByTagName("code");
-
-      for (var b = 0; b <= side_comments.length; b++) {
-        current_side_comment = side_comments[b].outerHTML;
-        current_side_comment_id = side_comments[b].id;
+      
+      for (var b = 0; b < side_comments.length; b++) {
+        // ------ select side comment by ID
+        let current_side_comment_id = side_comments[b].id;
+        
+        let current_side_comment = side_comments[b].innerHTML;
         console.log("current b = " + b);
         console.log("amount of side comments = " + side_comments.length);
         console.log("current_side_comment_id" + current_side_comment_id);
         
         // side_comments[b].innerHTML = "";
         // code_tags[b].id = "code_tag-" + current_side_comment_id;
-
+        
+        // ------ copy the key word
         let current_keyword = code_tags[b].innerHTML;
-        code_tags[b].innerHTML = current_keyword + current_side_comment;
-        // side_comment_containers[i].getElementsByClassName("side_comments")[0].innerHTML = "";
+        // ------ reconstruct the content of the code tag
+        code_tags[b].innerHTML = current_keyword + "<div id='" + current_side_comment_id + "'>" + current_side_comment + "</div>";
+        // ------ set display to 'none'
+        document.getElementById(current_side_comment_id)!.style.display = "none";
 
+        // ------ finally add Event Listener to key word
         code_tags[b].addEventListener('click', function (event) {
           // console.log("key word clicked.");
           console.log("current_side_comment_id: " + current_side_comment_id);
           if(document.getElementById(current_side_comment_id)!.style.display === "none"){
-            document.getElementById(current_side_comment_id)!.style.display = "inline";
+            document.getElementById(current_side_comment_id)!.style.display = "block";
           } else {
             document.getElementById(current_side_comment_id)!.style.display = "none";
           }
         });
       }
-      side_comment_containers[i].getElementsByClassName("side_comments")[0].innerHTML = "";
+
+
+      side_comment_containers[i].getElementsByClassName("side_comments")[0].outerHTML = "";
     }
   }
 

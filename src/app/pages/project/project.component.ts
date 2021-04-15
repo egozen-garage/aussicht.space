@@ -26,8 +26,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
   // @Output() EVENTafterPageLoad = new EventEmitter();
 
-  
-
   // key of object within the json file
   key = "name";
   image_size:number = 64;
@@ -121,12 +119,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
         return console.log("project data array: " + this.project );
       });
-
-
       // load gpt images 
       // this.folder_name = "bianchini_beatrice";
-
-
   }
 
 
