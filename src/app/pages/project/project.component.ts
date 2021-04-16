@@ -75,7 +75,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   // }
 
   toggleCuratorialContent(){
-    var icon = document.querySelector('.icon');
+    var x = document.getElementById("collapsibleButton");
+    var icon = x!.querySelector('.icon');
     icon!.classList.toggle('show-more');
   }
 
@@ -174,8 +175,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   minimum = 0;
   single_project_load_gpt_images(folder_name:string){
 
-    console.log("projectpage is loaded: " + folder_name);
-
 
     const maximum = 60;
 
@@ -185,8 +184,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     const amount_of_images = maximum;
     // build the directory folder path
     const ImageDirectory = ("/assets/imgs/image_gpt/" + folder_name + "/generated/" + this.image_size + "/" + this.image_size + "_" + folder_name + "_");
-
-    console.log("image path: " + ImageDirectory);
 
     //create array of image paths
     let ImagePath_array = [];
@@ -225,7 +222,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     let hover:boolean = false;
     // image_gpt_container.reverse().forEach( (file) => {
     image_gpt_container.forEach( (file) => {
-      console.log("check position");
+
+    file.classList.add("single-img");
 
       setTimeout( () => {
         // add: check if mouse hover container --> if yes: add image --> if no: abort

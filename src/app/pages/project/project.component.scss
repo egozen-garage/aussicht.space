@@ -1,6 +1,7 @@
 // ------ themes ------ //
 
-.project-theme-container { grid-area: themes; padding: 35px var(--margin) 0px 0px;}
+.project-theme-container { grid-area: themes; padding: 10px 0px;}
+#container-themes { padding-top: var(--margin-s); }
 
 .themes {
   display: inline-block;
@@ -35,7 +36,7 @@ span#project_artist {
 
 span#project_title {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-secondary);
+  font-size: var(--font-size-title-perspectives);
   font-weight: 500;
   line-height: 1;
 }
@@ -151,6 +152,7 @@ span#project_title {
   grid-template-areas: 
       ". . themes themes themes"
       ". . title title title"
+      ". titlemobile titlemobile titlemobile titlemobile"
       " all all all all all"
       ". default default default default";
 }
@@ -173,6 +175,7 @@ span#project_title {
 [class="default-project-info"] { grid-area: title; width: 100%; padding: 0px var(--margin) 10px 0px;}
 .default-project-info {
   position: relative;
+  z-index: 3;
 }
 
 
@@ -214,6 +217,7 @@ label.collapsible-button {
   height: auto;
   margin: 20px var(--margin) -10px var(--margin-s);
   vertical-align: bottom;
+  line-height: 1;
 }
 
 .content span {
@@ -268,10 +272,10 @@ label.collapsible-button {
   &::before {
     content: "";
     position: absolute;
-    top: 42%;
+    top: 38%;
     right: -40px;
     background-color: black;
-    width: 28px;
+    width: 23px;
     height: 5px;
     transition: .4s ease;
   }
@@ -342,32 +346,8 @@ li{
   list-style-type: none;
   margin-bottom: 60px;
 }
-@media (max-width: 48em) {
 
-  // .project_additional_link {
-  //   grid-template-columns: 100%;
-  //   grid-template-areas: 
-  //     "hundert";
-  // }
-  .recommendation{
-  }
-  .recommendation_intro{
-    grid-area: intro;
-    margin-bottom: 20px;
-    // font-size: 30px;
-  }
-  .recommendation_info{
-    grid-area: info;
-  }
-}
-@media (min-width: 48em) {
-  .recommendation{
-  }
-  .recommendation_intro{
-  }
-  .recommendation_info{
-  }
-}
+
 
 // ----------------------- PREVIOUS / NEXT ----------------------- 
 .next_project{
@@ -392,56 +372,87 @@ li{
   position: relative;
 }
 
-#arrow-next {
-  right: 0px;
+.next_button{ text-align: right; }
+
+.btn-icon {
+  font-size: 1.1em;
+  vertical-align: baseline;
 }
 
+.recommendation_intro .btn-icon {
+  vertical-align: sub;
+}
+
+#arrow-next { padding-left: 0.4em; }
+#arrow-previous { padding-right: 0.4em; }
 #arrow-related {
   position: static;
   margin: 15px 2px 0px 0px;
   height: 0.7em;
 }
 
-.previous_button a {
-  padding: 0px 0px 0px 35px;
-}
-
-.next_button a {
-  padding: 0px 35px 0px 0px;
-}
-
-.next_button{
-  text-align: right;
-}
-.btn-icon {
-  height: 0.8em;
-  position: absolute;
-  top: 20%;
-}
 
 
 
+/* ------------------------------------------------------------ */
+/* ---------------------DESKTOP SECTION------------------------- */
+/* ------------------------------------------------------------ */
 
-// ---- iPad (768 x 1042) ---- //
-@media (max-width: 48em) {
+@media (max-width: 1200px) {}
 
+@media (min-width: 1042px) {}
+
+/* ------------------------------------------------------------ */
+/* ---------------------TABLET SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+// ---- iPad PRO (1042 x 1366) ---- //
+@media (max-width: 1042px) {
   ::ng-deep .paragraph-text p { font-size: 20px; line-height: 1.3;}
 
-  .next_project{ font-size: 1rem; margin-bottom: 0;}
-  .btn-back2hub{ font-size: 1em; }
+  .next_project{ font-size: var(--font-size-primary-xs); margin-bottom: 0;}
+
   .recommendation{ margin: 15px;}
+  .recommendation_intro{ grid-area: intro; margin-bottom: 20px; }
+  .recommendation_info{ grid-area: info; }
+
+  .icon { &::after, &::before { height: 4px; } }
+}
+
+// ---- IPAD (768 x 1042) ---- //
+@media (max-width: 768px) {
+  #gpt_images{ padding: 30px 15px; }
+
+  .single-img {
+    padding: 5px !important;
+  }
+}
+
+/* ------------------------------------------------------------ */
+/* ---------------------MOBILE SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+/* 36em = 576px */
+// ---- iPhone Plus + iPhone Flipped (approx 560px width)---- //
+@media (max-width: 36em) {
+  span#project_title { line-height: 0.9; }
+
+  [class="default-project-info"] { grid-area: titlemobile; width: 80%; padding: 0px var(--margin-s) 10px 0px;}
+
+  span#project_artist { padding: 20px 0px; }
+
+  label.collapsible-button { width: 70%; }
+
+  .icon { &::after, &::before { height: 3px; width: 13px; right: -20px; top: 40%;}}
 
 }
 
-// ---- iPhone X (375 x 812) ---- //
+// ---- iPhone 6/7/8/X (375 x 667/812)---- //
 @media (max-width: 375px) {
-  ::ng-deep .paragraph-text p {
-    font-size: 15px;
-    line-height: 1.3;
-  }
+  ::ng-deep .paragraph-text p { font-size: 15px; line-height: 1.3; }
 
-  .comp_textblock_paragraph {
-    width: 90%;
-  }
-
+  .comp_textblock_paragraph { width: 90%; }
 }
+
+// ---- iPhone 5/SE (320 x 568)---- //
+@media (max-width: 320px) {}

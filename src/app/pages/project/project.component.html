@@ -6,7 +6,7 @@
     <app-back-to-hub></app-back-to-hub>
 
     <!-- themes -->
-    <header class="header-grid">
+    <header class="header-grid" id="container-themes">
         <div *ngIf="project" class="project-theme-container">
             <div *ngFor="let t of project.themes" class="themes">{{t.theme_name}}</div>
         </div>
@@ -100,10 +100,8 @@
             <!-- COMPONENT > "addon.javascript-file-name" ---------------------------------------------------- -->
             <div class="collapsible-wrap" id="curatorial-text" *ngIf="project.curatorial_intro?.length || project.curatorial_description?.length">
                 <input type="checkbox" class="toggle" id="event">
-                <label for="event" class="collapsible-button icon show-more" (click)="toggleCuratorialContent()">
-                    <span class="plusminus">
-                        Mehr zu {{project.title}}
-                    </span>
+                <label for="event" class="collapsible-button" id="collapsibleButton" (click)="toggleCuratorialContent()">
+                        Mehr zu {{project.title}} <span class="icon show-more"></span> 
                 </label>
                 <div class="curatorial-content">
                     <div class="curatorial-content-wrapper">
@@ -140,7 +138,7 @@
                 <br>
                 perspective
                 <br>
-                <img [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]" class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next">
+                <span class="btn-icon">&#x2192;</span>
             </div>
 
 
@@ -173,12 +171,10 @@
     <!-- ----------------------- PREVIOUS / NEXT ----------------------- -->
     <div class="next_project">
         <div class="previous_button" >
-            <img [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]" class="btn-icon" id="arrow-previous" src="/assets/logos/2070_arrow_left.png" alt="previous">
-            <a [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]">Previous</a>
+            <a [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]"><span class="btn-icon" id="arrow-previous">&#x2190;</span>Previous</a>
         </div>
         <div class="next_button">
-            <a [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]">Next </a>
-            <img [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]" class="btn-icon" id="arrow-next" src="/assets/logos/2070_arrow_right.png" alt="next">
+            <a [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]">Next<span class="btn-icon" id="arrow-next">&#x2192;</span></a>
         </div>
     </div>
     

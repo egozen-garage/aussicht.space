@@ -24,7 +24,7 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
 
 
   run_side_comments(){
-    if (this.isMobile){
+    if (this.isMobile || this.isTablet){
       console.log("start mobile comments");    
       this.mobile_side_comments();
     } else if (!this.isMobile){
