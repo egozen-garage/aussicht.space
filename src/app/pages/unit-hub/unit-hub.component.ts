@@ -133,6 +133,8 @@ export class UnitHubComponent implements OnInit {
         unit: u,
         titleEncoded: this.helperService.encodeCustomURI(u.title)
       }});
+      console.log("item numbert 0: " + this.unitAndEncodedHrefList[0].titleEncoded);
+      
   }
 
   shuffle(array: any[], seed: number) {                // <-- ADDED ARGUMENT
