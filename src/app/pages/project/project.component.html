@@ -1,4 +1,4 @@
-<div id="!" class="project-page fade-in" [ngStyle]="{'background-color': project.background_color }">
+<div class="project-page fade-in" [ngStyle]="{'background-color': project.background_color }">
 
     <!-- BACK TO UNIT HUB ---------------------------------------------- -->
     <!-- HEADER -------- HEADER--------- HEADER----------- HEADER---------- HEADER -->
@@ -140,7 +140,8 @@
                 <br>
                 perspective
                 <br>
-                <img [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]" class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next">
+                <!-- <img [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]" class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next"> -->
+                <img class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next">
             </div>
 
 
@@ -171,19 +172,11 @@
     
     
     <!-- ----------------------- PREVIOUS / NEXT ----------------------- -->
-    <div class="next_project">
-        <div class="previous_button" >
-            <img [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]" class="btn-icon" id="arrow-previous" src="/assets/logos/2070_arrow_left.png" alt="previous">
-            <a [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]">Previous</a>
-        </div>
-        <div class="next_button">
-            <a [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]">Next </a>
-            <img [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]" class="btn-icon" id="arrow-next" src="/assets/logos/2070_arrow_right.png" alt="next">
-        </div>
-    </div>
+    <app-previous-next></app-previous-next>
+
     
 
 
     </div>
 </div>
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->

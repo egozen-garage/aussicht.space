@@ -11,33 +11,52 @@ import { PerspectiveComponent} from './pages/perspective/perspective.component';
 import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episodes.component';
 
 
+// const routes: Routes = [
+//   { path: "", component: LandingPageComponent },
+//   { path: "units",
+//     component: UnitHubComponent,
+//     children: [
+//       { path: 'project/:title', component: ProjectComponent},
+//       { path: 'podcast/:title', component: PodcastEpisodesComponent},
+//       { path: 'perspective/:title', component: PerspectiveComponent},
+//     ]
+//   },
+//   { path: "preview",
+//   component: PreviewComponent,
+//   children: [
+//     { path: 'project/:title', component: ProjectComponent},
+//     { path: 'podcast/:title', component: PodcastEpisodesComponent},
+//     { path: 'perspective/:title', component: PerspectiveComponent},
+//   ]
+//   },
+//     { path: "impressum", component: ImpressumComponent},
+//     { path: "**", redirectTo: "" }
+// ];
+
 const routes: Routes = [
-  { path: "", component: LandingPageComponent },
-  { path: "units",
-    component: UnitHubComponent,
-    children: [
-      { path: 'project/:title', component: ProjectComponent},
-      { path: 'podcast/:title', component: PodcastEpisodesComponent},
-      { path: 'perspective/:title', component: PerspectiveComponent},
-    ]
-  },
-  { path: "preview",
-  component: PreviewComponent,
-  children: [
-    { path: 'project/:title', component: ProjectComponent},
-    { path: 'podcast/:title', component: PodcastEpisodesComponent},
-    { path: 'perspective/:title', component: PerspectiveComponent},
-  ]
-},
-  { path: "impressum", component: ImpressumComponent},
-  { path: "**", redirectTo: "" }
+  { path: "", component: LandingPageComponent},
+  { path: "units", component: UnitHubComponent},
+  { path: 'units/project/:title', component: ProjectComponent},
+  { path: 'units/podcast/:title', component: PodcastEpisodesComponent},
+  { path: 'units/perspective/:title', component: PerspectiveComponent},
+
+  // { path: "preview",
+  // component: PreviewComponent,
+  // children: [
+  //   { path: 'project/:title', component: ProjectComponent},
+  //   { path: 'podcast/:title', component: PodcastEpisodesComponent},
+  //   { path: 'perspective/:title', component: PerspectiveComponent},
+  // ]
+  // },
+    { path: "impressum", component: ImpressumComponent},
+    { path: "**", redirectTo: "" }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     // initialNavigation: 'enabled',
     anchorScrolling: 'enabled',
-    //scrollPositionRestoration: 'enabled',
+    scrollPositionRestoration: 'enabled',
     onSameUrlNavigation: 'reload',
     // enableTracing: true,
     //scrollOffset: [0, 0],
