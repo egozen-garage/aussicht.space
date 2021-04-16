@@ -1,11 +1,13 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { ProjectService } from '../../services_strapi/project.service';
-import { PerspectiveService } from '../../services_strapi/perspective.service';
+// import { ProjectService } from '../../services_strapi/project.service';
+// import { PerspectiveService } from '../../services_strapi/perspective.service';
 import { ThemeService } from '../../services_strapi/theme.service';
-import { PodcastepisodesService } from '../../services_strapi/podcastepisodes.service';
+// import { PodcastepisodesService } from '../../services_strapi/podcastepisodes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
-import { HelperService } from "../../services/helper.service";
+// import { HelperService } from "../../services/helper.service";
+import { BundleAllAPIsService } from '../../services_strapi/bundle-all-apis.service'
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -17,6 +19,7 @@ export class UnitHubComponent implements OnInit {
 
 
   // @Output() EVENTafterPageLoad = new EventEmitter();
+
   nColumns: number = 1;
   columns: any[] = [[]];
 
@@ -25,17 +28,17 @@ export class UnitHubComponent implements OnInit {
 
   unitAndEncodedHrefList: any;
 
-  projects: any = [];
-  projectId: any = [];
-  projectsFromCms: any;
+  // projects: any = [];
+  // projectId: any = [];
+  // projectsFromCms: any;
 
-  perspectives: any = [];
-  perspectiveId: any = [];
-  perspectivesFromCms: any;
+  // perspectives: any = [];
+  // perspectiveId: any = [];
+  // perspectivesFromCms: any;
 
-  podcasts: any = [];
-  podcastId: any = [];
-  podcastsFromCms: any;
+  // podcasts: any = [];
+  // podcastId: any = [];
+  // podcastsFromCms: any;
 
   themesFromCms: any;
   themesSelected: any = [];
@@ -45,59 +48,92 @@ export class UnitHubComponent implements OnInit {
   btns: any;
   public isVisited = false;
 
+
+  subscription: Subscription | undefined;
+
+
   constructor(
-    private projectSvc: ProjectService,
-    private perspectiveSvc: PerspectiveService,
-    private podcastSvc: PodcastepisodesService,
-    private helperService: HelperService,
+    // private projectSvc: ProjectService,
+    // private perspectiveSvc: PerspectiveService,
+    // private podcastSvc: PodcastepisodesService,
+    // private helperService: HelperService,
     private themeSvc: ThemeService,
     public route: ActivatedRoute,
     private router: Router,
+    private BundleAllAPIs: BundleAllAPIsService,
     ) {
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      // console.log("-+-+-+-+-+-+-" + this.unitAndEncodedHrefList);
+      // this.BundleAllAPIs.bundleAllAPIs(this.unitAndEncodedHrefList);
+      // this.BundleAllAPIs.callContentAPIs();
     }
+    
+    
+    
+    ngOnInit(): void {
+
+      this.subscription = this.BundleAllAPIs.bundledContentAPIs.subscribe((message: string) => {
+        if (message == '') {
+          return; // Ignore empty initial message
+        }
+        this.unitAndEncodedHrefList = message;
+        console.log(" is there any message? " + this.unitAndEncodedHrefList);
+        if (this.unitAndEncodedHrefList) {
+          this.resetAndFillColumns();
+        }
+        
+      });
 
 
+      this.updateNColumns();
+      this.resetAndFillColumns;
 
-  ngOnInit(): void {
-    this.updateNColumns();
-    this.resetAndFillColumns;
-    this.projectSvc.getAllProjects().subscribe((res:any) => {
-      this.projectsFromCms = res;
-      this.projects = this.projectsFromCms;
-      this.updateUnits();
-      if (this.unitAndEncodedHrefList) {
-        this.resetAndFillColumns();
-      }
-      // this.EVENTafterPageLoad.emit();
+      // this.unitAndEncodedHrefList = this.BundleAllAPIs.unitAndEncodedHrefList;
 
-    });
-    console.log("length of projects: " + this.projects.length);
+      
+      // this.BundleAllAPIs.updateUnits().subscribe((res:any) => {
+      //   this.unitAndEncodedHrefList = res;
+      //   console.log(" + + + unitAndEncodedHrefList: " );
+      // });
+      
+    // this.projectSvc.getAllProjects().subscribe((res:any) => {
+    //   this.projectsFromCms = res;
+    //   this.projects = this.projectsFromCms;
+    //   this.updateUnits();
+    //   if (this.unitAndEncodedHrefList) {
+    //     this.resetAndFillColumns();
+    //   }
+    //   // this.EVENTafterPageLoad.emit();
+
+    // });
+    // console.log("length of projects: " + this.projects.length);
 
 
-    this.perspectiveSvc.getAllPerspectives().subscribe((res:any) => {
-      this.perspectives = res;
-      this.perspectivesFromCms = this.perspectives;
-      this.updateUnits();
-      if (this.unitAndEncodedHrefList) {
-        this.resetAndFillColumns();
-      }
-    });
+    // this.perspectiveSvc.getAllPerspectives().subscribe((res:any) => {
+    //   this.perspectives = res;
+    //   this.perspectivesFromCms = this.perspectives;
+    //   this.updateUnits();
+    //   if (this.unitAndEncodedHrefList) {
+    //     this.resetAndFillColumns();
+    //   }
+    // });
 
-    this.podcastSvc.getAllPodcastEpisodes().subscribe((res:any) => {
-      this.podcasts = res;
-      this.podcastsFromCms = this.podcasts;
-      this.updateUnits();
-      if (this.unitAndEncodedHrefList) {
-        this.resetAndFillColumns();
-      }
-    });
+    // this.podcastSvc.getAllPodcastEpisodes().subscribe((res:any) => {
+    //   this.podcasts = res;
+    //   this.podcastsFromCms = this.podcasts;
+    //   this.updateUnits();
+    //   if (this.unitAndEncodedHrefList) {
+    //     this.resetAndFillColumns();
+    //   }
+    // });
 
 
     this.themeSvc.getAllThemes().subscribe((res:any) => {
       this.themesFromCms = res;
       this.themesSelected = this.themesFromCms;
     });
+
+
 
   }
 
@@ -120,46 +156,56 @@ export class UnitHubComponent implements OnInit {
     }
   }
 
-  updateUnits(): void {
-    if (!this.projectsFromCms || !this.perspectivesFromCms || !this.podcastsFromCms) {
-      return;
-    }
-    let orderedUnits = [ ...this.projectsFromCms, ...this.perspectivesFromCms, ...this.podcastsFromCms ];
-    let today = new Date();
-    let seed = today.getDate() + today.getMonth()*31 + today.getFullYear() * 366;
-    let shuffledUnits = this.shuffle(orderedUnits, seed);
-    this.unitAndEncodedHrefList = shuffledUnits.map((u: any) => {
-      return {
-        unit: u,
-        titleEncoded: this.helperService.encodeCustomURI(u.title)
-      }});
-      console.log("item numbert 0: " + this.unitAndEncodedHrefList[0].titleEncoded);
+  // updateUnits(): void {
+  //   if (!this.projectsFromCms || !this.perspectivesFromCms || !this.podcastsFromCms) {
+  //     return;
+  //   }
+  //   let counter = -1;
+  //   let orderedUnits = [ ...this.projectsFromCms, ...this.perspectivesFromCms, ...this.podcastsFromCms ];
+  //   let today = new Date();
+  //   let seed = today.getDate() + today.getMonth()*31 + today.getFullYear() * 366;
+  //   let shuffledUnits = this.shuffle(orderedUnits, seed);
+  //   this.unitAndEncodedHrefList = shuffledUnits.map((u: any) => {
+  //     console.log("counter = " + counter);
+  //     counter = counter + 1;
+  //     return {
+  //       counter: counter,
+  //       unit: u,
+  //       titleEncoded: this.helperService.encodeCustomURI(u.title)
+  //     }
       
-  }
+  //   });
 
-  shuffle(array: any[], seed: number) {                // <-- ADDED ARGUMENT
-    var m = array.length, t, i;
+    // console.log("item numbert 0: " + this.unitAndEncodedHrefList[65].titleEncoded);
+    // console.log("item with counter: " + this.unitAndEncodedHrefList[65].counter);
+    // console.log("amount of items: " + this.unitAndEncodedHrefList.length);
+      
+  // }
 
-    // While there remain elements to shuffle…
-    while (m) {
+  // shuffle(array: any[], seed: number) {                // <-- ADDED ARGUMENT
+  //   var m = array.length, t, i;
 
-      // Pick a remaining element…
-      i = Math.floor(this.random(seed) * m--);        // <-- MODIFIED LINE
+  //   // While there remain elements to shuffle…
+  //   while (m) {
 
-      // And swap it with the current element.
-      t = array[m];
-      array[m] = array[i];
-      array[i] = t;
-      ++seed                                     // <-- ADDED LINE
-    }
+  //     // Pick a remaining element…
+  //     i = Math.floor(this.random(seed) * m--);        // <-- MODIFIED LINE
 
-    return array;
-  }
+  //     // And swap it with the current element.
+  //     t = array[m];
+  //     array[m] = array[i];
+  //     array[i] = t;
+  //     ++seed                                     // <-- ADDED LINE
+  //   }
 
-  random(seed: number) {
-    var x = Math.sin(seed++) * 10000;
-    return x - Math.floor(x);
-  }
+  //   return array;
+  // }
+
+  // random(seed: number) {
+  //   var x = Math.sin(seed++) * 10000;
+  //   return x - Math.floor(x);
+  // }
+
 
   getSelected() {
     // 1. Determine the checked checkboxes
@@ -174,7 +220,10 @@ export class UnitHubComponent implements OnInit {
 
     // calls out the selected state of current units
     // seems to only call out values from the parent array perspectives...maybe not correct
-    this.updateUnits();
+
+    this.BundleAllAPIs.updateUnits();
+    // this.updateUnits();
+
     // this.units = this.units.filter((unit:any) => {
     //   // this looks for the boolean value inside the API array [unit [ {themes.selected}, {...} ] ]
     //   return unit.themes.some((themeOfUnit: any) => {
