@@ -1,0 +1,87 @@
+// ----------------------- PREVIOUS / NEXT ----------------------- 
+.next_project{
+    font-family: var(--font-family-primary);
+    font-weight: 400;
+    font-size: 2rem;
+    
+    // grid-area: next;
+    display: flex;
+    margin: var(--margin-s);
+  }
+  .next_project div{
+    color: black;
+  }
+  .next_project div:hover{
+    color: var(--color-rosa);
+  }
+  .previous_button, .next_button{
+    margin-bottom: 50px;
+    width: 100%;
+    grid-area: next;
+    position: relative;
+  }
+  
+  #arrow-next { padding-left: 0.4em; }
+  #arrow-previous { padding-right: 0.4em; }
+  #arrow-related {
+    position: static;
+    margin: 15px 2px 0px 0px;
+    height: 0.7em;
+  }  
+  
+  // .previous_button div {
+  //   padding: 0px 0px 0px 35px;
+  // }
+  
+  // .next_button div {
+  //   padding: 0px 35px 0px 0px;
+  // }
+  
+  .next_button{
+    text-align: right;
+  }
+
+  .btn-icon {
+    font-size: 1.1em;
+    vertical-align: baseline;
+  }
+
+  .recommendation_intro .btn-icon {
+    vertical-align: sub;
+  }
+
+
+
+/* ------------------------------------------------------------ */
+/* ---------------------DESKTOP SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+@media (max-width: 1200px) {}
+
+@media (min-width: 1042px) {}
+
+/* ------------------------------------------------------------ */
+/* ---------------------TABLET SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+// ---- iPad PRO (1042 x 1366) ---- //
+@media (max-width: 1042px) {
+  .next_project{ font-size: var(--font-size-primary-xs); margin-bottom: 0;}
+}
+
+// ---- IPAD (768 x 1042) ---- //
+@media (max-width: 768px) {}
+
+/* ------------------------------------------------------------ */
+/* ---------------------MOBILE SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+/* 36em = 576px */
+// ---- iPhone Plus + iPhone Flipped (approx 560px width)---- //
+@media (max-width: 36em) {}
+
+// ---- iPhone 6/7/8/X (375 x 667/812)---- //
+@media (max-width: 375px) {}
+
+// ---- iPhone 5/SE (320 x 568)---- //
+@media (max-width: 320px) {}

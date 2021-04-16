@@ -350,46 +350,44 @@ li{
 
 
 // ----------------------- PREVIOUS / NEXT ----------------------- 
-.next_project{
-  font-family: var(--font-family-primary);
-  font-weight: 400;
-  font-size: 2rem;
-  
-  // grid-area: next;
-  display: flex;
-  margin: var(--margin-s);
-}
-.next_project a{
-  color: black;
-}
-.next_project a:hover{
-  color: var(--color-rosa);
-}
-.previous_button, .next_button{
-  margin-bottom: 50px;
-  width: 100%;
-  grid-area: next;
-  position: relative;
-}
+// .next_project{
+//   font-family: var(--font-family-primary);
+//   font-weight: 400;
+//   font-size: 2rem;
+//   display: flex;
+//   margin: var(--margin-s);
+// }
+// .next_project a{
+//   color: black;
+// }
+// .next_project a:hover{
+//   color: var(--color-rosa);
+// }
+// .previous_button, .next_button{
+//   margin-bottom: 50px;
+//   width: 100%;
+//   grid-area: next;
+//   position: relative;
+// }
 
-.next_button{ text-align: right; }
+// .next_button{ text-align: right; }
 
-.btn-icon {
-  font-size: 1.1em;
-  vertical-align: baseline;
-}
+// .btn-icon {
+//   font-size: 1.1em;
+//   vertical-align: baseline;
+// }
 
-.recommendation_intro .btn-icon {
-  vertical-align: sub;
-}
+// .recommendation_intro .btn-icon {
+//   vertical-align: sub;
+// }
 
-#arrow-next { padding-left: 0.4em; }
-#arrow-previous { padding-right: 0.4em; }
-#arrow-related {
-  position: static;
-  margin: 15px 2px 0px 0px;
-  height: 0.7em;
-}
+// #arrow-next { padding-left: 0.4em; }
+// #arrow-previous { padding-right: 0.4em; }
+// #arrow-related {
+//   position: static;
+//   margin: 15px 2px 0px 0px;
+//   height: 0.7em;
+// }
 
 
 
