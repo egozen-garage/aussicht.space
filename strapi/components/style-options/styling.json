@@ -28,6 +28,9 @@
     },
     "padding": {
       "type": "boolean"
+    },
+    "offset_y": {
+      "type": "string"
     }
   }
 }

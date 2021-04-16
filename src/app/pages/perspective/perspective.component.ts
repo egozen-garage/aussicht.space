@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, AfterViewInit } from '@angular/core';
 import { PerspectiveService } from '../../services_strapi/perspective.service';
 import { ActivatedRoute, Router, RouteReuseStrategy } from '@angular/router';
-// import { SideCommentPositionService } from '../../services/side-comment-position.service';
+import { SideCommentPositionService } from '../../services/side-comment-position.service';
 // import { RouteReuseStrategy } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
@@ -13,7 +13,7 @@ import { HelperService } from "../../services/helper.service";
   templateUrl: './perspective.component.html',
   styleUrls: ['./perspective.component.scss']
 })
-export class PerspectiveComponent implements OnInit {
+export class PerspectiveComponent implements OnInit, AfterViewInit {
 
   apiUrl = environment.apiUrl;
   private perspectiveTitle: string = "";
@@ -24,6 +24,7 @@ export class PerspectiveComponent implements OnInit {
     private perspectiveSvc: PerspectiveService,
     private route: ActivatedRoute,
     private helperService: HelperService,
+    private sideCommentPosition: SideCommentPositionService,
     // private router: Router,
     // private routeReuseStrategy: RouteReuseStrategy,
     ) {
@@ -66,6 +67,9 @@ export class PerspectiveComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit(): void {
+    this.sideCommentPosition.run_side_comments(); 
+  }
 
 @HostListener('window:scroll', ['$event']) onScrollEvent($event: any){
   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
