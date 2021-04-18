@@ -150,7 +150,7 @@ export class UnitHubComponent implements OnInit {
     let emptyColumns: any = Array(this.nColumns).fill(0).map(() => []);
     if (this.unitAndEncodedHrefList) {
       for (let i = 0; i < this.unitAndEncodedHrefList.length; i++) {
-        emptyColumns[i % emptyColumns.length].push(this.unitAndEncodedHrefList[i]);
+        emptyColumns[i % emptyColumns.length].push(this.unitAndEncodedHrefList[i]); 
       }
       this.columns = emptyColumns;
     }

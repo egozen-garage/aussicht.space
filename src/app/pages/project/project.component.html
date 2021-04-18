@@ -140,7 +140,6 @@
                 <br>
                 perspective
                 <br>
-                <!-- <img [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]" class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next"> -->
                 <img class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next">
             </div>
 
@@ -150,7 +149,8 @@
                 <ul>
                     <li *ngFor="let perspektives of project.perspektives, let i = index" 
                         class="recommendation_title">
-                        <a [routerLink]="['/units/' + project.perspektives[i].unit_type + '/' + project.perspektives[i].id ]">
+                        <a (click)="title2url(project.perspektives[i].unit_type, project.perspektives[i].title)" >
+                        <!-- [routerLink]="['/units/' + project.perspektives[i].unit_type + '/' + titleEncoded ]" -->
                             <div *ngIf="project.perspektives[i].title?.length">
                             {{project.perspektives[i].title}}
                         </div>
