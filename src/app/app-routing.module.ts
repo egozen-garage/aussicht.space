@@ -11,37 +11,18 @@ import { PerspectiveComponent} from './pages/perspective/perspective.component';
 import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episodes.component';
 
 const routes: Routes = [
-    // ------------ routing version 1 ------------
-  //   { path: "de", component: LandingPageComponent,
-  //     children: [
-  //       { path: "impressum", component: ImpressumComponent },
-  //       { path: "units", component: UnitHubComponent,
-  //         children: [
-  //           { path: 'project/:title', component: ProjectComponent},
-  //           { path: 'podcast/:title', component: PodcastEpisodesComponent},
-  //           { path: 'perspective/:title', component: PerspectiveComponent},
-  //           // { path: '', redirectTo:'', pathMatch:"full" }
-  //         ]
-  //       },
-  //     ]
-  //   },
-  //   { path: "en", component: LandingPageComponent,
-  //   children: [
-  //     { path: "impressum", component: ImpressumComponent},
-  //     { path: "units", component: UnitHubComponent,
-  //       children: [
-  //         { path: 'project/:title', component: ProjectComponent},
-  //         { path: 'podcast/:title', component: PodcastEpisodesComponent},
-  //         { path: 'perspective/:title', component: PerspectiveComponent},
-  //         // { path: '', redirectTo:'', pathMatch:"full" }
-  //       ]
-  //     },
-  //   ]
-  // },
-  //   { path: "**", redirectTo: "de" }
+  // ---------------- routing version from master branch
+  // { path: "", component: LandingPageComponent, pathMatch: 'full'},
+  // { path: "units", component: UnitHubComponent},
+  // { path: 'units/project/:title', component: ProjectComponent},
+  // { path: 'units/podcast/:title', component: PodcastEpisodesComponent},
+  // { path: 'units/perspective/:title', component: PerspectiveComponent},
+  // { path: "impressum", component: ImpressumComponent},
+  // { path: "**", redirectTo: "de", pathMatch: 'full' }
 
-  // ------------ routing version 2 ------------
-    { path: ":language", component: LandingPageComponent,
+
+  // // ------------ routing version 2 ------------
+  { path: ":language", component: LandingPageComponent, pathMatch:"full",
     children: [
       { path: "impressum", component: ImpressumComponent },
       { path: "units", component: UnitHubComponent,
@@ -49,7 +30,7 @@ const routes: Routes = [
           { path: 'project/:title', component: ProjectComponent},
           { path: 'podcast/:title', component: PodcastEpisodesComponent},
           { path: 'perspective/:title', component: PerspectiveComponent},
-          // { path: '', redirectTo:'', pathMatch:"full" }
+          { path: '', redirectTo:'', pathMatch:"full" }
         ]
       },
     ]
@@ -57,60 +38,8 @@ const routes: Routes = [
   { path: "**", redirectTo: "de" }
 
 
-//   { path: "", component: LandingPageComponent,
-//   children: [
-//     { path: "impressum", component: ImpressumComponent },
-//     { path: "units", component: UnitHubComponent,
-//       children: [
-//         { path: 'project/:title', component: ProjectComponent},
-//         { path: 'podcast/:title', component: PodcastEpisodesComponent},
-//         { path: 'perspective/:title', component: PerspectiveComponent},
-//         // { path: '', redirectTo:'', pathMatch:"full" }
-//       ]
-//     },
-//   ]
-// },
-// { path: "**", redirectTo: "" }
-
-
-  // // ------------ routing version 3 (alternative) ------------
-  // { path: ":language", component: LandingPageComponent},
-  // { path: ":language/impressum", component: ImpressumComponent },
-  // { path: ":language/units", component: UnitHubComponent,
-  //   children: [
-  //     { path: 'project/:title', component: ProjectComponent},
-  //     { path: 'podcast/:title', component: PodcastEpisodesComponent},
-  //     { path: 'perspective/:title', component: PerspectiveComponent},
-  //     // { path: '', redirectTo:'', pathMatch:"full" }
-  //   ]
-  // },
-  // { path: "**", redirectTo: "de" }
-
-  // { path: "", component: LandingPageComponent},
-  // { path: "impressum", component: ImpressumComponent },
-  // { path: "units", component: UnitHubComponent,
-  //   children: [
-  //     { path: 'project/:title', component: ProjectComponent},
-  //     { path: 'podcast/:title', component: PodcastEpisodesComponent},
-  //     { path: 'perspective/:title', component: PerspectiveComponent},
-  //     // { path: '', redirectTo:'', pathMatch:"full" }
-  //   ]
-  // },
-  // { path: "**", redirectTo: "" }
-
-
-
-
-  // ------------ ignore the following routing ------------
-  // { path: "preview",
-  // component: PreviewComponent,
-  // children: [
-  //   { path: 'project/:title', component: ProjectComponent},
-  //   { path: 'podcast/:title', component: PodcastEpisodesComponent},
-  //   { path: 'perspective/:title', component: PerspectiveComponent},
-  // ]
-  // },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {

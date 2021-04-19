@@ -23,11 +23,12 @@ export class ProjectService {
     ) { 
 
     this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
-      this.projectAPIkeyword = language;
+      // this.projectAPIkeyword = language;
       if( language === "de"){
         this.projectAPIkeyword = "projekts";      console.log("language is DEUTSCH");
       } else if (language === "en") {
-        this.projectAPIkeyword = "EN_projects";   console.log("language is ENglish");
+        // this.projectAPIkeyword = "EN_projects";   console.log("language is ENglish");
+        this.projectAPIkeyword = "projekts";      console.log("language is DEUTSCH");
       } else {
         this.projectAPIkeyword = "EN_projects";   console.log("language is not defined or something else");
       }
