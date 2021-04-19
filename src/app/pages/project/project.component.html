@@ -120,11 +120,11 @@
             </div>        
         
         
-    <!-- GPT images --------------------------------------------------------------- -->
-    <!-- GPT images --------------------------------------------------------------- -->
-    <!-- GPT images --------------------------------------------------------------- -->
-    <!-- GPT images --------------------------------------------------------------- -->
-    <div id="gpt_images"></div>
+        <!-- GPT images --------------------------------------------------------------- -->
+        <!-- GPT images --------------------------------------------------------------- -->
+        <!-- GPT images --------------------------------------------------------------- -->
+        <!-- GPT images --------------------------------------------------------------- -->
+        <div id="gpt_images"></div>
     
 
     <!-- ----------------------- recommendations ----------------------- -->
@@ -144,14 +144,18 @@
 
             <div class="recommendation_info">
                 <ul>
-                    <li *ngFor="let perspektives of project.perspektives, let i = index">
-                            <div class="recommendation_title" *ngIf="project.perspektives[i].title?.length">
+                    <li *ngFor="let perspektives of project.perspektives, let i = index" 
+                        class="recommendation_title">
+                        <a (click)="title2url(project.perspektives[i].unit_type, project.perspektives[i].title)" >
+                        <!-- [routerLink]="['/units/' + project.perspektives[i].unit_type + '/' + titleEncoded ]" -->
+                            <div *ngIf="project.perspektives[i].title?.length">
                             {{project.perspektives[i].title}}
                             </div>
-                        <div *ngIf="project.perspektives[i].author?.length"
-                        class="recommendation_author">
-                            {{project.perspektives[i].author}}
-                        </div>
+                            <div *ngIf="project.perspektives[i].author?.length"
+                            class="recommendation_author">
+                                {{project.perspektives[i].author}}
+                            </div>
+                        </a>
                     </li>
                 </ul>
             </div>

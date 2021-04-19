@@ -1,8 +1,11 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { SideCommentPositionService } from '../../../services/side-comment-position.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { DomSanitizer } from '@angular/platform-browser';
 import { relativeTimeThreshold } from 'moment';
+import { HelperService } from "../../../services/helper.service";
 
 
 @Component({
@@ -20,6 +23,8 @@ export class TextTypesComponent implements OnInit, AfterViewInit {
   constructor(
     private sideCommentPosition: SideCommentPositionService,
     private deviceService: DeviceDetectorService,
+    private helperService: HelperService,
+    private router: Router,
     // private sanitizer: DomSanitizer
     ) { }
 
@@ -68,5 +73,10 @@ export class TextTypesComponent implements OnInit, AfterViewInit {
   //   }, 1000);
   // }
 
+  titleEncoded:string | undefined;
+  title2url(unit_type:string, relatedTitle:string){
+    this.titleEncoded = this.helperService.encodeCustomURI(relatedTitle);    
+    this.router.navigate(['/units', unit_type, this.titleEncoded]);
+  }
 
 }

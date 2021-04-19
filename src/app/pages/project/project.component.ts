@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { ProjectService } from '../../services_strapi/project.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { SideCommentPositionService } from '../../services/side-comment-position.service';
 import { HelperService } from "../../services/helper.service";
@@ -38,6 +38,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   constructor(
     private projectSvc: ProjectService,
     private route: ActivatedRoute,
+    private router: Router,
     private helperService: HelperService,
     // private sideCommentPosition: SideCommentPositionService,
     private sideCommentPosition: SideCommentPositionService    
@@ -103,6 +104,9 @@ export class ProjectComponent implements OnInit, AfterViewInit {
           let project = allProjects[i];
           if (this.helperService.encodeCustomURI(project.title) == this.projectTitle) {
             this.project = project;
+
+            console.log("project url" + this.project);
+            
 
             this.folder_name = this.project.GPT_folder_name;
             if(this.folder_name){
@@ -250,6 +254,15 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       array[randomIndex] = temporaryValue;
     }
     return array;
+  }
+
+
+
+  titleEncoded:string | undefined;
+  title2url(unit_type:string, relatedTitle:string){
+    console.log("$$$$$$$$");
+    this.titleEncoded = this.helperService.encodeCustomURI(relatedTitle);
+    this.router.navigate(['units', unit_type, this.titleEncoded]);
   }
 
 }
