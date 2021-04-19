@@ -1,10 +1,7 @@
 <div class="podcast-page">
 
     <!-- BACK TO UNIT HUB ---------------------------------------------- -->
-    <button [routerLink]="['/units/']" class="btn-back2hub" id="invert">
-        <a  class="btn-txt"><span class="btn-icon">&#x2190;</span>Hub</a>
-    </button>
-
+    <app-back-to-hub></app-back-to-hub>
 
     <header *ngIf="podcast" class="podcast_header">
         <img class="offline_podcast_logo" src="{{podcast.offline_episode_logo.url}}">
@@ -24,62 +21,6 @@
         <div class="podcast_cover_container" *ngIf="podcast?.episode_cover.url?.length">
 
             <div class="podcast_cover_wrapper" (click)="togglePlayPause()">
-                <!-- <div class="marquee-container" id="marquee-desktop">   
-                    <div *ngIf="play" class="txt-container" id="mydivon">
-                        #play
-                        <br>
-                        #play
-                        <br>
-                        #play
-                        <br>
-                        #play
-                        <br>
-                        #play
-                        <br>
-                        #play
-                        <br>
-                        #play
-                        <br>
-                        #play
-                        <br>
-                        #play
-                        <br>
-                        #play
-                        <br>
-                        #play
-                        <br>
-                        #play
-                        <br>
-                        #play
-                        <br>
-                    </div>     
-                    <div *ngIf="pause" class="txt-container" id="mydivoff">
-                        #pause
-                        <br>
-                        #pause
-                        <br>
-                        #pause
-                        <br>
-                        #pause
-                        <br>
-                        #pause
-                        <br>
-                        #pause
-                        <br>
-                        #pause
-                        <br>
-                        #pause
-                        <br>
-                        #pause
-                        <br>
-                        #pause
-                        <br>
-                        #pause
-                        <br>
-                        #pause
-                        <br>
-                    </div>
-                </div> -->
                 <div class="marquee-container">   
                     <span *ngIf="play" class="txt-container" id="mydivon">
                         #play #play #play #play #play #play #play #play #play #play #play #play #play
@@ -103,8 +44,10 @@
     </div>
 
    </body> 
+   
+   
+   
+</div>
 
     <!-- ----------------------- PREVIOUS / NEXT ----------------------- -->
-    <app-previous-next></app-previous-next>
-
-</div>
+    <app-previous-next id="podcastpage"></app-previous-next>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { PodcastepisodesService } from '../../services_strapi/podcastepisodes.service';
@@ -17,7 +17,7 @@ import { HelperService } from "../../services/helper.service";
   styleUrls: ['./podcast-episodes.component.scss']
 })
 
-export class PodcastEpisodesComponent implements OnInit {
+export class PodcastEpisodesComponent implements OnInit, AfterViewInit {
 
   public play: boolean = true;
   public pause : boolean = false;
@@ -65,5 +65,15 @@ export class PodcastEpisodesComponent implements OnInit {
     } else {
       this.currentTrackService.changeTrack("#" + this.podcast.episode_id + "_stopped");
     }
+  }
+
+  ngAfterViewInit() {
+    const previousButton = document.getElementById("prev-btn");
+    const nextButton = document.getElementById("next-btn");
+    const back2HubButton = document.getElementById("back2hub");
+
+    previousButton!.setAttribute('style', 'color:white !important;');
+    nextButton!.setAttribute('style', 'color:white !important;');
+    back2HubButton!.setAttribute('style', 'color:white !important;');
   }
 }

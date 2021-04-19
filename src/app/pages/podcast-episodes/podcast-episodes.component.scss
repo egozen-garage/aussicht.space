@@ -1,38 +1,12 @@
 
 .podcast-page {
-    padding: 100px var(--margin-s);
+    padding: var(--margin-s);
     margin: 0px;
     background-color: var(--color-page-background-primary);
     color: var(--color-white);
 }
 
-.podcast-header { height: 100vh; }
-
-
-    // BACK TO UNIT HUB
-    .btn-back2hub {
-        z-index: 9999;
-        font-family: '2070';
-        font-weight: 400;
-        font-size: var(--font-size-primary-xs);
-        position: fixed;
-        display: flex;
-        left: var(--margin-s);
-        float: left;
-        top: var(--margin-s);
-        color: white;
-    }
-
-        .btn-back2hub a {
-            text-decoration: none;
-            padding: 0px 0px 0px 0px;
-        }
-
-        .btn-icon {
-            font-size: 1.1em;
-            padding-right: 0.4em;
-            vertical-align: baseline;
-        }
+.podcast_header { height: 60vh; padding-top: 5.7em;}
 
 .offline_podcast_logo {
     width: 500px;
@@ -158,6 +132,10 @@
     padding: 20px 0px 0px 0px;
 }
 
+::ng-deep #podcastpage {
+    color: white !important;
+}
+
 
 /* ------------------------------------------------------------ */
 /* ---------------------DESKTOP SECTION------------------------- */
@@ -184,6 +162,7 @@
 /* 36em = 576px */
 // ---- iPhone Plus + iPhone Flipped (approx 560px width)---- //
 @media (max-width: 36em) {
+    .podcast_header { padding-top: 3.5em;}
     .offline_podcast_logo { width: 300px; }
     .pod_title { width: 80% }
     .podcast_cover_container { width: 100vw; }

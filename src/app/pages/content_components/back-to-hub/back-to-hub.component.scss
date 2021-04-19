@@ -1,5 +1,5 @@
 .btn-back2hub {
-    z-index: 9999;
+    z-index: 5000;
     font-family: '2070';
     font-weight: 400;
     font-size: var(--font-size-primary-xs);
@@ -15,6 +15,12 @@
     color: black;
     text-decoration: none;
     padding: 0px 0px 0px 0px;
+}
+
+.btn-back2hub a:hover {
+    text-decoration-line: none;
+    color: var(--color-rosa);
+    transition-duration: 0.2s;
 }
 
 .btn-icon {

@@ -43,7 +43,8 @@
 .caption_txt {
   text-align: left !important;
   position: absolute;
-  margin-bottom: 10px;
+  margin-bottom: 1em;
+  margin-top: 0.6em;
 }
 
 .default {
@@ -122,13 +123,13 @@
 // ---- iPhone Plus + iPhone Flipped (approx 560px width)---- //
 @media (max-width: 36em) {
   #c-left { grid-area: all; }
-  #c-right { grid-area: center; padding: 20px 0px 0px var(--margin-s); width: 145%;} 
+  #c-right { grid-area: center; padding: 20px 0px 0px var(--margin-s); width: 135%;} 
 
   .width_small{     width: 80% !important;}
   .width_medium{    width: 100% !important;}
   .width_large{     width: 100% !important;}
 
-  .caption_txt { background-color: white; padding-bottom: 20px }
+  .caption_txt { background-color: white; padding-bottom: 20px; }
 
   .default { top: 0 !important; grid-area: all; padding: var(--margin-s);}
 
@@ -136,7 +137,10 @@
 }
 
 // ---- iPhone 6/7/8/X (375 x 667/812)---- //
-@media (max-width: 375px) {}
+@media (max-width: 375px) {
+  .align_left { padding: 0px !important; }
+  .padding_on { padding: 0px; }
+}
 
 // ---- iPhone 5/SE (320 x 568)---- //
 @media (max-width: 320px) {}

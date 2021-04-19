@@ -192,6 +192,7 @@ $aussichtDOTspace-theme: mat-light-theme((
   --color-black: black;
   --color-rosa: #E59BA8;
   --color-indigo: #1D2273;
+  --color-side-comments: #0000FF;
 
   --color-page-background-secondary: #F2F2EC;
 
@@ -211,8 +212,12 @@ $aussichtDOTspace-theme: mat-light-theme((
   --font-size-primary-xs: 30px;
 
   --font-size-secondary: 60px;
+  --font-size-secondary-xs: 25px;
+
   --font-size-title: 90px;
+  --font-size-title-projects: 60px;
   --font-size-title-perspectives: 90px;
+  --font-size-unit-title: 30px;
   --font-size-date: 20px;
   --font-size-paragraph: 22px;
   --font-size-machine-text: 21px;
@@ -303,6 +308,7 @@ $aussichtDOTspace-theme: mat-light-theme((
       --font-size-primary: 35px;
       --font-size-primary-s: 30px;
       --font-size-secondary: 35px;
+      --font-size-title-projects: 42px;
       --font-size-title: 80px;
       --font-size-date: 17px;
   }
@@ -351,15 +357,12 @@ $aussichtDOTspace-theme: mat-light-theme((
       --margin-s: 25px;
       --font-size-primary: 35px;
       --font-size-primary-s: 30px;
-      --font-size-secondary: 35px;
       --font-size-title-perspectives: 70px;
       --font-size-title: 70px;
       --font-size-date: 17px;
   }
 
-  .perspective-page {
-    padding: 100px 0px 20px 0px !important;
-}
+  .perspective-page { padding: 7em 0px 20px 0px !important; }
 
 }
 
@@ -379,7 +382,10 @@ $aussichtDOTspace-theme: mat-light-theme((
       --font-size-primary-s: 16px;
       --font-size-primary-xs: 20px;
       --font-size-secondary: 20px;
+      --font-size-secondary-xs: 18px;
       --font-size-title-perspectives: 42px;
+      --font-size-title-projects: 35px;
+      --font-size-unit-title: 26px;
       --font-size-paragraph: 16px;
       --font-size-machine-text: 16px;
       --font-size-title: 34px;
@@ -403,6 +409,10 @@ $aussichtDOTspace-theme: mat-light-theme((
     padding: 50px 50px 00px 0px;
     position: absolute;
     bottom: 100px;
+  }
+
+  .perspective-page {
+    padding: 4.7em 0px 20px 0px !important;
   }
 
 }
@@ -440,6 +450,7 @@ $aussichtDOTspace-theme: mat-light-theme((
   :root {
     --font-size-primary-s: 15px;
     --font-size-paragraph: 15px;
+    --font-size-title-projects: 30px;
     --font-size-machine-text: 15px;
     --font-size-title-perspectives: 40px;
     }
@@ -461,6 +472,7 @@ $aussichtDOTspace-theme: mat-light-theme((
       cursor: url('/assets/logos/2070_cursor.png'), auto;
       min-height: 100%;
       width: 100%;
+      
    }
 
    /* keeps website expanding, but also have height of <body> fit the window */
@@ -507,10 +519,13 @@ h1, h2, h3 {
 
 a {
   text-decoration-line: none;
+  color: black;
 }
 
 a:hover {
   text-decoration-line: none;
+  color: var(--color-rosa);
+  transition-duration: 0.2s;
 }
 
 p {
@@ -530,7 +545,7 @@ p {
 // -------- Markdown Styling --------
 // --------code tag: perspective/project/podcast: keywords within text  -- code tags -------- 
 code {
-  color: #031DFF;
+  color: var(--color-side-comments);
   font-family: var(--font-family-primary);
   font-size: var(--font-size-paragraph);
   font-weight: 400;
