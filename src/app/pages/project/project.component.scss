@@ -229,6 +229,7 @@ label.collapsible-button {
   margin: 20px var(--margin) -10px var(--margin-s);
   vertical-align: bottom;
   line-height: 1;
+  display: block;
 }
 
 ::ng-deep .collapsible-button:hover {
@@ -292,8 +293,8 @@ label.collapsible-button {
   &::before {
     content: "";
     position: absolute;
-    top: 38%;
-    right: -40px;
+    top: 35%;
+    left: 0.5em;
     background-color: black;
     width: 23px;
     height: 5px;

@@ -164,7 +164,6 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     let vh = this.innerHeight;
     // Then set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-    console.log("show me px value of window height on init", `${vh}px`);
     
 
 
@@ -203,10 +202,6 @@ export class PlayerComponent implements OnInit, AfterViewInit{
     this.isMobile = this.deviceService.isMobile();
     this.isTablet = this.deviceService.isTablet();
     this.isDesktopDevice = this.deviceService.isDesktop();
-    console.log(this.deviceInfo);
-    console.log("isMobile: " + this.isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
-    console.log("isTablet: " + this.isTablet);  // returns if the device us a tablet (iPad etc)
-    console.log("isDesktopDevice: " + this.isDesktopDevice);
 
   }
 
@@ -217,7 +212,6 @@ export class PlayerComponent implements OnInit, AfterViewInit{
       // Execute same script as before
       let vh = window.innerHeight;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
-      console.log("show me value of vh afterviewinit", `${vh}px`);
     });
   }
 

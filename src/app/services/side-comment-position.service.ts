@@ -25,10 +25,8 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
 
   run_side_comments(){
     if (this.isMobile || this.isTablet){
-      console.log("start mobile comments");    
       this.mobile_side_comments();
     } else if (!this.isMobile){
-      console.log("no non no non no Mobile");
       this.activate_site_comments();
       this.listenResizeWindow();
     }
@@ -52,7 +50,6 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
     this.resizeObservable$ = fromEvent(window, 'resize')
     this.resizeSubscription$ = this.resizeObservable$.subscribe( evt => {
       this.scanMarkdowns();
-      console.log('event: ', evt)
     }) 
   }
 
@@ -123,7 +120,6 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
 
   mobile_side_comments(){
     let current_side_comment_id:any, current_side_comment:any;
-    console.log("mobile_side_comments function");
     
     const side_comment_containers = document.getElementsByClassName("side_comment_container");
     for (var i = 0; i < side_comment_containers.length; i++) {
@@ -136,9 +132,9 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
         let current_side_comment_id = side_comments[b].id;
         
         let current_side_comment = side_comments[b].innerHTML;
-        console.log("current b = " + b);
-        console.log("amount of side comments = " + side_comments.length);
-        console.log("current_side_comment_id" + current_side_comment_id);
+        // console.log("current b = " + b);
+        // console.log("amount of side comments = " + side_comments.length);
+        // console.log("current_side_comment_id" + current_side_comment_id);
         
         // side_comments[b].innerHTML = "";
         // code_tags[b].id = "code_tag-" + current_side_comment_id;
@@ -153,7 +149,6 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
         // ------ finally add Event Listener to key word
         code_tags[b].addEventListener('click', function (event) {
           // console.log("key word clicked.");
-          console.log("current_side_comment_id: " + current_side_comment_id);
           if(document.getElementById(current_side_comment_id)!.style.display === "none"){
             document.getElementById(current_side_comment_id)!.style.display = "block";
           } else {

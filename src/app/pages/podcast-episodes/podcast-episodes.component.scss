@@ -6,7 +6,7 @@
     color: var(--color-white);
 }
 
-.podcast_header { height: 60vh; padding-top: 5.7em;}
+.podcast_header { height: auto; padding-top: 5.7em;}
 
 .offline_podcast_logo {
     width: 500px;
@@ -53,7 +53,7 @@
 
 // ---------- SET BODY ATTRIBUTES --------- //
 .podcast_cover_container {
-    height: 100vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;

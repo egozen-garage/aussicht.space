@@ -90,13 +90,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    // this.EVENTafterPageLoad.emit();
-
-    console.log("project parent componant");
-    // this.projectSvc.getAllProjects().subscribe((res:any) => {
-      //   this.projects = res;
-      // });
-
     this.route.params.subscribe( p => {
       this.projectTitle = p['title'];
       this.projectSvc.getAllProjects().subscribe((allProjects:any[]) => {
@@ -104,9 +97,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
           let project = allProjects[i];
           if (this.helperService.encodeCustomURI(project.title) == this.projectTitle) {
             this.project = project;
-
-            console.log("project url" + this.project);
-            
 
             this.folder_name = this.project.GPT_folder_name;
             if(this.folder_name){
@@ -119,8 +109,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     //         console.log("previous project: " + this.previous_project );
     //         console.log("next project: " + this.next_project );
     //         // console.log("amount of projects: " + allProjectsCachedObservable.length);
-
-            return console.log("project data array: " + this.project );
           }
         }
       });

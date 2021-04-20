@@ -44,7 +44,7 @@ class="section-grid">
                 <div id="circle1"></div>
                 <span class="comp_m_output">
                     <input class="checkbox" type="checkbox" id="trigger-{{body.id}}">
-                    <label class="comp_m_title show-more" [ngClass]="{ 'icon' : isMobile == true || isTablet == true }" (click)="toggleContent()" for="trigger-{{body.id}}" id="{{body.id}}" *ngIf="body.seed?.length">
+                    <label class="comp_m_title icon show-more" [ngClass]="{ 'icon' : isMobile == true || isTablet == true }" (click)="toggleContent()" for="trigger-{{body.id}}" id="{{body.id}}" *ngIf="body.seed?.length">
                         {{ body.seed}}
                     </label>
                     <span class="comp_m_text" id="collapsible-{{body.id}}" *ngIf="body.output?.length">

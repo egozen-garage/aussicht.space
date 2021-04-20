@@ -137,9 +137,9 @@ input[type='checkbox'] { display: none; }
             line-height: 1.2;
         }
         .comp_m_title {
-            padding-left: 20px;
+            // padding-left: 20px;
             text-indent: -30px;
-            margin-left: -35px;
+            // margin-left: -35px;
             width: auto;
             z-index: 100;
             font-weight: 300;
@@ -154,13 +154,13 @@ input[type='checkbox'] { display: none; }
             // line-height: 1.2;
         }
         #circle1 {
-            height: 130%;
-            width: 30em;
+            height: 100%;
+            width: 40em;
             top: -70px;
-            left: 100px;
+            // left: 100px;
             border-radius: 50%;
             position: absolute;
-            filter: blur(1.8rem);
+            filter: blur(2rem);
             z-index: 0;
 
             // colour gradient
@@ -193,6 +193,7 @@ input[type='checkbox'] { display: none; }
               width: 21px;
               height: 3px;
               transition: .4s ease;
+              display: none;
             }
             
             &.show-more::after {
@@ -305,6 +306,10 @@ input[type='checkbox'] { display: none; }
 /* ---------------------DESKTOP SECTION------------------------- */
 /* ------------------------------------------------------------ */
 
+@media (max-width: 1366px) {
+    .comp_m_text { padding: 0px 0px 100px 20px; }
+}
+
 @media (max-width: 1200px) {
 
     .section-grid { grid-template-columns: 15% 45% 25% 15%; }
@@ -370,10 +375,17 @@ input[type='checkbox'] { display: none; }
 
     #circle1 {
         height: 100%;
-        width: 22em;
-        top: -32px;
+        width: 40em;
+        top: -15px;
         left: -35px;
     }
+
+    .icon {
+        &::after,
+        &::before {
+            display:initial;
+        }
+    } 
     
 /* - component > all related to text blocks ----- */
     .plain_text{ width: 80%;}
