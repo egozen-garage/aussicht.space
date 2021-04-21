@@ -131,7 +131,7 @@
     <ng-container *ngIf="project.perspektives?.length" 
     class="" id=""> 
     
-        <a *ngFor="let perspektives of project.perspektives, let a = index" class="recommendation project_additional_link" [routerLink]="['/index/' + project.perspektives[a].unit_type + '/' + project.perspektives[a].id ]">
+        <a *ngFor="let perspektives of project.perspektives, let a = index" class="recommendation project_additional_link" (click)="title2url(project.perspektives[a].unit_type, project.perspektives[a].title)">
 
             <div class="recommendation_intro">
                 Essay zum 
@@ -146,7 +146,6 @@
                 <ul>
                     <li *ngFor="let perspektives of project.perspektives, let i = index" 
                         class="recommendation_title">
-                        <a (click)="title2url(project.perspektives[i].unit_type, project.perspektives[i].title)" >
                         <!-- [routerLink]="['/units/' + project.perspektives[i].unit_type + '/' + titleEncoded ]" -->
                             <div *ngIf="project.perspektives[i].title?.length">
                             {{project.perspektives[i].title}}
@@ -155,7 +154,6 @@
                             class="recommendation_author">
                                 {{project.perspektives[i].author}}
                             </div>
-                        </a>
                     </li>
                 </ul>
             </div>

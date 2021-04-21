@@ -74,7 +74,7 @@
 
                                 <!-- EPISODE > GUEST SPEAKERS -->
                                 <div *ngIf="uh.unit.speakers?.length" class="unit-name" id="podcast-speakers" >
-                                    {{uh.unit.speakers}}
+                                    <a id="pod-speaker" [routerLink]="[('/index/' + uh.unit.unit_type), uh.titleEncoded]">{{uh.unit.speakers}}</a>
                                 </div>
 
                                 <!-- PODCAST UNIT > THEMES SECTION -->
@@ -99,7 +99,7 @@
 
                                 <!-- ARTICLE > AUTHOR -->
                                 <div class="unit-name" id="perspective-author" >
-                                    {{uh.unit.author}}
+                                    <a [routerLink]="['/index/' + uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.author}}</a>
                                 </div>
 
                                 <!-- PERSPECTIVE UNIT > THEMES SECTION -->
@@ -129,7 +129,7 @@
 
                                 <!-- PROJECT > ARTIST -->
                                 <div class="unit-name" id="project-artist" >
-                                    {{uh.unit.name}}
+                                    <a [routerLink]="['/index/' + uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.name}}</a>
                                 </div>
 
                                 <!-- PERSPECTIVE UNIT > THEMES SECTION -->

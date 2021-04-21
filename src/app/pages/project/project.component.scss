@@ -1,11 +1,12 @@
 a {
   text-decoration-line: none;
   color: black;
+  cursor: pointer;
 }
 
 a:hover {
   text-decoration-line: none;
-  color: var(--color-rosa);
+  color: var(--color-rosa) !important;
   transition-duration: 0.2s;
 }
 

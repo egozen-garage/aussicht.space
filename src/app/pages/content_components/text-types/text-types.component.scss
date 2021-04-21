@@ -241,7 +241,10 @@ input[type='checkbox'] { display: none; }
 .comp_relation {
     position: relative;
     float:left;
+    cursor: pointer;
 }
+
+
 .c_r_text, .relation_artistname, .c_r_title, .relation_title {
     font-family: var(--font-family-primary);
     font-size: var(--font-size-comments);
