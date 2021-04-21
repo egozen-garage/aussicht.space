@@ -131,7 +131,7 @@
     <ng-container *ngIf="project.perspektives?.length" 
     class="" id=""> 
     
-        <a *ngFor="let perspektives of project.perspektives, let a = index" class="recommendation project_additional_link" [routerLink]="['/units/' + project.perspektives[a].unit_type + '/' + project.perspektives[a].id ]">
+        <a *ngFor="let perspektives of project.perspektives, let a = index" class="recommendation project_additional_link" [routerLink]="['/index/' + project.perspektives[a].unit_type + '/' + project.perspektives[a].id ]">
 
             <div class="recommendation_intro">
                 Essay zum 

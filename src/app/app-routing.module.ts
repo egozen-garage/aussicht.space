@@ -35,10 +35,10 @@ import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episo
 
 const routes: Routes = [
   { path: "", component: LandingPageComponent},
-  { path: "units", component: UnitHubComponent},
-  { path: 'units/project/:title', component: ProjectComponent},
-  { path: 'units/podcast/:title', component: PodcastEpisodesComponent},
-  { path: 'units/perspective/:title', component: PerspectiveComponent},
+  { path: "index", component: UnitHubComponent},
+  { path: 'index/project/:title', component: ProjectComponent},
+  { path: 'index/podcast/:title', component: PodcastEpisodesComponent},
+  { path: 'index/perspective/:title', component: PerspectiveComponent},
 
   // { path: "preview",
   // component: PreviewComponent,
