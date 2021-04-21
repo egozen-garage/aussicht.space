@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LandingPageComponent } from './landing_page/landing-page.component';
+import { AboutComponent } from './landing_page/about/about.component';
+import { ArtistListComponent } from './landing_page/artist-list/artist-list.component';
+import { ProgramComponent } from './landing_page/program/program.component';
+import { TeamComponent } from './landing_page/team/team.component';
+
 import { UnitHubComponent } from './pages/unit-hub/unit-hub.component';
 import { PreviewComponent } from './pages/preview/preview.component';
 
@@ -35,10 +40,15 @@ import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episo
 
 const routes: Routes = [
   { path: "", component: LandingPageComponent},
+  { path: "über", component: AboutComponent},
+  { path: "programm", component: ProgramComponent},
+  { path: "teilnehmer_innen", component: ArtistListComponent},
+
   { path: "units", component: UnitHubComponent},
   { path: 'units/project/:title', component: ProjectComponent},
   { path: 'units/podcast/:title', component: PodcastEpisodesComponent},
   { path: 'units/perspective/:title', component: PerspectiveComponent},
+
 
   // { path: "preview",
   // component: PreviewComponent,

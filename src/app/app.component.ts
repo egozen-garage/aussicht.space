@@ -4,6 +4,7 @@ import { ProjectService } from "./services_strapi/project.service";
 import { PerspectiveService } from "./services_strapi/perspective.service";
 import { PodcastepisodesService } from "./services_strapi/podcastepisodes.service";
 import { ThemeService } from './services_strapi/theme.service';
+import * as $ from 'jquery';
 
 import { DeviceDetectorService } from 'ngx-device-detector';
 
