@@ -23,11 +23,13 @@
     <span *ngFor="let performance of event_performances, let i = index" class="allthemes">
       <label for="checkbox_{{performance.id}}" (click)="showHideInfo(performance.id)"  class="event">
         <span class="date">{{ performance.date_time }}</span>
-        <span class="name">{{ performance.title }}</span>
+        <span class="name">{{ performance.title }} {{ performance.author }}</span>
       </label>
       <input id="checkbox_{{performance.id}}" class="toggle" type="checkbox"> 
       <span class="collapsible-content" id="collapsible_info_{{performance.id}}">
-        {{ performance.info_text }}
+        <markdown>
+          {{ performance.info_text }}
+        </markdown>
       </span>
       <div class="break" id="animate_br_{{performance.id}}"></div>
     </span>
@@ -39,11 +41,13 @@
     <span *ngFor="let talk of event_talks, let i = index" class="allthemes">
       <label for="checkbox_{{talk.id}}" (click)="showHideInfo(talk.id)"  class="event">
         <span class="date">{{ talk.date_time }}</span>
-        <span class="name">{{ talk.title }}</span>
+        <span class="name">{{ talk.title }} {{ talk.author }}</span>
       </label>
       <input id="checkbox_{{talk.id}}" class="toggle" type="checkbox"> 
       <span class="collapsible-content" id="collapsible_info_{{talk.id}}">
-        {{ talk.info_text }}
+        <markdown>
+          {{ talk.info_text }}
+        </markdown>
       </span>
       <div class="break" id="animate_br_{{talk.id}}"></div>
     </span>
@@ -55,11 +59,13 @@
     <span *ngFor="let special of event_specials, let i = index" class="allthemes">
       <label for="checkbox_{{special.id}}" (click)="showHideInfo(special.id)" class="event">
         <span class="date">{{ special.date_time }}</span>
-        <span class="name">{{ special.title }}</span>
+        <span class="name">{{ special.title }} {{ special.author }}</span>
       </label>
       <input id="checkbox_{{special.id}}" class="toggle" type="checkbox"> 
       <span class="collapsible-content" id="collapsible_info_{{special.id}}">
-        {{ special.info_text }}
+        <markdown>
+          {{ special.info_text }}
+        </markdown>
       </span>
       <div class="break" id="animate_br_{{special.id}}"></div>
     </span>
