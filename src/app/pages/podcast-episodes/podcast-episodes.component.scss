@@ -1,50 +1,23 @@
 
 .podcast-page {
-    padding: 90px var(--margin) 100px var(--margin);
+    padding: var(--margin-s);
     margin: 0px;
     background-color: var(--color-page-background-primary);
     color: var(--color-white);
 }
 
-.podcast-header { height: 100vh; }
-
-
-// BACK TO UNIT HUB
-    .btn-back2hub {
-        z-index: 9999;
-        font-family: '2070';
-        font-weight: 400;
-        font-size: 30px;
-        position: fixed;
-        display: flex;
-        left: var(--margin-s);
-        float: left;
-        top: 30px;
-        color: white;
-    }
-    
-    .btn-back2hub a {
-        color: white;
-        text-decoration: none;
-        padding: 0px 0px 0px 35px;
-    }
-    
-    .btn-icon {
-        height: 0.8em;
-        position: absolute;
-        top: 20%;
-        filter: invert(1);
-    }
+.podcast_header { height: 60vh; padding-top: 5.7em;}
 
 .offline_podcast_logo {
     width: 500px;
     padding: 0px 0px 30px 0px;
+    margin-left: -10px;
 }
 
 .pod_title {
     font-family: var(--font-family-primary);
     font-weight: 500;
-    font-size: var(--font-size-title);
+    font-size: var(--font-size-title-perspectives);
     margin: 0px;
     line-height: 0.9;
     padding: 0px 0px 20px 0px;
@@ -53,13 +26,13 @@
 
 .pod_speakers {
     font-family: var(--font-family-secondary);
-    font-size: var(--font-size-primary);
+    font-size: var(--font-size-primary-s);
     padding: 0px 0px 25px 0px;
 }
 
 .pod_intro {
     font-family: var(--font-family-primary);
-    font-weight: 300;
+    font-weight: 400;
     font-size: var(--font-size-primary-s);
     line-height: 1;
     width: 70%;
@@ -81,7 +54,6 @@
 // ---------- SET BODY ATTRIBUTES --------- //
 .podcast_cover_container {
     height: 100vh;
-    width: calc(100vw - 100px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,4 +130,78 @@
     font-family: var(--font-family-primary);
     font-weight: 400;
     padding: 20px 0px 0px 0px;
+}
+
+::ng-deep #podcastpage {
+    color: white !important;
+}
+
+
+/* ------------------------------------------------------------ */
+/* ---------------------DESKTOP SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+@media (max-width: 1200px) {}
+
+@media (min-width: 1042px) {}
+
+/* ------------------------------------------------------------ */
+/* ---------------------TABLET SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+// ---- iPad PRO (1042 x 1366) ---- //
+@media (max-width: 1042px) {}
+
+// ---- IPAD (768 x 1042) ---- //
+@media (max-width: 768px) {}
+
+/* ------------------------------------------------------------ */
+/* ---------------------MOBILE SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+/* 36em = 576px */
+// ---- iPhone Plus + iPhone Flipped (approx 560px width)---- //
+@media (max-width: 36em) {
+    .podcast_header { padding-top: 3.5em;}
+    .offline_podcast_logo { width: 300px; }
+    .pod_title { width: 80% }
+    .podcast_cover_container { width: 100vw; }
+    .podcast_cover_wrapper { display: block; }
+    .pod_episode_cover { width: 87%; height: auto;}
+    .pod_speakers { padding: 0px 0px 15px 0px;}
+    .podcast_episode_description { width: 80% }
+
+    .marquee-container {
+        width: 0;
+        height: 0;
+        position: relative;
+        overflow: inherit;
+    }
+    .txt-container {
+        color: white;
+        animation: 15s linear infinite sideways;
+        white-space: nowrap;
+        position: absolute;
+        top: 8em;
+        font-size: 45px;
+    }
+
+    @keyframes sideways {
+        from {
+          transform: translate(0%);
+        }
+        to {
+          transform: translate(calc(-50%));
+        }
+      }
+}
+
+// ---- iPhone 6/7/8/X (375 x 667/812)---- //
+@media (max-width: 375px) {
+    .txt-container { top: 7.2em; }
+}
+
+// ---- iPhone 5/SE (320 x 568)---- //
+@media (max-width: 320px) {
+    .txt-container { font-size: 45px; top: 6.2em;}
 }

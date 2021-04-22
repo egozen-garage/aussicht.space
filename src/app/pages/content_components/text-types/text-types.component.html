@@ -97,7 +97,8 @@ class="section-grid side_comment_container">
 
                             <!-- if PROJECT -->
                             <div *ngIf="body.relation_to[r].projekt != null" >
-                                <a [routerLink]="['/units/project/' + body.relation_to[r].projekt.id ]">
+                                <!-- <a [routerLink]="['/units/project/' + body.relation_to[r].projekt.id ]"> -->
+                                <a (click)="title2url(body.relation_to[r].projekt.unit_type, body.relation_to[r].projekt.title)">
                                     <!-- relation: title artist -->
                                     <div *ngIf="body.relation_to[r].projekt.title?.length" 
                                     class="relation_title">
@@ -105,9 +106,7 @@ class="section-grid side_comment_container">
                                         <br>
                                         <span id="artist_name">{{ body.relation_to[r].projekt.name}}</span>
                                     </div>
-                                    <div class="relation_arrow">
-                                        <img class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next">
-                                    </div>
+                                    <div class="relation_arrow">&#8594;</div>
 
                                     <!-- relation: title -->
                                     <div *ngIf="body.relation_to[r].title?.length" class="relation_artistname">
@@ -115,12 +114,10 @@ class="section-grid side_comment_container">
                                     </div>
                                     <!-- relation: description -->
                                     <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
-                                        <markdown>
+                                        <markdown class="markdown">
                                             {{ body.relation_to[r].description }}
                                         </markdown> 
-                                        <div class="relation_arrow">
-                                            <img class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next">
-                                        </div>
+                                        <div class="relation_arrow">&#8594;</div>
                                     </div>
                                     <!-- relation: image -->
                                     <div *ngIf="body.relation_to[r].projekt.preview_image != null" >
@@ -130,7 +127,8 @@ class="section-grid side_comment_container">
                             </div>
                             <!-- if PERSPECTIVE -->
                             <div *ngIf=" body.relation_to[r].perspektive != null" >
-                                <a [routerLink]="['/units/perspective/' + body.relation_to[r].perspektive.id ]">
+                                <!-- <a [routerLink]="['/units/perspective/' + body.relation_to[r].perspektive.id ]"> -->
+                                <a (click)="title2url(body.relation_to[r].perspektive.unit_type, body.relation_to[r].perspektive.title)">
                                     <!-- relation: title artist -->
                                     <div *ngIf="body.relation_to[r].perspektive.title?.length" 
                                     class="relation_title">
@@ -138,7 +136,7 @@ class="section-grid side_comment_container">
                                         <br>
                                         <span id="perspective_authro">{{ body.relation_to[r].perspektive.author}}</span>
                                     </div>
-                                    <div class="relation_arrow">&#10230;</div>
+                                    <div class="relation_arrow">&#8594;</div>
 
                                     <!-- relation: title -->
                                     <div *ngIf="body.relation_to[r].title?.length" class="relation_artistname">
@@ -146,10 +144,10 @@ class="section-grid side_comment_container">
                                     </div>
                                     <!-- relation: description -->
                                     <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
-                                        <markdown>
+                                        <markdown class="markdown">
                                             {{ body.relation_to[r].description }}
                                         </markdown>
-                                        <div class="relation_arrow">&#10230;</div>
+                                        <div class="relation_arrow">&#8594;</div>
                                     </div>
                                     <!-- relation: image -->
                                     <div *ngIf="body.relation_to[r].perspektive.preview_image != null" >
@@ -159,7 +157,8 @@ class="section-grid side_comment_container">
                             </div>
                             <!-- if PODCAST -->
                             <div *ngIf=" body.relation_to[r].podcast != null" >
-                                <a [routerLink]="['/units/podcast/' + body.relation_to[r].podcast.id ]">
+                                <!-- <a [routerLink]="['/units/podcast/' + body.relation_to[r].podcast.id ]"> -->
+                                <a (click)="title2url(body.relation_to[r].podcast.unit_type, body.relation_to[r].podcast.title)">
                                     <!-- relation: title artist -->
                                     <div *ngIf="body.relation_to[r].podcast.title?.length" 
                                     class="relation_title">
@@ -167,7 +166,7 @@ class="section-grid side_comment_container">
                                         <br>
                                         <span id="podcast_speakers">{{ body.relation_to[r].podcast.speakers}}</span>
                                     </div>
-                                    <div class="relation_arrow">&#10230;</div>
+                                    <div class="relation_arrow">&#8594;</div>
 
                                     <!-- relation: title -->
                                     <div *ngIf="body.relation_to[r].title?.length" class="relation_artistname">
@@ -175,7 +174,7 @@ class="section-grid side_comment_container">
                                     </div>
                                     <!-- relation: description -->
                                     <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
-                                        <markdown>
+                                        <markdown class="markdown">
                                             {{ body.relation_to[r].description }}
                                         </markdown>
                                     </div>
@@ -198,7 +197,7 @@ class="section-grid side_comment_container">
                                 </div>
                                 <!-- relation: description -->
                                 <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
-                                    <markdown>
+                                    <markdown class="markdown">
                                         {{ body.relation_to[r].description }}
                                     </markdown>
                                 </div>

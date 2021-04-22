@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { ProjectService } from '../../services_strapi/project.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { SideCommentPositionService } from '../../services/side-comment-position.service';
 import { HelperService } from "../../services/helper.service";
@@ -40,6 +40,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   constructor(
     private projectSvc: ProjectService,
     private route: ActivatedRoute,
+    private router: Router,
     private helperService: HelperService,
     // private sideCommentPosition: SideCommentPositionService,
     private sideCommentPosition: SideCommentPositionService    
@@ -77,7 +78,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   // }
 
   toggleCuratorialContent(){
-    var icon = document.querySelector('.icon');
+    var x = document.getElementById("collapsibleButton");
+    var icon = x!.querySelector('.icon');
     icon!.classList.toggle('show-more');
   }
 
@@ -104,6 +106,9 @@ export class ProjectComponent implements OnInit, AfterViewInit {
           let project = allProjects[i];
           if (this.helperService.encodeCustomURI(project.title) == this.projectTitle) {
             this.project = project;
+
+            console.log("project url" + this.project);
+            
 
             this.folder_name = this.project.GPT_folder_name;
             // if(this.folder_name){
@@ -197,8 +202,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     // build the directory folder path
     const ImageDirectory = ("/assets/imgs/image_gpt/" + folder_name + "/generated/" + this.image_size + "/" + this.image_size + "_" + folder_name + "_");
 
-    console.log("image path: " + ImageDirectory);
-
     //create array of image paths
     let ImagePath_array = [];
     for (let i = 0; i < amount_of_images; i++){
@@ -236,7 +239,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     let hover:boolean = false;
     // image_gpt_container.reverse().forEach( (file) => {
     image_gpt_container.forEach( (file) => {
-      console.log("check position");
+
+    file.classList.add("single-img");
 
       setTimeout( () => {
         // add: check if mouse hover container --> if yes: add image --> if no: abort
@@ -265,6 +269,15 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       array[randomIndex] = temporaryValue;
     }
     return array;
+  }
+
+
+
+  titleEncoded:string | undefined;
+  title2url(unit_type:string, relatedTitle:string){
+    console.log("$$$$$$$$");
+    this.titleEncoded = this.helperService.encodeCustomURI(relatedTitle);
+    this.router.navigate(['units', unit_type, this.titleEncoded]);
   }
 
 }

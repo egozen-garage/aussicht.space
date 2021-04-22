@@ -108,16 +108,16 @@ a {
 
         .unit-title {
             // text-decoration: none;
-            font-size: var(--font-size-primary-xs);
+            font-size: var(--font-size-unit-title);
             line-height: 1;
         }
 
         .unit-name {
             font-family: var(--font-family-secondary);
-            font-size: 25px;
+            font-size: var(--font-size-secondary-xs);
             font-weight: 400;
             padding: 5px 20px 0px 0px;
-            line-height: 1;
+            line-height: 1.1;
         }
 
     .unit-theme-container {

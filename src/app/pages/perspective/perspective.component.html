@@ -19,7 +19,7 @@
 
     <!-- BODY BODY BODY BODY ---------------------------------------------------- -->
     <!-- BODY BODY BODY BODY ---------------------------------------------------- -->
-    <body class="main">
+    <div class="main">
 
         <!-- for each COMPONENT OF BODY ---------------------------------------------------- -->
         <ng-container *ngFor="let body of perspective.body, let i = index"
@@ -29,7 +29,7 @@
             <app-image-types [body]="body"></app-image-types>
 
         </ng-container>
-    </body>
+    </div>
 
     <!-- ----------------------- PREVIOUS / NEXT ----------------------- -->
     <app-previous-next></app-previous-next>

@@ -3,8 +3,8 @@
     line-height: var(--line-height-paragraph);
 }
 
-.perspective-page, body {
-    padding: 120px 0px 100px 0px;
+.perspective-page {
+    padding: 9em 0px 0px 0px;
     margin: 0px;
     background-color: var(--color-page-background-secondary);
     color: var(--color-black);
@@ -15,11 +15,6 @@
 .perspective_header {
     padding: 0px var(--margin-s) 0px var(--margin-s);
 }
-
-body.main {
-    padding: 0px 0px 100px 0px;
-}
-
 
 
 .p_title {
@@ -48,7 +43,7 @@ body.main {
     margin: 0px 10px 10px 0px;
     padding: 5px 15px 5px 15px;
     font-family: var(--font-family-secondary);
-    font-size: 15px;
+    font-size: 1em;
     width: auto;
 }
 

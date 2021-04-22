@@ -6,7 +6,7 @@
     <app-back-to-hub></app-back-to-hub>
 
     <!-- themes -->
-    <header class="header-grid">
+    <header class="header-grid" id="container-themes">
         <div *ngIf="project" class="project-theme-container">
             <div *ngFor="let t of project.themes" class="themes">{{t.theme_name}}</div>
         </div>
@@ -100,10 +100,8 @@
             <!-- COMPONENT > "addon.javascript-file-name" ---------------------------------------------------- -->
             <div class="collapsible-wrap" id="curatorial-text" *ngIf="project.curatorial_intro?.length || project.curatorial_description?.length">
                 <input type="checkbox" class="toggle" id="event">
-                <label for="event" class="collapsible-button icon show-more" (click)="toggleCuratorialContent()">
-                    <span class="plusminus">
-                        Mehr zu {{project.title}}
-                    </span>
+                <label for="event" class="collapsible-button" id="collapsibleButton" (click)="toggleCuratorialContent()">
+                        Mehr zu {{project.title}} <span class="icon show-more"></span> 
                 </label>
                 <div class="curatorial-content">
                     <div class="curatorial-content-wrapper">
@@ -122,49 +120,48 @@
             </div>        
         
         
-    <!-- GPT images --------------------------------------------------------------- -->
-    <!-- GPT images --------------------------------------------------------------- -->
-    <!-- GPT images --------------------------------------------------------------- -->
-    <!-- GPT images --------------------------------------------------------------- -->
-    <div id="gpt_images"></div>
+        <!-- GPT images --------------------------------------------------------------- -->
+        <!-- GPT images --------------------------------------------------------------- -->
+        <!-- GPT images --------------------------------------------------------------- -->
+        <!-- GPT images --------------------------------------------------------------- -->
+        <div id="gpt_images"></div>
     
 
     <!-- ----------------------- recommendations ----------------------- -->
     <ng-container *ngIf="project.perspektives?.length" 
     class="" id=""> 
     
-        <div class="recommendation project_additional_link">
+        <a *ngFor="let perspektives of project.perspektives, let a = index" class="recommendation project_additional_link" [routerLink]="['/units/' + project.perspektives[a].unit_type + '/' + project.perspektives[a].id ]">
 
             <div class="recommendation_intro">
-                Related
+                Essay zum 
                 <br>
-                perspective
+                Thema
                 <br>
-                <!-- <img [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]" class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next"> -->
-                <img class="btn-icon" id="arrow-related" src="/assets/logos/2070_arrow_right.png" alt="next">
+                <span class="btn-icon">&#x2192;</span>
             </div>
 
 
-            <div  
-            class="recommendation_info">
+            <div class="recommendation_info">
                 <ul>
                     <li *ngFor="let perspektives of project.perspektives, let i = index" 
                         class="recommendation_title">
-                        <a [routerLink]="['/units/' + project.perspektives[i].unit_type + '/' + project.perspektives[i].id ]">
+                        <a (click)="title2url(project.perspektives[i].unit_type, project.perspektives[i].title)" >
+                        <!-- [routerLink]="['/units/' + project.perspektives[i].unit_type + '/' + titleEncoded ]" -->
                             <div *ngIf="project.perspektives[i].title?.length">
                             {{project.perspektives[i].title}}
-                        </div>
-                        <div *ngIf="project.perspektives[i].author?.length"
-                        class="recommendation_author">
-                            {{project.perspektives[i].author}}
-                        </div>
+                            </div>
+                            <div *ngIf="project.perspektives[i].author?.length"
+                            class="recommendation_author">
+                                {{project.perspektives[i].author}}
+                            </div>
                         </a>
                     </li>
                 </ul>
             </div>
 
 
-        </div>
+        </a>
 
         
     </ng-container>
@@ -172,6 +169,14 @@
     
     
     <!-- ----------------------- PREVIOUS / NEXT ----------------------- -->
+    <!-- <div class="next_project">
+        <div class="previous_button" >
+            <a [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]"><span class="btn-icon" id="arrow-previous">&#x2190;</span>Previous</a>
+        </div>
+        <div class="next_button">
+            <a [routerLink]="['/units/' + project.unit_type + '/' + previous_project ]">Next<span class="btn-icon" id="arrow-next">&#x2192;</span></a>
+        </div>
+    </div> -->
     <app-previous-next></app-previous-next>
 
     

@@ -16,6 +16,7 @@
       overflow: hidden; 
       width: 100%;
       height: auto;
+      margin: 1.5em 0em;
     }
 
       .embed-container iframe {
@@ -39,3 +40,46 @@
 
 [class="default"] { width: 100%; padding: 20px 0px 20px 0px;}
 [class="grid-area"] { grid-area: relation; padding: 20px 0px 20px 0px;}
+.embed-container {
+  -webkit-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.1);      /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+      -moz-box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.1);         /* Firefox 3.5 - 3.6 */
+      box-shadow: 0px -5px 14px 0px rgba(0,0,0,0.1);              /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+/* ------------------------------------------------------------ */
+/* ---------------------DESKTOP SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+@media (max-width: 1200px) {}
+
+@media (min-width: 1042px) {}
+
+/* ------------------------------------------------------------ */
+/* ---------------------TABLET SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+// ---- iPad PRO (1042 x 1366) ---- //
+@media (max-width: 1042px) {}
+
+// ---- IPAD (768 x 1042) ---- //
+@media (max-width: 768px) {}
+
+/* ------------------------------------------------------------ */
+/* ---------------------MOBILE SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+/* 36em = 576px */
+// ---- iPhone Plus + iPhone Flipped (approx 560px width)---- //
+@media (max-width: 36em) {
+  .width_small  { width: 50% !important; }
+  .width_medium { width: 75% !important; }
+  .width_large  { width: 100% !important; }
+
+  .embed-container { top: 0px }
+}
+
+// ---- iPhone 6/7/8/X (375 x 667/812)---- //
+@media (max-width: 375px) {}
+
+// ---- iPhone 5/SE (320 x 568)---- //
+@media (max-width: 320px) {}
