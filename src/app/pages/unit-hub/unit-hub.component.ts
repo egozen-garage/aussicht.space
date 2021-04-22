@@ -71,7 +71,6 @@ export class UnitHubComponent implements OnInit {
     
     
     ngOnInit(): void {
-
       this.subscription = this.BundleAllAPIs.bundledContentAPIs.subscribe((message: string) => {
         if (message == '') {
           return; // Ignore empty initial message
@@ -84,6 +83,14 @@ export class UnitHubComponent implements OnInit {
         
       });
 
+      if (this.unitAndEncodedHrefList) {
+        // "clear" the selected themes in every unit
+        for (let uh of this.unitAndEncodedHrefList) {
+          for (let theme of uh.unit.themes) {
+            theme.selected = false;
+          }
+        }
+      }
 
       this.updateNColumns();
       this.resetAndFillColumns;
@@ -126,12 +133,19 @@ export class UnitHubComponent implements OnInit {
     //     this.resetAndFillColumns();
     //   }
     // });
-
-
-    this.themeSvc.getAllThemes().subscribe((res:any) => {
-      this.themesFromCms = res;
+    this.themeSvc.currentThemeSource.subscribe((res:any) => {
+      console.log("theme:???&&6", res);
+      let resMutable = JSON.parse(JSON.stringify(res));
+      this.themesFromCms = resMutable;
       this.themesSelected = this.themesFromCms;
     });
+
+  //  this.themeSvc.getAllThemes().subscribe((res:any) => {
+  //     this.themesFromCms = res;
+  //     this.themesSelected = this.themesFromCms;
+  //     console.log("+ + ++ + + themesFromCms", this.themesFromCms);
+  //  });
+
 
 
 
@@ -217,6 +231,7 @@ export class UnitHubComponent implements OnInit {
     if (noThemeSelected) {
       this.themesSelected = this.themesFromCms;
     }
+    console.log("hello themes: ", this.themesFromCms);
 
     // calls out the selected state of current units
     // seems to only call out values from the parent array perspectives...maybe not correct

@@ -58,7 +58,7 @@ export class AppComponent implements OnInit  {
     this.projectSvc.getAllProjects().subscribe();
     this.perspectiveSvc.getAllPerspectives().subscribe();
     this.podcastSvc.getAllPodcastEpisodes().subscribe();
-    this.themeSvc.getAllThemes().subscribe();
+    //this.themeSvc.getAllThemes().subscribe();
 
   // defining breakpoint for responsive desgin -->
   // defining breakpoint for responsive desgin --> -->
