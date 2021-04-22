@@ -144,9 +144,16 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
         // code_tags[b].id = "code_tag-" + current_side_comment_id;
         
         // ------ copy the key word
-        let current_keyword = code_tags[b].innerHTML;
+        // let current_keyword = code_tags[b].innerHTML;
         // ------ reconstruct the content of the code tag
-        code_tags[b].innerHTML = current_keyword + "<div id='" + current_side_comment_id + "'>" + current_side_comment + "</div>";
+        // code_tags[b].innerHTML = current_keyword;
+        //  + "<div id='" + current_side_comment_id + "'>" + current_side_comment + "</div>";
+        let newDIV = document.createElement("div");
+        newDIV.innerHTML = current_side_comment;
+        newDIV.id = current_side_comment_id;
+        this.insertAfter(code_tags[b] , newDIV);
+        
+        
         // ------ set display to 'none'
         document.getElementById(current_side_comment_id)!.style.display = "none";
 
@@ -164,5 +171,10 @@ export class SideCommentPositionService implements OnInit, AfterViewInit {
       side_comment_containers[i].getElementsByClassName("side_comments")[0].outerHTML = "";
     }
   }
+
+  insertAfter(referenceNode:any, newNode:any) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+  }
+
 
 }

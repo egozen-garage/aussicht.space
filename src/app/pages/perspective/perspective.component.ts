@@ -68,8 +68,7 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.sideCommentPosition;
-    // .run_side_comments(); 
+    this.sideCommentPosition.run_side_comments(); 
   }
 
 @HostListener('window:scroll', ['$event']) onScrollEvent($event: any){

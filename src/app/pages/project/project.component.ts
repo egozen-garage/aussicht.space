@@ -61,8 +61,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     }
     
   ngAfterViewInit(): void {
-    this.sideCommentPosition;
-    // .run_side_comments();
+    this.sideCommentPosition.run_side_comments();
     // this.activate_site_comments(this.sideCommentPosition);
     // this.sideCommentPosition.listenResizeWindow();
   }
