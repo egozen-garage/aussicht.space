@@ -49,6 +49,7 @@ import { TextTypesComponent } from './pages/content_components/text-types/text-t
 import { ImageTypesComponent } from './pages/content_components/image-types/image-types.component';
 import { BackToHubComponent } from './pages/content_components/back-to-hub/back-to-hub.component';
 import { PreviousNextComponent } from './pages/content_components/previous-next/previous-next.component';
+import { AnnouncementComponent } from './pages/announcement/announcement.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{ 
@@ -89,6 +90,7 @@ export class MyHammerConfig extends HammerGestureConfig {
     ImageTypesComponent,
     BackToHubComponent,
     PreviousNextComponent,
+    AnnouncementComponent,
   ],
 
   imports: [
