@@ -3,16 +3,44 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { catchError, map, shareReplay } from 'rxjs/operators';
 import { EMPTY, Observable } from "rxjs";
+import { ApolloClient, InMemoryCache } from '@apollo/client/core';
+// import { ReducedThemesApi } from '../services_strapi/graphql/queries';
+import { ReducedThemesApi } from '../services_strapi/graphql/queries'
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ThemeService {
 
   private allThemesCachedObservable: any;
 
-  constructor(private http: HttpClient) { }
+  GQLqueryURL = environment.GQLqueryURL;
 
+  getReducedThemes = async () => {
+    const client = new ApolloClient({
+      uri : environment.GQLqueryURL,
+      cache : new InMemoryCache(),
+    })
+    const {data} = await client.query({ query : ReducedThemesApi });
+    
+    console.log("!!!!!!!! graph Q L function");
+    return {
+      props : {
+        themes: data.themes
+      }
+    }
+    
+    
+  }
+
+
+  constructor(private http: HttpClient) { 
+    console.log("-----------");
+    this.getReducedThemes();
+    console.log("-----------");
+  }
+  
   // getAllThemes() {
   //   return this.http.get(`${environment.apiUrl}/themes`).pipe(map(res => res));
 
@@ -22,6 +50,7 @@ export class ThemeService {
     }
 
     this.allThemesCachedObservable = this.http.get(`${environment.apiUrl}/themes`).pipe(
+    // this.allThemesCachedObservable = this.getReducedThemes().catch(
       shareReplay(1),
       catchError((err:RTCError) => {
         delete this.allThemesCachedObservable;

@@ -71,7 +71,6 @@ export class UnitHubComponent implements OnInit {
     
     
     ngOnInit(): void {
-
       this.subscription = this.BundleAllAPIs.bundledContentAPIs.subscribe((message: string) => {
         if (message == '') {
           return; // Ignore empty initial message
@@ -129,9 +128,13 @@ export class UnitHubComponent implements OnInit {
 
 
     this.themeSvc.getAllThemes().subscribe((res:any) => {
-      this.themesFromCms = res;
+      // this.themesFromCms = res;
+      this.themesFromCms = res.props.themes;
       this.themesSelected = this.themesFromCms;
+      console.log("+ + ++ + + themesFromCms" + this.themesFromCms);
+      
     });
+
 
 
 

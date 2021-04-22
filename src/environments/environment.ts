@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   // apiUrl: 'http://localhost:1337',
   apiUrl: 'https://aussichtdotspace.herokuapp.com',
+  GQLqueryURL: 'http://localhost:1337/graphql',
   
   // google spreadsheet
   // characters: {
