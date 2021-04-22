@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_addon_machine_perspectives",
+  "info": {
+    "name": "machine_perspective",
+    "icon": "bezier-curve"
+  },
+  "options": {},
+  "attributes": {
+    "json_data": {
+      "type": "json"
+    }
+  }
+}

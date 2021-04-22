@@ -11,39 +11,28 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "period": {
-      "type": "string",
-      "required": true
-    },
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "ends_on": {
-      "type": "string",
-      "required": true
-    },
-    "info": {
-      "type": "richtext",
-      "default": "More info to come soon.",
-      "required": true
-    },
-    "is_happening": {
-      "type": "boolean",
-      "default": true
-    },
-    "language": {
+    "category": {
       "type": "enumeration",
       "enum": [
-        "DE",
-        "EN"
+        "performance",
+        "talk",
+        "special"
       ],
-      "required": true,
-      "default": "DE"
+      "required": true
     },
-    "selected": {
-      "type": "boolean",
-      "default": false
+    "de": {
+      "type": "component",
+      "repeatable": false,
+      "component": "event.de-event"
+    },
+    "en": {
+      "type": "component",
+      "repeatable": false,
+      "component": "event.de-event"
+    },
+    "timestamp": {
+      "type": "datetime",
+      "required": true
     }
   }
 }

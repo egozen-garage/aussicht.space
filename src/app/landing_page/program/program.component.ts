@@ -15,11 +15,22 @@ import { EventService } from '../../services_strapi/event.service';
   styleUrls: ['./program.component.scss']
 })
 export class ProgramComponent implements OnInit {
+
+  apiUrl = environment.apiUrl;
+
+  language: any = "de";
+
   events: any = [];
   eventId: any = [];
   eventsFromCms: any;
   eventsSelected: any = [];
 
+  performances: any = [];
+  event_performances:any = [];
+  talks: any = [];
+  event_talks:any = [];
+  specials: any = [];
+  event_specials:any = [];
 
   characters$?: Observable<Character[]>;
 
@@ -33,10 +44,55 @@ export class ProgramComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.eventSvc.getAllEvents().subscribe((res:any) => {
-    //   this.eventsFromCms = res;
-    //   this.events = this.eventsFromCms;
-    // });
+    this.eventSvc.getAllEvents().subscribe((res:any) => {      
+      this.events = res;
+      this.eventsFromCms = this.events;
+
+      // sort events by categories
+      this.events.forEach((element:any) => {
+        if (element.category === "performance" ){
+          this.performances.push(element);
+          // sort this category by timestamp
+          this.performances.sort((x:any, y:any) => new Date(x.timestamp).valueOf() - new Date(y.timestamp).valueOf() );
+        }else if(element.category === "talk" ){
+          this.talks.push(element);
+          // sort this category by timestamp
+          this.talks.sort((x:any, y:any) => new Date(x.timestamp).valueOf() - new Date(y.timestamp).valueOf() );
+        }else if(element.category === "special" ){
+          this.specials.push(element);
+          // sort this category by timestamp
+          this.specials.sort((x:any, y:any) => new Date(x.timestamp).valueOf() - new Date(y.timestamp).valueOf() );
+        }
+      });
+
+      console.log("this.specials" + this.specials);
+      if (this.language === "de"){
+        this.performances.forEach((element:any) => {  this.event_performances.push(element.de);   });
+        this.talks.forEach((element:any)        => {  this.event_talks.push(element.de);          });
+        this.specials.forEach((element:any)     => {  this.event_specials.push(element.de);       });
+      } else if (this.language === "en"){
+        this.performances.forEach((element:any) => {  this.event_performances.push(element.en);   });
+        this.talks.forEach((element:any)        => {  this.event_talks.push(element.en);          });
+        this.specials.forEach((element:any)     => {  this.event_specials.push(element.en);       });
+      }
+      
+      
+    });
+  }
+
+  showHideInfo(event_info_id:any){
+    let collapsible_info = document.getElementById("collapsible_info_" + event_info_id);
+    let animate_br = document.getElementById("animate_br_" + event_info_id);
+    let checkbox = document.getElementById("checkbox_" + event_info_id) as HTMLInputElement;
+    if ( checkbox!.checked ){
+      animate_br!.classList.remove("checked_element_break");
+      collapsible_info!.classList.remove("checked_element");
+    } else {
+      animate_br!.classList.add("checked_element_break");
+      collapsible_info!.classList.add("checked_element");
+    }
+
+
   }
 
 

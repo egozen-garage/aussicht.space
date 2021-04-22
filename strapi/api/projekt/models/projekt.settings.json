@@ -69,7 +69,8 @@
         "text-types.free-text",
         "addon.javascript-file-name",
         "addon.website",
-        "addon.html-css"
+        "addon.html-css",
+        "addon.machine-perspective"
       ]
     },
     "add_to_unit_hub": {
@@ -88,6 +89,9 @@
       "via": "projekts"
     },
     "GPT_folder_name": {
+      "type": "string"
+    },
+    "custom_font_color": {
       "type": "string"
     }
   }

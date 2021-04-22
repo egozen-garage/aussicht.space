@@ -44,7 +44,8 @@
         "image-types.couple-images",
         "addon.javascript-file-name",
         "addon.website",
-        "addon.html-css"
+        "addon.html-css",
+        "addon.machine-perspective"
       ]
     },
     "preview_image": {
