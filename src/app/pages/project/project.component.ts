@@ -61,7 +61,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     }
     
   ngAfterViewInit(): void {
-    this.sideCommentPosition.run_side_comments();
+    this.sideCommentPosition;
+    // .run_side_comments();
     // this.activate_site_comments(this.sideCommentPosition);
     // this.sideCommentPosition.listenResizeWindow();
   }
@@ -94,7 +95,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     // this.EVENTafterPageLoad.emit();
 
-    console.log("project parent componant");
     // this.projectSvc.getAllProjects().subscribe((res:any) => {
       //   this.projects = res;
       // });
@@ -106,11 +106,10 @@ export class ProjectComponent implements OnInit, AfterViewInit {
           let project = allProjects[i];
           if (this.helperService.encodeCustomURI(project.title) == this.projectTitle) {
             this.project = project;
-
-            console.log("project url" + this.project);
-            
-
             this.folder_name = this.project.GPT_folder_name;
+            return;
+
+
             // if(this.folder_name){
             //   this.single_project_load_gpt_images(this.folder_name)
             // }
@@ -122,7 +121,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     //         console.log("next project: " + this.next_project );
     //         // console.log("amount of projects: " + allProjectsCachedObservable.length);
 
-            return console.log("project data array: " + this.project );
+            // return console.log("project data array: " + this.project );
           }
         }
       });
@@ -166,10 +165,10 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
       // ------------- load gpt images ------------
 
-      // if(this.folder_name){
-      //   this.single_project_load_gpt_images(this.folder_name)
-      // }
-      this.isElementInViewport(this.gpt_image_div);
+      if(this.folder_name){
+        this.single_project_load_gpt_images(this.folder_name)
+      }
+      // this.isElementInViewport(this.gpt_image_div);
 
   }
 
