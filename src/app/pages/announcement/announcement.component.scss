@@ -1,6 +1,6 @@
 .announcementInner {
     position: relative;
-    // z-index: 50;
+    // z-index: 9993;
     padding: 90px var(--margin) 90px var(--margin);
     // height: 100vh;
     background-image: linear-gradient(rgba(0,0,0,1), rgba(40,48,133,1));
@@ -13,8 +13,18 @@
     padding: 1em 0em 6em 0em;
 }
 
-p { font-family: var(--font-family-secondary); font-size: var(--font-size-paragraph); line-height: var(--line-height-paragraph); padding-top: 0.7em; width: 70%; }
-b { font-weight: 400; font-size: var(--font-size-paragraph); }
+p { 
+    font-family: var(--font-family-secondary); 
+    font-size: var(--font-size-primary); 
+    line-height: 1.2;
+    padding-top: 0.7em; 
+    width: 70%; 
+}
+
+b { 
+    font-weight: 400; 
+    font-size: var(--font-size-primary); 
+}
 
 #announcementTitle, b { font-family: var(--font-family-primary); }
 
@@ -41,6 +51,7 @@ b { font-weight: 400; font-size: var(--font-size-paragraph); }
 
     .videoTitle {
         font-family: var(--font-family-primary);
+        font-size: var(--font-size-primary);
         font-weight: 300;
     }
 
