@@ -41,8 +41,13 @@ import { AnnouncementComponent } from './pages/announcement/announcement.compone
 // ];
 
 const routes: Routes = [
-  { path: "", component: AnnouncementComponent},
-  // { path: "", component: LandingPageComponent},
+  // { path: "", component: AnnouncementComponent},
+  { path: "", component: LandingPageComponent},
+
+  { path: "über", component: AboutComponent},
+  { path: "programm", component: ProgramComponent},
+  { path: "teilnehmer_innen", component: ArtistListComponent},
+
   { path: "index", component: UnitHubComponent},
   { path: 'index/project/:title', component: ProjectComponent},
   { path: 'index/podcast/:title', component: PodcastEpisodesComponent},
