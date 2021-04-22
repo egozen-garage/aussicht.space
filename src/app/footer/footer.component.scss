@@ -28,7 +28,15 @@ img.logos {
     filter: invert(1);
     display: absolute;
     padding: var(--padding-footer-logos);
+    width: 200px;
 }
+
+img#mak { padding: 0px 0px 5em 0px; width: 300px; margin-left: auto; margin-right: auto; }
+
+#mak_title { font-size: 1em; display: block; margin-left: auto; margin-right: auto;}
+
+.mak_container {font-family: var(--font-family-secondary); text-align: center; }
+
 
 /* ----------------------- */
 /* FOOTER > IMPRESSUM */
@@ -41,6 +49,8 @@ img.logos {
     display: flex;
     justify-content: space-between;
     flex-flow: row wrap;
+    font-size: 20px;
+    padding: 80px 50px 30px 50px;
 }
 
 #impressum a {
@@ -52,4 +62,61 @@ img.logos {
 
 #impressum a:hover {
     color: var(--color-rosa);
+}
+
+
+/* ------------------------------------------------------------ */
+/* ---------------------DESKTOP SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+@media (max-width: 1200px) {
+    #impressum { font-size: 15px; }
+}
+
+@media (min-width: 1042px) {}
+
+/* ------------------------------------------------------------ */
+/* ---------------------TABLET SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+// ---- iPad PRO (1042 x 1366) ---- //
+@media (max-width: 1042px) {}
+
+
+// ---- IPAD (768 x 1042) ---- //
+@media (max-width: 768px) {
+    #impressum { padding: 80px 50px 30px 50px; }
+}
+
+/* ------------------------------------------------------------ */
+/* ---------------------MOBILE SECTION------------------------- */
+/* ------------------------------------------------------------ */
+
+/* 36em = 576px */
+// ---- iPhone Plus + iPhone Flipped (approx 560px width)---- //
+@media (max-width: 36em) {
+    footer { height: auto; padding: 80px var(--margin) 150px var(--margin); }
+    .logos-container span{ font-size: 12px; }
+    .logos-container { position: relative; padding: 15px 0px 0px 0px; }
+    img.logos { width: 180px; }
+    img#mak { width: 200px }
+    #mak_title { font-size: 0.8em; }
+    #impressum {
+        padding: 50px 50px 00px 0px;
+        position: absolute;
+        bottom: 100px;
+      }
+}
+
+// ---- iPhone 6/7/8/X (375 x 667/812)---- //
+@media (max-width: 375px) {
+    footer { height: 150vh; }
+    img.logos { width: 160px; }
+}
+
+// ---- iPhone 5/SE (320 x 568)---- //
+@media (max-width: 320px) {
+    footer { height: 170vh; }
+    .logos-container span { font-size: 12px; }
+    img.logos { width: 130px; }
 }

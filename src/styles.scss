@@ -237,33 +237,7 @@ $aussichtDOTspace-theme: mat-light-theme((
 
 /* Macbook Retina 15inch */
 @media (min-width: 1670px) {
-  img.logos { width: 300px; }
-
-  img.logos { width: 300px; }
-
-  span#gefoerdert { left: 50px; }
-
-  span#unterstuetzt {
-      left: 75px;
-  }
-
-  span#zusammenarbeit {
-      left: 0px;
-  }
-
-  span#medienpartner {
-      left: 50px;
-  }
-
-  span#hotelpartner {
-      left: 83px;
-  }
-}
-
-@media (max-width: 1680px) {
-  img.logos { width: 300px; }
-
-  span#gefoerdert { left: 50px; }
+  span#gefoerdert { left: 35px; }
 
   span#unterstuetzt { left: 75px; }
 
@@ -271,12 +245,24 @@ $aussichtDOTspace-theme: mat-light-theme((
 
   span#medienpartner { left: 50px; }
 
-  span#hotelpartner { left: 83px; }
+  span#hotelpartner { left: 53px; }
+}
+
+@media (max-width: 1680px) {
+
+  span#gefoerdert { left: 35px; }
+
+  span#unterstuetzt { left: 75px; }
+
+  span#zusammenarbeit { left: 0px; }
+
+  span#medienpartner { left: 50px; }
+
+  span#hotelpartner { left: 53px; }
 }
 
 /* Macbook 15inch */
 @media (max-width: 1440px) {
-  img.logos { width: 200px; }
 
   span#gefoerdert { left: 35px; }
 
@@ -290,17 +276,9 @@ $aussichtDOTspace-theme: mat-light-theme((
 }
 
 /* Macbook 13inch */
-@media (max-width: 1280px) {
-  img.logos {
-      // width: 170px;
-    }
+@media (max-width: 1280px) { }
 
-  #impressum { font-size: 15px; }
-}
-
-@media (min-width: 1280px) {
-  #impressum { font-size: 20px; }
-}
+@media (min-width: 1280px) { }
 
 @media (max-width: 1024px) {
   :root {
@@ -320,27 +298,9 @@ $aussichtDOTspace-theme: mat-light-theme((
   #artists { font-size: var(--font-size-secondary); }
 }
 
-@media (min-width: 885px) {    
-  #impressum { padding: 80px 50px 30px 50px; }
-}
-
 @media (max-width: 885px) {
-  img.logos { width: 150px; }
-  
-  #impressum {
-    font-size: 12px;
-    padding: 80px 50px 30px 50px;
-  }
 
-  span#gefoerdert { left: 0px; }
-
-  span#unterstuetzt { left: 0px; }
-
-  span#zusammenarbeit { left: 0px; }
-
-  span#medienpartner { left: 0px; }
-
-  span#hotelpartner { left: 0px; }
+  span#hotelpartner { left: 25px; }
 }
 
 /* ------------------------------------------------------------ */
@@ -394,7 +354,6 @@ $aussichtDOTspace-theme: mat-light-theme((
 
   .lp-title { padding-top: 70px; }
 
-  footer { height: 100vh; }
 
   // #artists {
   //   display: none;
@@ -405,15 +364,10 @@ $aussichtDOTspace-theme: mat-light-theme((
     display: inline-block;
   }
 
-  #impressum {
-    padding: 50px 50px 00px 0px;
-    position: absolute;
-    bottom: 100px;
-  }
+  .perspective-page { padding: 4.7em 0px 20px 0px !important; }
 
-  .perspective-page {
-    padding: 4.7em 0px 20px 0px !important;
-  }
+  span#zusammenarbeit { left: 25px; }
+  span#hotelpartner { left: 50px; }
 
 }
 
@@ -421,31 +375,17 @@ $aussichtDOTspace-theme: mat-light-theme((
 /* ---------------------MOBILE SECTION------------------------- */
 /* ------------------------------------------------------------ */
 
-@media (max-width: 414px) {
-  .logos-container span{ font-size: 12px; }
-    
-  img.logos { width: 160px; }
-
-  .logos-container { position: relative; padding: 15px 0px 0px 0px; }
-
-}
+@media (max-width: 414px) {}
 
 @media (max-width: 375px) {
-  footer { height: 750px; }
-
   :root { --padding-footer-logos: 5px 0px 50px 0px; }
+  span#hotelpartner { left: 41px; }
+
 }
 
 @media (max-width: 320px) {
-  .logos-container span { font-size: 12px; }
-    
-  img.logos { width: 130px; }
 
-  footer { height: 700px; }
-
-  .perspective-page {
-    padding: 75px 0px 20px 0px !important;
-  }
+  .perspective-page { padding: 75px 0px 20px 0px !important; }
 
   :root {
     --font-size-primary-s: 15px;

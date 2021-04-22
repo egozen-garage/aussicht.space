@@ -18,7 +18,7 @@
   <div class="wrap-collabsible"> 
 
     <!-- ------------------ performances ------------------ -->
-    <div class="event_category">performances</div>
+    <div class="event_category" id="initialCategory">Performances</div>
 
     <span *ngFor="let performance of event_performances, let i = index" class="allthemes">
       <label for="checkbox_{{performance.id}}" (click)="showHideInfo(performance.id)"  class="event">
@@ -27,7 +27,7 @@
       </label>
       <input id="checkbox_{{performance.id}}" class="toggle" type="checkbox"> 
       <span class="collapsible-content" id="collapsible_info_{{performance.id}}">
-        <markdown>
+        <markdown class="markdown">
           {{ performance.info_text }}
         </markdown>
       </span>
@@ -36,7 +36,7 @@
 
 
     <!-- ------------------ talks ------------------ -->
-    <div class="event_category">talks</div>
+    <div class="event_category">Gespräche und Vorträge</div>
 
     <span *ngFor="let talk of event_talks, let i = index" class="allthemes">
       <label for="checkbox_{{talk.id}}" (click)="showHideInfo(talk.id)"  class="event">
@@ -45,7 +45,7 @@
       </label>
       <input id="checkbox_{{talk.id}}" class="toggle" type="checkbox"> 
       <span class="collapsible-content" id="collapsible_info_{{talk.id}}">
-        <markdown>
+        <markdown class="markdown">
           {{ talk.info_text }}
         </markdown>
       </span>
@@ -54,7 +54,7 @@
 
 
     <!-- ------------------ specials ------------------ -->
-    <div class="event_category">specials</div>
+    <div class="event_category">Specials</div>
 
     <span *ngFor="let special of event_specials, let i = index" class="allthemes">
       <label for="checkbox_{{special.id}}" (click)="showHideInfo(special.id)" class="event">
@@ -63,7 +63,7 @@
       </label>
       <input id="checkbox_{{special.id}}" class="toggle" type="checkbox"> 
       <span class="collapsible-content" id="collapsible_info_{{special.id}}">
-        <markdown>
+        <markdown class="markdown">
           {{ special.info_text }}
         </markdown>
       </span>
