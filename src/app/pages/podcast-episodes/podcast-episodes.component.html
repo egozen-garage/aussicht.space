@@ -1,7 +1,7 @@
 <div class="podcast-page">
 
     <!-- BACK TO UNIT HUB ---------------------------------------------- -->
-    <app-back-to-hub></app-back-to-hub>
+    <app-back-to-hub [unit_type]="podcast.unit_type"></app-back-to-hub>
 
     <header *ngIf="podcast" class="podcast_header">
         <img class="offline_podcast_logo" src="{{podcast.offline_episode_logo.url}}">
@@ -50,4 +50,4 @@
 </div>
 
     <!-- ----------------------- PREVIOUS / NEXT ----------------------- -->
-    <app-previous-next id="podcastpage"></app-previous-next>
+    <app-previous-next [unit_type]="podcast.unit_type" id="podcastpage"></app-previous-next>

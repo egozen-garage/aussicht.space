@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { HelperService } from 'src/app/services/helper.service';
 import { ProjectService } from 'src/app/services_strapi/project.service';
+
 
 import { BundleAllAPIsService } from '../../../services_strapi/bundle-all-apis.service'
 
@@ -12,6 +13,8 @@ import { BundleAllAPIsService } from '../../../services_strapi/bundle-all-apis.s
   styleUrls: ['./previous-next.component.scss']
 })
 export class PreviousNextComponent implements OnInit {
+
+  @Input() unit_type:any;
 
   previous_unit_type : string | undefined;
   previous_item : string | undefined;
@@ -42,7 +45,6 @@ export class PreviousNextComponent implements OnInit {
         return; // Ignore empty initial message
       }
       this.unitAndEncodedHrefList = message;
-      console.log("previous next has: " + this.unitAndEncodedHrefList);
 
 
       this.route.params.subscribe( p => {
@@ -51,8 +53,6 @@ export class PreviousNextComponent implements OnInit {
             let HrefList = this.unitAndEncodedHrefList[i];
             if (HrefList.titleEncoded == this.currentTitle) {
               this.currentCounter = HrefList.counter;
-              console.log("current counter is: " + this.currentCounter);
-              console.log("counter: " + this.currentCounter);
               // prepare router links for NEXT
               let NextCounter:number = Number(this.currentCounter) + 1;
               if(NextCounter >= this.unitAndEncodedHrefList.length-1){
@@ -68,8 +68,6 @@ export class PreviousNextComponent implements OnInit {
               }
               this.previous_unit_type = this.unitAndEncodedHrefList[PreviousCounter].unit.unit_type;
               this.previous_item = this.unitAndEncodedHrefList[PreviousCounter].titleEncoded;
-              console.log("previous_unit_type: " + this.previous_unit_type);
-              console.log("previous_item: " + this.previous_item);
               return;
             }
           }  

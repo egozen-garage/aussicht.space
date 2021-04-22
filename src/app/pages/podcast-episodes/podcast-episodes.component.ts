@@ -17,7 +17,7 @@ import { HelperService } from "../../services/helper.service";
   styleUrls: ['./podcast-episodes.component.scss']
 })
 
-export class PodcastEpisodesComponent implements OnInit, AfterViewInit {
+export class PodcastEpisodesComponent implements OnInit {
 
   public play: boolean = true;
   public pause : boolean = false;
@@ -67,13 +67,13 @@ export class PodcastEpisodesComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngAfterViewInit() {
-    const previousButton = document.getElementById("prev-btn");
-    const nextButton = document.getElementById("next-btn");
-    const back2HubButton = document.getElementById("back2hub");
+  // ngAfterViewInit() {
+  //   const previousButton = document.getElementById("prev-btn");
+  //   const nextButton = document.getElementById("next-btn");
+  //   const back2HubButton = document.getElementById("back2hub");
 
-    previousButton!.setAttribute('style', 'color:white !important;');
-    nextButton!.setAttribute('style', 'color:white !important;');
-    back2HubButton!.setAttribute('style', 'color:white !important;');
-  }
+  //   previousButton!.setAttribute('style', 'color:white !important;');
+  //   nextButton!.setAttribute('style', 'color:white !important;');
+  //   back2HubButton!.setAttribute('style', 'color:white !important;');
+  // }
 }
