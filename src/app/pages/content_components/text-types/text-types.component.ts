@@ -19,6 +19,7 @@ export class TextTypesComponent implements OnInit, AfterViewInit {
   isTablet: boolean | undefined;
   isDesktopDevice: boolean | undefined;
   deviceInfo:any;
+  mTexts: any;
 
   constructor(
     private sideCommentPosition: SideCommentPositionService,
