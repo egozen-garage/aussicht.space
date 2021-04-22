@@ -57,7 +57,7 @@
 
                         <!-- EPISODE > TITLE -->
                         <div *ngIf="uh.unit.title?.length" class="unit-title" id="podcast-title">
-                            <a [routerLink]="[('/units/' + uh.unit.unit_type), uh.titleEncoded]">{{uh.unit.title}}</a>
+                            <a [routerLink]="[uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
                         </div>
 
                         <!-- EPISODE > GUEST SPEAKERS -->
@@ -82,7 +82,7 @@
                         <!-- PERSPECTIVE UNIT > CONTENT SECTION -->
                         <!-- ARTICLE > TITLE -->
                         <div class="unit-title" id="perspective-title">
-                            <a [routerLink]="['/units/' + uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
+                            <a [routerLink]="[uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
                         </div>
 
                         <!-- ARTICLE > AUTHOR -->
@@ -112,7 +112,7 @@
 
                         <!-- PROJECT > TITLE -->
                         <div class="unit-title" id="project-title">
-                            <a [routerLink]="['/units/' + uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
+                            <a [routerLink]="[uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
                         </div>
 
                         <!-- PROJECT > ARTIST -->
@@ -140,5 +140,5 @@
 </ng-container>
 
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
 

@@ -20,23 +20,32 @@ const routes: Routes = [
   // { path: "impressum", component: ImpressumComponent},
   // { path: "**", redirectTo: "de", pathMatch: 'full' }
 
+ 
 
-  // // ------------ routing version 2 ------------
-  { path: ":language", component: LandingPageComponent, pathMatch:"full",
-    children: [
-      { path: "impressum", component: ImpressumComponent },
-      { path: "units", component: UnitHubComponent,
-        children: [
-          { path: 'project/:title', component: ProjectComponent},
-          { path: 'podcast/:title', component: PodcastEpisodesComponent},
-          { path: 'perspective/:title', component: PerspectiveComponent},
-          { path: '', redirectTo:'', pathMatch:"full" }
-        ]
-      },
-    ]
-  },
-  { path: "**", redirectTo: "de" }
+  // // ------------ jakobs addabtion ------------
+  { path: "", component: LandingPageComponent},
+  { path: ":language/impressum", component: ImpressumComponent },
+  { path: ":language/units", component: UnitHubComponent},
+  { path: ':language/units/project/:title', component: ProjectComponent},
+  { path: ':language/units/podcast/:title', component: PodcastEpisodesComponent},
+  { path: ':language/units/perspective/:title', component: PerspectiveComponent},
+  { path: "**", redirectTo: "de"}
 
+  // // ------------ back up routing version 2 ------------
+  // { path: ":language", component: LandingPageComponent, pathMatch:"full",
+  //   children: [
+  //     { path: "impressum", component: ImpressumComponent },
+  //     { path: "units", component: UnitHubComponent,
+  //       children: [
+  //         { path: 'project/:title', component: ProjectComponent},
+  //         { path: 'podcast/:title', component: PodcastEpisodesComponent},
+  //         { path: 'perspective/:title', component: PerspectiveComponent},
+  //         { path: '', redirectTo:'', pathMatch:"full" }
+  //       ]
+  //     },
+  //   ]
+  // },
+  // { path: "**", redirectTo: "de" }
 
 ];
 

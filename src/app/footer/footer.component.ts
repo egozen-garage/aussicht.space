@@ -11,7 +11,7 @@ import { CurrentLanguageService } from '../services_strapi/language/current-lang
 export class FooterComponent implements OnInit {
 
   language?:string;
-  subscription: Subscription | undefined;
+  // subscription: Subscription | undefined;
 
   constructor(
     private selectLanguageAPI: LanguageApiSwitchService,
@@ -26,9 +26,12 @@ export class FooterComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
-      this.language = language;
+    this.currentLanguage.currentLanguage.subscribe(res => {
+      this.language = res;
     });
+    // this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
+    //   this.language = language;
+    // });
   }
 
 }

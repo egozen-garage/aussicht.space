@@ -11,7 +11,7 @@ import { CurrentLanguageService } from '../services_strapi/language/current-lang
 
 export class HeaderComponent implements OnInit {
 
-  // language?:string;
+  language:string | undefined ;
   // subscription: Subscription | undefined;
 
   constructor(
@@ -20,11 +20,10 @@ export class HeaderComponent implements OnInit {
 
   document : any;
 
-  public ngOnInit()
-  {
-    // this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
-    //   this.language = language;
-    // });
+  public ngOnInit(){
+    this.currentLanguage.currentLanguage.subscribe(res => {
+      this.language = res;
+    });
 
     jQuery(function(){
       $( '.menu-icon' ).click(function(){

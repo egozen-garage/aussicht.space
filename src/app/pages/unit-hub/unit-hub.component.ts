@@ -6,6 +6,7 @@ import { PodcastepisodesService } from '../../services_strapi/podcastepisodes.se
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { HelperService } from "../../services/helper.service";
+import { CurrentLanguageService } from '../../services_strapi/language/current-language.service';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { HelperService } from "../../services/helper.service";
   styleUrls: ['./unit-hub.component.scss']
 })
 export class UnitHubComponent implements OnInit {
+  language:string | undefined ;
 
 
   // @Output() EVENTafterPageLoad = new EventEmitter();
@@ -51,13 +53,19 @@ export class UnitHubComponent implements OnInit {
     private themeSvc: ThemeService,
     public route: ActivatedRoute,
     private router: Router,
+    private currentLanguage: CurrentLanguageService,
     ) {
-      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     }
 
 
 
   ngOnInit(): void {
+    this.currentLanguage.currentLanguage.subscribe(res => {
+      this.language = res;
+      console.log("AppComponent: Language updated: ", this.language);
+    });
+
     this.projectSvc.getAllProjects().subscribe((res:any) => {
       this.projectsFromCms = res;
       this.projects = this.projectsFromCms;
