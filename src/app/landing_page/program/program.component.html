@@ -1,4 +1,4 @@
-<div *ngIf="characters$ | async as characters; else loading">
+<!-- <div *ngIf="characters$ | async as characters; else loading">
   <div *ngFor="let character of characters" class="character-card">
     <div class="date">
       {{ character.date }}
@@ -12,361 +12,66 @@
       <div></div>
     </div>
   </div>
-</ng-template>
+</ng-template> -->
 
 <div id="programm">
+  <div class="wrap-collabsible"> 
 
-    <div class="wrap-collabsible"> 
-      
-      <!-- SECTION 1 -->  
-      <label for="trigger-01" class="event">
-        <span class="date">23.4.2021, 11AM-10PM</span>
-        <span class="name">Eröffnung.</span>
+    <!-- ------------------ performances ------------------ -->
+    <div class="event_category">performances</div>
+
+    <span *ngFor="let performance of event_performances, let i = index" class="allthemes">
+      <label for="checkbox_{{performance.id}}" (click)="showHideInfo(performance.id)"  class="event">
+        <span class="date">{{ performance.date_time }}</span>
+        <span class="name">{{ performance.title }} {{ performance.author }}</span>
       </label>
-      <input id="trigger-01" class="toggle" type="checkbox"> 
-        
-      <span class="collapsible-content" id="collapsible-01">
-            Mehr Informationen dazu demnächst. 
+      <input id="checkbox_{{performance.id}}" class="toggle" type="checkbox"> 
+      <span class="collapsible-content" id="collapsible_info_{{performance.id}}">
+        <markdown>
+          {{ performance.info_text }}
+        </markdown>
       </span>
-  
-      <div class="break" id="animate-br-01"></div>
-      
-      <!-- SECTION 2 -->  
-      <label for="trigger-02" class="event">
-        <span class="date">23.4.2021, 3PM</span> 
-        <span class="name">Crank the Disc Down.</span> 
+      <div class="break" id="animate_br_{{performance.id}}"></div>
+    </span>
+
+
+    <!-- ------------------ talks ------------------ -->
+    <div class="event_category">talks</div>
+
+    <span *ngFor="let talk of event_talks, let i = index" class="allthemes">
+      <label for="checkbox_{{talk.id}}" (click)="showHideInfo(talk.id)"  class="event">
+        <span class="date">{{ talk.date_time }}</span>
+        <span class="name">{{ talk.title }} {{ talk.author }}</span>
       </label>
-      <input id="trigger-02" class="toggle" type="checkbox"> 
-  
-      <span class="collapsible-content" id="collapsible-02">
-            Mehr Informationen dazu demnächst.        
+      <input id="checkbox_{{talk.id}}" class="toggle" type="checkbox"> 
+      <span class="collapsible-content" id="collapsible_info_{{talk.id}}">
+        <markdown>
+          {{ talk.info_text }}
+        </markdown>
       </span>
-      
-      <div class="break" id="animate-br-02"></div>
-  
-      <!-- SECTION 3 -->   
-      <label for="trigger-03" class="event">
-        <span class="date">23.4.2021, 3:30PM</span>
-        <span class="name">Synästhesie.</span>
+      <div class="break" id="animate_br_{{talk.id}}"></div>
+    </span>
+
+
+    <!-- ------------------ specials ------------------ -->
+    <div class="event_category">specials</div>
+
+    <span *ngFor="let special of event_specials, let i = index" class="allthemes">
+      <label for="checkbox_{{special.id}}" (click)="showHideInfo(special.id)" class="event">
+        <span class="date">{{ special.date_time }}</span>
+        <span class="name">{{ special.title }} {{ special.author }}</span>
       </label>
-      <input id="trigger-03" class="toggle" type="checkbox">
-       
-        
-      <span class="collapsible-content" id="collapsible-03">
-            Mehr Informationen dazu demnächst.        
+      <input id="checkbox_{{special.id}}" class="toggle" type="checkbox"> 
+      <span class="collapsible-content" id="collapsible_info_{{special.id}}">
+        <markdown>
+          {{ special.info_text }}
+        </markdown>
       </span>
-        
-      <div class="break" id="animate-br-03"></div>
-  
-      <!-- SECTION 4 -->  
-      <label for="trigger-04" class="event">
-        <span class="date">28.4.2021, 6PM</span>
-        <span class="name">HfG-TV – Trend.</span>
-      </label>
-      <input id="trigger-04" class="toggle" type="checkbox"> 
-        
-      <span class="collapsible-content" id="collapsible-04">
-            Mehr Informationen dazu demnächst.        
-      </span>
-  
-      <div class="break" id="animate-br-04"></div>
-      
-      <!-- SECTION 5 -->  
-      <label for="trigger-05" class="event">
-        <span class="date">28.4.2021, 7PM</span>
-        <span class="name">Mittwochsplattform.</span>
-      </label>
-      <input id="trigger-05" class="toggle" type="checkbox"> 
-        
-      <span class="collapsible-content" id="collapsible-05">
-            Mehr Informationen dazu demnächst.        
-      </span>
-  
-      <div class="break" id="animate-br-05"></div>
-        
-      <!-- SECTION 6 -->   
-      <label for="trigger-06" class="event">
-        <span class="date">1.5.2021, 4PM</span>
-        <span class="name">Songs of Cyborgeoisie.</span>
-      </label>
-      <input id="trigger-06" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-06">
-            Mehr Informationen dazu demnächst. 
-      </span>
-  
-      <div class="break" id="animate-br-06"></div>
-  
-      <!-- SECTION 7 -->   
-      <label for="trigger-07" class="event">
-        <span class="date">5.5.2021, 6PM</span>
-        <span class="name"> ⸮SindDieReal?‽‽ …… &lt; &#8725; 3 </span>
-      </label>
-      <input id="trigger-07" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-07">
-            Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-07"></div>
-  
-      <!-- SECTION 8 -->   
-      <label for="trigger-08" class="event">
-        <span class="date">5.5.2021, 7PM</span>
-        <span class="name">Mittwochsplattform.</span>
-      </label>
-      <input id="trigger-08" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-08">
-            Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-08"></div>
-  
-      <!-- SECTION 9 -->   
-      <label for="trigger-09" class="event">
-        <span class="date">11.5.2021, 6PM</span>
-        <span class="name">Mensa regional.</span>
-      </label>
-      <input id="trigger-09" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-09">
-            Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-09"></div>
-  
-      <!-- SECTION 10 -->   
-      <label for="trigger-10" class="event">
-        <span class="date">12.5.2021-18.5.2021, 6PM</span>
-        <span class="name">Soundinstallation.</span>
-      </label>
-      <input id="trigger-10" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-10">
-            Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-10"></div>
-  
-      <!-- SECTION 11 -->   
-      <label for="trigger-11" class="event">
-        <span class="date">12.5.2021, 7PM</span>
-        <span class="name">Mittwochsplattform.</span>
-      </label>
-      <input id="trigger-11" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-11">
-            Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-11"></div>
-  
-      <!-- SECTION 12 -->   
-      <label for="trigger-12" class="event">
-        <span class="date">19.5.2021, 6PM</span>
-        <span class="name">Slap Duck bot.</span>
-      </label>
-      <input id="trigger-12" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-12">
-            Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-12"></div>
-  
-      <!-- SECTION 13 -->   
-      <label for="trigger-13" class="event">
-        <span class="date">19.5.2021, 7PM</span>
-        <span class="name">Mittwochsplattform.</span>
-      </label>
-      <input id="trigger-13" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-13">
-            Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-13"></div>
-  
-      <!-- SECTION 14 -->   
-      <label for="trigger-14" class="event">
-        <span class="date">9.6.2021, 6PM</span>
-        <span class="name">Performance.</span>
-      </label>
-      <input id="trigger-14" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-14">
-            Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-14"></div>
-  
-      <!-- SECTION 15 -->   
-      <label for="trigger-15" class="event">
-        <span class="date">9.6.2021, 6PM</span>
-        <span class="name">Die Bedeutung der Mensa als soziale Skulptur.</span>
-      </label>
-      <input id="trigger-15" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-15">
-            Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-15"></div>
-  
-      <!-- SECTION 16 -->   
-      <label for="trigger-16" class="event">
-        <span class="date">9.6.2021, 7PM</span>
-        <span class="name">Mittwochsplattform.</span>
-      </label>
-      <input id="trigger-16" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-16">
-            Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-16"></div>
-  
-      <!-- SECTION 17 -->   
-      <label for="trigger-17" class="event">
-        <span class="date">11.6.-13.6.2021, 11AM-6PM</span>
-        <span class="name">Gespenster der Zukunft.</span>
-      </label>
-      <input id="trigger-17" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-17">
-            Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-17"></div>
-  
-      <!-- SECTION 18 -->   
-      <label for="trigger-18" class="event">
-        <span class="date">16.6.2021, 6PM</span>
-        <span class="name">Konzert.</span>
-      </label>
-      <input id="trigger-18" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-18">
-            Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-18"></div>
-  
-      <!-- SECTION 19 -->   
-      <label for="trigger-19" class="event">
-        <span class="date">16.6.2021, 6:30PM</span>
-        <span class="name">Untitled.</span>
-      </label>
-      <input id="trigger-19" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-19">
-            Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-19"></div>
-  
-      <!-- SECTION 20 -->   
-      <label for="trigger-20" class="event">
-        <span class="date">16.6.2021, 7PM</span>
-        <span class="name">Krisen sichtbar machen.</span>
-      </label>
-      <input id="trigger-20" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-20">
-        Mehr Informationen dazu demnächst.
-      </span>
-      
-      <div class="break" id="animate-br-20"></div>
-      
-      <!-- SECTION 21 -->   
-      <label for="trigger-21" class="event">
-        <span class="date">23.6.2021, 6PM</span>
-        <span class="name">Worship ain’t no lie.</span>
-      </label>
-      <input id="trigger-21" class="toggle" type="checkbox">
-      
-      <span class="collapsible-content" id="collapsible-21">
-        Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-21"></div>
-  
-      <!-- SECTION 22 -->   
-      <label for="trigger-22" class="event">
-        <span class="date">23.6.2021, 7PM</span>
-        <span class="name">Mittwochsplattform.</span>
-      </label>
-      <input id="trigger-22" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-22">
-        Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-22"></div>
-  
-      <!-- SECTION 23 -->   
-      <label for="trigger-23" class="event">
-        <span class="date">30.6.2021, 6PM</span>
-        <span class="name">Der Band in der Hecke.</span>
-      </label>
-      <input id="trigger-23" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-23">
-        Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-23"></div>
-      
-      <!-- SECTION 24 -->   
-      <label for="trigger-24" class="event">
-        <span class="date">30.6.2021, 6PM</span>
-        <span class="name">Kunst, Küche und Gestaltung: Die Mensa als Werkstatt.</span>
-      </label>
-      <input id="trigger-24" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-24">
-        Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-24"></div>
-    
-      <!-- SECTION 25 -->   
-      <label for="trigger-25" class="event">
-        <span class="date">1.7.2021, 6PM</span>
-        <span class="name">Kunst und Wissen.</span>
-      </label>
-      <input id="trigger-25" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-25">
-        Mehr Informationen dazu demnächst.
-      </span>
-  
-      <div class="break" id="animate-br-25"></div>
-      
-      <!-- SECTION 26 -->   
-      <label for="trigger-26" class="event">
-        <span class="date">3.7.2021, 10AM-6PM</span>
-        <span class="name">Symposium Aus heutiger Sicht.</span>
-      </label>
-      <input id="trigger-26" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-26">
-        Mehr Informationen dazu demnächst.
-      </span>
-      
-      <!-- SECTION 27 -->   
-      <label for="trigger-27" class="event">
-        <span class="date">4.7.2021, 10AM-4PM</span>
-        <span class="name">Symposium Aus heutiger Sicht.</span>
-      </label>
-      <input id="trigger-27" class="toggle" type="checkbox">
-        
-      <span class="collapsible-content" id="collapsible-27">
-        Mehr Informationen dazu demnächst.
-      </span>
-      <div class="break" id="animate-br-27"></div>
-    </div>
+      <div class="break" id="animate_br_{{special.id}}"></div>
+    </span>
+
+
   </div>
+</div>
   
   

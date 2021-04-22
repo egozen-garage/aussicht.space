@@ -10,6 +10,8 @@ export class EventService {
   constructor(private http: HttpClient) { }
 
   getAllEvents() {
+    console.log("event api: " + environment.apiUrl + "/events/");
+    
     return this.http.get(`${environment.apiUrl}/events`).pipe(map(res => res));
   }
 

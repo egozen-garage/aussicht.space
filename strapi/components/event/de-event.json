@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_event_de_events",
+  "info": {
+    "name": "event",
+    "icon": "plane-arrival",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "date_time": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "info_text": {
+      "type": "richtext"
+    }
+  }
+}

@@ -22,6 +22,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   private projectTitle: string = "";
   project:any;
   folder_name:any;
+  gpt_image_div = document.getElementById("gpt_images");
+
 
   // // current_project:number | undefined;
   // previous_project:number = -1;
@@ -99,9 +101,9 @@ export class ProjectComponent implements OnInit, AfterViewInit {
             this.project = project;
 
             this.folder_name = this.project.GPT_folder_name;
-            if(this.folder_name){
-              this.single_project_load_gpt_images(this.folder_name)
-            }
+            // if(this.folder_name){
+            //   this.single_project_load_gpt_images(this.folder_name)
+            // }
     //         let current_project = this.project.id;
     //         this.previous_project = this.previous_project + current_project;
     //         this.next_project = this.next_project + current_project;
@@ -150,11 +152,27 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
 
 
-      // load gpt images 
-      // this.folder_name = "bianchini_beatrice";
+      // ------------- load gpt images ------------
+
+      // if(this.folder_name){
+      //   this.single_project_load_gpt_images(this.folder_name)
+      // }
+      this.isElementInViewport(this.gpt_image_div);
+
   }
 
 
+  isElementInViewport(element:any) {
+    var rect = element.getBoundingClientRect();
+    console.log("# ? # ? # ? # ? is it in viewport?");
+    
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document. documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document. documentElement.clientWidth)
+    );
+  }
 
 
 // ----------------------- load gpt images -----------------------
@@ -164,10 +182,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   // maximum = 40;
   minimum = 0;
   single_project_load_gpt_images(folder_name:string){
-
-
     const maximum = 60;
-
     //let cancelled = false;
     // calculate the amount of images needed to cover the whole name
     // const amount_of_images = Math.round( (artist_name.length + artist_forename.length) / 2);
