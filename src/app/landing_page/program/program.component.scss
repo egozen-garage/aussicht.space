@@ -99,6 +99,6 @@ padding-top: 80px;
 padding-top: 0px;
 }
 
-// ::ng-deep .markdown p a {
-//   text-decoration: underline;
-// }
+::ng-deep .collapsible-content .markdown p a {
+  text-decoration: underline;
+}

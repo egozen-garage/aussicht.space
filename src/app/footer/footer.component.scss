@@ -28,8 +28,12 @@ img.logos {
     filter: invert(1);
     display: absolute;
     padding: var(--padding-footer-logos);
-    width: 200px;
+    height: 150px;
+    width: 160px;
+    object-fit: cover;
 }
+
+// #mak_link { width: 19em !important; }
 
 img#mak { padding: 0px 0px 5em 0px; width: 300px; margin-left: auto; margin-right: auto; }
 
@@ -57,7 +61,7 @@ img#mak { padding: 0px 0px 5em 0px; width: 300px; margin-left: auto; margin-righ
     color: white;
     // text-decoration: none;
     padding: 10px 10px 0px 10px;
-
+    width: 19em !important;
 }
 
 #impressum a:hover {
@@ -68,6 +72,9 @@ img#mak { padding: 0px 0px 5em 0px; width: 300px; margin-left: auto; margin-righ
 /* ------------------------------------------------------------ */
 /* ---------------------DESKTOP SECTION------------------------- */
 /* ------------------------------------------------------------ */
+@media (max-width: 1360px) {
+    #impressum { font-size: 18px; }
+}
 
 @media (max-width: 1200px) {
     #impressum { font-size: 15px; }
@@ -80,7 +87,9 @@ img#mak { padding: 0px 0px 5em 0px; width: 300px; margin-left: auto; margin-righ
 /* ------------------------------------------------------------ */
 
 // ---- iPad PRO (1042 x 1366) ---- //
-@media (max-width: 1042px) {}
+@media (max-width: 1042px) {
+    img.logos { height: 163px; width: 200px }
+}
 
 
 // ---- IPAD (768 x 1042) ---- //
@@ -110,13 +119,14 @@ img#mak { padding: 0px 0px 5em 0px; width: 300px; margin-left: auto; margin-righ
 
 // ---- iPhone 6/7/8/X (375 x 667/812)---- //
 @media (max-width: 375px) {
-    footer { height: 150vh; }
-    img.logos { width: 160px; }
+    footer { height: auto; }
+    img.logos { width: 160px; height: 130px; }
 }
 
 // ---- iPhone 5/SE (320 x 568)---- //
 @media (max-width: 320px) {
-    footer { height: 170vh; }
+    footer { height: auto; }
     .logos-container span { font-size: 12px; }
-    img.logos { width: 130px; }
+    img.logos { width: 130px; height: 112px;}
+    #impressum { padding: 0px 0px 0px 0px; }
 }

@@ -13,7 +13,7 @@ a:hover {
     transition-duration: 0.3s;
 }
 
-::ng-deep .markdown p a { color: var(--color-side-comments) !important; text-decoration: underline;}
+::ng-deep #markdownRelation p a { color: var(--color-side-comments) !important; text-decoration: underline;}
 
 ::ng-deep .markdown p a:hover {
     text-decoration-line: none;
@@ -252,6 +252,13 @@ input[type='checkbox'] { display: none; }
     line-height: 1.25;
 }
 
+::ng-deep .relation_artistname .markdown p {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-comments);
+    font-weight: 400;
+    line-height: 1.25;
+}
+
 .relation_title #project_title, .relation_title #podcast_title {
     font-family: var(--font-family-primary);
     font-weight: 500;
@@ -284,9 +291,11 @@ input[type='checkbox'] { display: none; }
 
 .project-related { grid-area: sidebar; }
 
-.side_comments{ width: 40%; }
+.side_comments{ width: 40%;}
 .side_comment { opacity: 0; }
 .side_comment_padding{ padding-bottom: 50px; }
+
+.relation_artistname { color: var(--color-side-comments) !important; }
 
 .fade {
     opacity: 1;
@@ -328,7 +337,7 @@ input[type='checkbox'] { display: none; }
         padding: 0px 0px 30px 0px;
     }
 
-    .relation_container { padding: 0px 70px 0px 60px; }
+    .relation_container { padding: 20px 70px 0px 60px; }
     .indented_image { margin-right: 18%; }
     .plain_text{ width: 70%;}
 
@@ -396,7 +405,7 @@ input[type='checkbox'] { display: none; }
     .comp_intro_container { grid-area: all; width: 70%; padding: 0px 0px 40px var(--margin-s);}
 
 /* - component > text > relations/side-comments ----- */  
-    .relation_container { padding: 0px 70px 0px 60px; }
+    .relation_container { padding: 20px 70px 0px 60px; }
     .relation_img { max-width: 140px; padding: 0px 0px 30px 0px; }
     .side_comments { display: none; }      
     

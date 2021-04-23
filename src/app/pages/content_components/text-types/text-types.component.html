@@ -113,7 +113,7 @@ class="section-grid side_comment_container">
                                     </div>
                                     <!-- relation: description -->
                                     <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
-                                        <markdown class="markdown">
+                                        <markdown class="markdown" id="markdownRelation">
                                             {{ body.relation_to[r].description }}
                                         </markdown> 
                                         <div class="relation_arrow">&#8594;</div>
@@ -142,7 +142,7 @@ class="section-grid side_comment_container">
                                     </div>
                                     <!-- relation: description -->
                                     <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
-                                        <markdown class="markdown">
+                                        <markdown class="markdown" id="markdownRelation">
                                             {{ body.relation_to[r].description }}
                                         </markdown>
                                         <div class="relation_arrow">&#8594;</div>
@@ -171,7 +171,7 @@ class="section-grid side_comment_container">
                                     </div>
                                     <!-- relation: description -->
                                     <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
-                                        <markdown class="markdown">
+                                        <markdown class="markdown" id="markdownRelation">
                                             {{ body.relation_to[r].description }}
                                         </markdown>
                                     </div>
@@ -194,7 +194,7 @@ class="section-grid side_comment_container">
                                 </div>
                                 <!-- relation: description -->
                                 <div *ngIf="body.relation_to[r].description?.length" class="relation_artistname">
-                                    <markdown class="markdown">
+                                    <markdown class="markdown" id="markdownRelation">
                                         {{ body.relation_to[r].description }}
                                     </markdown>
                                 </div>
