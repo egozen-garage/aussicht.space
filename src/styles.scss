@@ -376,11 +376,14 @@ $aussichtDOTspace-theme: mat-light-theme((
 /* ------------------------------------------------------------ */
 
 @media (max-width: 414px) { 
-  :root { --font-size-comments: 1.1em;}
+  :root { --font-size-comments: 15px;}
 }
 
 @media (max-width: 375px) {
-  :root { --padding-footer-logos: 5px 0px 50px 0px; }
+  :root { 
+    --padding-footer-logos: 5px 0px 50px 0px; 
+    --font-size-title-perspectives: 38px;
+  }
   span#hotelpartner { left: 29px; }
   span#zusammenarbeit { left: 14px; }
   span#medienpartner { left: 27px; }
@@ -389,14 +392,14 @@ $aussichtDOTspace-theme: mat-light-theme((
 
 @media (max-width: 320px) {
 
-  .perspective-page { padding: 75px 0px 20px 0px !important; }
+  .perspective-page { padding: 45px 0px 20px 0px !important; }
 
   :root {
     --font-size-primary-s: 15px;
     --font-size-paragraph: 15px;
     --font-size-title-projects: 30px;
     --font-size-machine-text: 15px;
-    --font-size-title-perspectives: 40px;
+    --font-size-title-perspectives: 30px;
     }
 }
 

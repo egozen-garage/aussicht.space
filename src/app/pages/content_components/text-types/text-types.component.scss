@@ -13,7 +13,7 @@ a:hover {
     transition-duration: 0.3s;
 }
 
-::ng-deep .markdown p a { color: var(--color-side-comments) !important; text-decoration: underline;}
+::ng-deep #markdownRelation p a { color: var(--color-side-comments) !important; text-decoration: underline;}
 
 ::ng-deep .markdown p a:hover {
     text-decoration-line: none;

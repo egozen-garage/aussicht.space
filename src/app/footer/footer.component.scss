@@ -119,14 +119,14 @@ img#mak { padding: 0px 0px 5em 0px; width: 300px; margin-left: auto; margin-righ
 
 // ---- iPhone 6/7/8/X (375 x 667/812)---- //
 @media (max-width: 375px) {
-    footer { height: 150vh; }
+    footer { height: auto; }
     img.logos { width: 160px; height: 130px; }
 }
 
 // ---- iPhone 5/SE (320 x 568)---- //
 @media (max-width: 320px) {
-    footer { height: 176vh; }
+    footer { height: auto; }
     .logos-container span { font-size: 12px; }
-    img.logos { width: 130px; }
+    img.logos { width: 130px; height: 112px;}
     #impressum { padding: 0px 0px 0px 0px; }
 }
