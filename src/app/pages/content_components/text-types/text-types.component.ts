@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { relativeTimeThreshold } from 'moment';
 import { HelperService } from "../../../services/helper.service";
-
+import { CurrentLanguageService } from '../../../services_strapi/language/current-language.service';
 
 @Component({
   selector: 'app-text-types',
@@ -20,12 +20,16 @@ export class TextTypesComponent implements OnInit, AfterViewInit {
   isDesktopDevice: boolean | undefined;
   deviceInfo:any;
   mTexts: any;
+  language:string | undefined ;
+  index:string = "index";
+
 
   constructor(
     private sideCommentPosition: SideCommentPositionService,
     private deviceService: DeviceDetectorService,
     private helperService: HelperService,
     private router: Router,
+    private currentLanguage: CurrentLanguageService,
     // private sanitizer: DomSanitizer
     ) { }
 
@@ -35,6 +39,10 @@ export class TextTypesComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.currentLanguage.currentLanguage.subscribe(res => {
+      this.language = res;
+    });
+
     // let body = this.body;
     // body = this.sanitizer.bypassSecurityTrustScript(require("/src/assets/custom_design_files/js_files/" + javascript_file_name));
         // READ OUT DEVICE TYPE
@@ -73,7 +81,7 @@ export class TextTypesComponent implements OnInit, AfterViewInit {
   titleEncoded:string | undefined;
   title2url(unit_type:string, relatedTitle:string){
     this.titleEncoded = this.helperService.encodeCustomURI(relatedTitle);    
-    this.router.navigate(['/index', unit_type, this.titleEncoded]);
+    this.router.navigate(['/', this.language, 'index', unit_type, this.titleEncoded]);
   }
 
 }

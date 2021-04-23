@@ -1,0 +1,14 @@
+<mat-button-toggle-group 
+  appearance="legacy"
+  [(ngModel)]="selectedLanguage" 
+  (ngModelChange)="onLanguageSelectedOrChanged()"
+  name="language"
+  id="language_switch_button"
+  class="items">
+
+
+  <mat-button-toggle *ngFor="let language of languages"
+                    [value]="language"
+                    class="radio-button">{{language}}</mat-button-toggle>
+
+</mat-button-toggle-group>

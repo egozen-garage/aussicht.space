@@ -146,14 +146,16 @@
                 <ul>
                     <li *ngFor="let perspektives of project.perspektives, let i = index" 
                         class="recommendation_title">
-                        <!-- [routerLink]="['/units/' + project.perspektives[i].unit_type + '/' + titleEncoded ]" -->
-                            <div *ngIf="project.perspektives[i].title?.length">
-                            {{project.perspektives[i].title}}
-                            </div>
-                            <div *ngIf="project.perspektives[i].author?.length"
-                            class="recommendation_author">
-                                {{project.perspektives[i].author}}
-                            </div>
+                            <!-- <a [routerLink]="['/' + language, index, project.perspektives[i].unit_type, project.perspektives[i].titleEncoded ]"> -->
+                            <a (click)="title2url(project.perspektives[i].unit_type, project.perspektives[i].title)">
+                                <div *ngIf="project.perspektives[i].title?.length">
+                                {{project.perspektives[i].title}}
+                                </div>
+                                <div *ngIf="project.perspektives[i].author?.length"
+                                class="recommendation_author">
+                                    {{project.perspektives[i].author}}
+                                </div>
+                            </a>
                     </li>
                 </ul>
             </div>

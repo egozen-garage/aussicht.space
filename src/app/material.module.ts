@@ -8,6 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
+
 const modules = [
   MatButtonModule,
   MatListModule,
@@ -15,6 +18,7 @@ const modules = [
   MatIconModule,
   MatToolbarModule,
   MatCardModule,
+  MatButtonToggleModule,
   //CommonModule
 ];
 

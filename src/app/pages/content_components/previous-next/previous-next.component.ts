@@ -1,11 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { HelperService } from 'src/app/services/helper.service';
 import { ProjectService } from 'src/app/services_strapi/project.service';
-
-
 import { BundleAllAPIsService } from '../../../services_strapi/bundle-all-apis.service'
+import { CurrentLanguageService } from '../../../services_strapi/language/current-language.service';
+// language:string | undefined ;
+// private currentLanguage: CurrentLanguageService,
+// ngOnInit(): void { 
+//   this.currentLanguage.currentLanguage.subscribe(res => {
+//     this.language = res;
+//   });
+// }
+
 
 @Component({
   selector: 'app-previous-next',
@@ -15,6 +22,9 @@ import { BundleAllAPIsService } from '../../../services_strapi/bundle-all-apis.s
 export class PreviousNextComponent implements OnInit {
 
   @Input() unit_type:any;
+
+  language:string | undefined ;
+  index:string = "index";
 
   previous_unit_type : string | undefined;
   previous_item : string | undefined;
@@ -34,11 +44,15 @@ export class PreviousNextComponent implements OnInit {
     private route: ActivatedRoute,
     private helperService: HelperService,
     private router: Router,
+    private currentLanguage: CurrentLanguageService,
     // private projectSvc: ProjectService,
   ) { 
   }
   
   ngOnInit(): void { 
+    this.currentLanguage.currentLanguage.subscribe(res => {
+      this.language = res;
+    });
 
     this.subscription = this.BundleAllAPIs.bundledContentAPIs.subscribe((message: string) => {
       if (message == '') {
@@ -78,35 +92,23 @@ export class PreviousNextComponent implements OnInit {
 
   }
 
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent): void {
+      if (event.key === 'ArrowLeft') {
+        // previous
+        this.router.navigate(['/' + this.language, this.index, this.previous_unit_type, this.previous_item ]);
+      } else if (event.key === 'ArrowRight') {
+        // next
+        this.router.navigate(['/' + this.language, this.index, this.next_unit_type, this.next_item ]);
+      }
+    
+  }
 
   next(){
-    // prepare router links for NEXT
-    // let NextCounter:number = Number(this.currentCounter) + 1;
-    // if(NextCounter >= this.unitAndEncodedHrefList.length-1){
-    //   NextCounter = 0;
-    // }
-    // let next_unit_type = this.unitAndEncodedHrefList[NextCounter].titleEncoded;
-    // let next_item = this.unitAndEncodedHrefList[NextCounter].unit.unit_type;
-    // let newRoute = next_unit_type + "/" + next_item;
-
-    // this.router.navigate(["units", newRoute]);
-
-    // console.log("next title: " + this.unitAndEncodedHrefList[NextCounter].titleEncoded);
-    // console.log("next title: " + this.unitAndEncodedHrefList[NextCounter].unit.unit_type);
-    // console.log("next counter is: " + NextCounter);
-    // console.log("amount of items: " + this.unitAndEncodedHrefList.length);
+    this.router.navigate(['/' + this.language, this.index, this.next_unit_type, this.next_item ]);
   }
-  
   previous(){
-    // prepare router links for PREVIOUS
-    // let PreviousCounter:number = Number(this.currentCounter) - 1; 
-    // if(PreviousCounter < 0){
-    //   PreviousCounter = this.unitAndEncodedHrefList.length - 1;
-    // }
-    // let previous_unit_type = this.unitAndEncodedHrefList[PreviousCounter].titleEncoded;
-    // let previous_item = this.unitAndEncodedHrefList[PreviousCounter].unit.unit_type;
-
-    // this.router.navigate([{previous_unit_type}, {previous_item}]);
+    this.router.navigate(['/' + this.language, this.index, this.previous_unit_type, this.previous_item ]);
   }
 
 
