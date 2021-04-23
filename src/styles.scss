@@ -221,7 +221,7 @@ $aussichtDOTspace-theme: mat-light-theme((
   --font-size-date: 20px;
   --font-size-paragraph: 22px;
   --font-size-machine-text: 21px;
-  --font-size-comments: 1.1em;
+  --font-size-comments: 1em;
 
   --line-height-paragraph: 1.4;
 
@@ -250,29 +250,29 @@ $aussichtDOTspace-theme: mat-light-theme((
 
 @media (max-width: 1680px) {
 
-  span#gefoerdert { left: 35px; }
+  span#gefoerdert { left: 5px; }
 
-  span#unterstuetzt { left: 75px; }
+  span#unterstuetzt { left: 25px; }
 
   span#zusammenarbeit { left: 0px; }
 
-  span#medienpartner { left: 50px; }
+  span#medienpartner { left: 30px; }
 
-  span#hotelpartner { left: 53px; }
+  span#hotelpartner { left: 27px; }
 }
 
 /* Macbook 15inch */
 @media (max-width: 1440px) {
 
-  span#gefoerdert { left: 35px; }
+  span#gefoerdert { left: 13px; }
 
-  span#unterstuetzt { left: 50px; }
+  span#unterstuetzt { left: 25px; }
 
   span#zusammenarbeit { left: 0px; }
 
-  span#medienpartner { left: 35px; }
+  span#medienpartner { left: 30px; }
 
-  span#hotelpartner { left: 50px; }
+  span#hotelpartner { left: 28px; }
 }
 
 /* Macbook 13inch */
@@ -375,11 +375,15 @@ $aussichtDOTspace-theme: mat-light-theme((
 /* ---------------------MOBILE SECTION------------------------- */
 /* ------------------------------------------------------------ */
 
-@media (max-width: 414px) {}
+@media (max-width: 414px) { 
+  :root { --font-size-comments: 1.1em;}
+}
 
 @media (max-width: 375px) {
   :root { --padding-footer-logos: 5px 0px 50px 0px; }
-  span#hotelpartner { left: 41px; }
+  span#hotelpartner { left: 29px; }
+  span#zusammenarbeit { left: 14px; }
+  span#medienpartner { left: 27px; }
 
 }
 
