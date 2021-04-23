@@ -17,6 +17,7 @@ export class QuestionsComponent implements OnInit {
   pass_typewriter_content:any;
 
   timeToReloadNewText = 3000; // 3 seconds
+  deloadSpeed = 60;
   // questionsDatabase = [
   //   // <?php echo $one_item["question"]; ?>
   //   "Aber was wäre, wenn wir die Uhr zurückdrehen könnten?",
@@ -58,7 +59,7 @@ export class QuestionsComponent implements OnInit {
           this.deleteText(text, i);
         }, this.timeToReloadNewText);
         // call callback after timeout
-        setTimeout(fnCallback, 100 * (text.length) + this.timeToReloadNewText + 600);
+        setTimeout(fnCallback, this.deloadSpeed * (text.length) + this.timeToReloadNewText + 600);
       }
     }
 
@@ -69,7 +70,7 @@ export class QuestionsComponent implements OnInit {
         // wait for a while and call this function again for the next character
         setTimeout( (deleteText) => {
           this.deleteText(text, i - 1)
-        }, 100);
+        }, this.deloadSpeed);
       }
     }
 

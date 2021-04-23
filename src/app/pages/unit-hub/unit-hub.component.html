@@ -72,12 +72,12 @@
 
                                 <!-- EPISODE > TITLE -->
                                 <div *ngIf="uh.unit.title?.length" class="unit-title" id="podcast-title">
-                                    <a [routerLink]="[('/index/' + uh.unit.unit_type), uh.titleEncoded]">{{uh.unit.title}}</a>
+                                    <a [routerLink]="[uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
                                 </div>
 
                                 <!-- EPISODE > GUEST SPEAKERS -->
                                 <div *ngIf="uh.unit.speakers?.length" class="unit-name" id="podcast-speakers" >
-                                    <a id="pod-speaker" [routerLink]="[('/index/' + uh.unit.unit_type), uh.titleEncoded]">{{uh.unit.speakers}}</a>
+                                    <a id="pod-speaker" [routerLink]="[uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.speakers}}</a>
                                 </div>
 
                                 <!-- PODCAST UNIT > THEMES SECTION -->
@@ -97,12 +97,12 @@
                                 <!-- PERSPECTIVE UNIT > CONTENT SECTION -->
                                 <!-- ARTICLE > TITLE -->
                                 <div class="unit-title" id="perspective-title">
-                                    <a [routerLink]="['/index/' + uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
+                                    <a [routerLink]="[uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
                                 </div>
 
                                 <!-- ARTICLE > AUTHOR -->
                                 <div class="unit-name" id="perspective-author" >
-                                    <a [routerLink]="['/index/' + uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.author}}</a>
+                                    <a [routerLink]="[uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.author}}</a>
                                 </div>
 
                                 <!-- PERSPECTIVE UNIT > THEMES SECTION -->
@@ -127,12 +127,12 @@
 
                                 <!-- PROJECT > TITLE -->
                                 <div class="unit-title" id="project-title">
-                                    <a [routerLink]="['/index/' + uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
+                                    <a [routerLink]="[uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.title}}</a>
                                 </div>
 
                                 <!-- PROJECT > ARTIST -->
                                 <div class="unit-name" id="project-artist" >
-                                    <a [routerLink]="['/index/' + uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.name}}</a>
+                                    <a [routerLink]="[uh.unit.unit_type, uh.titleEncoded]">{{uh.unit.name}}</a>
                                 </div>
 
                                 <!-- PERSPECTIVE UNIT > THEMES SECTION -->
@@ -153,6 +153,3 @@
     </body>
 
 </ng-container>
-
-
-

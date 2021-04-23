@@ -29,7 +29,7 @@ export class ThemeService {
     let {data} = await client.query({ query : ReducedThemesApi });
     this.themeSource.next(data.themes);
 
-    console.log("!!!!!!!! graph Q L function");
+    // console.log("!!!!!!!! graph Q L function");
     return {
       props : {
         themes: data.themes
@@ -41,9 +41,7 @@ export class ThemeService {
 
 
   constructor(private http: HttpClient) { 
-    console.log("-----------");
     this.getReducedThemes();
-    console.log("-----------");
   }
   
   // getAllThemes() {

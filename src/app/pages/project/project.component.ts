@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { SideCommentPositionService } from '../../services/side-comment-position.service';
 import { HelperService } from "../../services/helper.service";
-
+import { CurrentLanguageService } from '../../services_strapi/language/current-language.service';
 
 //import { CustomDesignIframeComponent } from '../custom_designs/custom-design-iframe/custom-design-iframe.component';
 //import { CustomDesignJavascriptComponent } from '../custom_designs/custom-design-javascript/custom-design-javascript.component';
@@ -24,6 +24,9 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   folder_name:any;
   gpt_image_div = document.getElementById("gpt_images");
 
+  language:string | undefined ;
+  index:string = "index";
+
 
   // // current_project:number | undefined;
   // previous_project:number = -1;
@@ -42,6 +45,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private router: Router,
     private helperService: HelperService,
+    private currentLanguage: CurrentLanguageService,
     // private sideCommentPosition: SideCommentPositionService,
     private sideCommentPosition: SideCommentPositionService    
     ) {       
@@ -92,6 +96,9 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.currentLanguage.currentLanguage.subscribe(res => {
+      this.language = res;
+    });
     // this.EVENTafterPageLoad.emit();
 
     // this.projectSvc.getAllProjects().subscribe((res:any) => {
@@ -272,9 +279,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
   titleEncoded:string | undefined;
   title2url(unit_type:string, relatedTitle:string){
-    console.log("$$$$$$$$");
-    this.titleEncoded = this.helperService.encodeCustomURI(relatedTitle);
-    this.router.navigate(['index', unit_type, this.titleEncoded]);
+    this.titleEncoded = this.helperService.encodeCustomURI(relatedTitle);    
+    this.router.navigate(['/', this.language, 'index', unit_type, this.titleEncoded]);
   }
 
 }

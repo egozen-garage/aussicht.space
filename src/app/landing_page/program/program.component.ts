@@ -65,7 +65,7 @@ export class ProgramComponent implements OnInit {
         }
       });
 
-      console.log("this.specials" + this.specials);
+      // console.log("this.specials" + this.specials);
       if (this.language === "de"){
         this.performances.forEach((element:any) => {  this.event_performances.push(element.de);   });
         this.talks.forEach((element:any)        => {  this.event_talks.push(element.de);          });

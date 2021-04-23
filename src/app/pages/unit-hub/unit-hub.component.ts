@@ -9,6 +9,9 @@ import { environment } from '../../../environments/environment';
 import { BundleAllAPIsService } from '../../services_strapi/bundle-all-apis.service'
 import { Subscription } from 'rxjs';
 import * as $ from 'jquery';
+import { HelperService } from "../../services/helper.service";
+import { CurrentLanguageService } from '../../services_strapi/language/current-language.service';
+
 
 @Component({
   selector: 'app-unit-hub',
@@ -16,6 +19,7 @@ import * as $ from 'jquery';
   styleUrls: ['./unit-hub.component.scss']
 })
 export class UnitHubComponent implements OnInit {
+  language:string | undefined ;
 
 
   // @Output() EVENTafterPageLoad = new EventEmitter();
@@ -61,11 +65,12 @@ export class UnitHubComponent implements OnInit {
     public route: ActivatedRoute,
     private router: Router,
     private BundleAllAPIs: BundleAllAPIsService,
+    private currentLanguage: CurrentLanguageService,
     ) {
-      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       // console.log("-+-+-+-+-+-+-" + this.unitAndEncodedHrefList);
       // this.BundleAllAPIs.bundleAllAPIs(this.unitAndEncodedHrefList);
       // this.BundleAllAPIs.callContentAPIs();
+      // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     }
     
     
@@ -86,7 +91,7 @@ export class UnitHubComponent implements OnInit {
           return; // Ignore empty initial message
         }
         this.unitAndEncodedHrefList = message;
-        console.log(" is there any message? " + this.unitAndEncodedHrefList);
+        // console.log(" is there any message? " + this.unitAndEncodedHrefList);
         if (this.unitAndEncodedHrefList) {
           this.resetAndFillColumns();
         }
@@ -122,8 +127,18 @@ export class UnitHubComponent implements OnInit {
     //   }
     //   // this.EVENTafterPageLoad.emit();
 
-    // });
-    // console.log("length of projects: " + this.projects.length);
+  // ngOnInit(): void {
+    this.currentLanguage.currentLanguage.subscribe(res => {
+      this.language = res;
+      // console.log("AppComponent: Language updated: ", this.language);
+    });
+
+    // this.projectSvc.getAllProjects().subscribe((res:any) => {
+    //   this.projectsFromCms = res;
+    //   this.projects = this.projectsFromCms;
+    //   this.updateUnits();
+    // }
+      // this.EVENTafterPageLoad.emit();
 
 
     // this.perspectiveSvc.getAllPerspectives().subscribe((res:any) => {
@@ -144,7 +159,7 @@ export class UnitHubComponent implements OnInit {
     //   }
     // });
     this.themeSvc.currentThemeSource.subscribe((res:any) => {
-      console.log("theme:???&&6", res);
+      // console.log("theme:???&&6", res);
       let resMutable = JSON.parse(JSON.stringify(res));
       this.themesFromCms = resMutable;
       this.themesSelected = this.themesFromCms;
@@ -241,7 +256,7 @@ export class UnitHubComponent implements OnInit {
     if (noThemeSelected) {
       this.themesSelected = this.themesFromCms;
     }
-    console.log("hello themes: ", this.themesFromCms);
+    // console.log("hello themes: ", this.themesFromCms);
 
     // calls out the selected state of current units
     // seems to only call out values from the parent array perspectives...maybe not correct

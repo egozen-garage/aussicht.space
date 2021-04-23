@@ -18,53 +18,20 @@ import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episo
 import { AnnouncementComponent } from './pages/announcement/announcement.component';
 
 
-// const routes: Routes = [
-//   { path: "", component: LandingPageComponent },
-//   { path: "units",
-//     component: UnitHubComponent,
-//     children: [
-//       { path: 'project/:title', component: ProjectComponent},
-//       { path: 'podcast/:title', component: PodcastEpisodesComponent},
-//       { path: 'perspective/:title', component: PerspectiveComponent},
-//     ]
-//   },
-//   { path: "preview",
-//   component: PreviewComponent,
-//   children: [
-//     { path: 'project/:title', component: ProjectComponent},
-//     { path: 'podcast/:title', component: PodcastEpisodesComponent},
-//     { path: 'perspective/:title', component: PerspectiveComponent},
-//   ]
-//   },
-//     { path: "impressum", component: ImpressumComponent},
-//     { path: "**", redirectTo: "" }
-// ];
-
 const routes: Routes = [
   // { path: "", component: AnnouncementComponent},
   { path: "", component: LandingPageComponent},
-
-  { path: "über", component: AboutComponent},
-  { path: "programm", component: ProgramComponent},
-  { path: "teilnehmer_innen", component: ArtistListComponent},
-
-  { path: "index", component: UnitHubComponent},
-  { path: 'index/project/:title', component: ProjectComponent},
-  { path: 'index/podcast/:title', component: PodcastEpisodesComponent},
-  { path: 'index/perspective/:title', component: PerspectiveComponent},
-
-
-  // { path: "preview",
-  // component: PreviewComponent,
-  // children: [
-  //   { path: 'project/:title', component: ProjectComponent},
-  //   { path: 'podcast/:title', component: PodcastEpisodesComponent},
-  //   { path: 'perspective/:title', component: PerspectiveComponent},
-  // ]
-  // },
-    { path: "impressum", component: ImpressumComponent},
-    { path: "**", redirectTo: "" }
+  { path: ":language/impressum", component: ImpressumComponent },
+  { path: ":language/ueber", component: AboutComponent},
+  { path: ":language/programm", component: ProgramComponent},
+  { path: ":language/teilnehmer_innen", component: ArtistListComponent},
+  { path: ":language/index", component: UnitHubComponent},
+  { path: ':language/index/project/:title', component: ProjectComponent},
+  { path: ':language/index/podcast/:title', component: PodcastEpisodesComponent},
+  { path: ':language/index/perspective/:title', component: PerspectiveComponent},
+  { path: "**", redirectTo: "de"}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {

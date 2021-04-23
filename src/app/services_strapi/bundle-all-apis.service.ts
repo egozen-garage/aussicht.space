@@ -131,7 +131,7 @@ export class BundleAllAPIsService {
     let seed = today.getDate() + today.getMonth()*31 + today.getFullYear() * 366;
     let shuffledUnits = this.shuffle(orderedUnits, seed);
     this.unitAndEncodedHrefList = shuffledUnits.map((u: any) => {
-      console.log("counter = " + counter);
+      // console.log("counter = " + counter);
       counter = counter + 1;
       return {
         counter: counter,

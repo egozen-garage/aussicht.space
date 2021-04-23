@@ -1,0 +1,53 @@
+.mat-button-toggle{
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-primary);
+  font-weight: 400;
+  font-size: 27px;
+  color: white;
+  
+}
+
+::ng-deep .mat-button-toggle-label-content{
+  text-shadow: 0px 0px 10px black !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+.mat-button-toggle:hover {
+  color: var(--color-rosa);
+}
+
+
+
+
+.mat-button-toggle-checked{
+  background-color: transparent;
+  color: var(--color-rosa);
+
+}
+.cdk-focused {
+  //display: none; 
+  opacity: 0.5;
+}
+
+#language_switch_button {
+  box-shadow: none;
+  margin: 20px;
+  // height: 52px;
+  align-items: center;
+  text-align: right;
+  margin-right: 10px;
+
+  border: transparent;
+  text-shadow: 0px 0px 10px black;
+
+}
+
+
+@media (min-width: 48em) {
+  .mat-button-toggle{
+    font-size: 20px;
+  }
+  #language_switch_button {
+    text-align: right;
+  }
+}
