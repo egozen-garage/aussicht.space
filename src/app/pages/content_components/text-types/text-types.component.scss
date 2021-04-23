@@ -410,11 +410,11 @@ input[type='checkbox'] { display: none; }
 
 // ---- IPAD (768 x 1042) ---- //
 @media (max-width: 768px) {
-    /* - component > all related to text blocks ----- */
-    .plain_text{ width: 90%;}
+        /* - component > all related to text blocks ----- */
+        .plain_text{ width: 90%;}
 
-    /* - component > text-image ----- */  
-    .txt_img_container { float: none; width: 70%; }
+        /* - component > text-image ----- */  
+        .txt_img_container { float: none; width: 70%; }
 }
 
 /* ------------------------------------------------------------ */
@@ -424,7 +424,6 @@ input[type='checkbox'] { display: none; }
 /* 36em = 576px */
 // ---- iPhone Plus + iPhone Flipped (approx 560px width)---- //
 @media (max-width: 36em) {
-
     .comp_intro_container { width: 80%; line-height: 1.3; }
     
     .indented_image { margin: 40px 0px 40px -35px; }
@@ -442,4 +441,15 @@ input[type='checkbox'] { display: none; }
 
     .relation_img { max-width: 200px;}
 
- }
+    #circle1 {
+        width: 100%;
+        top: -15px;
+        left: -35px;
+    }
+}
+
+// ---- iPhone 6/7/8/X (375 x 667/812)---- //
+@media (max-width: 375px) {}
+
+// ---- iPhone 5/SE (320 x 568)---- //
+@media (max-width: 320px) {}

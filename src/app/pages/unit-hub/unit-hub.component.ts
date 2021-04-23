@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
 // import { HelperService } from "../../services/helper.service";
 import { BundleAllAPIsService } from '../../services_strapi/bundle-all-apis.service'
 import { Subscription } from 'rxjs';
-
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-unit-hub',
@@ -71,6 +71,16 @@ export class UnitHubComponent implements OnInit {
     
     
     ngOnInit(): void {
+
+    //   document.onreadystatechange = function() {
+    //     if (document.readyState !== "complete") {
+    //         document.getElementById("loader")!.style.visibility = "visible";
+    //     } else {
+    //       $(".se-pre-con").fadeOut("slow");;
+    //       // document.getElementById("loader")!.style.display = "none";
+    //     }
+    // };
+
       this.subscription = this.BundleAllAPIs.bundledContentAPIs.subscribe((message: string) => {
         if (message == '') {
           return; // Ignore empty initial message
