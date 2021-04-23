@@ -18,6 +18,8 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
   apiUrl = environment.apiUrl;
   private perspectiveTitle: string = "";
   perspective:any;
+  language:string | undefined ;
+
 
   // perspectives: any = [];
   constructor(
@@ -25,7 +27,7 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private helperService: HelperService,
     private sideCommentPosition: SideCommentPositionService,
-    // private router: Router,
+    private router: Router,
     // private routeReuseStrategy: RouteReuseStrategy,
     ) {
       // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
@@ -78,6 +80,13 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
   var scrollID = document.getElementById("scrollBar");
   scrollID!.style.width = scrolled + "%";
 } 
+
+// titleEncoded:string | undefined;
+// title2url(unit_type:string, relatedTitle:string){
+//   console.log("link click §§§§§");
+//   this.titleEncoded = this.helperService.encodeCustomURI(relatedTitle);
+//   this.router.navigate(['/', this.language, 'index', unit_type, this.titleEncoded]);
+// }
 
 
 }

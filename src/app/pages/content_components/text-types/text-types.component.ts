@@ -78,10 +78,5 @@ export class TextTypesComponent implements OnInit, AfterViewInit {
   //   }, 1000);
   // }
 
-  titleEncoded:string | undefined;
-  title2url(unit_type:string, relatedTitle:string){
-    this.titleEncoded = this.helperService.encodeCustomURI(relatedTitle);    
-    this.router.navigate(['/', this.language, 'index', unit_type, this.titleEncoded]);
-  }
 
 }

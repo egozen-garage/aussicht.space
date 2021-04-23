@@ -146,8 +146,7 @@
                 <ul>
                     <li *ngFor="let perspektives of project.perspektives, let i = index" 
                         class="recommendation_title">
-                            <!-- <a [routerLink]="['/' + language, index, project.perspektives[i].unit_type, project.perspektives[i].titleEncoded ]"> -->
-                            <a (click)="title2url(project.perspektives[i].unit_type, project.perspektives[i].title)">
+                            <a routerLink="/{{language}}/index/perspective/{{ project.perspektives[i].title | title2link }}"> 
                                 <div *ngIf="project.perspektives[i].title?.length">
                                 {{project.perspektives[i].title}}
                                 </div>

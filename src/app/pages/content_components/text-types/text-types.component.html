@@ -97,8 +97,7 @@ class="section-grid side_comment_container">
 
                             <!-- if PROJECT -->
                             <div *ngIf="body.relation_to[r].projekt != null" >
-                                <!-- <a [routerLink]="['/units/project/' + body.relation_to[r].projekt.id ]"> -->
-                                <a (click)="title2url(body.relation_to[r].projekt.unit_type, body.relation_to[r].projekt.title)">
+                                <a routerLink="/{{language}}/index/project/{{ body.relation_to[r].projekt.title | title2link }}">                                    
                                     <!-- relation: title artist -->
                                     <div *ngIf="body.relation_to[r].projekt.title?.length" 
                                     class="relation_title">
@@ -127,8 +126,7 @@ class="section-grid side_comment_container">
                             </div>
                             <!-- if PERSPECTIVE -->
                             <div *ngIf=" body.relation_to[r].perspektive != null" >
-                                <!-- <a [routerLink]="['/units/perspective/' + body.relation_to[r].perspektive.id ]"> -->
-                                <a (click)="title2url(body.relation_to[r].perspektive.unit_type, body.relation_to[r].perspektive.title)">
+                                <a routerLink="/{{language}}/index/perspective/{{ body.relation_to[r].perspektive.title | title2link }}"> 
                                     <!-- relation: title artist -->
                                     <div *ngIf="body.relation_to[r].perspektive.title?.length" 
                                     class="relation_title">
@@ -157,8 +155,7 @@ class="section-grid side_comment_container">
                             </div>
                             <!-- if PODCAST -->
                             <div *ngIf=" body.relation_to[r].podcast != null" >
-                                <!-- <a [routerLink]="['/units/podcast/' + body.relation_to[r].podcast.id ]"> -->
-                                <a (click)="title2url(body.relation_to[r].podcast.unit_type, body.relation_to[r].podcast.title)">
+                                <a routerLink="/{{language}}/index/podcast/{{ body.relation_to[r].podcast.title | title2link }}"> 
                                     <!-- relation: title artist -->
                                     <div *ngIf="body.relation_to[r].podcast.title?.length" 
                                     class="relation_title">
