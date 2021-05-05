@@ -1,4 +1,7 @@
 import { Component, OnInit, AfterContentChecked } from '@angular/core';
+import { CurrentLanguageService } from '../../services_strapi/language/current-language.service';
+import { Subscription } from "rxjs";
+
 //import * as QuestionGerman from './../json/question_german.ts';
 //import { System } from 'systemjs';
 
@@ -12,8 +15,8 @@ import { Component, OnInit, AfterContentChecked } from '@angular/core';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
-  questionsDatabase = require("../../../assets/json/question_german.json");
-  length_of_database = this.questionsDatabase.length - 1;
+  questionsDatabase:any;
+  // length_of_database = this.questionsDatabase.length - 1;
   pass_typewriter_content:any;
 
   timeToReloadNewText = 3000; // 3 seconds
@@ -31,11 +34,25 @@ export class QuestionsComponent implements OnInit {
   //   "Warum sollen wir glauben, dass die Bedingungen, die große Pandemie von 1918 verursachten?"
   // ];
 
-  constructor() {
+  subscription: Subscription | undefined;
+  languageAPIkeyword:any;
+  
+  constructor(
+    private currentLanguage: CurrentLanguageService,
+  ) {
+    this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
+      if( language === "de"){
+        this.questionsDatabase = require("../../../assets/json/question_german.json");
+      } else if (language === "en") {
+        this.questionsDatabase = require("../../../assets/json/question_english.json");
+      } else {
+        this.questionsDatabase = require("../../../assets/json/question_english.json");
+      }
+    });
   }
 
   ngOnInit() {
-    let i = Math.floor(Math.random() * this.length_of_database);
+    let i = Math.floor(Math.random() * (this.questionsDatabase.length - 1));
     this.StartTextAnimation(i);
     console.log("starting with number: " + i);
     
@@ -82,14 +99,14 @@ export class QuestionsComponent implements OnInit {
         setTimeout( (StartTextAnimation) => {
           console.log("is it undefined?");
           
-          let c = Math.floor(Math.random() * this.length_of_database);
+          let c = Math.floor(Math.random() * (this.questionsDatabase.length - 1));
           this.StartTextAnimation(c);
         }, 2000);
       }
       // if questionsDatabase[i] exists, start animation
       if (this.questionsDatabase[i].question.length) {
         this.typeWriter(this.questionsDatabase[i].question, 0, () =>{
-          let b = Math.floor(Math.random() * this.length_of_database);
+          let b = Math.floor(Math.random() * (this.questionsDatabase.length - 1));
           console.log("question number: " + b);
           console.log(this.questionsDatabase[b].question);
           

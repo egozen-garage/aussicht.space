@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy, HostListener, AfterViewInit } from '@angu
 import { PerspectiveService } from '../../services_strapi/perspective.service';
 import { ActivatedRoute, Router, RouteReuseStrategy } from '@angular/router';
 import { SideCommentPositionService } from '../../services/side-comment-position.service';
+import { CurrentLanguageService } from '../../services_strapi/language/current-language.service';
+
 // import { RouteReuseStrategy } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
@@ -20,6 +22,8 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
   perspective:any;
   language:string | undefined ;
 
+  subscription: Subscription | undefined;
+  language_prefix:string|undefined;
 
   // perspectives: any = [];
   constructor(
@@ -28,8 +32,12 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
     private helperService: HelperService,
     private sideCommentPosition: SideCommentPositionService,
     private router: Router,
+    private currentLanguage: CurrentLanguageService,
     // private routeReuseStrategy: RouteReuseStrategy,
     ) {
+      this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
+        this.language_prefix = language;
+      });
       // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
       // this.route.routeReuseStrategy.shouldReuseRoute = function () {
@@ -57,7 +65,8 @@ export class PerspectiveComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.route.params.subscribe( p => {
       this.perspectiveTitle = p['title'];
-      this.perspectiveSvc.getAllPerspectives().subscribe((allPerspectives:any[]) => {
+      this.perspectiveSvc.currentPerspectiveSource.subscribe((allPerspectives:any) => {
+      // this.perspectiveSvc.getAllPerspectives().subscribe((allPerspectives:any[]) => {
         for (let i=0; i<allPerspectives.length; i++) {
           let perspective = allPerspectives[i];
           if (this.helperService.encodeCustomURI(perspective.title) == this.perspectiveTitle) {

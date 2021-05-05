@@ -25,6 +25,7 @@ export class AppComponent implements OnInit  {
   
     title = 'aussicht.space';
     posts : any[] = [];
+    language : any;
 
   constructor(
     private http: HttpClient,
@@ -55,9 +56,9 @@ export class AppComponent implements OnInit  {
   // isWideScreen$: Observable<boolean> | undefined;
   ngOnInit(): void{
     // Fill each service cache to speed up the pages where the data is actually 3needed
-    this.projectSvc.getAllProjects().subscribe();
-    this.perspectiveSvc.getAllPerspectives().subscribe();
-    this.podcastSvc.getAllPodcastEpisodes().subscribe();
+    //this.projectSvc.getAllProjects().subscribe();
+    // this.perspectiveSvc.getAllPerspectives().subscribe();
+    // this.podcastSvc.getAllPodcastEpisodes().subscribe();
     //this.themeSvc.getAllThemes().subscribe();
 
   // defining breakpoint for responsive desgin -->

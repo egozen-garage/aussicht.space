@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "imprint_and_data_protections",
+  "info": {
+    "name": "imprint and data protection",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "copyright_ownership_declaration": {
+      "type": "richtext"
+    },
+    "promoted_by": {
+      "type": "richtext"
+    },
+    "privacy_policy_title": {
+      "type": "string"
+    },
+    "privacy_policy_link": {
+      "type": "string"
+    },
+    "involved_party": {
+      "type": "dynamiczone",
+      "components": [
+        "impressum-involved-party.add-team",
+        "impressum-involved-party.add-single-party",
+        "impressum-involved-party.add-institution"
+      ]
+    }
+  }
+}

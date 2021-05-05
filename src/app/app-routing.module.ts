@@ -8,7 +8,6 @@ import { ProgramComponent } from './landing_page/program/program.component';
 import { TeamComponent } from './landing_page/team/team.component';
 
 import { UnitHubComponent } from './pages/unit-hub/unit-hub.component';
-import { PreviewComponent } from './pages/preview/preview.component';
 
 import { ImpressumComponent} from './impressum/impressum.component';
 import { ProjectComponent} from './pages/project/project.component';
@@ -20,7 +19,7 @@ import { AnnouncementComponent } from './pages/announcement/announcement.compone
 
 const routes: Routes = [
   // { path: "", component: AnnouncementComponent},
-  { path: "", component: LandingPageComponent},
+  { path: ":language", component: LandingPageComponent},
   { path: ":language/impressum", component: ImpressumComponent },
   { path: ":language/ueber", component: AboutComponent},
   { path: ":language/programm", component: ProgramComponent},

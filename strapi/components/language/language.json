@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_language_languages",
+  "info": {
+    "name": "language",
+    "icon": "bookmark"
+  },
+  "options": {},
+  "attributes": {
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "de",
+        "en"
+      ],
+      "required": true
+    }
+  }
+}

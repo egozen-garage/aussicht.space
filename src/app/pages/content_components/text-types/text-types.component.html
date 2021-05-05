@@ -1,5 +1,5 @@
 <!-- COMPONENT > "intro" ---------------------------------------------------- -->
-<div *ngIf=" body.__component === 'text-types.intro'" 
+<div *ngIf=" body.__typename === 'ComponentTextTypesIntro'" 
 class="section-grid">
     <!-- intro text -->
     <div class="comp_intro_container">
@@ -15,7 +15,7 @@ class="section-grid">
 
 
 <!-- COMPONENT > "subhead" ---------------------------------------------------- -->
-<div *ngIf=" body.__component === 'text-types.subhead'" 
+<div *ngIf=" body.__typename === 'ComponentTextTypesSubhead'" 
 class="section-grid">
     <p class="subhead" *ngIf="body.subhead?.length">
         {{body.subhead}}
@@ -24,7 +24,7 @@ class="section-grid">
 
 
 <!-- COMPONENT > "paragraph-plain" ---------------------------------------------------- -->
-<div *ngIf=" body.__component === 'text-types.paragraph-plain'" 
+<div *ngIf=" body.__typename === 'ComponentTextTypesParagraphPlain'" 
 class="section-grid">
     <!-- text -->
     <markdown class="plain_text paragraph-text" *ngIf="body.paragraph?.length">
@@ -35,7 +35,7 @@ class="section-grid">
 
 
 <!-- COMPONENT > "paragraph-with-machine" ---------------------------------------------------- -->
-<div *ngIf=" body.__component === 'text-types.paragraph-with-machine'" 
+<div *ngIf=" body.__typename === 'ComponentTextTypesParagraphWithMachine'" 
 class="section-grid">
     <div class="comp_textblock_machine">
         <!-- MACHINE-GENERATED content is called out here -->
@@ -73,7 +73,7 @@ class="section-grid">
 
 
 <!-- COMPONENT > "paragraph-with-relation" ---------------------------------------------------- -->
-<div *ngIf=" body.__component === 'text-types.paragraph-with-relation'" 
+<div *ngIf=" body.__typename === 'ComponentTextTypesParagraphWithRelation'" 
 class="section-grid side_comment_container">
 
     <div class="comp_textblock_relation">
@@ -211,7 +211,7 @@ class="section-grid side_comment_container">
 
 
 <!-- COMPONENT > "paragraph-with-image" ---------------------------------------------------- -->
-<div *ngIf=" body.__component === 'text-types.paragraph-with-image'" 
+<div *ngIf=" body.__typename === 'ComponentTextTypesParagraphWithImage'" 
 class="section-grid">
     <div class="comp_textblock_machine comp_textblock_image">
         <!-- call out image -->
@@ -228,6 +228,6 @@ class="section-grid">
 
 
 <!-- COMPONENT > "white-space" ---------------------------------------------------- -->
-<div class="white-space" *ngIf="body.__component === 'text-types.white-space'" 
+<div class="white-space" *ngIf="body.__typename === 'ComponentTextTypesWhiteSpace'" 
 [ngStyle]="{'width': '100%', 'height': body.distance_in_pixel}">
 </div>

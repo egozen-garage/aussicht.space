@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SideCommentPositionService } from '../../services/side-comment-position.service';
 import { HelperService } from "../../services/helper.service";
 import { CurrentLanguageService } from '../../services_strapi/language/current-language.service';
+import { Subscription } from 'rxjs';
 
 //import { CustomDesignIframeComponent } from '../custom_designs/custom-design-iframe/custom-design-iframe.component';
 //import { CustomDesignJavascriptComponent } from '../custom_designs/custom-design-javascript/custom-design-javascript.component';
@@ -39,6 +40,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   image_size:number = 64;
   image_size_STYLE:number = 64;
 
+  subscription: Subscription | undefined;
+  language_prefix:string|undefined;
 
   constructor(
     private projectSvc: ProjectService,
@@ -49,6 +52,9 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     // private sideCommentPosition: SideCommentPositionService,
     private sideCommentPosition: SideCommentPositionService    
     ) {       
+      this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
+        this.language_prefix = language;
+      });
       if (window.innerWidth >= 1024) {
         //this.isMobileResolution = true;
         this.image_size = 128;
@@ -107,7 +113,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
     this.route.params.subscribe( p => {
       this.projectTitle = p['title'];
-      this.projectSvc.getAllProjects().subscribe((allProjects:any[]) => {
+      this.projectSvc.currentProjectSource.subscribe((allProjects:any) => {
+      // this.projectSvc.getAllProjects().subscribe((allProjects:any[]) => {
         for (let i=0; i<allProjects.length; i++) {
           let project = allProjects[i];
           if (this.helperService.encodeCustomURI(project.title) == this.projectTitle) {

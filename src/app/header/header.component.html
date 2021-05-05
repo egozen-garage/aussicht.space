@@ -1,6 +1,6 @@
 
 <header class="logo" id="logo">
-    <a id="itemlogo" routerLink="">aussicht.space</a>
+    <a id="itemlogo" routerLink="/{{language}}">aussicht.space</a>
 </header>
 
 <input class="menu-btn" type="checkbox" id="menu-btn" />
@@ -8,10 +8,10 @@
 <div class="menu-dropdown-bg" id="menu-dropdown-bg" ></div>
 
 <header class="menu" id="menu">
-  <a id="itemunits" routerLink="/{{language}}/index"><li class="items">Index</li></a>
-  <a id="itemprogramme" routerLink="/{{language}}/programm" ><li class="items">Programm</li></a>
-  <a id="itemabout" routerLink="/{{language}}/ueber" ><li class="items">Über</li></a>
-  <a id="itemartists" routerLink="/{{language}}/teilnehmer_innen" ><li class="items">Teilnehmer:innen</li></a>
+  <a id="itemunits" routerLink="/{{language}}/index"><li class="items">{{index}}</li></a>
+  <a id="itemprogramme" routerLink="/{{language}}/programm" ><li class="items">{{program}}</li></a>
+  <a id="itemabout" routerLink="/{{language}}/ueber" ><li class="items">{{about}}</li></a>
+  <a id="itemartists" routerLink="/{{language}}/teilnehmer_innen" ><li class="items">{{participants}}</li></a>
 
   <app-language-switch></app-language-switch>
 

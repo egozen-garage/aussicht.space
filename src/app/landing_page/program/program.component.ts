@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Character, characterAttributesMapping } from './character.model';
 import { EventService } from '../../services_strapi/event.service';
+import { CurrentLanguageService } from '../../services_strapi/language/current-language.service';
 
 
 
@@ -18,7 +19,8 @@ export class ProgramComponent implements OnInit {
 
   apiUrl = environment.apiUrl;
 
-  language: any = "de";
+  // language: any = "de";
+  language: any;
 
   events: any = [];
   eventId: any = [];
@@ -34,16 +36,25 @@ export class ProgramComponent implements OnInit {
 
   characters$?: Observable<Character[]>;
 
+  title_performance:string | undefined;
+  title_talk:string | undefined;
+  title_special:string | undefined;
+
   //sheetno = "od6";
   //sheetid = "11Ai9cZgPjasCPZuarlnam7dLCPvY45LOZ29L29ELmmbU";
   // characters$: Observable<any[]> | undefined ;
 
   constructor(
     private eventSvc: EventService,
+    private currentLanguage: CurrentLanguageService,
     ) { 
   }
 
   ngOnInit(): void {
+    this.currentLanguage.currentLanguage.subscribe(res => {
+      this.language = res;
+    });
+
     this.eventSvc.getAllEvents().subscribe((res:any) => {      
       this.events = res;
       this.eventsFromCms = this.events;
@@ -70,10 +81,16 @@ export class ProgramComponent implements OnInit {
         this.performances.forEach((element:any) => {  this.event_performances.push(element.de);   });
         this.talks.forEach((element:any)        => {  this.event_talks.push(element.de);          });
         this.specials.forEach((element:any)     => {  this.event_specials.push(element.de);       });
+        this.title_performance = "Performances";
+        this.title_talk = "Gespräche und Vorträge";
+        this.title_special = "Specials";        
       } else if (this.language === "en"){
         this.performances.forEach((element:any) => {  this.event_performances.push(element.en);   });
         this.talks.forEach((element:any)        => {  this.event_talks.push(element.en);          });
         this.specials.forEach((element:any)     => {  this.event_specials.push(element.en);       });
+        this.title_performance = "Performances";
+        this.title_talk = "Talks and lectures";
+        this.title_special = "Specials";
       }
       
       

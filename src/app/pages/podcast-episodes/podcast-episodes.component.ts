@@ -8,7 +8,8 @@ import { CloudService } from "../../services/cloud.service";
 import { StreamState } from "../../interfaces/stream-state";
 import * as xml2js from 'xml2js';
 import { CurrentTrackService } from 'src/app/services/current-track.service';
-import { Subscription } from "rxjs";
+import { CurrentLanguageService } from '../../services_strapi/language/current-language.service';
+import { Subscription } from 'rxjs';
 import { HelperService } from "../../services/helper.service";
 
 @Component({
@@ -26,13 +27,20 @@ export class PodcastEpisodesComponent implements OnInit {
   podcastTitle: string = "";
   podcast:any;
   subscription: Subscription | undefined;
+  subscription_language: Subscription | undefined;
+  language_prefix:string|undefined;
 
   constructor(
     private podcastSvc: PodcastepisodesService,
     private route: ActivatedRoute,
     private helperService: HelperService,
-    private currentTrackService: CurrentTrackService
-  ) { }
+    private currentTrackService: CurrentTrackService,
+    private currentLanguage: CurrentLanguageService,
+  ) { 
+    this.subscription_language = this.currentLanguage.currentLanguage.subscribe((language: any) => {
+      this.language_prefix = language;
+    });
+  }
 
   ngOnInit() {
     this.subscription = this.currentTrackService.currentFileAndIndex.subscribe((message: string) => {
@@ -47,7 +55,8 @@ export class PodcastEpisodesComponent implements OnInit {
 
     this.route.params.subscribe( p => {
       this.podcastTitle = p['title'];
-      this.podcastSvc.getAllPodcastEpisodes().subscribe((allPodcastEpisodes:any[]) => {
+      this.podcastSvc.currentPodcastSource.subscribe((allPodcastEpisodes:any) => {
+      // this.podcastSvc.getAllPodcastEpisodes().subscribe((allPodcastEpisodes:any[]) => {
         for (let i=0; i<allPodcastEpisodes.length; i++) {
           let podcastEpisode = allPodcastEpisodes[i];
           if (this.helperService.encodeCustomURI(podcastEpisode.title) == this.podcastTitle) {

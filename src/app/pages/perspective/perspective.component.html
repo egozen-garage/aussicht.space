@@ -11,7 +11,14 @@
         <h3 class="p_title" *ngIf="perspective.title?.length">{{ perspective.title }}</h3>
         <h3 class="p_author" *ngIf="perspective.author?.length">{{ perspective.author }}</h3>
         <div class="perspective-theme-container">
-            <div *ngFor="let t of perspective.themes" class="themes">{{t.theme_name}}</div>
+            <div *ngFor="let t of perspective.themes" class="themes">
+                <ng-container *ngIf="language_prefix === 'de'">
+                    {{t.theme_name}}
+                </ng-container>
+                <ng-container *ngIf="language_prefix === 'en'">
+                    {{t.english_theme_name}}
+                </ng-container>
+            </div>
         </div>
     </div>
 

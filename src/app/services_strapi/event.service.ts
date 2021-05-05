@@ -1,18 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { map } from 'rxjs/operators';
+import { catchError, map, shareReplay } from 'rxjs/operators';
+import { EMPTY, Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
-  constructor(private http: HttpClient) { }
 
-  getAllEvents() {
-    // console.log("event api: " + environment.apiUrl + "/events/");
-    
-    return this.http.get(`${environment.apiUrl}/events`).pipe(map(res => res));
+  private allEventsCachedObservable: any;
+
+  constructor(private http: HttpClient,
+  ) { }
+
+  ngOnInit(): void {
+  }
+
+  getAllEvents(): Observable<any>  {
+    if (this.allEventsCachedObservable) {
+      return this.allEventsCachedObservable;
+    }
+    this.allEventsCachedObservable = this.http.get(`${environment.apiUrl}/events`).pipe(
+      shareReplay(1),
+      catchError((err:RTCError) => {
+        delete this.allEventsCachedObservable;
+        return EMPTY;
+      })
+    );         
+    return this.allEventsCachedObservable;
   }
 
   getEvent(eventId : any) {

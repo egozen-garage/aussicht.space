@@ -1,12 +1,12 @@
 <!-- COMPONENT > "image-type: fullscreen image" ---------------------------------------------------- -->
-<figure *ngIf=" body.__component === 'image-types.fullscreen-image'">
+<figure *ngIf=" body.__typename === 'ComponentImageTypesFullscreenImage'">
     <img class="img" id="fullscreen" src="{{body.image.url}}"> 
         <figcaption class="img_caption">{{ body.image.caption }}</figcaption>
 </figure>
 
 
 <!-- COMPONENT > "image-type: single image" ---------------------------------------------------- -->
-<div *ngIf=" body.__component === 'image-types.single-image'" 
+<div *ngIf=" body.__typename === 'ComponentImageTypesSingleImage'" 
 class="img-section-grid">
 
     <figure class="default" *ngIf="body.style !== null "
@@ -51,7 +51,7 @@ class="img-section-grid">
 
 
 <!-- COMPONENT > "image-type: couple image" ---------------------------------------------------- -->
-<div *ngIf=" body.__component === 'image-types.couple-images'" class="img-section-grid">
+<div *ngIf=" body.__typename === 'ComponentImageTypesCoupleImages'" class="img-section-grid">
 
     <figure class="img_container" id="c-left">
         <img src="{{body.image_left.url }}" class="img" id="left">
@@ -67,7 +67,7 @@ class="img-section-grid">
 
 <!-- is functioning like an image component -->
 <!-- COMPONENT > "free_text" ---------------------------------------------------- -->
-<div *ngIf=" body.__component === 'text-types.free-text'" 
+<div *ngIf=" body.__typename === 'ComponentTextTypesFreeText'" 
 class="img-section-grid">
 
     <div class="default" *ngIf="body.style !== null "

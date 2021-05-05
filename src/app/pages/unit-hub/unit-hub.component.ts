@@ -31,6 +31,8 @@ export class UnitHubComponent implements OnInit {
   apiUrl = environment.apiUrl;
 
   unitAndEncodedHrefList: any;
+  theme_name_EN:string|undefined;
+  theme_name_DE:string|undefined;
 
   // projects: any = [];
   // projectId: any = [];
@@ -54,7 +56,7 @@ export class UnitHubComponent implements OnInit {
 
 
   subscription: Subscription | undefined;
-
+  language_prefix:string|undefined;
 
   constructor(
     // private projectSvc: ProjectService,
@@ -67,6 +69,18 @@ export class UnitHubComponent implements OnInit {
     private BundleAllAPIs: BundleAllAPIsService,
     private currentLanguage: CurrentLanguageService,
     ) {
+      this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
+        this.language_prefix = language;
+        // if( language === "de"){
+        //   this.theme_name_DE = "theme_name";
+        // } else if (language === "en") {
+        //   this.theme_name_EN = "english_theme_name";
+        // } else {
+        //   this.theme_name_EN = "english_theme_name";
+        // }
+      });
+      
+      
       // console.log("-+-+-+-+-+-+-" + this.unitAndEncodedHrefList);
       // this.BundleAllAPIs.bundleAllAPIs(this.unitAndEncodedHrefList);
       // this.BundleAllAPIs.callContentAPIs();
