@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { LanguageApiSwitchService } from '../services_strapi/language/language-api-switch.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { CurrentLanguageService } from '../services_strapi/language/current-language.service';
@@ -14,6 +14,7 @@ import {Location} from '@angular/common';
   styleUrls: ['./language-switch.component.scss']
 })
 export class LanguageSwitchComponent implements OnInit {
+  @Input() language_equivalent:any;
   
   languages = ['de', 'en'];
   selectedLanguage = 'de';
@@ -39,14 +40,19 @@ export class LanguageSwitchComponent implements OnInit {
     this.router.navigate([routeNew]);
   }
 
-  onLanguageSelectedOrChanged() {
+  routeNew:string|undefined;
+  onLanguageSelectedOrChanged() {    
     // Keep the route as it is but change only the language
+    // OR
+    // Replace the title with the language equivalent
     // + refresh the browser
-
-    // "index" + unit_type + title
-    let routeNew = this.location.path().slice(0, 1) + this.selectedLanguage + this.location.path().slice(3);    
+    if (this.language_equivalent != null){
+      this.routeNew = this.location.path().slice(0, 1) + this.selectedLanguage + "/index/" + this.language_equivalent;
+    } else {
+      this.routeNew = this.location.path().slice(0, 1) + this.selectedLanguage + this.location.path().slice(3);    
+    }
     this.currentLanguage.changeLanguage(this.selectedLanguage);
-    this.router.navigate([routeNew]).then(() => {
+    this.router.navigate([this.routeNew]).then(() => {
       window.location.reload();      
     });
   }

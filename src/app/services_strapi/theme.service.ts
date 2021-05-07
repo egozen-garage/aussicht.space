@@ -47,23 +47,23 @@ export class ThemeService {
   // getAllThemes() {
   //   return this.http.get(`${environment.apiUrl}/themes`).pipe(map(res => res));
 
-  getAllThemes(): Observable<any> {
-    if (this.allThemesCachedObservable) {
-      return this.allThemesCachedObservable;
-    }
+  // getAllThemes(): Observable<any> {
+  //   if (this.allThemesCachedObservable) {
+  //     return this.allThemesCachedObservable;
+  //   }
 
-    this.allThemesCachedObservable = this.http.get(`${environment.apiUrl}/themes`).pipe(
-    // this.allThemesCachedObservable = this.getReducedThemes().pipe(
-      shareReplay(1),
-      catchError((err:RTCError) => {
-        delete this.allThemesCachedObservable;
-        return EMPTY;
-      }));
-    return this.allThemesCachedObservable;
-  }
+  //   this.allThemesCachedObservable = this.http.get(`${environment.apiUrl}/themes`).pipe(
+  //   // this.allThemesCachedObservable = this.getReducedThemes().pipe(
+  //     shareReplay(1),
+  //     catchError((err:RTCError) => {
+  //       delete this.allThemesCachedObservable;
+  //       return EMPTY;
+  //     }));
+  //   return this.allThemesCachedObservable;
+  // }
 
-  getThemes(themeId : any) {
-    return this.http.get(`${environment.apiUrl}/themes/${themeId}`).pipe(map(res => res));
-  }
+  // getThemes(themeId : any) {
+  //   return this.http.get(`${environment.apiUrl}/themes/${themeId}`).pipe(map(res => res));
+  // }
 
 }

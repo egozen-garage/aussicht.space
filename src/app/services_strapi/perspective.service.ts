@@ -49,6 +49,9 @@ export class PerspectiveService {
     ) { 
     this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
       this.language_prefix = language;
+      if (this.language_prefix == "" ){
+        this.language_prefix = "de";
+      }   
       // if( language === "de"){
       //   this.languageAPIkeyword = "perspektives";
       // } else if (language === "en") {

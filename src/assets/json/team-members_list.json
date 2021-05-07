@@ -3,60 +3,70 @@
         "name": "Bianchini",
         "forename": "Beatrice",
         "profession": "Konzeption digitaler Ausstellungsraum",
+        "EN_profession": "EN profession",
         "image" : "BB.png"
     },
     {
         "name": "Denkmann",
         "forename": "Irina",
         "profession": "Kuration, Ausstellungsorganisation",
+        "EN_profession": "",
         "image" : "ID.png"
     },
     {
         "name": "Deuter",
         "forename": "Jonas",
         "profession": "Kuration, Grafik, Art Direktion",
+        "EN_profession": "",
         "image" : "JD.png"
     },
     {
         "name": "Grünewald",
         "forename": "Ulrike",
         "profession": "Projektleitung",
+        "EN_profession": "",
         "image" : "UG.png"
     },
     {
         "name": "Hahn",
         "forename": "Sebastian",
         "profession": "Technisch-organisatorische Koordination",
+        "EN_profession": "",
         "image" : "SH.png"
     },
     {
         "name": "Kosok",
         "forename": "Felix",
         "profession": "Programmdirektion",
+        "EN_profession": "",
         "image" : "FK.png"
     },
     {
         "name": "Lowin",
         "forename": "Erika",
         "profession": "Konzeption digitaler Ausstellungsraum",
+        "EN_profession": "",
         "image" : "EL.png"
     },
     {
         "name": "Sitte",
         "forename": "Maria",
         "profession": "Kuration, Ausstellungsorganisation",
+        "EN_profession": "",
         "image" : "MS.png"
     },
     {
         "name": "Sukhova",
         "forename": "Anna",
         "profession": "Grafik, Art Direktion",
+        "EN_profession": "",
         "image" : "AS.png"
     },
     {
         "name": "Wagner",
         "forename": "Ellen",
         "profession": "Kuration und Ausstellungsorganisation",
+        "EN_profession": "",
         "image" : "EMW.png"
     }
 ]

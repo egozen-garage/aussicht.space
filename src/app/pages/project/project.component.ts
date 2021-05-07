@@ -24,6 +24,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   project:any;
   folder_name:any;
   gpt_image_div = document.getElementById("gpt_images");
+  language_equivalent_page:string | undefined;
 
   language:string | undefined ;
   index:string = "index";
@@ -120,6 +121,13 @@ export class ProjectComponent implements OnInit, AfterViewInit {
           if (this.helperService.encodeCustomURI(project.title) == this.projectTitle) {
             this.project = project;
             this.folder_name = this.project.GPT_folder_name;
+            if( this.language === "de"){
+              this.language_equivalent_page = this.title2url("project/", project.en_equivalent.title);
+            } else if (this.language === "en") {
+              this.language_equivalent_page = this.title2url("project/", project.de_equivalent.title);
+            } else {
+              this.language_equivalent_page = this.title2url("project/", project.de_equivalent.title);
+            }
             return;
 
             // if(this.folder_name){
@@ -286,8 +294,13 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
   titleEncoded:string | undefined;
   title2url(unit_type:string, relatedTitle:string){
-    this.titleEncoded = this.helperService.encodeCustomURI(relatedTitle);    
-    this.router.navigate(['/', this.language, 'index', unit_type, this.titleEncoded]);
+    let titleEncoded = this.helperService.encodeCustomURI(relatedTitle);    
+    // this.router.navigate(['/', this.language, 'index', unit_type, this.titleEncoded]);
+    let language_equivalent_page = unit_type + titleEncoded;
+    return language_equivalent_page;
   }
+
+
+  
 
 }

@@ -4,7 +4,7 @@
     <!-- HEADER -------- HEADER--------- HEADER----------- HEADER---------- HEADER -->
 
     <app-back-to-hub [unit_type]="project.unit_type"></app-back-to-hub>
-    <app-language-switch></app-language-switch>
+    <app-language-switch [language_equivalent]="language_equivalent_page"></app-language-switch>
 
     <!-- themes -->
     <header class="header-grid" id="container-themes">
@@ -132,7 +132,7 @@
     <ng-container *ngIf="project.perspektives?.length" 
     class="" id=""> 
     
-        <a *ngFor="let perspektives of project.perspektives, let a = index" class="recommendation project_additional_link" (click)="title2url(project.perspektives[a].unit_type, project.perspektives[a].title)">
+        <div *ngFor="let perspektives of project.perspektives, let a = index" class="recommendation project_additional_link">
 
             <div class="recommendation_intro">
                 Essay zum 
@@ -161,7 +161,7 @@
             </div>
 
 
-        </a>
+        </div>
 
         
     </ng-container>

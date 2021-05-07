@@ -51,8 +51,9 @@ export class ProjectService {
     ) { 
       this.subscription = this.currentLanguage.currentLanguage.subscribe((language: string) => {
         this.language_prefix = language;
-        console.log("this.language_prefix", this.language_prefix);
-        
+        if (this.language_prefix == "" ){
+          this.language_prefix = "de";
+        }        
         // if( language === "de"){
         //   this.language_prefix = "de";
         //   // this.languageAPIkeyword = "projekts";
@@ -67,22 +68,22 @@ export class ProjectService {
       this.getReducedProjects();
   }
 
-  getAllProjects(): Observable<any> {
-    if (this.allProjectsCachedObservable) {
-      return this.allProjectsCachedObservable;
-    }
-    this.allProjectsCachedObservable = this.http.get(`${environment.apiUrl}/${this.languageAPIkeyword}`).pipe(
-      shareReplay(1),
-      catchError((err:RTCError) => {
-        delete this.allProjectsCachedObservable;
-        return EMPTY;
-      }));
-    return this.allProjectsCachedObservable;
-  }
+  // getAllProjects(): Observable<any> {
+  //   if (this.allProjectsCachedObservable) {
+  //     return this.allProjectsCachedObservable;
+  //   }
+  //   this.allProjectsCachedObservable = this.http.get(`${environment.apiUrl}/${this.languageAPIkeyword}`).pipe(
+  //     shareReplay(1),
+  //     catchError((err:RTCError) => {
+  //       delete this.allProjectsCachedObservable;
+  //       return EMPTY;
+  //     }));
+  //   return this.allProjectsCachedObservable;
+  // }
 
-  getProject(projectId : any) {
-    // return this.http.get(`${environment.apiUrl}/projects/${projectId}`).pipe(map(res => res));
-    return this.http.get(`${environment.apiUrl}/${this.languageAPIkeyword}/${projectId}`).pipe(map(res => res));
-  }
+  // getProject(projectId : any) {
+  //   // return this.http.get(`${environment.apiUrl}/projects/${projectId}`).pipe(map(res => res));
+  //   return this.http.get(`${environment.apiUrl}/${this.languageAPIkeyword}/${projectId}`).pipe(map(res => res));
+  // }
 
 }

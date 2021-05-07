@@ -76,36 +76,32 @@ export class PreviousNextComponent implements OnInit {
       }
       this.unitAndEncodedHrefList = message;
 
-
       this.route.params.subscribe( p => {
         this.currentTitle = p['title'];
-          for (let i=0; i<this.unitAndEncodedHrefList.length; i++) {
-            let HrefList = this.unitAndEncodedHrefList[i];
-            if (HrefList.titleEncoded == this.currentTitle) {
-              this.currentCounter = HrefList.counter;
-              // prepare router links for NEXT
-              let NextCounter:number = Number(this.currentCounter) + 1;
-              if(NextCounter >= this.unitAndEncodedHrefList.length-1){
-                NextCounter = 0;
-              }
-              this.next_unit_type = this.unitAndEncodedHrefList[NextCounter].unit.unit_type;
-              this.next_item = this.unitAndEncodedHrefList[NextCounter].titleEncoded;
-    
-              // prepare router links for PREVIOUS
-              let PreviousCounter:number = Number(this.currentCounter) - 1; 
-              if(PreviousCounter < 0){
-                PreviousCounter = this.unitAndEncodedHrefList.length - 1;
-              }
-              this.previous_unit_type = this.unitAndEncodedHrefList[PreviousCounter].unit.unit_type;
-              this.previous_item = this.unitAndEncodedHrefList[PreviousCounter].titleEncoded;
-              return;
+        for (let i=0; i<this.unitAndEncodedHrefList.length; i++) {
+          let HrefList = this.unitAndEncodedHrefList[i];
+          if (HrefList.titleEncoded == this.currentTitle) {
+            this.currentCounter = HrefList.counter;
+            // prepare router links for NEXT
+            let NextCounter:number = Number(this.currentCounter) + 1;
+            if(NextCounter > this.unitAndEncodedHrefList.length-1){
+              NextCounter = 0;
             }
-          }  
-          
+            this.next_unit_type = this.unitAndEncodedHrefList[NextCounter].unit.unit_type;
+            this.next_item = this.unitAndEncodedHrefList[NextCounter].titleEncoded;
+  
+            // prepare router links for PREVIOUS
+            let PreviousCounter:number = Number(this.currentCounter) - 1; 
+            if(PreviousCounter < 0){
+              PreviousCounter = this.unitAndEncodedHrefList.length - 1;
+            }
+            this.previous_unit_type = this.unitAndEncodedHrefList[PreviousCounter].unit.unit_type;
+            this.previous_item = this.unitAndEncodedHrefList[PreviousCounter].titleEncoded;
+            return;
+          }
+        }  
       });
     }); 
-
-
   }
 
   @HostListener('document:keydown', ['$event'])

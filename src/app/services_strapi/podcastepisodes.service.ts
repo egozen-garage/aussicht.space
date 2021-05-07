@@ -47,18 +47,21 @@ export class PodcastepisodesService {
     private http: HttpClient,
     private currentLanguage: CurrentLanguageService,
     ) { 
-    this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
-      this.language_prefix = language;
-      // if( language === "de"){
-      //   this.languageAPIkeyword = "podcasts";
-      // } else if (language === "en") {
-      //   this.languageAPIkeyword = "en-podcasts";
-      // } else {
-      //   this.languageAPIkeyword = "en-podcasts";
-      // }
-    });
-    this.getReducedPodcasts();
-  }
+      this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
+        this.language_prefix = language;
+        if (this.language_prefix == "" ){
+          this.language_prefix = "de";
+        }   
+        // if( language === "de"){
+        //   this.languageAPIkeyword = "podcasts";
+        // } else if (language === "en") {
+        //   this.languageAPIkeyword = "en-podcasts";
+        // } else {
+        //   this.languageAPIkeyword = "en-podcasts";
+        // }
+      });
+      this.getReducedPodcasts();
+    }
 
   getAllPodcastEpisodes(): Observable<any> {
     if (this.allPodcastsCachedObservable) {

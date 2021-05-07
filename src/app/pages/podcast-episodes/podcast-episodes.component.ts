@@ -29,6 +29,7 @@ export class PodcastEpisodesComponent implements OnInit {
   subscription: Subscription | undefined;
   subscription_language: Subscription | undefined;
   language_prefix:string|undefined;
+  language_equivalent_page:string | undefined;
 
   constructor(
     private podcastSvc: PodcastepisodesService,
@@ -61,6 +62,13 @@ export class PodcastEpisodesComponent implements OnInit {
           let podcastEpisode = allPodcastEpisodes[i];
           if (this.helperService.encodeCustomURI(podcastEpisode.title) == this.podcastTitle) {
             this.podcast = podcastEpisode;
+            if( this.language_prefix === "de"){
+              this.language_equivalent_page = this.title2url("podcast/", podcastEpisode.en_equivalent.title);              
+            } else if (this.language_prefix === "en") {
+              this.language_equivalent_page = this.title2url("podcast/", podcastEpisode.de_equivalent.title);
+            } else {
+              this.language_equivalent_page = this.title2url("podcast/", podcastEpisode.de_equivalent.title);
+            }
             return;
           }
         }
@@ -74,6 +82,13 @@ export class PodcastEpisodesComponent implements OnInit {
     } else {
       this.currentTrackService.changeTrack("#" + this.podcast.episode_id + "_stopped");
     }
+  }
+
+  title2url(unit_type:string, relatedTitle:string){
+    let titleEncoded = this.helperService.encodeCustomURI(relatedTitle);    
+    // this.router.navigate(['/', this.language, 'index', unit_type, this.titleEncoded]);
+    let language_equivalent_page = unit_type + titleEncoded;
+    return language_equivalent_page;
   }
 
   // ngAfterViewInit() {
