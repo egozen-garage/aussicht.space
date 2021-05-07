@@ -52,6 +52,9 @@ import { PreviousNextComponent } from './pages/content_components/previous-next/
 import { AnnouncementComponent } from './pages/announcement/announcement.component';
 import { LanguageSwitchComponent } from './language-switch/language-switch.component';
 import { Title2linkPipe } from './pipes/title2link.pipe';
+import { TalksComponent } from './pages/talks/talks.component';
+import { RecroomComponent } from './pages/recroom/recroom.component';
+import { MachineEssayComponent } from './pages/content_components/machine-essay/machine-essay.component';
 
 // export class MyHammerConfig extends HammerGestureConfig {
 //   overrides = <any>{ 
@@ -95,6 +98,9 @@ import { Title2linkPipe } from './pipes/title2link.pipe';
     AnnouncementComponent,
     LanguageSwitchComponent,
     Title2linkPipe,
+    TalksComponent,
+    RecroomComponent,
+    MachineEssayComponent,
   ],
 
   imports: [

@@ -15,6 +15,9 @@ import { ProjectComponent} from './pages/project/project.component';
 import { PerspectiveComponent} from './pages/perspective/perspective.component';
 import { PodcastEpisodesComponent } from './pages/podcast-episodes/podcast-episodes.component';
 
+import { TalksComponent } from './pages/talks/talks.component';
+import { RecroomComponent } from './pages/recroom/recroom.component';
+
 import { AnnouncementComponent } from './pages/announcement/announcement.component';
 
 
@@ -29,6 +32,8 @@ const routes: Routes = [
   { path: ':language/index/project/:title', component: ProjectComponent},
   { path: ':language/index/podcast/:title', component: PodcastEpisodesComponent},
   { path: ':language/index/perspective/:title', component: PerspectiveComponent},
+  { path: 'talks', component: TalksComponent},
+  { path: 'recording-room', component: RecroomComponent},
   { path: "**", redirectTo: "de"}
 ];
 

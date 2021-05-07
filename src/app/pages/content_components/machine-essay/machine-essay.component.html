@@ -1,0 +1,24 @@
+<!-- COMPONENT > "paragraph-plain" ---------------------------------------------------- -->
+<ng-container *ngIf=" body.__component === 'addon.machine-perspective'" 
+class="section-grid">
+
+    <button (click)="generateText()">Generate Text</button>
+
+    <div class="section-grid">
+
+        <!-- <markdown class="machineTextQuestions">
+            {{ content.input_str }}
+        </markdown> -->
+
+        <markdown innerHTML="{{pass_machineGenerated_content}}" class="machineTextContent">
+        </markdown>
+        
+        
+
+        <!-- <markdown innerHTML="{{pass_machineGenerated_content}} | safeHtml">
+            {{ content.generated }}
+        </markdown> -->
+
+    </div>
+
+</ng-container>

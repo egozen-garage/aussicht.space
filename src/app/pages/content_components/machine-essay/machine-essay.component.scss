@@ -1,0 +1,49 @@
+// ------ GRID CONFIGURATIONS ------ //
+.section-grid {
+    display: grid;
+    grid-template-columns: 20% 40% 20% 20%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "intro intro . ."
+        ". subhead subhead ."
+        ". text text text"
+        ". t_machine t_machine t_machine"
+        ". . . t_m_background"
+        ". remark remark remark"
+        ". relation relation relation"
+        "all all all all";
+}
+
+.machineTextQuestions{
+    font-family: var(--font-family-primary);
+    font-weight: 400;
+    font-size: var(--font-size-primary-s);
+    line-height: 1;
+    padding: 20px 0px 40px var(--margin-s);
+    grid-area: intro;
+    display: block;
+    position: relative;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+.machineTextContent { 
+    grid-area: text; 
+    width: 60%; 
+    height: auto;
+    // position: absolute;
+    padding: 15px 0px 0px 45px;
+    font-family: var(--font-family-machine);
+    font-weight: 400;
+    font-size: var(--font-size-machine-text);
+    line-height: 1.2;
+}
+
+::ng-deep .machineTextContent p {
+    font-size: var(--font-size-paragraph);
+    font-family: var(--font-family-machine);
+    line-height: var(--line-height-paragraph);
+}
+
