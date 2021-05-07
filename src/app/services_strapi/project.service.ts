@@ -48,7 +48,7 @@ export class ProjectService {
   constructor(
     private http: HttpClient,
     private currentLanguage: CurrentLanguageService,
-    ) { 
+    ) {       
       this.subscription = this.currentLanguage.currentLanguage.subscribe((language: string) => {
         this.language_prefix = language;
         if (this.language_prefix == "" ){
