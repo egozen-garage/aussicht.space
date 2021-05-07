@@ -2,23 +2,32 @@
 <ng-container *ngIf=" body.__component === 'addon.machine-perspective'" 
 class="section-grid">
 
-    <button (click)="generateText()">Generate Text</button>
+    <div class="section-grid bundle">
+        <div class="wrapper">
+            <markdown innerHTML="{{pass_machineGenerated_bundle_01}}" id="bundle_01" class="machineTextContent-bundle">
+            </markdown>
+            <markdown innerHTML="{{pass_machineGenerated_bundle_02}}" id="bundle_02" class="machineTextContent-bundle">
+            </markdown>
+            <markdown innerHTML="{{pass_machineGenerated_bundle_03}}" id="bundle_03" class="machineTextContent-bundle">
+            </markdown>
+            <markdown innerHTML="{{pass_machineGenerated_bundle_03}}" class="machineTextContent-bundle ghost">
+            </markdown>
+        </div>
 
-    <div class="section-grid">
-
-        <!-- <markdown class="machineTextQuestions">
-            {{ content.input_str }}
-        </markdown> -->
-
-        <markdown innerHTML="{{pass_machineGenerated_content}}" class="machineTextContent">
-        </markdown>
-        
-        
-
-        <!-- <markdown innerHTML="{{pass_machineGenerated_content}} | safeHtml">
-            {{ content.generated }}
-        </markdown> -->
+        <button class="btnGenerateText" (click)="generateText()">Generate Text...</button>
 
     </div>
 
+    <div class="section-grid bundle">
+
+        <markdown innerHTML="{{pass_machineGenerated_question}}" class="machineTextQuestions">
+        </markdown>
+
+        <div class="wrapper">
+            <markdown innerHTML="{{pass_machineGenerated_content}}" class="machineTextContent">
+            </markdown><span>...</span>
+        </div>
+
+    </div>
+    
 </ng-container>

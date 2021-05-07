@@ -1,17 +1,29 @@
 // ------ GRID CONFIGURATIONS ------ //
 .section-grid {
     display: grid;
+    position: relative;
     grid-template-columns: 20% 40% 20% 20%;
     grid-template-rows: auto;
     grid-template-areas: 
-        "intro intro . ."
-        ". subhead subhead ."
+        " intro intro . ."
         ". text text text"
+        ". btn . ."
         ". t_machine t_machine t_machine"
         ". . . t_m_background"
         ". remark remark remark"
         ". relation relation relation"
         "all all all all";
+}
+
+.btnGenerateText {
+    grid-area: btn;
+    text-align: left;
+    font-family: var(--font-family-machine);
+    font-weight: 400;
+    font-size: var(--font-size-machine-text);
+    padding-top: 4em;
+    border: none;
+    outline: none;
 }
 
 .machineTextQuestions{
@@ -30,15 +42,42 @@
 }
 
 .machineTextContent { 
-    grid-area: text; 
-    width: 60%; 
-    height: auto;
     // position: absolute;
-    padding: 15px 0px 0px 45px;
     font-family: var(--font-family-machine);
     font-weight: 400;
     font-size: var(--font-size-machine-text);
     line-height: 1.2;
+}
+
+.wrapper {
+    grid-area: text; 
+    height: auto;
+    width: 80%; 
+    position: relative;
+}
+
+.wrapper span {
+    font-family: var(--font-family-machine);
+    font-weight: 400;
+    font-size: var(--font-size-machine-text);
+}
+
+.bundle {
+    padding-bottom: 6em;
+}
+
+.machineTextContent-bundle{
+    height: auto;
+    position: absolute;
+    font-family: var(--font-family-machine);
+    font-weight: 400;
+    font-size: var(--font-size-machine-text);
+    line-height: 1.2;
+}
+
+.ghost {
+    position: relative;
+    visibility: hidden;
 }
 
 ::ng-deep .machineTextContent p {
@@ -46,4 +85,14 @@
     font-family: var(--font-family-machine);
     line-height: var(--line-height-paragraph);
 }
+
+#bundle_01 { 
+    top: 2%; 
+    color: transparent;
+    text-shadow: 0 0 2px rgba(0,0,0,1);
+}
+#bundle_02 { top: 4%;     color: transparent;
+    text-shadow: 0 0 2px rgba(0,0,0,1);}
+#bundle_03 { top: 0%;     color: transparent;
+    text-shadow: 0 0 3px rgba(0,0,0,1);}
 
