@@ -61,13 +61,13 @@
       "via": "podcasts"
     },
     "themes": {
-      "via": "podcasts",
-      "collection": "theme"
+      "collection": "theme",
+      "via": "podcasts"
     },
     "episode_id": {
       "type": "integer",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "language": {
       "type": "enumeration",
@@ -86,8 +86,8 @@
       "via": "de_equivalent"
     },
     "perspektives": {
-      "via": "podcasts",
-      "collection": "perspektive"
+      "collection": "perspektive",
+      "via": "podcasts"
     }
   }
 }
