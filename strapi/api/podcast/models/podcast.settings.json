@@ -87,7 +87,8 @@
     },
     "perspektives": {
       "via": "podcasts",
-      "collection": "perspektive"
+      "collection": "perspektive",
+      "unique": false
     }
   }
 }
