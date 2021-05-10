@@ -15,8 +15,8 @@
       "type": "string"
     },
     "podcasts": {
-      "collection": "podcast",
       "via": "themes",
+      "collection": "podcast",
       "dominant": true
     },
     "selected": {
