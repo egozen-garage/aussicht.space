@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrentLanguageService } from '../../services_strapi/language/current-language.service';
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'app-team',
@@ -9,7 +11,17 @@ export class TeamComponent implements OnInit {
   tmembers = require("../../../assets/json/team-members_list.json").sort();
   key = "name";
 
-  constructor() { this.sortByKey(this.tmembers, this.key) }
+  subscription: Subscription | undefined;
+  language_prefix:string|undefined;
+  
+  constructor(
+    private currentLanguage: CurrentLanguageService,
+  ) {
+    this.sortByKey(this.tmembers, this.key)
+    this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
+      this.language_prefix = language;
+    });
+  }
 
   sortByKey(tmembers:any, key:any) {
     return tmembers.sort(function(a: { [x: string]: any; }, b: { [x: string]: any; }) {

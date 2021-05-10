@@ -71,8 +71,8 @@
       "required": false
     },
     "projekts": {
-      "via": "perspektives",
-      "collection": "projekt"
+      "collection": "projekt",
+      "via": "perspektives"
     },
     "add_to_unit_hub": {
       "type": "boolean",
@@ -80,8 +80,29 @@
       "required": true
     },
     "themes": {
-      "collection": "theme",
-      "via": "perspektives"
+      "via": "perspektives",
+      "collection": "theme"
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "de",
+        "en"
+      ],
+      "required": true
+    },
+    "de_equivalent": {
+      "model": "perspektive",
+      "via": "en_equivalent"
+    },
+    "en_equivalent": {
+      "model": "perspektive",
+      "via": "de_equivalent"
+    },
+    "podcasts": {
+      "collection": "podcast",
+      "via": "perspektives",
+      "dominant": true
     }
   }
 }

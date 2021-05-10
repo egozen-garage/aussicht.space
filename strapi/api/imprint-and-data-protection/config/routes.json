@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/imprint-and-data-protection",
+      "handler": "imprint-and-data-protection.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/imprint-and-data-protection",
+      "handler": "imprint-and-data-protection.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/imprint-and-data-protection",
+      "handler": "imprint-and-data-protection.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

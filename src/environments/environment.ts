@@ -4,16 +4,10 @@
 
 export const environment = {
   production: false,
-  // apiUrl: 'http://localhost:1337',
+  //apiUrl: 'http://localhost:1337',
+  //GQLqueryURL: 'http://localhost:1337/graphql',
   apiUrl: 'https://aussichtdotspace.herokuapp.com',
-  // GQLqueryURL: 'http://localhost:1337/graphql',
   GQLqueryURL: 'https://aussichtdotspace.herokuapp.com/graphql',
-  
-  // google spreadsheet
-  // characters: {
-  //   spreadsheetId: '11Ai9cZgPjasCPZuarlnam7dLCPvY45LOZ29L29ELmmbU',
-  //   worksheetId: 1,
-  // },
 };
 
 /*

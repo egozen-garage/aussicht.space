@@ -42,13 +42,13 @@
       "type": "string"
     },
     "perspektives": {
-      "collection": "perspektive",
       "via": "projekts",
+      "collection": "perspektive",
       "dominant": true
     },
     "podcasts": {
-      "collection": "podcast",
       "via": "projekts",
+      "collection": "podcast",
       "dominant": true
     },
     "body": {
@@ -85,14 +85,30 @@
       "type": "richtext"
     },
     "themes": {
-      "collection": "theme",
-      "via": "projekts"
+      "via": "projekts",
+      "collection": "theme"
     },
     "GPT_folder_name": {
       "type": "string"
     },
     "custom_font_color": {
       "type": "string"
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "de",
+        "en"
+      ],
+      "required": true
+    },
+    "de_equivalent": {
+      "model": "projekt",
+      "via": "en_equivalent"
+    },
+    "en_equivalent": {
+      "model": "projekt",
+      "via": "de_equivalent"
     }
   }
 }

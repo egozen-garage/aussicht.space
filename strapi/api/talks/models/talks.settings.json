@@ -1,8 +1,8 @@
 {
   "kind": "singleType",
-  "collectionName": "uebers",
+  "collectionName": "talks",
   "info": {
-    "name": "Über"
+    "name": "talks"
   },
   "options": {
     "increments": true,
@@ -10,11 +10,8 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "Title": {
+    "link": {
       "type": "string"
-    },
-    "About": {
-      "type": "richtext"
     }
   }
 }

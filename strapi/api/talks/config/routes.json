@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/programm",
-      "handler": "programm.find",
+      "path": "/talks",
+      "handler": "talks.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/programm",
-      "handler": "programm.update",
+      "path": "/talks",
+      "handler": "talks.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/programm",
-      "handler": "programm.delete",
+      "path": "/talks",
+      "handler": "talks.delete",
       "config": {
         "policies": []
       }

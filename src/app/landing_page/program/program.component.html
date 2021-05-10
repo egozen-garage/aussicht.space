@@ -20,57 +20,63 @@
   <div class="wrap-collabsible"> 
 
     <!-- ------------------ performances ------------------ -->
-    <div class="event_category" id="initialCategory">Performances</div>
+    <div class="event_category" id="initialCategory">{{title_performance}}</div>
 
     <span *ngFor="let performance of event_performances, let i = index" class="allthemes">
-      <label for="checkbox_{{performance.id}}" (click)="showHideInfo(performance.id)"  class="event">
-        <span class="date">{{ performance.date_time }}</span>
-        <span class="event_title">{{ performance.title }}</span>
-        <span class="name">{{ performance.author }}</span>
-      </label>
-      <input id="checkbox_{{performance.id}}" class="toggle" type="checkbox"> 
-      <span class="collapsible-content" id="collapsible_info_{{performance.id}}">
-        <markdown class="markdown">
-          {{ performance.info_text }}
-        </markdown>
-      </span>
-      <div class="break" id="animate_br_{{performance.id}}"></div>
+      <ng-container *ngIf="performance !== null">
+        <label *ngIf="performance.id" for="checkbox_{{performance.id}}" (click)="showHideInfo(performance.id)"  class="event">
+          <span class="date" *ngIf="performance.date_time">{{ performance.date_time }}</span>
+          <span class="event_title" *ngIf="performance.title">{{ performance.title }}</span>
+          <span class="name" *ngIf="performance.author">{{ performance.author }}</span>
+        </label>
+        <input *ngIf="performance.id" id="checkbox_{{performance.id}}" class="toggle" type="checkbox"> 
+        <span class="collapsible-content" id="collapsible_info_{{performance.id}}">
+          <markdown class="markdown" *ngIf="performance.info_text">
+            {{ performance.info_text }}
+          </markdown>
+        </span>
+        <div *ngIf="performance.id" class="break" id="animate_br_{{performance.id}}"></div>
+      </ng-container>
     </span>
 
 
     <!-- ------------------ talks ------------------ -->
-    <div class="event_category">Gespräche und Vorträge</div>
+    <div class="event_category">{{title_talk}}</div>
 
     <span *ngFor="let talk of event_talks, let i = index" class="allthemes">
-      <label for="checkbox_{{talk.id}}" (click)="showHideInfo(talk.id)"  class="event">
-        <span class="date">{{ talk.date_time }}</span>
-        <span class="event_title">{{ talk.title }} {{ talk.author }}</span>
-      </label>
-      <input id="checkbox_{{talk.id}}" class="toggle" type="checkbox"> 
-      <span class="collapsible-content" id="collapsible_info_{{talk.id}}">
-        <markdown class="markdown">
-          {{ talk.info_text }}
-        </markdown>
-      </span>
-      <div class="break" id="animate_br_{{talk.id}}"></div>
+      <ng-container *ngIf="talk !== null">
+        <label *ngIf="talk.id" for="checkbox_{{talk.id}}" (click)="showHideInfo(talk.id)"  class="event">
+          <span class="date" *ngIf="talk.date_time">{{ talk.date_time }}</span>
+          <span class="event_title" *ngIf="talk.title">{{ talk.title }}</span>
+          <span class="name" *ngIf="talk.author">{{ talk.author }}</span>
+        </label>
+        <input *ngIf="talk.id" id="checkbox_{{talk.id}}" class="toggle" type="checkbox"> 
+        <span class="collapsible-content" id="collapsible_info_{{talk.id}}">
+          <markdown class="markdown" *ngIf="talk.info_text">
+            {{ talk.info_text }}
+          </markdown>
+        </span>
+        <div *ngIf="talk.id" class="break" id="animate_br_{{talk.id}}"></div>
+      </ng-container>
     </span>
 
-
     <!-- ------------------ specials ------------------ -->
-    <div class="event_category">Specials</div>
+    <div class="event_category">{{title_special}}</div>
 
     <span *ngFor="let special of event_specials, let i = index" class="allthemes">
-      <label for="checkbox_{{special.id}}" (click)="showHideInfo(special.id)" class="event">
-        <span class="date">{{ special.date_time }}</span>
-        <span class="event_title">{{ special.title }} {{ special.author }}</span>
-      </label>
-      <input id="checkbox_{{special.id}}" class="toggle" type="checkbox"> 
-      <span class="collapsible-content" id="collapsible_info_{{special.id}}">
-        <markdown class="markdown">
-          {{ special.info_text }}
-        </markdown>
-      </span>
-      <div class="break" id="animate_br_{{special.id}}"></div>
+      <ng-container *ngIf="special !== null">
+        <label for="checkbox_{{special.id}}" (click)="showHideInfo(special.id)" class="event">
+          <span class="date">{{ special.date_time }}</span>
+          <span class="event_title">{{ special.title }} {{ special.author }}</span>
+        </label>
+        <input id="checkbox_{{special.id}}" class="toggle" type="checkbox"> 
+        <span class="collapsible-content" id="collapsible_info_{{special.id}}">
+          <markdown class="markdown">
+            {{ special.info_text }}
+          </markdown>
+        </span>
+        <div class="break" id="animate_br_{{special.id}}"></div>
+      </ng-container>
     </span>
 
 

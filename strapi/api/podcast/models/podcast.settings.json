@@ -57,17 +57,37 @@
       "required": false
     },
     "projekts": {
-      "via": "podcasts",
-      "collection": "projekt"
+      "collection": "projekt",
+      "via": "podcasts"
     },
     "themes": {
-      "collection": "theme",
-      "via": "podcasts"
+      "via": "podcasts",
+      "collection": "theme"
     },
     "episode_id": {
       "type": "integer",
       "required": true,
       "unique": true
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "de",
+        "en"
+      ],
+      "required": true
+    },
+    "de_equivalent": {
+      "model": "podcast",
+      "via": "en_equivalent"
+    },
+    "en_equivalent": {
+      "model": "podcast",
+      "via": "de_equivalent"
+    },
+    "perspektives": {
+      "via": "podcasts",
+      "collection": "perspektive"
     }
   }
 }

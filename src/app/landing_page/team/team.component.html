@@ -1,21 +1,18 @@
-
-<div id="lp-team">
-
+<div id="lp-team" *ngIf="language_prefix == 'de'">
     Kuratiert wird die Gruppenaus­stellung unter der Leitung von 
 
         <label for="trigger-wagner" class="team-member" id="wagner" >
-            Matthias Wagner K,
+            Matthias Wagner K
         </label>
         <input id="trigger-wagner" class="toggle" type="checkbox">
         <span class="collapsible-content-tmember" id="collapsible-wagner" >
             <img class="tmember-img" src="/assets/imgs/team_list/MWK.png">
-            Kuration, Leitung,
-        </span>
+            Kuration, Leitung
+        </span><div class='tmember-comma'>,</div>
 
         dem Direktor des Museum Angewandte Kunst, von einem zehnköpfigen Projektteam mit 
 
     <div *ngFor="let tmember of tmembers; let i = index; let last = last" class="team_list">
-        
         <label for="trigger-{{ tmember.name }}" class="team-member" id="{{ tmember.name }}" >
             {{ tmember.forename }} {{ tmember.name }}
         </label>
@@ -24,10 +21,37 @@
             <img class="tmember-img" src="/assets/imgs/team_list/{{ tmember.image }}">
             {{ tmember.profession }}
         </span>
-
         <div *ngIf="!last" class='tmember-comma'>,</div>
         <div *ngIf="last" class='tmember-comma'></div>
-
     </div>
+</div>
 
+
+<div id="lp-team" *ngIf="language_prefix == 'en'">
+    EN Kuratiert wird die Gruppenaus­stellung unter der Leitung von 
+
+        <label for="trigger-wagner" class="team-member" id="wagner" >
+            Matthias Wagner K
+        </label>
+        <input id="trigger-wagner" class="toggle" type="checkbox">
+        <span class="collapsible-content-tmember" id="collapsible-wagner" >
+            <img class="tmember-img" src="/assets/imgs/team_list/MWK.png">
+            Kuration, Leitung
+        </span><div class='tmember-comma'>,</div>
+
+
+        dem Direktor des Museum Angewandte Kunst, von einem zehnköpfigen Projektteam mit 
+
+    <div *ngFor="let tmember of tmembers; let i = index; let last = last" class="team_list">
+        <label for="trigger-{{ tmember.name }}" class="team-member" id="{{ tmember.name }}" >
+            {{ tmember.forename }} {{ tmember.name }}
+        </label>
+        <input id="trigger-{{ tmember.name }}" class="toggle" type="checkbox">
+        <span class="collapsible-content-tmember" id="collapsible-{{ tmember.name }}" >
+            <img class="tmember-img" src="/assets/imgs/team_list/{{ tmember.image }}">
+            {{ tmember.EN_profession }}
+        </span>
+        <div *ngIf="!last" class='tmember-comma'>,</div>
+        <div *ngIf="last" class='tmember-comma'></div>
+    </div>
 </div>

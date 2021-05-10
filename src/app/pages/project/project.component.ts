@@ -1,10 +1,11 @@
-import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Output, EventEmitter, OnChanges, DoCheck, AfterContentInit, AfterViewChecked, OnDestroy } from '@angular/core';
 import { ProjectService } from '../../services_strapi/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { SideCommentPositionService } from '../../services/side-comment-position.service';
 import { HelperService } from "../../services/helper.service";
 import { CurrentLanguageService } from '../../services_strapi/language/current-language.service';
+import { Subscription } from 'rxjs';
 
 //import { CustomDesignIframeComponent } from '../custom_designs/custom-design-iframe/custom-design-iframe.component';
 //import { CustomDesignJavascriptComponent } from '../custom_designs/custom-design-javascript/custom-design-javascript.component';
@@ -17,16 +18,16 @@ import { CurrentLanguageService } from '../../services_strapi/language/current-l
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.scss']
 })
-export class ProjectComponent implements OnInit, AfterViewInit {
+export class ProjectComponent implements OnInit, AfterViewInit, OnChanges, DoCheck, AfterContentInit, AfterViewChecked, OnDestroy {
   projectID : string = "";
   private projectTitle: string = "";
   project:any;
   folder_name:any;
-  gpt_image_div = document.getElementById("gpt_images");
+  gpt_image_div:any;
+  language_equivalent_page:string | undefined;
 
   language:string | undefined ;
   index:string = "index";
-
 
   // // current_project:number | undefined;
   // previous_project:number = -1;
@@ -39,6 +40,8 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   image_size:number = 64;
   image_size_STYLE:number = 64;
 
+  subscription: Subscription | undefined;
+  language_prefix:string|undefined;
 
   constructor(
     private projectSvc: ProjectService,
@@ -48,7 +51,10 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     private currentLanguage: CurrentLanguageService,
     // private sideCommentPosition: SideCommentPositionService,
     private sideCommentPosition: SideCommentPositionService    
-    ) {       
+    ) { 
+      this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
+        this.language_prefix = language;
+      });
       if (window.innerWidth >= 1024) {
         //this.isMobileResolution = true;
         this.image_size = 128;
@@ -64,22 +70,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       // this.EVENTafterPageLoad.emit();
     }
     
-  ngAfterViewInit(): void {
-    this.sideCommentPosition.run_side_comments();
-    // this.activate_site_comments(this.sideCommentPosition);
-    // this.sideCommentPosition.listenResizeWindow();
-  }
-
-  // activate_site_comments(site_comment_service:any){
-  //   setTimeout(() =>{ 
-  //     site_comment_service.scanMarkdowns();
-  //     const side_comments = Array.from(document.getElementsByClassName('side_comment') as HTMLCollectionOf<HTMLElement>)
-  //     side_comments.forEach(item => {
-  //       item.style.opacity = "1";
-  //       item.classList.add("fade-in");
-  //     });
-  //   }, 1000);
-  // }
 
   toggleCuratorialContent(){
     var x = document.getElementById("collapsibleButton");
@@ -87,12 +77,24 @@ export class ProjectComponent implements OnInit, AfterViewInit {
     icon!.classList.toggle('show-more');
   }
 
-
-  // side_comment_ID:any
-  callPosition(side_note_ID:any){
-    //console.log("side note id: " + side_note_ID);
-    //console.log("call the position of the code tag");
-    // return this.sideCommentPosition.renderCommentPosition(side_note_ID);
+  ngOnChanges(){
+    // console.log("ngOnChanges");
+  }
+  ngDoCheck(){
+    // console.log("ngDoCheck");
+  }
+  ngAfterContentInit(){
+    // console.log("ngAfterContentInit");
+  }
+  ngAfterViewInit(): void {
+    // this.sideCommentPosition.run_side_comments();
+    // console.log("ngAfterViewInit");
+  }
+  ngAfterViewChecked(){
+    // console.log("ngAfterViewChecked");
+  }
+  ngOnDestroy(){
+    // console.log("########## ngOnDestroy");
   }
 
   ngOnInit() {
@@ -105,32 +107,40 @@ export class ProjectComponent implements OnInit, AfterViewInit {
       //   this.projects = res;
       // });
 
-    this.route.params.subscribe( p => {
+    
+    
+
+    this.route.params.subscribe( p => {      
       this.projectTitle = p['title'];
-      this.projectSvc.getAllProjects().subscribe((allProjects:any[]) => {
+      this.projectSvc.currentProjectSource.subscribe((allProjects:any) => {
+      // this.projectSvc.getAllProjects().subscribe((allProjects:any[]) => {
         for (let i=0; i<allProjects.length; i++) {
           let project = allProjects[i];
           if (this.helperService.encodeCustomURI(project.title) == this.projectTitle) {
             this.project = project;
             this.folder_name = this.project.GPT_folder_name;
+            this.gpt_image_div = document.getElementById("gpt_images");
+            this.single_project_load_gpt_images(this.folder_name)
+            if( this.language === "de"){
+              this.language_equivalent_page = this.title2url("project/", project.en_equivalent.title);
+            } else if (this.language === "en") {
+              this.language_equivalent_page = this.title2url("project/", project.de_equivalent.title);
+            } else {
+              this.language_equivalent_page = this.title2url("project/", project.de_equivalent.title);
+            }
             return;
-
-            // if(this.folder_name){
-            //   this.single_project_load_gpt_images(this.folder_name)
-            // }
-    //         let current_project = this.project.id;
-    //         this.previous_project = this.previous_project + current_project;
-    //         this.next_project = this.next_project + current_project;
-    //         console.log("current project: " + current_project );
-    //         console.log("previous project: " + this.previous_project );
-    //         console.log("next project: " + this.next_project );
-    //         // console.log("amount of projects: " + allProjectsCachedObservable.length);
-
-            // return console.log("project data array: " + this.project );
           }
         }
       });
     });
+
+    if(this.project){
+      // console.log("do nothing");
+    } else {
+      // console.log("call single project api");
+      // at this point we can implement an api connection that is calling a single project
+      // in order to speed up direct deep links
+    }
 
       // this.project$ = this.route.paramMap.pipe(
         //   switchMap(params => {
@@ -140,9 +150,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
           //   })
           // );
           
-
-
-
 
       // this.projectSvc.getProject(this.projectID).subscribe((res:any) => {
       //   this.project = res;
@@ -166,13 +173,10 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
 
 
-
-
       // ------------- load gpt images ------------
-
-      if(this.folder_name){
-        this.single_project_load_gpt_images(this.folder_name)
-      }
+      // if(this.folder_name){
+      //   this.single_project_load_gpt_images(this.folder_name)
+      // }
       // this.isElementInViewport(this.gpt_image_div);
 
   }
@@ -198,6 +202,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   // maximum = 40;
   minimum = 0;
   single_project_load_gpt_images(folder_name:string){
+    this.gpt_image_div.innerHTML = "";
     const maximum = 60;
     //let cancelled = false;
     // calculate the amount of images needed to cover the whole name
@@ -279,8 +284,13 @@ export class ProjectComponent implements OnInit, AfterViewInit {
 
   titleEncoded:string | undefined;
   title2url(unit_type:string, relatedTitle:string){
-    this.titleEncoded = this.helperService.encodeCustomURI(relatedTitle);    
-    this.router.navigate(['/', this.language, 'index', unit_type, this.titleEncoded]);
+    let titleEncoded = this.helperService.encodeCustomURI(relatedTitle);    
+    // this.router.navigate(['/', this.language, 'index', unit_type, this.titleEncoded]);
+    let language_equivalent_page = unit_type + titleEncoded;
+    return language_equivalent_page;
   }
+
+
+  
 
 }

@@ -70,30 +70,40 @@ export class BundleAllAPIsService {
     // this.updateNColumns();
     // this.resetAndFillColumns;
 
-    this.projectSvc.getAllProjects().subscribe((res:any) => {
-      this.projectsFromCms = res;
+    this.projectSvc.currentProjectSource.subscribe((res:any) => {
+    // this.projectSvc.getAllProjects().subscribe((res:any) => {
+      let resMutable = JSON.parse(JSON.stringify(res));
+      this.projectsFromCms = resMutable;
+      // this.projectsFromCms = res;
       this.projects = this.projectsFromCms;
       this.updateUnits();
       // if (this.unitAndEncodedHrefList) {
       //   this.resetAndFillColumns();
       // }
     });
-    this.perspectiveSvc.getAllPerspectives().subscribe((res:any) => {
-      this.perspectives = res;
+
+    this.perspectiveSvc.currentPerspectiveSource.subscribe((res:any) => {
+    // this.perspectiveSvc.getAllPerspectives().subscribe((res:any) => {
+      let resMutable = JSON.parse(JSON.stringify(res));
+      this.perspectives = resMutable;
       this.perspectivesFromCms = this.perspectives;
       this.updateUnits();
       // if (this.unitAndEncodedHrefList) {
       //   this.resetAndFillColumns();
       // }
     });
-    this.podcastSvc.getAllPodcastEpisodes().subscribe((res:any) => {
-      this.podcasts = res;
+    this.podcastSvc.currentPodcastSource.subscribe((res:any) => {
+    // this.podcastSvc.getAllPodcastEpisodes().subscribe((res:any) => {
+      let resMutable = JSON.parse(JSON.stringify(res));
+      this.podcasts = resMutable;
       this.podcastsFromCms = this.podcasts;
       this.updateUnits();
       // if (this.unitAndEncodedHrefList) {
       //   this.resetAndFillColumns();
       // }
     });
+
+
     // this.themeSvc.getAllThemes().subscribe((res:any) => {
     //   this.themesFromCms = res;
     //   this.themesSelected = this.themesFromCms;

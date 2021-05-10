@@ -4,6 +4,7 @@
     <!-- HEADER -------- HEADER--------- HEADER----------- HEADER---------- HEADER -->
 
     <app-back-to-hub [unit_type]="project.unit_type"></app-back-to-hub>
+    <app-language-switch [language_equivalent]="language_equivalent_page"></app-language-switch>
 
     <!-- themes -->
     <header class="header-grid" id="container-themes">
@@ -24,7 +25,7 @@
 
 
             <!-- COMPONENT > "project-related-info.title" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'project-related-info.title'" 
+            <div *ngIf=" project.body[i].__typename === 'ComponentProjectRelatedInfoTitle'" 
             class="header-grid">
                 <span class="default-project-info" id="project_title" *ngIf="project.body[i].style !== null " 
                 [ngStyle]="{'color': project.body[i].style.hex_color_code }"
@@ -45,7 +46,7 @@
             </div>
 
             <!-- COMPONENT > "project-related-info.name" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'project-related-info.name'" 
+            <div *ngIf=" project.body[i].__typename === 'ComponentProjectRelatedInfoName'" 
             class="header-grid">
                 <span class="default-project-info" id="project_artist" *ngIf="project.body[i].style !== null"
                 [ngStyle]="{'color': project.body[i].style.hex_color_code }"
@@ -71,7 +72,7 @@
             <!-- addon addon addon addon ---------------------------------------------------- -->
             <!-- addon addon addon addon ---------------------------------------------------- -->
             <!-- COMPONENT > "addon.javascript-file-name" ---------------------------------------------------- -->
-            <div *ngIf=" project.body[i].__component === 'addon.javascript-file-name'" 
+            <div *ngIf=" project.body[i].__typename === 'ComponentAddonJavascriptFileName'" 
             class="section-grid">
                 <!-- ------------- custom-design-javascript ------------- -->
                 <div *ngIf="project.body[i].javascript_file_name?.length" 
@@ -81,12 +82,12 @@
             </div>
 
             <!-- COMPONENT > "addon.html-css" ---------------------------------------------------- -->
-            <app-custom-design-html-css [body]="body" [project]="project.body[i].add_html_css" *ngIf=" body.__component === 'addon.html-css' " 
+            <app-custom-design-html-css [body]="body" [project]="project.body[i].add_html_css" *ngIf=" body.__typename === 'ComponentAddonHtmlCss' " 
             class="section-grid">
             </app-custom-design-html-css>
 
             <!-- COMPONENT > "addon.website" ---------------------------------------------------- -->
-            <app-custom-design-iframe [body]="body" [project]="project.body[i].website_link" *ngIf="body.__component === 'addon.website'" class="section-grid">
+            <app-custom-design-iframe [body]="body" [project]="project.body[i].website_link" *ngIf="body.__typename === 'ComponentAddonWebsite'" class="section-grid">
             </app-custom-design-iframe>
 
 
@@ -131,7 +132,7 @@
     <ng-container *ngIf="project.perspektives?.length" 
     class="" id=""> 
     
-        <a *ngFor="let perspektives of project.perspektives, let a = index" class="recommendation project_additional_link" (click)="title2url(project.perspektives[a].unit_type, project.perspektives[a].title)">
+        <div *ngFor="let perspektives of project.perspektives, let a = index" class="recommendation project_additional_link">
 
             <div class="recommendation_intro">
                 Essay zum 
@@ -160,7 +161,7 @@
             </div>
 
 
-        </a>
+        </div>
 
         
     </ng-container>
