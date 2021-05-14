@@ -9,7 +9,14 @@
     <!-- themes -->
     <header class="header-grid" id="container-themes">
         <div *ngIf="project" class="project-theme-container">
-            <div *ngFor="let t of project.themes" class="themes">{{t.theme_name}}</div>
+            <div *ngFor="let t of project.themes" class="themes">
+                <ng-container *ngIf="language_prefix === 'de'">
+                    {{t.theme_name}}
+                </ng-container>
+                <ng-container *ngIf="language_prefix === 'en'">
+                    {{t.english_theme_name}}
+                </ng-container>
+            </div>
         </div>
     </header>
 
@@ -102,7 +109,7 @@
             <div class="collapsible-wrap" id="curatorial-text" *ngIf="project.curatorial_intro?.length || project.curatorial_description?.length">
                 <input type="checkbox" class="toggle" id="event">
                 <label for="event" class="collapsible-button" id="collapsibleButton" (click)="toggleCuratorialContent()">
-                        Mehr zu {{project.title}} <span class="icon show-more"></span> 
+                        {{more_about_intro}} {{project.title}} <span class="icon show-more"></span> 
                 </label>
                 <div class="curatorial-content">
                     <div class="curatorial-content-wrapper">
@@ -135,9 +142,12 @@
         <div *ngFor="let perspektives of project.perspektives, let a = index" class="recommendation project_additional_link">
 
             <div class="recommendation_intro">
-                Essay zum 
-                <br>
-                Thema
+                <ng-container *ngIf="language_prefix === 'de'">
+                    Essay zum <br>Thema
+                </ng-container>
+                <ng-container *ngIf="language_prefix === 'en'">
+                    Related <br>essay
+                </ng-container>
                 <br>
                 <span class="btn-icon">&#x2192;</span>
             </div>

@@ -29,15 +29,15 @@ export class HeaderComponent implements OnInit {
         this.about = "Über";
         this.participants = "Teilnehmer:innen";
       } else if (language === "en") {
-        this.index = "index";
-        this.program = "program";
-        this.about = "about";
-        this.participants = "participants";
+        this.index = "Index";
+        this.program = "Programme";
+        this.about = "About";
+        this.participants = "Participants";
       } else {
-        this.index = "index";
-        this.program = "program";
-        this.about = "about";
-        this.participants = "participants";
+        this.index = "Index";
+        this.program = "Programme";
+        this.about = "About";
+        this.participants = "Participants";
       }
     });
   }

@@ -2,13 +2,14 @@
     Kuratiert wird die Gruppenaus­stellung unter der Leitung von 
 
         <label for="trigger-wagner" class="team-member" id="wagner" >
-            Matthias Wagner K
+            Matthias Wagner K,
         </label>
         <input id="trigger-wagner" class="toggle" type="checkbox">
         <span class="collapsible-content-tmember" id="collapsible-wagner" >
             <img class="tmember-img" src="/assets/imgs/team_list/MWK.png">
             Kuration, Leitung
-        </span><div class='tmember-comma'>,</div>
+        </span>
+        <!-- <span class='tmember-comma'>,</span> -->
 
         dem Direktor des Museum Angewandte Kunst, von einem zehnköpfigen Projektteam mit 
 
@@ -28,19 +29,20 @@
 
 
 <div id="lp-team" *ngIf="language_prefix == 'en'">
-    EN Kuratiert wird die Gruppenaus­stellung unter der Leitung von 
+    The group exhibition is curated under the direction of 
 
         <label for="trigger-wagner" class="team-member" id="wagner" >
-            Matthias Wagner K
+            Matthias Wagner K,
         </label>
         <input id="trigger-wagner" class="toggle" type="checkbox">
         <span class="collapsible-content-tmember" id="collapsible-wagner" >
             <img class="tmember-img" src="/assets/imgs/team_list/MWK.png">
-            Kuration, Leitung
-        </span><div class='tmember-comma'>,</div>
+            Curation, direction
+        </span>
+        <!-- <span class='tmember-comma'>,</span> -->
 
 
-        dem Direktor des Museum Angewandte Kunst, von einem zehnköpfigen Projektteam mit 
+        the director of the Museum Angewandte Kunst, by a ten-member project team comprising 
 
     <div *ngFor="let tmember of tmembers; let i = index; let last = last" class="team_list">
         <label for="trigger-{{ tmember.name }}" class="team-member" id="{{ tmember.name }}" >
