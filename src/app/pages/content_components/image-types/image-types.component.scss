@@ -11,6 +11,9 @@
           ". mobile mobile mobile";
     }
 
+    .imgAnimate {
+      transition: background-color .25s ease-in-out, color .25s ease-in-out;
+    }
 
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\ images \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 // /////////////////////////// images ///////////////////////////
@@ -86,6 +89,14 @@
   font-weight: 700;
   line-height: 1.2;
   position: relative;
+}
+
+.inactive {
+  opacity: 0;
+}
+
+.active {
+  opacity: 1;
 }
 
 

@@ -38,7 +38,7 @@
 
             <app-text-types [body]="body"></app-text-types>
             <app-image-types [body]="body"></app-image-types>
-            <app-machine-essay [body]="body"></app-machine-essay>
+            <app-machine-essay *ngIf="language_prefix === 'de'" [body]="body"></app-machine-essay>
 
         </ng-container>
     </div>

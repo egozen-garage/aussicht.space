@@ -49,7 +49,10 @@ a:hover {
 // ------ themes ------ //
 
 .project-theme-container { grid-area: themes; padding: 10px 0px;}
-#container-themes { padding-top: var(--margin-s); }
+#container-themes { 
+  // padding-top: var(--margin-s); 
+  padding-top: 100px; 
+}
 
 .themes {
   display: inline-block;

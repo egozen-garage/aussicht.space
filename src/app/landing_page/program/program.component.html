@@ -17,7 +17,7 @@
 <app-header></app-header>
 
 <div id="programm">
-  <div class="wrap-collabsible"> 
+  <div class="wrap-collabsible animate fadeIn one"> 
 
     <!-- ------------------ performances ------------------ -->
     <div class="event_category" id="initialCategory">{{title_performance}}</div>
@@ -78,6 +78,25 @@
         <div class="break" id="animate_br_{{special.id}}"></div>
       </ng-container>
     </span>
+
+        <!-- ------------------ guided tours ------------------ -->
+        <div class="event_category">{{title_tour}}</div>
+
+        <span *ngFor="let tour of event_tours, let i = index" class="allthemes">
+          <ng-container *ngIf="tour !== null">
+            <label for="checkbox_{{tour.id}}" (click)="showHideInfo(tour.id)" class="event">
+              <span class="date">{{ tour.date_time }}</span>
+              <span class="event_title">{{ tour.title }} {{ tour.author }}</span>
+            </label>
+            <input id="checkbox_{{tour.id}}" class="toggle" type="checkbox"> 
+            <span class="collapsible-content" id="collapsible_info_{{tour.id}}">
+              <markdown class="markdown">
+                {{ tour.info_text }}
+              </markdown>
+            </span>
+            <div class="break" id="animate_br_{{tour.id}}"></div>
+          </ng-container>
+        </span>
 
 
   </div>

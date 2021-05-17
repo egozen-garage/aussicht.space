@@ -10,7 +10,7 @@
     grid-template-rows: auto;
     line-height: 1;
     height: 140vh;
-    background-image: linear-gradient(rgba(0,0,0,1), rgba(40,48,133,1));
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(40,48,133,1));
     margin: 0px;
 }
 
@@ -26,8 +26,60 @@
     font-family: var(--font-family-primary);
     font-weight: 300;
     font-size: var(--font-size-title);
+    z-index: 9999;
 }
 
 .openingDate {
     letter-spacing: 4px;
 }
+
+
+/*=== Trigger  ===*/
+.animate {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+.one {
+-webkit-animation-delay: 0s;
+-moz-animation-delay: 0s;
+animation-delay: 0s;
+}
+
+.two {
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    }
+
+.three {
+    -webkit-animation-delay: 0.7s;
+    -moz-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+    }
+
+/*=== FADE IN  ===*/
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+  }
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+  }
+  .fadeIn {
+      -webkit-animation-name: fadeIn;
+      animation-name: fadeIn;
+  }

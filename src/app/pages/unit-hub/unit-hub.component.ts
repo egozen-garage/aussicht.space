@@ -91,6 +91,9 @@ export class UnitHubComponent implements OnInit {
     
     ngOnInit(): void {
 
+      // var fadeIn = document.getElementById("masonry");
+      // fadeIn!.classList.remove("animate");
+
     //   document.onreadystatechange = function() {
     //     if (document.readyState !== "complete") {
     //         document.getElementById("loader")!.style.visibility = "visible";
@@ -187,7 +190,6 @@ export class UnitHubComponent implements OnInit {
 
 
 
-
   }
 
   @HostListener('window:resize', ['$event'])
@@ -258,8 +260,7 @@ export class UnitHubComponent implements OnInit {
   //   var x = Math.sin(seed++) * 10000;
   //   return x - Math.floor(x);
   // }
-
-
+  
   getSelected() {
     // 1. Determine the checked checkboxes
     // 1.a none or every checkbox is checked: No filter happens

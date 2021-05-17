@@ -20,7 +20,7 @@
             <span class="showThemes" class="themes ghost" id="filter-btn-mobile">Filter</span> 
 
             <!-- first associate DISCRETE VALUES with EACH CHECKBOX to TOGGLE ON/OFF STATE  -->
-            <div *ngFor="let t of themesFromCms, let i = index" class="allthemes">
+            <div *ngFor="let t of themesFromCms, let i = index" class="allthemes animate fadeIn one">
 
                 <!-- || = "or" operation  -->
                 <div *ngIf="t.perspektives?.length || t.podcasts?.length || t.projekts?.length" id="themes_collection">
@@ -58,7 +58,7 @@
 
         <div *ngIf="unitAndEncodedHrefList" class="unitflexcolumn">
 
-            <div *ngFor="let column of columns" class="unitflexitem">
+            <div *ngFor="let column of columns" class="unitflexitem animate fadeInUp two" id="masonry">
 
                     <!-- FILTER UNITS ACCORDING TO SELECTED THEMES -->
                     <div [ngClass]= " { 'perspectives' : uh.unit.unit_type === 'perspective',

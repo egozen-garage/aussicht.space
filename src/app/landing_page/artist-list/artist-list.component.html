@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <!-- Mobile version -->
-<div id="all_of_artist_list" (window:resize)="resize_window($event)">
+<div class="artistList" id="all_of_artist_list" (window:resize)="resize_window($event)">
 
     <!-- <ng-container *ngIf="isMobileResolution" >
         <div  id="artists-mobile">
@@ -25,7 +25,7 @@
 
 <!-- Desktop version -->
     <!-- <div id="artists" *ngIf="!isMobileResolution" > -->
-    <div id="teilnehmer_innen">
+    <div id="teilnehmer_innen" class="animate fadeIn one">
         <div *ngFor="let artist of artists; let i = index; let last = last" class='list_object'>
             <div (mouseenter)="artist_list_enter(artist.name, artist.forename, artist.folder, i)" (mouseleave)="artist_list_leave(artist.name, artist.forename, artist.folder, i)" id='parent_artist_names_{{ artist.folder }}' class='parent_artist_names' >
                 <span id='{{ artist.folder }}{{i}}' class='child_artist_list_images_spans'>
