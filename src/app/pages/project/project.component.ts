@@ -56,7 +56,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnChanges, DoChe
     ) { 
       this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
         this.language_prefix = language;
-        if ( language = "de"){
+        if ( language === "de"){
           this.more_about_intro = "Mehr zu";
         } else if (language === "en") {
           this.more_about_intro = "More about";

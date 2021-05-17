@@ -1,3 +1,39 @@
+.language_button{
+  position: fixed;
+  margin-top: 38px;
+  text-align:right;
+  width: 100%;
+  z-index: 1000;
+}
+:host ::ng-deep .mat-button-toggle{
+  color:black !important;
+  position:relative;
+  float: right;
+}
+:host ::ng-deep .mat-button-toggle-label-content{
+  // text-shadow: none !important;
+  text-shadow: 0px 0px 10px white !important;
+  font-size: var(--font-size-primary-xs) !important;
+}
+:host ::ng-deep #language_switch_button{
+  margin-right: 42px !important;
+}
+:host ::ng-deep .mat-button-toggle:hover {
+  color: var(--color-rosa) !important;
+}
+:host ::ng-deep .mat-button-toggle-checked{
+  color: var(--color-rosa) !important;
+}
+@media (max-width: 48em) {
+  .language_button{
+    position: fixed;
+    margin-top: 0px;
+  }
+  :host ::ng-deep #language_switch_button{
+    margin-right: 12px !important;
+  }
+}
+
 a {
   text-decoration-line: none;
   color: black;

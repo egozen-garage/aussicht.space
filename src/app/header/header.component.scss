@@ -381,3 +381,19 @@
       margin: 10px;
     }
 }
+
+@media (max-width: 48em) {
+  .language_button{
+    float: right;
+  }
+  :host ::ng-deep .mat-button-toggle-group{
+    background-color: black;
+  }
+  :host ::ng-deep .mat-button-toggle-label-content{
+    font-size: 15px !important;
+  }
+  :host ::ng-deep #language_switch_button{
+    height: 20px;
+    padding-bottom: 5px;
+  }
+}

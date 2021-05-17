@@ -1,3 +1,7 @@
+<div class="language_button">
+    <app-language-switch [language_equivalent]="language_equivalent_page"></app-language-switch>
+</div>
+
 <div class="perspective-page">
 
     <div class="progress-container">
@@ -5,7 +9,6 @@
     </div>
 
     <app-back-to-hub [unit_type]="perspective.unit_type"></app-back-to-hub>
-    <app-language-switch [language_equivalent]="language_equivalent_page"></app-language-switch>
 
     <!-- PERSPECTIVE HEADER ---------------------------------------------- -->
     <div *ngIf="perspective" class="perspective_header">

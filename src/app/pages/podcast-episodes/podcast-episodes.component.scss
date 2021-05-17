@@ -1,3 +1,45 @@
+.language_button{
+    position: fixed;
+    margin-top: 38px;
+    text-align:right;
+    width: 100%;
+    z-index: 1000;
+  }
+  :host ::ng-deep .mat-button-toggle{
+    color:white !important;
+    position:relative;
+    float: right;
+  }
+  :host ::ng-deep .mat-button-toggle-label-content{
+    // text-shadow: none !important;
+    text-shadow: none !important;
+    font-size: var(--font-size-primary-xs) !important;
+  }
+  :host ::ng-deep #language_switch_button{
+    margin-right: 42px !important;
+  }
+  :host ::ng-deep .mat-button-toggle:hover {
+    color: var(--color-rosa) !important;
+  }
+  :host ::ng-deep .mat-button-toggle-checked{
+    color: var(--color-rosa) !important;
+  }
+  @media (max-width: 48em) {
+    .language_button{
+      position: fixed;
+      margin-top: 0px;
+    }
+    :host ::ng-deep #language_switch_button{
+      margin-right: 12px !important;
+    }
+    
+  }
+
+:host ::ng-deep .btn-back2hub{
+    text-shadow: none !important;
+}
+
+
 
 .podcast-page {
     padding: var(--margin-s);

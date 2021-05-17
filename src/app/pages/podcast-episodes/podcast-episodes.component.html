@@ -1,8 +1,12 @@
+<div class="language_button">
+    <app-language-switch [language_equivalent]="language_equivalent_page"></app-language-switch>
+</div>
+
 <div class="podcast-page">
 
     <!-- BACK TO UNIT HUB ---------------------------------------------- -->
     <app-back-to-hub [unit_type]="podcast.unit_type"></app-back-to-hub>
-    <app-language-switch [language_equivalent]="language_equivalent_page"></app-language-switch>
+
 
     <header *ngIf="podcast" class="podcast_header">
         <img class="offline_podcast_logo" src="{{podcast.offline_episode_logo.url}}">
