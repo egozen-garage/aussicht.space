@@ -33,12 +33,15 @@ export class ProgramComponent implements OnInit {
   event_talks:any = [];
   specials: any = [];
   event_specials:any = [];
+  tours: any = [];
+  event_tours: any = [];
 
   characters$?: Observable<Character[]>;
 
   title_performance:string | undefined;
   title_talk:string | undefined;
   title_special:string | undefined;
+  title_tour:string | undefined;
 
   //sheetno = "od6";
   //sheetid = "11Ai9cZgPjasCPZuarlnam7dLCPvY45LOZ29L29ELmmbU";
@@ -73,6 +76,10 @@ export class ProgramComponent implements OnInit {
           this.specials.push(element);
           // sort this category by timestamp
           this.specials.sort((x:any, y:any) => new Date(x.timestamp).valueOf() - new Date(y.timestamp).valueOf() );
+        }else if(element.category === "tour" ){
+          this.tours.push(element);
+          // sort this category by timestamp
+          this.tours.sort((x:any, y:any) => new Date(x.timestamp).valueOf() - new Date(y.timestamp).valueOf() );
         }
       });
 
@@ -81,16 +88,20 @@ export class ProgramComponent implements OnInit {
         this.performances.forEach((element:any) => {  this.event_performances.push(element.de);   });
         this.talks.forEach((element:any)        => {  this.event_talks.push(element.de);          });
         this.specials.forEach((element:any)     => {  this.event_specials.push(element.de);       });
+        this.tours.forEach((element:any)     => {  this.event_tours.push(element.de);       });
         this.title_performance = "Performances";
         this.title_talk = "Gespräche und Vorträge";
         this.title_special = "Specials";        
+        this.title_tour = "Führungen";        
       } else if (this.language === "en"){
         this.performances.forEach((element:any) => {  this.event_performances.push(element.en);   });
         this.talks.forEach((element:any)        => {  this.event_talks.push(element.en);          });
         this.specials.forEach((element:any)     => {  this.event_specials.push(element.en);       });
+        this.tours.forEach((element:any)     => {  this.event_tours.push(element.en);       });
         this.title_performance = "Performances";
         this.title_talk = "Talks and lectures";
         this.title_special = "Specials";
+        this.title_tour = "Guided Tours";  
       }
       
       

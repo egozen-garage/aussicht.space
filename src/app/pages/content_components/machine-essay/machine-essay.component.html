@@ -1,5 +1,5 @@
 <!-- COMPONENT > "paragraph-plain" ---------------------------------------------------- -->
-<ng-container *ngIf=" body.__component === 'addon.machine-perspective'" 
+<ng-container *ngIf=" body.__typename === 'ComponentAddonMachinePerspective'"
 class="section-grid">
 
     <div class="section-grid bundle">
@@ -16,21 +16,23 @@ class="section-grid">
     </div>
 
     <button class="btnGenerateText" (click)="generateText()">
-        Generate Text &#x2192;
-        <div class="loader"></div>
+        Generate Text 
+        <div id="arrow">&#x2192;</div>
+        <div id="loader"></div>
     </button>
 
 
     <div class="section-grid bundle">
 
-        <markdown innerHTML="{{pass_machineGenerated_question}}" class="machineTextQuestions">
+        <markdown innerHTML="{{pass_machineGenerated_question}}" class="machineTextQuestions" id="machineText">
         </markdown>
 
         <div class="wrapper">
-            <markdown innerHTML="{{pass_machineGenerated_content}}" class="machineTextContent">
+            <markdown innerHTML="{{pass_machineGenerated_content}}" class="machineTextContent" id="machineQuestion">
             </markdown><span>...</span>
         </div>
 
     </div>
     
 </ng-container>
+

@@ -7,7 +7,8 @@
 
 <!-- COMPONENT > "image-type: single image" ---------------------------------------------------- -->
 <div *ngIf=" body.__typename === 'ComponentImageTypesSingleImage'" 
-class="img-section-grid">
+class="img-section-grid imgAnimate"
+id="singleImage">
 
     <figure class="default" *ngIf="body.style !== null "
     [ngStyle]="{'top': body.style.offset_y}"

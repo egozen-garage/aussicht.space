@@ -3,6 +3,7 @@ body#unit-hub {
     height: auto;
     background-color: white;
     color: black;
+    min-height: 100vh;
 }
 
 a { color: black; }
@@ -44,7 +45,7 @@ a#pod-speaker { color: white; }
 
     // --- HEADER > THEMES PANEL ATTRIBUTES --- //
     .filter-container {
-        margin: 10px 0px 10px 0px;
+        margin: 20px 0px 10px 0px;
         background-color: white;
         overflow: hidden;
         transition: max-height .7s ease-in-out;
@@ -236,18 +237,83 @@ a#pod-speaker { color: white; }
     }
 
 // ----------- PAGE LOADER CONFIG ------------ //
-    // .no-js #loader { display: none;  }
-    .js #loader { display: block; position: absolute; left: 100px; top: 0; }
-    .se-pre-con {
-        position: fixed;
-        left: 0px;
-        top: 0px;
-        width: 100%;
-        height: 100%;
-        z-index: 9999;
-        backdrop-filter: blur(5px);
-        background: rgba(255,255,255,0.4);
+.animate {
+    -webkit-animation-duration: 0.7s;
+    animation-duration: 0.7s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+.one {
+-webkit-animation-delay: 0.2s;
+-moz-animation-delay: 0.2s;
+animation-delay: 0.2s;
+}
+
+.two {
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    animation-delay: 0s;
     }
+
+/*==== FADE IN UP ===*/
+@-webkit-keyframes fadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 50%, 0);
+      transform: translate3d(0, 50%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 50%, 0);
+      transform: translate3d(0, 50%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  
+  .fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+  }
+  
+/*=== FADE IN  ===*/
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+  }
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+  }
+  .fadeIn {
+      -webkit-animation-name: fadeIn;
+      animation-name: fadeIn;
+  }
+
+
 
 /* ------------------------------------------------------------ */
 /* ---------------------TABLET SECTION------------------------- */

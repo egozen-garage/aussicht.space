@@ -1,3 +1,7 @@
+.artistList {
+    background-color: var(--color-white);
+}
+
 .image_gpt_container{
     text-align: left;
     width: 0;
@@ -32,7 +36,7 @@
 
 
 #teilnehmer_innen {
-    background-color: var(--color-white);
+    // background-color: var(--color-white);
     position: static;
     padding-top: var(--padding-between-sections);
     padding-bottom: var(--padding-between-sections);
@@ -112,6 +116,44 @@
     width: 64px; 
     height: 64px;
 }
+
+// ----------- PAGE LOADER CONFIG ------------ //
+.animate {
+    -webkit-animation-duration: 0.7s;
+    animation-duration: 0.7s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  .one {
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+  }
+  
+  /*=== FADE IN  ===*/
+  @-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+  }
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+  }
+  .fadeIn {
+      -webkit-animation-name: fadeIn;
+      animation-name: fadeIn;
+  }
 
 
 

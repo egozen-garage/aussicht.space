@@ -71,11 +71,14 @@
 /* 36em = 576px */
 // ---- iPhone Plus + iPhone Flipped (approx 560px width)---- //
 @media (max-width: 36em) {
-  .width_small  { width: 50% !important; }
-  .width_medium { width: 75% !important; }
+  .width_small  { width: 70% !important; }
+  .width_medium { width: 85% !important; }
   .width_large  { width: 100% !important; }
 
-  .embed-container { top: 0px }
+  .embed-container { 
+    top: 0px;
+    height: 50vh; 
+  }
 }
 
 // ---- iPhone 6/7/8/X (375 x 667/812)---- //

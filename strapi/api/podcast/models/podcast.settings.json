@@ -67,7 +67,7 @@
     "episode_id": {
       "type": "integer",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "language": {
       "type": "enumeration",
@@ -87,8 +87,7 @@
     },
     "perspektives": {
       "via": "podcasts",
-      "collection": "perspektive",
-      "unique": false
+      "collection": "perspektive"
     }
   }
 }
