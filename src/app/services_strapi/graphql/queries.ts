@@ -45,7 +45,7 @@ query Projects ($language: String!){
 		en_equivalent{title unit_type}
   	de_equivalent{title unit_type}
     preview_image {id name caption width height formats url}
-    perspektives{id unit_type title }
+    perspektives(where: {language: $language}){id unit_type title }
     podcasts{id unit_type title}
     themes{id theme_name english_theme_name}
     body{

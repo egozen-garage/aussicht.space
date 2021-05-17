@@ -36,11 +36,11 @@ export class FooterComponent implements OnInit {
         this.ImpressumLinkName = "Impressum und Datenschutz";
       } else {
       // } else if (this.language === "en") {
-        this.LogoTitleMarschner_stiftung = "funded by";
-        this.LogoTitleHessen = "supported by";
-        this.LogoTitleHfG = "in cooperation with";
-        this.LogoTitleForm = "media partner";
-        this.LogoTitleFlemings = "hotel partner";
+        this.LogoTitleMarschner_stiftung = "Funded by";
+        this.LogoTitleHessen = "Supported by";
+        this.LogoTitleHfG = "In cooperation with";
+        this.LogoTitleForm = "Media partner";
+        this.LogoTitleFlemings = "Hotel partner";
         this.ImpressumLinkName = "Imprint and data protection";
       }
   }

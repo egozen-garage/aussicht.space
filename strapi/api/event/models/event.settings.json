@@ -16,7 +16,8 @@
       "enum": [
         "performance",
         "talk",
-        "special"
+        "special",
+        "tour"
       ],
       "required": true
     },

@@ -12,7 +12,14 @@
             {{ podcast.intro }}
         </div>
         <div class="podcast-theme-container">
-            <div *ngFor="let t of podcast.themes" class="themes">{{t.theme_name}}</div>
+            <div *ngFor="let t of podcast.themes" class="themes">
+                <ng-container *ngIf="language_prefix === 'de'">
+                    {{t.theme_name}}
+                </ng-container>
+                <ng-container *ngIf="language_prefix === 'en'">
+                    {{t.english_theme_name}}
+                </ng-container>
+            </div>
         </div>
     </header>
 

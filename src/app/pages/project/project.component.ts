@@ -43,6 +43,8 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnChanges, DoChe
   subscription: Subscription | undefined;
   language_prefix:string|undefined;
 
+  more_about_intro:string = "Mehr zu";
+
   constructor(
     private projectSvc: ProjectService,
     private route: ActivatedRoute,
@@ -54,7 +56,15 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnChanges, DoChe
     ) { 
       this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
         this.language_prefix = language;
+        if ( language = "de"){
+          this.more_about_intro = "Mehr zu";
+        } else if (language === "en") {
+          this.more_about_intro = "More about";
+        } else {
+          this.more_about_intro = "More about";
+        }
       });
+      
       if (window.innerWidth >= 1024) {
         //this.isMobileResolution = true;
         this.image_size = 128;

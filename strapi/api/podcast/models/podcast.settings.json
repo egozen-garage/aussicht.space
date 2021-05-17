@@ -61,8 +61,8 @@
       "via": "podcasts"
     },
     "themes": {
-      "via": "podcasts",
-      "collection": "theme"
+      "collection": "theme",
+      "via": "podcasts"
     },
     "episode_id": {
       "type": "integer",
@@ -86,8 +86,8 @@
       "via": "de_equivalent"
     },
     "perspektives": {
-      "via": "podcasts",
-      "collection": "perspektive"
+      "collection": "perspektive",
+      "via": "podcasts"
     }
   }
 }

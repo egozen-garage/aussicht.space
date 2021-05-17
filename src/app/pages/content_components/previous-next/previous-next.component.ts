@@ -56,11 +56,11 @@ export class PreviousNextComponent implements OnInit {
         this.previous_button_name = "Vorheriges";
         this.next_button_name = "Nächstes";
       } else if (language === "en") {
-        this.previous_button_name = "previous";
-        this.next_button_name = "next";
+        this.previous_button_name = "Previous";
+        this.next_button_name = "Next";
       } else {
-        this.previous_button_name = "previous";
-        this.next_button_name = "next";
+        this.previous_button_name = "Previous";
+        this.next_button_name = "Next";
       }
     });
   }
