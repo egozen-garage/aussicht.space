@@ -21,6 +21,8 @@ export class QuestionsComponent implements OnInit {
 
   timeToReloadNewText = 3000; // 3 seconds
   deloadSpeed = 60;
+  title:string = "Aus heutiger Sicht. Diskurse über Zukunft."
+
   // questionsDatabase = [
   //   // <?php echo $one_item["question"]; ?>
   //   "Aber was wäre, wenn wir die Uhr zurückdrehen könnten?",
@@ -42,10 +44,13 @@ export class QuestionsComponent implements OnInit {
   ) {
     this.subscription = this.currentLanguage.currentLanguage.subscribe((language: any) => {
       if( language === "de"){
+        this.title = "Aus heutiger Sicht. Diskurse über Zukunft."
         this.questionsDatabase = require("../../../assets/json/question_german.json");
       } else if (language === "en") {
+        this.title = "From Today’s Perspective. Discourses on the Future."
         this.questionsDatabase = require("../../../assets/json/question_english.json");
       } else {
+        this.title = "From Today’s Perspective. Discourses on the Future."
         this.questionsDatabase = require("../../../assets/json/question_english.json");
       }
     });
